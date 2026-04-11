@@ -33,24 +33,23 @@ export default function Footer() {
                 The Adda Labs
               </span>
             </Link>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "260px" }}>
-              We help founders test ideas before they build them: so the right
-              product gets built, the first time.
+            <p className="text-sm leading-relaxed font-bold tracking-tight" style={{ color: "var(--text-muted)", maxWidth: "260px" }}>
+              A deterministic decision engine for early-stage ventures. We extract signal to dictate exactly what gets built next.
             </p>
           </div>
 
-          {/* Pages */}
+          {/* Index */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: "var(--text-primary)" }}>
-              Pages
+            <p className="text-[10px] font-black uppercase tracking-widest mb-5" style={{ color: "var(--text-muted)" }}>
+              [ INDEX ]
             </p>
             <nav className="flex flex-col gap-3">
               {pages.map((p) => (
                 <Link
                   key={p.label}
                   href={p.href}
-                  className="text-sm transition-colors duration-200 cursor-pointer hover:text-foreground"
-                  style={{ color: "var(--text-muted)" }}
+                  className="text-sm font-bold uppercase tracking-tight transition-colors duration-200 cursor-pointer hover:text-foreground"
+                  style={{ color: "var(--text-body)" }}
                 >
                   {p.label}
                 </Link>
@@ -58,19 +57,19 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Access */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: "var(--text-primary)" }}>
-              Get in touch
+            <p className="text-[10px] font-black uppercase tracking-widest mb-5" style={{ color: "var(--text-muted)" }}>
+              [ ACCESS ]
             </p>
-            <a href="mailto:founder@theaddalabs.com" className="text-sm mb-2 block hover:text-foreground transition-colors" style={{ color: "var(--text-body)" }}>founder@theaddalabs.com</a>
-            <p className="text-sm mb-6" style={{ color: "var(--text-body)" }}>Mumbai, India</p>
+            <a href="mailto:founder@theaddalabs.com" className="text-sm font-bold uppercase tracking-tight mb-2 block hover:text-foreground transition-colors" style={{ color: "var(--text-body)" }}>founder@theaddalabs.com</a>
+            <p className="text-sm font-bold uppercase tracking-tight mb-6" style={{ color: "var(--text-muted)" }}>Mumbai, IN</p>
             <Link
               href="/work-with-us"
-              className="btn-primary"
-              style={{ padding: "10px 20px", fontSize: "0.8rem" }}
+              className="btn-primary uppercase tracking-widest font-black"
+              style={{ padding: "12px 24px", fontSize: "0.75rem" }}
             >
-              Start a Sprint
+              Start Diagnostic
             </Link>
           </div>
         </div>
@@ -79,11 +78,11 @@ export default function Footer() {
           className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pt-8"
           style={{ borderTop: "1px solid var(--border-subtle)" }}
         >
-          <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-            &copy; {year} The Adda Labs. All rights reserved.
+          <p className="text-xs font-mono uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+            &copy; {year} The Adda Labs // System Active
           </p>
-          <p className="text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
-            Experiment. Validate. Build.
+          <p className="text-xs font-black uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+            EVIDENCE &gt; ASSUMPTIONS
           </p>
         </div>
       </div>
