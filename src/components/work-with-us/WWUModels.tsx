@@ -136,7 +136,7 @@ export default function WWUModels() {
               </div>
             </AnimateOnScroll>
           ))}
-        </div>       </div>
+        </div>
       </div>
     </section>
   );

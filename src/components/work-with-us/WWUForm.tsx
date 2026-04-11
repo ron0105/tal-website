@@ -183,7 +183,7 @@ export default function WWUForm() {
               </div>
             </form>
           </AnimateOnScroll>
-        )}    )}
+        )}
       </div>
     </section>
   );
