@@ -89,7 +89,15 @@ export default function VLHero() {
                     { segment: "Pivot Phase", status: "Signal Detection", focus: "You've built something: but it's not working as expected" },
                     { segment: "Velocity", status: "Risk Mitigation", focus: "You want to move fast: without making expensive mistakes" },
                   ].map((row, i) => (
-                    <motion.tr variants={staggerItem} key={i} className="border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors">
+                    <motion.tr 
+                      variants={staggerItem} 
+                      key={i} 
+                      className="border-b border-border-subtle last:border-0 cursor-default"
+                      whileHover={{
+                        backgroundColor: "var(--bg-secondary)",
+                        transition: { duration: 0.15, ease: "easeOut" },
+                      }}
+                    >
                       <td className="p-6 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle">
                         [{row.segment}]
                       </td>

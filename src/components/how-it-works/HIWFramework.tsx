@@ -122,14 +122,23 @@ export default function HIWFramework() {
         <div>
           {steps.map((step, i) => (
             <AnimateOnScroll key={step.n} delay={0.06 * Math.min(i, 3)}>
-              <div className="py-20">
+              <motion.div 
+                className="py-20 px-8 -mx-8 cursor-default rounded-sm"
+                whileHover={{
+                  backgroundColor: "var(--bg-secondary)",
+                  transition: { duration: 0.2, ease: "easeOut" },
+                }}
+              >
                 <AnimatedLine className="mb-12" />
                 {/* Stage number + title + duration — one line, no box */}
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-8 mb-10">
                   <span className="section-num text-lg">{step.n}</span>
-                  <h3 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter">
+                  <motion.h3 
+                    className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter"
+                    whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  >
                     {step.title}
-                  </h3>
+                  </motion.h3>
                   <span className="label-eyebrow !text-muted">
                     {step.duration}
                   </span>
@@ -163,7 +172,7 @@ export default function HIWFramework() {
                   <span className="label-eyebrow !text-muted">SYSTEM OUTPUT:</span>
                   <span className="text-lg font-black uppercase tracking-tight">{step.output}</span>
                 </div>
-              </div>
+              </motion.div>
             </AnimateOnScroll>
           ))}
 

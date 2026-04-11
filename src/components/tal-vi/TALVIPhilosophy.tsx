@@ -69,14 +69,22 @@ export default function TALVIPhilosophy() {
           <div className="flex flex-col">
             {beliefs.map((b, i) => (
               <AnimateOnScroll key={b.statement} delay={0.06 * i}>
-                <div className="grid md:grid-cols-2 gap-8 py-12 items-center border-b border-border-subtle last:border-0">
+                <motion.div
+                  className="grid md:grid-cols-2 gap-8 py-12 items-center border-b border-border-subtle last:border-0 cursor-default"
+                  whileHover={{
+                    x: 4,
+                    backgroundColor: "var(--bg-secondary)",
+                    transition: { duration: 0.18, ease: "easeOut" },
+                  }}
+                  style={{ willChange: "transform" }}
+                >
                   <h3 className="text-display !text-3xl md:!text-5xl uppercase italic italic-accent tracking-tighter">
                     {b.statement}
                   </h3>
                   <p className="body-copy">
                     {b.detail}
                   </p>
-                </div>
+                </motion.div>
               </AnimateOnScroll>
             ))}
           </div>

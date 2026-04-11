@@ -50,7 +50,17 @@ export default function VLOutcomes() {
 
         <StaggerContainer className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
           {outcomes.map((o) => (
-            <motion.div variants={staggerItem} key={o.decision} className="flex flex-col gap-6 p-10 bg-background h-full">
+            <motion.div
+              variants={staggerItem}
+              key={o.decision}
+              className="flex flex-col gap-6 p-10 bg-background h-full cursor-default"
+              whileHover={{
+                y: -3,
+                backgroundColor: "var(--bg-secondary)",
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              style={{ willChange: "transform" }}
+            >
               <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 self-start">
                 [{o.decision}]
               </span>

@@ -36,7 +36,17 @@ export default function HomeSystem() {
         {/* 6-Step Grid */}
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border-subtle mb-32 border border-border-subtle">
           {steps.map((step) => (
-            <motion.div variants={staggerItem} key={step.n} className="bg-background p-10 flex flex-col gap-6">
+            <motion.div
+              variants={staggerItem}
+              key={step.n}
+              className="bg-background p-10 flex flex-col gap-6 cursor-default"
+              whileHover={{
+                backgroundColor: "var(--bg-secondary)",
+                y: -2,
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              style={{ willChange: "transform" }}
+            >
               <span className="section-num">{step.n}</span>
               <h3 className="text-subsection">{step.title}</h3>
               <p className="body-copy !text-base !line-height-relaxed text-muted">
@@ -69,20 +79,27 @@ export default function HomeSystem() {
               </thead>
               <tbody>
                 {engineRow.map((row) => (
-                  <tr key={row.label} className="border-b border-border-subtle">
-                    <td className="p-6 font-bold text-sm uppercase tracking-tight" style={{ width: '25%' }}>
+                  <motion.tr
+                    key={row.label}
+                    className="border-b border-border-subtle"
+                    whileHover={{
+                      backgroundColor: "var(--bg-lift)",
+                      transition: { duration: 0.15, ease: "easeOut" },
+                    }}
+                  >
+                    <td className="p-6 font-bold text-sm uppercase tracking-tight" style={{ width: "25%" }}>
                       {row.label}
                     </td>
-                    <td className="p-6 text-sm text-body leading-relaxed bg-bg-lift/10" style={{ width: '25%' }}>
+                    <td className="p-6 text-sm text-body leading-relaxed bg-bg-lift/10" style={{ width: "25%" }}>
                       {row.build}
                     </td>
-                    <td className="p-6 text-sm text-muted leading-relaxed" style={{ width: '25%' }}>
+                    <td className="p-6 text-sm text-muted leading-relaxed" style={{ width: "25%" }}>
                       {row.pivot}
                     </td>
-                    <td className="p-6 text-sm text-muted leading-relaxed" style={{ width: '25%' }}>
+                    <td className="p-6 text-sm text-muted leading-relaxed" style={{ width: "25%" }}>
                       {row.kill}
                     </td>
-                  </tr>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>

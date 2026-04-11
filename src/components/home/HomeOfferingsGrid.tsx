@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 
 const offerings = [
@@ -49,19 +50,30 @@ export default function HomeOfferingsGrid() {
         <div className="grid md:grid-cols-2 gap-10">
           {offerings.map((item, i) => (
             <AnimateOnScroll key={item.title} delay={i * 0.08}>
-              <div 
-                className="group p-10 border border-border-subtle bg-background hover:border-text-primary transition-colors flex flex-col justify-between min-h-[400px]"
+              <motion.div
+                className="p-10 border border-border-subtle bg-background flex flex-col justify-between min-h-[400px] cursor-default"
+                whileHover={{
+                  y: -4,
+                  borderColor: "var(--text-primary)",
+                  boxShadow: "0 8px 32px -8px rgba(0,0,0,0.12)",
+                  transition: { duration: 0.22, ease: "easeOut" },
+                }}
+                style={{ willChange: "transform" }}
               >
                 <div>
                   <div className="flex justify-between items-start mb-10">
                     <span className="label-eyebrow !text-text-primary bg-bg-lift px-3 py-1">
                       {item.duration}
                     </span>
-                    <span className="text-xl font-black tracking-tight">
+                    <motion.span
+                      className="text-xl font-black tracking-tight"
+                      initial={{ opacity: 0.7 }}
+                      whileHover={{ opacity: 1 }}
+                    >
                       {item.price}
-                    </span>
+                    </motion.span>
                   </div>
-                  
+
                   <h3 className="text-2xl font-black mb-4 tracking-tighter uppercase italic">
                     {item.title}
                   </h3>
@@ -74,7 +86,7 @@ export default function HomeOfferingsGrid() {
                   <p className="text-xs font-bold uppercase tracking-widest text-muted mb-2">Primary Output:</p>
                   <p className="text-base font-bold uppercase">{item.output}</p>
                 </div>
-              </div>
+              </motion.div>
             </AnimateOnScroll>
           ))}
         </div>

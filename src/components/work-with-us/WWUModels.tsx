@@ -93,8 +93,14 @@ export default function WWUModels() {
             <motion.div
               variants={staggerItem}
               key={m.name}
-              className="flex flex-col h-full bg-background p-10 md:p-12 border-l-4 border-transparent data-[featured=true]:border-text-primary data-[featured=true]:bg-bg-secondary"
+              className="flex flex-col h-full bg-background p-10 md:p-12 border-l-4 border-transparent data-[featured=true]:border-text-primary data-[featured=true]:bg-bg-secondary cursor-default"
               data-featured={m.featured}
+              whileHover={{
+                y: -3,
+                boxShadow: "0 6px 24px -6px rgba(0,0,0,0.1)",
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              style={{ willChange: "transform" }}
             >
               {/* Header */}
               <div className="flex items-start justify-between gap-6 mb-12">
