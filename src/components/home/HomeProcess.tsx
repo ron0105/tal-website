@@ -1,22 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
 
 const steps = [
   {
     n: "01",
-    title: "You bring the idea",
+    title: "You bring the idea.",
     body: "No pitch deck. No business plan. Just a problem you think is worth solving and an honest account of what you know — and don't know.",
   },
   {
     n: "02",
-    title: "We run the validation",
+    title: "We run the validation.",
     body: "We follow a 6-stage process — problem framing, customer research, demand testing — to find out if the idea holds up before you commit.",
   },
   {
     n: "03",
-    title: "You get a clear decision",
+    title: "You get a clear decision.",
     body: "Build it. Change the approach. Or stop — and save months of time and serious capital for something that actually works.",
   },
 ];
@@ -24,57 +24,100 @@ const steps = [
 export default function HomeProcess() {
   return (
     <section
-      className="px-6 md:px-10 py-24 md:py-32"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+      style={{
+        paddingTop: "clamp(5rem, 10vh, 8rem)",
+        paddingBottom: "clamp(5rem, 10vh, 8rem)",
+        background: "var(--bg)",
+      }}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+      <AnimatedLine />
+      <div className="layout-grid px-6 md:px-10 mt-20">
 
-          <AnimateOnScroll>
-            <span className="label-eyebrow block mb-6">How it works</span>
-            <h2 className="text-section-title text-white mb-6">
-              Three steps.
-              <br />
-              <span style={{ color: "#2a2a2a" }}>One clear answer.</span>
-            </h2>
-            <p className="text-base leading-relaxed mb-10" style={{ color: "#999" }}>
-              Every engagement follows the same path. You always know where you
-              are, what happens next, and what the result means for your
-              decision.
-            </p>
-            <Link href="/how-it-works" className="btn-ghost">
-              See the full 6-stage framework →
-            </Link>
-          </AnimateOnScroll>
+        <AnimateOnScroll>
+          <p className="label-eyebrow mb-8">How it works</p>
+          <h2
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              fontWeight: 900,
+              letterSpacing: "-0.035em",
+              lineHeight: 1.0,
+              color: "var(--text-primary)",
+              marginBottom: "clamp(3.5rem, 7vh, 6rem)",
+            }}
+          >
+            Three steps.
+            <br />
+            <span style={{ color: "var(--text-muted)" }}>One clear answer.</span>
+          </h2>
+        </AnimateOnScroll>
 
-          <div>
-            {steps.map((step, i) => (
-              <AnimateOnScroll key={step.n} delay={0.1 * i}>
-                <div
-                  className="flex gap-6 py-8"
+        {/* Steps — full width, no side-by-side */}
+        <div>
+          {steps.map((step, i) => (
+            <AnimateOnScroll key={step.n} delay={0.1 * i}>
+              <div
+                style={{
+                  paddingTop: "clamp(2rem, 4vh, 3.5rem)",
+                  paddingBottom: "clamp(2rem, 4vh, 3.5rem)",
+                  display: "flex",
+                  gap: "2.5rem",
+                  alignItems: "flex-start",
+                }}
+              >
+                <AnimatedLine className="absolute top-0 left-0" />
+                <span
                   style={{
-                    borderBottom: i < steps.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    color: "var(--text-muted)",
+                    fontVariantNumeric: "tabular-nums",
+                    flexShrink: 0,
+                    paddingTop: "0.5rem",
                   }}
                 >
-                  <div
-                    className="w-9 h-9 flex items-center justify-center text-xs font-black flex-shrink-0"
+                  {step.n}
+                </span>
+                <div>
+                  <h3
                     style={{
-                      background: "rgba(37,99,235,0.08)",
-                      color: "#2563EB",
-                      borderRadius: "2px",
-                      letterSpacing: "0.04em",
+                      fontSize: "clamp(1.5rem, 2.8vw, 2.25rem)",
+                      fontWeight: 800,
+                      letterSpacing: "-0.025em",
+                      lineHeight: 1.1,
+                      color: "var(--text-primary)",
+                      marginBottom: "0.875rem",
                     }}
                   >
-                    {step.n}
-                  </div>
-                  <div>
-                    <h3 className="text-subsection text-white mb-2">{step.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#999" }}>{step.body}</p>
-                  </div>
+                    {step.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      lineHeight: 1.7,
+                      color: "var(--text-body)",
+                      maxWidth: "540px",
+                    }}
+                  >
+                    {step.body}
+                  </p>
                 </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+
+          <AnimateOnScroll>
+            <div
+              style={{
+                paddingTop: "clamp(2.5rem, 5vh, 4rem)",
+              }}
+            >
+              <AnimatedLine className="mb-12" />
+              <Link href="/how-it-works" className="btn-ghost">
+                See the full 6-stage framework →
+              </Link>
+            </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

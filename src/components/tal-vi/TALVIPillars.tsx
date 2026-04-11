@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
 
 const pillars = [
   {
     n: "01",
     id: "structural",
-    title: "Structural Infrastructure",
-    tagline: "The internal architecture of accountability.",
+    title: "Internal Foundation",
+    tagline: "The way your team works together.",
     description:
-      "We map the venture so the founder can delegate without losing control. Without this, every decision comes back to you. Every hire creates confusion. Every process lives in someone's head.",
+      "We organize your business so you can hand off work without losing control. When everyone knows exactly what they're responsible for, you stop being the bottleneck in every decision.",
     purpose: "Remove operational friction.",
     services: [
       { name: "Org mapping", desc: "Who owns what — clearly defined" },
@@ -24,10 +24,10 @@ const pillars = [
   {
     n: "02",
     id: "digital",
-    title: "Digital Infrastructure",
-    tagline: "The technological nervous system.",
+    title: "The Digital Engine",
+    tagline: "The tech that powers your growth.",
     description:
-      "We connect, automate, and centralize the tools your venture needs to track performance and execute growth. Without this, your data is siloed, your team works in disconnected tools, and nothing is repeatable.",
+      "We set up the tools and automation your team needs to work faster and track performance. Instead of messy spreadsheets and disconnected tools, you get a single system that tells you exactly how the business is doing.",
     purpose: "Enable scalable momentum.",
     services: [
       { name: "Positioning-led website", desc: "Built to convert, not just to exist" },
@@ -40,10 +40,10 @@ const pillars = [
   {
     n: "03",
     id: "narrative",
-    title: "Narrative Infrastructure",
-    tagline: "The market-facing logic.",
+    title: "Your Market Story",
+    tagline: "Why customers should choose you.",
     description:
-      "We lock in your positioning before you spend a single rupee on visibility. Without this, your ads don't convert, your content doesn't compound, and your brand means nothing in the market.",
+      "We lock in your positioning before you spend money on marketing. We help you figure out what to say, who to say it to, and how to build trust in the market so your message actually sticks.",
     purpose: "Drive premium perception.",
     services: [
       { name: "Founder positioning", desc: "Your story, told in a way that builds authority" },
@@ -61,23 +61,24 @@ export default function TALVIPillars() {
 
   return (
     <section
-      className="px-6 md:px-10 py-24 md:py-32"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+      className="padding-section"
+      style={{ background: "var(--bg-secondary)" }}
     >
-      <div className="max-w-6xl mx-auto">
+      <AnimatedLine className="mb-20 opacity-60" />
+      <div className="layout-grid">
 
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <AnimateOnScroll>
-            <span className="label-eyebrow block mb-6">02 — What We Build</span>
-            <h2 className="text-section-title text-white">
+            <span className="label-eyebrow block mb-6">02 | What We Build</span>
+            <h2 className="text-section-title text-foreground">
               Three pillars.
               <br />
-              <span style={{ color: "#2a2a2a" }}>All load-bearing.</span>
+              <span className="text-muted">All load-bearing.</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex items-end">
-            <p className="text-base leading-relaxed" style={{ color: "#999" }}>
+            <p className="text-lg leading-relaxed text-body">
               Most ventures work on one of these areas in isolation. TAL VI
               builds all three together — because the bottleneck shifts as you
               grow, and a gap in any one pillar limits all three.
@@ -89,7 +90,7 @@ export default function TALVIPillars() {
         <AnimateOnScroll>
           <div
             className="flex"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ borderBottom: "1px solid var(--border-subtle)" }}
           >
             {pillars.map((p, i) => (
               <button
@@ -100,13 +101,13 @@ export default function TALVIPillars() {
               >
                 <span
                   className="text-xs font-bold block mb-1 tabular-nums"
-                  style={{ color: active === i ? "#6366F1" : "#333" }}
+                  style={{ color: active === i ? "var(--text-primary)" : "var(--text-muted)" }}
                 >
                   {p.n}
                 </span>
                 <span
                   className="text-xs md:text-sm font-semibold"
-                  style={{ color: active === i ? "#fff" : "#555" }}
+                  style={{ color: active === i ? "var(--text-primary)" : "var(--text-muted)" }}
                 >
                   {p.title}
                 </span>
@@ -114,7 +115,7 @@ export default function TALVIPillars() {
                   <motion.div
                     layoutId="pillar-indicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5"
-                    style={{ background: "#6366F1" }}
+                    style={{ background: "var(--text-primary)" }}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -137,56 +138,65 @@ export default function TALVIPillars() {
                 <div
                   className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-bold"
                   style={{
-                    background: "rgba(99,102,241,0.1)",
-                    color: "#6366F1",
-                    borderRadius: "2px",
+                    background: "var(--bg-lift)",
+                    color: "var(--text-primary)",
+                    borderRadius: "0px",
                     letterSpacing: "0.06em",
                   }}
                 >
                   {current.purpose}
                 </div>
                 <h3
-                  className="font-black mb-3 tracking-tight"
+                  className="font-black mb-3 tracking-tight text-foreground"
                   style={{
-                    fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
-                    color: "#fff",
+                    fontSize: "clamp(2rem, 5vw, 3.5rem)",
                     letterSpacing: "-0.025em",
                   }}
                 >
                   {current.title}
                 </h3>
-                <p className="text-sm font-semibold mb-5" style={{ color: "#6366F1" }}>
+                <p className="text-base font-semibold mb-5 text-body">
                   {current.tagline}
                 </p>
-                <p className="text-base leading-relaxed" style={{ color: "#999" }}>
+                <p className="text-lg leading-relaxed text-body">
                   {current.description}
                 </p>
               </div>
 
               {/* Right: services */}
               <div>
-                <p className="label-eyebrow mb-5" style={{ color: "#333" }}>
+                <p className="label-eyebrow mb-5">
                   What&apos;s included
                 </p>
-                <div className="flex flex-col">
+                <motion.div 
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-20px" }}
+                  variants={{ show: { transition: { staggerChildren: 0.05 } } }}
+                  className="flex flex-col"
+                >
                   {current.services.map((s, i) => (
-                    <div
+                    <motion.div
                       key={s.name}
+                      variants={{
+                        hidden: { opacity: 0, x: -5 },
+                        show: { opacity: 1, x: 0 }
+                      }}
                       className="flex items-start gap-5 py-4"
                       style={{
-                        borderBottom: i < current.services.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
+                        borderBottom: i < current.services.length - 1 ? "1px solid var(--border-subtle)" : "none",
                       }}
                     >
-                      <svg className="flex-shrink-0 mt-1" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6366F1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="flex-shrink-0 mt-1" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
                       <div>
-                        <p className="text-sm font-semibold mb-0.5" style={{ color: "#ddd" }}>{s.name}</p>
-                        <p className="text-xs" style={{ color: "#666" }}>{s.desc}</p>
+                        <p className="text-lg font-semibold mb-0.5 text-foreground">{s.name}</p>
+                        <p className="text-base text-body">{s.desc}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </AnimatePresence>

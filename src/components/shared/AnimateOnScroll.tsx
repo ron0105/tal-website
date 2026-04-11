@@ -37,3 +37,20 @@ export function AnimateOnScroll({
     </motion.div>
   );
 }
+
+export function AnimatedLine({ delay = 0, className = "" }: { delay?: number; className?: string }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-20px" });
+
+  return (
+    <div ref={ref} className={`w-full relative ${className}`}>
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+        transition={{ duration: 1.2, delay, ease: [0.22, 1, 0.36, 1] }}
+        style={{ originX: 0 }}
+        className="h-px w-full bg-border-subtle"
+      />
+    </div>
+  );
+}

@@ -1,225 +1,164 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import Link from "next/link";
+import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
 
 const outcomes = [
   {
-    id: "build",
-    label: "Build",
-    color: "#22C55E",
-    bg: "rgba(34,197,94,0.06)",
-    border: "rgba(34,197,94,0.15)",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-        <path d="M22 4L12 14.01l-3-3" />
-      </svg>
-    ),
-    title: "The idea is validated. Move forward.",
-    conditions: [
-      "Real customers confirmed the problem exists",
-      "At least one customer paid or pre-committed",
-      "Unit economics are viable",
-      "You know what to build and who to build it for",
-    ],
-    next: "You receive a build brief — exact scope, target customer profile, pricing recommendation, and a 90-day roadmap.",
+    label: "Build.",
+    description:
+      "The idea is validated. Real customers confirmed the problem. At least one paid or pre-committed. The unit economics work. You know exactly what to build and who to build it for.",
+    gets: "A build brief — scope, target customer profile, pricing, and a 90-day roadmap.",
   },
   {
-    id: "pivot",
-    label: "Pivot",
-    color: "#F59E0B",
-    bg: "rgba(245,158,11,0.06)",
-    border: "rgba(245,158,11,0.15)",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 4 23 10 17 10" />
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-      </svg>
-    ),
-    title: "Something needs to change. Adjust first.",
-    conditions: [
-      "The problem is real, but we targeted the wrong customer",
-      "The demand exists, but not at the price we assumed",
-      "A different version of the idea has better signal",
-      "One assumption failed, but the rest held up",
-    ],
-    next: "You receive a pivot brief — a clearly defined direction change, what to retest, and a new sprint plan.",
+    label: "Pivot.",
+    description:
+      "The core idea has signal — but something is wrong. The wrong customer, the wrong price, the wrong framing. We tell you exactly what changed and what to test next. A new direction, not a dead end.",
+    gets: "A pivot brief — defined direction change, what to retest, and a new sprint plan.",
   },
   {
-    id: "kill",
-    label: "Kill",
-    color: "#EF4444",
-    bg: "rgba(239,68,68,0.06)",
-    border: "rgba(239,68,68,0.15)",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M15 9l-6 6M9 9l6 6" />
-      </svg>
-    ),
-    title: "The evidence doesn't support building this. Stop.",
-    conditions: [
-      "No one confirmed the problem strongly enough",
-      "Nobody paid or pre-committed after a fair test",
-      "The unit economics don't work at any realistic price",
-      "The market is too small or too hard to reach",
-    ],
-    next: "You receive a kill memo — a clear explanation of why, what we learned, and what (if anything) is worth exploring from the wreckage.",
+    label: "Kill.",
+    description:
+      "The evidence doesn't support building this. No one confirmed the problem strongly enough. Nobody paid. The economics don't work at any realistic price. A clean stop saves months and capital.",
+    gets: "A kill memo — why, what we learned, and what (if anything) is worth keeping.",
   },
 ];
 
 export default function HIWDecisionGate() {
-  const [selected, setSelected] = useState<string | null>(null);
-  const current = outcomes.find((o) => o.id === selected);
-
   return (
     <section
-      className="px-6 md:px-10 py-24 md:py-32"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      style={{
+        paddingTop: "clamp(5rem, 10vh, 8rem)",
+        paddingBottom: "clamp(7rem, 14vh, 11rem)",
+        background: "var(--bg-secondary)",
+      }}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <AnimateOnScroll>
-            <span className="label-eyebrow block mb-6">Stage 6 — Decision Gate</span>
-            <h2 className="text-section-title text-white">
-              Every sprint ends
-              <br />
-              <span style={{ color: "#2a2a2a" }}>with a clear answer.</span>
-            </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={0.1} className="flex items-end">
-            <p className="text-base leading-relaxed" style={{ color: "#999" }}>
-              The decision criteria are defined before the sprint starts — not
-              invented at the end. Click each outcome to understand what it
-              means and what happens next.
-            </p>
-          </AnimateOnScroll>
-        </div>
+      <AnimatedLine className="mb-20 opacity-50" />
+      <div className="layout-grid px-6 md:px-10">
 
-        {/* Visual gate */}
         <AnimateOnScroll>
-          <div className="flex flex-col items-center mb-10">
-            {/* Central node */}
-            <div
-              className="flex flex-col items-center justify-center w-44 h-16 mb-6"
-              style={{
-                border: "1px solid rgba(37,99,235,0.3)",
-                borderRadius: "4px",
-                background: "rgba(37,99,235,0.06)",
-              }}
-            >
-              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#2563EB", letterSpacing: "0.1em" }}>
-                Decision Gate
-              </p>
-              <p className="text-xs mt-0.5" style={{ color: "#555" }}>Evidence reviewed</p>
-            </div>
+          <p className="label-eyebrow mb-8">Stage 6 — Decision Gate</p>
+          <h2
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              fontWeight: 900,
+              letterSpacing: "-0.035em",
+              lineHeight: 1.0,
+              color: "var(--text-primary)",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Every sprint ends
+            <br />
+            <span style={{ color: "var(--text-muted)" }}>with a clear answer.</span>
+          </h2>
 
-            {/* Branches */}
-            <div className="w-full flex justify-center">
-              <div className="w-full max-w-2xl flex">
-                <div className="flex-1 flex flex-col items-center">
-                  <div className="w-px h-8" style={{ background: "rgba(34,197,94,0.2)" }} />
-                  <div className="w-full h-px" style={{ background: "rgba(34,197,94,0.1)" }} />
-                  <div className="w-px h-6" style={{ background: "rgba(34,197,94,0.2)" }} />
-                </div>
-                <div className="flex-1 flex flex-col items-center">
-                  <div className="w-px h-8" style={{ background: "rgba(245,158,11,0.2)" }} />
-                  <div className="w-0" />
-                  <div className="w-px h-6" style={{ background: "rgba(245,158,11,0.2)" }} />
-                </div>
-                <div className="flex-1 flex flex-col items-center">
-                  <div className="w-px h-8" style={{ background: "rgba(239,68,68,0.2)" }} />
-                  <div className="w-full h-px" style={{ background: "rgba(239,68,68,0.1)" }} />
-                  <div className="w-px h-6" style={{ background: "rgba(239,68,68,0.2)" }} />
-                </div>
-              </div>
-            </div>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              lineHeight: 1.8,
+              color: "var(--text-body)",
+              maxWidth: "560px",
+              marginBottom: "clamp(5rem, 10vh, 8rem)",
+            }}
+          >
+            The decision criteria are defined before the sprint starts — not invented at the end.
+            Three outcomes are possible. All are valid.
+          </p>
+        </AnimateOnScroll>
 
-            {/* Outcome cards */}
-            <div className="grid grid-cols-3 gap-4 w-full">
-              {outcomes.map((o) => (
-                <button
-                  key={o.id}
-                  onClick={() => setSelected(selected === o.id ? null : o.id)}
-                  className="flex flex-col items-center gap-2.5 p-5 cursor-pointer transition-all duration-200"
-                  style={{
-                    border: selected === o.id ? `1px solid ${o.color}40` : `1px solid ${o.border}`,
-                    borderRadius: "4px",
-                    background: selected === o.id ? o.bg : "transparent",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.background = o.bg}
-                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.background = selected === o.id ? o.bg : "transparent"}
-                >
-                  {o.icon}
-                  <span className="text-sm font-bold" style={{ color: o.color }}>
-                    {o.label}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Detail panel */}
-          <AnimatePresence mode="wait">
-            {current && (
-              <motion.div
-                key={current.id}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3 }}
-                className="grid md:grid-cols-2 gap-8 p-8"
+        {/* Three outcomes — full width vertical stack, no cards */}
+        <div>
+          {outcomes.map((o, i) => (
+            <AnimateOnScroll key={o.label} delay={0.08 * i}>
+              <div
                 style={{
-                  border: `1px solid ${current.border}`,
-                  borderRadius: "4px",
-                  background: current.bg,
+                  paddingTop: "clamp(2.5rem, 5vh, 4rem)",
+                  paddingBottom: "clamp(2.5rem, 5vh, 4rem)",
                 }}
               >
-                <div>
-                  <h3
-                    className="text-lg font-bold mb-4 tracking-tight"
-                    style={{ color: "#E0E0E0", letterSpacing: "-0.01em" }}
+                <AnimatedLine className="mb-12" />
+                <h3
+                  style={{
+                    fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+                    fontWeight: 900,
+                    letterSpacing: "-0.035em",
+                    lineHeight: 1.0,
+                    color: "var(--text-primary)",
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  {o.label}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "1.1rem",
+                    lineHeight: 1.8,
+                    color: "var(--text-body)",
+                    maxWidth: "640px",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  {o.description}
+                </p>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    color: "var(--text-muted)",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  You receive&thinsp;→&thinsp;
+                  <span
+                    style={{
+                      fontWeight: 600,
+                      textTransform: "none",
+                      letterSpacing: "0",
+                      color: "var(--text-primary)",
+                    }}
                   >
-                    {current.title}
-                  </h3>
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#444" }}>
-                    Conditions that lead here
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    {current.conditions.map((c) => (
-                      <div key={c} className="flex items-start gap-3">
-                        <div
-                          className="w-4 h-4 flex items-center justify-center flex-shrink-0 mt-0.5"
-                          style={{ background: `${current.color}15`, borderRadius: "3px" }}
-                        >
-                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={current.color} strokeWidth="3" strokeLinecap="round">
-                            <path d="M20 6L9 17l-5-5" />
-                          </svg>
-                        </div>
-                        <span className="text-sm" style={{ color: "#888" }}>{c}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#444" }}>
-                    What you get next
-                  </p>
-                  <div
-                    className="p-5"
-                    style={{ background: "rgba(0,0,0,0.3)", borderRadius: "4px" }}
-                  >
-                    <p className="text-sm leading-relaxed" style={{ color: "#888" }}>
-                      {current.next}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </AnimateOnScroll>
+                    {o.gets}
+                  </span>
+                </p>
+              </div>
+            </AnimateOnScroll>
+          ))}
+
+          {/* closing CTA — plain, no container */}
+          <AnimateOnScroll>
+            <div
+              style={{
+                paddingTop: "clamp(3rem, 6vh, 5rem)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.5rem",
+                alignItems: "flex-start",
+              }}
+            >
+              <AnimatedLine className="mb-12" />
+              <p
+                style={{
+                  fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+                  fontWeight: 900,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.1,
+                  color: "var(--text-primary)",
+                  maxWidth: "480px",
+                }}
+              >
+                Bring us a problem worth solving.
+              </p>
+              <Link href="/work-with-us" className="btn-primary">
+                Start a Validation Sprint
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );

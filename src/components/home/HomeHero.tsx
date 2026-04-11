@@ -2,180 +2,174 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { AnimatedLine } from "../shared/AnimateOnScroll";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function HomeHero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center grid-texture px-6 md:px-10"
-      style={{ paddingTop: "96px", paddingBottom: "80px" }}
+      className="relative bg-background"
+      style={{
+        paddingTop: "clamp(10rem, 20vh, 16rem)",
+        paddingBottom: "clamp(6rem, 12vh, 10rem)",
+      }}
     >
-      <div className="relative max-w-6xl mx-auto w-full">
+      <div className="layout-grid px-6 md:px-10">
 
         {/* Eyebrow */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease }}
-          className="flex items-center gap-3 mb-10"
+          className="label-eyebrow mb-14"
         >
-          <span className="label-eyebrow">The Adda Labs · Bengaluru</span>
-        </motion.div>
+          The Adda Labs · Mumbai
+        </motion.p>
 
-        {/* ── Headline ── */}
-        <div className="mb-10">
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.75, ease, delay: 0.08 }}
-              className="text-display text-white block"
-            >
-              Ideas are cheap.
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.75, ease, delay: 0.16 }}
-              className="text-display block"
-              style={{ color: "#222" }}
-            >
-              Validation is hard.
-            </motion.h1>
-          </div>
+        {/* ── DOMINANT HEADLINE ── */}
+        <div className="mb-24">
+          {[
+            { text: "Ideas are cheap.", delay: 0.04 },
+            { text: "Building the", delay: 0.12 },
+            { text: "right thing", delay: 0.2 },
+            { text: "is everything.", delay: 0.28, muted: true },
+          ].map(({ text, delay, muted }) => (
+            <div key={text} className="overflow-hidden">
+              <motion.h1
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease, delay }}
+                style={{
+                  fontSize: "clamp(3.5rem, 10vw, 8rem)",
+                  fontWeight: 900,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 0.92,
+                  color: muted ? "var(--text-muted)" : "var(--text-primary)",
+                  display: "block",
+                }}
+              >
+                {text}
+              </motion.h1>
+            </div>
+          ))}
         </div>
 
-        {/* ── Sub + CTAs ── */}
+        {/* ── SUB CONTENT ── */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.32 }}
-          className="grid md:grid-cols-2 gap-12 items-start"
+          transition={{ duration: 0.7, ease, delay: 0.36 }}
+          style={{ maxWidth: "760px" }}
         >
-          <div>
-            <p
-              className="text-lg md:text-xl leading-relaxed mb-2"
-              style={{ color: "#999", fontWeight: 400, maxWidth: "520px" }}
-            >
-              Most ideas fail before they reach the market — not because the
-              market rejected them, but because founders built the wrong thing
-              too early.
-            </p>
-            <p
-              className="text-base leading-relaxed mb-10"
-              style={{ color: "#555", maxWidth: "480px" }}
-            >
-              We help you test an idea, structure the business, and build only
-              what the evidence supports.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/venture-lab" className="btn-primary">
-                Validate an Idea
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
-              <Link href="/tal-vi" className="btn-ghost">
-                Explore TAL VI
-              </Link>
-            </div>
-          </div>
-
-          {/* Right: the "what we stop" panel */}
-          <div
+          <p
             style={{
-              border: "1px solid rgba(255,255,255,0.08)",
-              borderRadius: "4px",
-              background: "#0A0A0A",
+              fontSize: "clamp(1.15rem, 2vw, 1.4rem)",
+              lineHeight: 1.8,
+              color: "var(--text-body)",
+              marginBottom: "1.5rem",
             }}
           >
-            <div
-              className="px-7 py-4"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-            >
-              <span className="label-eyebrow" style={{ color: "#333" }}>
-                The real risk of skipping validation
-              </span>
-            </div>
-            {[
-              "6 months of building. Zero paying customers.",
-              "Launched at the wrong price. Killed by unit economics.",
-              "Solved a problem. Nobody had that problem.",
-              "Moved fast. Built the wrong thing.",
-            ].map((item, i) => (
-              <div
-                key={item}
-                className="flex items-start gap-4 px-7 py-4"
-                style={{ borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none" }}
-              >
-                <svg
-                  className="flex-shrink-0 mt-0.5"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#EF4444"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                >
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-                <span className="text-sm" style={{ color: "#888" }}>{item}</span>
-              </div>
-            ))}
+            Most new businesses fail because founders build what they *think*
+            people want, instead of what people actually need. We help you
+            stop guessing and start testing.
+          </p>
+          <p
+            style={{
+              fontSize: "1.05rem",
+              lineHeight: 1.75,
+              color: "var(--text-body)",
+              marginBottom: "3.5rem",
+              maxWidth: "520px",
+            }}
+          >
+            We help you talk to real customers, fix the holes in your business
+            model, and only build what the data says will work. No more
+            wasted time. No more expensive mistakes.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/venture-lab" className="btn-primary">
+              Validate an Idea
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <Link href="/tal-vi" className="btn-ghost">
+              Explore TAL VI
+            </Link>
           </div>
         </motion.div>
 
-        {/* ── Pipeline strip ── */}
+        {/* ── Pipeline strip — flat, no container ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-20 pt-8"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          transition={{ duration: 0.6, delay: 0.62 }}
+          style={{
+            marginTop: "clamp(4rem, 8vh, 7rem)",
+            paddingTop: "2rem",
+          }}
         >
-          <p className="label-eyebrow mb-5">How it flows</p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0">
-            {[
-              { label: "01 — Idea", sub: "You have a hypothesis" },
-              { label: "02 — Validate", sub: "Adda Labs tests it" },
-              { label: "03 — Structure", sub: "TAL VI builds the systems" },
-              { label: "04 — Scale", sub: "Growth on solid ground" },
-            ].map((step, i) => (
-              <div key={step.label} className="flex items-center gap-0">
-                <div className="flex flex-col gap-1">
-                  <span
-                    className="text-xs font-bold"
-                    style={{ color: i < 2 ? "#2563EB" : "#6366F1" }}
-                  >
-                    {step.label}
-                  </span>
-                  <span className="text-xs" style={{ color: "#444" }}>
-                    {step.sub}
-                  </span>
-                </div>
-                {i < 3 && (
-                  <svg
-                    className="mx-6 flex-shrink-0 hidden sm:block"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#2a2a2a"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                )}
-              </div>
-            ))}
-          </div>
+          <AnimatedLine className="mb-10" />
+          <p className="label-eyebrow mb-8">How it flows</p>
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={{
+              show: { transition: { staggerChildren: 0.1, delayChildren: 0.8 } }
+            }}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0 4rem",
+              rowGap: "1.5rem",
+            }}
+          >
+            {[{ n: "01", label: "Idea", sub: "You have a hypothesis" },
+                { n: "02", label: "Validate", sub: "Adda Labs tests it" },
+                { n: "03", label: "Structure", sub: "TAL VI builds the systems" },
+                { n: "04", label: "Scale", sub: "Growth on solid ground" },
+              ].map((step) => (
+                <motion.div 
+                  key={step.n} 
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 }
+                  }}
+                  style={{ display: "flex", flexDirection: "column", gap: "2px" }}
+                >
+                <span
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {step.n}
+                </span>
+                <span
+                  style={{
+                    fontSize: "0.9rem",
+                    fontWeight: 700,
+                    color: "var(--text-primary)",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {step.label}
+                </span>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {step.sub}
+                </span>
+                </motion.div>
+              ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

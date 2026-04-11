@@ -7,10 +7,8 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function VLHero() {
   return (
-    <section
-      className="relative grid-texture px-6 md:px-10 pt-32 pb-20 md:pt-40 md:pb-28"
-    >
-      <div className="max-w-6xl mx-auto">
+    <section className="relative padding-hero bg-background">
+      <div className="layout-grid">
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -19,9 +17,9 @@ export default function VLHero() {
           className="flex items-center gap-5 mb-10"
         >
           <span className="label-eyebrow">Venture Lab</span>
-          <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)", maxWidth: "80px" }} />
-          <span className="text-xs font-semibold" style={{ color: "#2563EB", letterSpacing: "0.06em" }}>
-            VALIDATION ARM
+          <div className="flex-1 h-px max-w-[80px]" style={{ background: "var(--border-color)" }} />
+          <span className="text-xs font-bold tracking-[0.1em] uppercase" style={{ color: "var(--text-muted)" }}>
+            THE VALIDATION PART
           </span>
         </motion.div>
 
@@ -31,7 +29,7 @@ export default function VLHero() {
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.75, ease, delay: 0.08 }}
-              className="text-display text-white block"
+              className="text-display text-foreground block"
             >
               Test the idea.
             </motion.h1>
@@ -41,8 +39,7 @@ export default function VLHero() {
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.75, ease, delay: 0.16 }}
-              className="text-display block"
-              style={{ color: "#222" }}
+              className="text-display block text-muted"
             >
               Then build it.
             </motion.h1>
@@ -56,20 +53,14 @@ export default function VLHero() {
           className="grid md:grid-cols-2 gap-12 items-start"
         >
           <div>
-            <p
-              className="text-lg md:text-xl leading-relaxed mb-3"
-              style={{ color: "#999", maxWidth: "500px" }}
-            >
-              Venture Lab is our idea validation service. Before you write a
-              single line of code or spend money, we run a structured process
-              to find out if the idea is worth building.
+            <p className="text-xl leading-relaxed mb-4 text-body font-normal max-w-[500px]">
+              Venture Lab is how we test if an idea actually works. Before you
+              spend months building, we find out if customers are ready to pay
+              for what you&apos;re offering.
             </p>
-            <p
-              className="text-base leading-relaxed mb-10"
-              style={{ color: "#555", maxWidth: "460px" }}
-            >
-              Every sprint ends with one answer: Build it. Change the approach.
-              Or stop, and save your resources for something better.
+            <p className="text-lg leading-relaxed mb-10 text-body max-w-[460px]">
+              Every test ends with a clear result: Build it. Change the approach.
+              Or stop, and save your time for a better idea.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -82,33 +73,37 @@ export default function VLHero() {
             </div>
           </div>
 
-          <div
-            style={{
-              border: "1px solid rgba(37,99,235,0.15)",
-              borderRadius: "4px",
-              background: "rgba(37,99,235,0.03)",
-            }}
-          >
-            <div className="px-7 py-4" style={{ borderBottom: "1px solid rgba(37,99,235,0.1)" }}>
-              <span className="label-eyebrow" style={{ color: "#2563EB", opacity: 0.6 }}>
+          <div style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+            <div className="px-7 py-4" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+              <span className="label-eyebrow">
                 This is for you if
               </span>
             </div>
             {[
-              "You have an idea but haven't built anything yet",
-              "You're not sure if people will actually pay for it",
-              "You've built something but it's not working and you don't know why",
-              "You want to move fast — without wasting months on the wrong thing",
+              "You have an idea: but haven't built anything yet",
+              "You're not sure: if people will actually pay for it",
+              "You've built something: but it's not working as expected",
+              "You want to move fast: without making expensive mistakes",
             ].map((item, i) => (
               <div
                 key={item}
-                className="flex items-start gap-4 px-7 py-4"
-                style={{ borderBottom: i < 3 ? "1px solid rgba(37,99,235,0.06)" : "none" }}
+                className={`flex items-start gap-4 px-7 py-4 ${i < 3 ? "border-b" : ""}`}
+                style={{ borderColor: "var(--border-subtle)" }}
               >
-                <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  className="flex-shrink-0 mt-0.5"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
-                <span className="text-sm" style={{ color: "#888" }}>{item}</span>
+                <span className="text-base text-body">{item}</span>
               </div>
             ))}
           </div>

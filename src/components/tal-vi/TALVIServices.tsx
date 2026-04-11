@@ -50,63 +50,60 @@ const services = [
 export default function TALVIServices() {
   return (
     <section
-      className="px-6 md:px-10 py-24 md:py-32"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "#0A0A0A" }}
+      className="padding-section"
+      style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg-secondary)" }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="layout-grid">
         <div className="grid md:grid-cols-2 gap-16 items-start mb-16">
           <AnimateOnScroll>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#6366F1" }} />
-              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#555", letterSpacing: "0.14em" }}>
-                What we work on
-              </span>
-            </div>
-            <h2
-              className="text-3xl md:text-4xl font-bold tracking-tight"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
-            >
+            <span className="label-eyebrow block mb-5">What we work on</span>
+            <h2 className="text-section-title text-foreground">
               Six growth levers.
               <br />
-              <span style={{ color: "#444" }}>All measurable.</span>
+              <span className="text-muted">All measurable.</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex items-end">
-            <p className="text-base leading-relaxed" style={{ color: "#666" }}>
+            <p className="text-base leading-relaxed text-muted">
               Every TAL VI engagement is built around these six areas. Not all
               six are needed at once — we prioritize based on where you are and
-              what's holding your growth back.
+              what&apos;s holding your growth back.
             </p>
           </AnimateOnScroll>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.05)" }}>
+        <div
+          className="grid md:grid-cols-2"
+          style={{ gap: "1px", background: "var(--border-color)" }}
+        >
           {services.map((s, i) => (
             <AnimateOnScroll key={s.n} delay={0.06 * i}>
               <div
-                className="p-8 md:p-10 flex flex-col gap-4 h-full transition-colors duration-300 group cursor-default"
-                style={{ background: "#0A0A0A" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#111")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A0A0A")}
+                className="p-8 md:p-10 flex flex-col gap-4 h-full transition-colors duration-300 cursor-default"
+                style={{ background: "var(--bg)" }}
+                onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.background = "var(--bg-secondary)"}
+                onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.background = "var(--bg)"}
               >
-                <div className="text-xs font-bold tabular-nums" style={{ color: "#6366F1" }}>{s.n}</div>
+                <div
+                  className="text-xs font-bold tabular-nums"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {s.n}
+                </div>
                 <div>
-                  <h3
-                    className="text-base font-semibold mb-1.5 tracking-tight"
-                    style={{ color: "#E0E0E0", letterSpacing: "-0.01em" }}
-                  >
+                  <h3 className="text-subsection mb-1.5 tracking-tight text-foreground">
                     {s.title}
                   </h3>
-                  <p className="text-sm font-medium mb-3" style={{ color: "#888" }}>
+                  <p className="text-sm font-medium mb-3 text-muted">
                     {s.tagline}
                   </p>
-                  <p className="text-sm leading-relaxed" style={{ color: "#666" }}>
+                  <p className="text-sm leading-relaxed text-body">
                     {s.body}
                   </p>
                 </div>
                 <div
-                  className="inline-flex self-start items-center gap-2 px-3 py-1.5 text-xs font-semibold mt-auto"
-                  style={{ background: "rgba(99,102,241,0.08)", color: "#6366F1", borderRadius: "5px" }}
+                  className="inline-flex self-start items-center gap-2 px-3 py-1.5 text-xs font-bold mt-auto"
+                  style={{ background: "var(--bg-lift)", color: "var(--text-primary)", borderRadius: "0px" }}
                 >
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />

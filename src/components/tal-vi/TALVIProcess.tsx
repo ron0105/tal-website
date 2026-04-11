@@ -44,36 +44,32 @@ const steps = [
 export default function TALVIProcess() {
   return (
     <section
-      className="px-6 md:px-10 py-24 md:py-32"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#0A0A0A" }}
+      className="padding-section border-t border-border-subtle bg-background"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="layout-grid">
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left — sticky header */}
           <div className="md:sticky md:top-24">
             <AnimateOnScroll>
               <span className="label-eyebrow block mb-6">03 — How We Work</span>
-              <h2 className="text-section-title text-white mb-6">
+              <h2 className="text-section-title text-foreground mb-6">
                 Five phases.
                 <br />
-                <span style={{ color: "#2a2a2a" }}>No ad-hoc work.</span>
+                <span className="text-muted">No ad-hoc work.</span>
               </h2>
-              <p className="text-base leading-relaxed mb-4" style={{ color: "#999" }}>
+              <p className="text-base leading-relaxed mb-4 text-muted">
                 No reactive task lists. No random marketing. Every engagement
                 follows a defined process — diagnostic to governance — with clear
                 outputs at each stage.
               </p>
-              <p className="text-base leading-relaxed mb-10" style={{ color: "#555" }}>
+              <p className="text-base leading-relaxed mb-10 text-body">
                 At the end, you own everything we built. You don&apos;t need us to
                 keep it running.
               </p>
               <Link
                 href="/work-with-us"
                 className="btn-primary"
-                style={{ background: "#6366F1" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#818CF8")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#6366F1")}
               >
                 Book a Diagnostic
               </Link>
@@ -85,28 +81,20 @@ export default function TALVIProcess() {
             {steps.map((step, i) => (
               <AnimateOnScroll key={step.n} delay={0.07 * i}>
                 <div
-                  className="flex gap-6 py-8"
-                  style={{
-                    borderBottom: i < steps.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
-                  }}
+                  className={`flex gap-6 py-8 ${i < steps.length - 1 ? "border-b border-border-subtle" : ""}`}
                 >
                   {/* Timeline */}
                   <div className="flex flex-col items-center">
                     <div
-                      className="w-8 h-8 flex items-center justify-center text-xs font-black flex-shrink-0"
-                      style={{
-                        background: "rgba(99,102,241,0.1)",
-                        color: "#6366F1",
-                        borderRadius: "2px",
-                        letterSpacing: "0.04em",
-                      }}
+                      className="w-8 h-8 flex items-center justify-center text-xs font-black flex-shrink-0 tracking-wider"
+                      style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)", color: "var(--text-primary)", borderRadius: "0px" }}
                     >
                       {step.n}
                     </div>
                     {i < steps.length - 1 && (
                       <div
-                        className="w-px flex-1 mt-2"
-                        style={{ background: "rgba(99,102,241,0.1)", minHeight: "24px" }}
+                        className="w-px flex-1 mt-2 min-h-[24px]"
+                        style={{ background: "var(--border-color)" }}
                       />
                     )}
                   </div>
@@ -114,31 +102,26 @@ export default function TALVIProcess() {
                   <div className="pb-1">
                     <div className="flex items-baseline gap-3 mb-2">
                       <h3
-                        className="text-subsection text-white"
+                        className="text-subsection text-foreground"
                       >
                         {step.title}
                       </h3>
                       <span
-                        className="text-xs font-medium"
-                        style={{
-                          color: "#555",
-                          border: "1px solid rgba(255,255,255,0.06)",
-                          padding: "2px 8px",
-                          borderRadius: "2px",
-                        }}
+                        className="text-xs font-medium text-muted px-2 py-0.5"
+                        style={{ border: "1px solid var(--border-subtle)", borderRadius: "0px" }}
                       >
                         {step.duration}
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed mb-3" style={{ color: "#999" }}>
+                    <p className="text-sm leading-relaxed mb-3 text-muted">
                       {step.body}
                     </p>
                     <div className="flex items-center gap-2">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-muted" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                         <path d="M14 2v6h6" />
                       </svg>
-                      <span className="text-xs font-medium" style={{ color: "#555" }}>
+                      <span className="text-xs font-medium text-muted">
                         {step.output}
                       </span>
                     </div>
