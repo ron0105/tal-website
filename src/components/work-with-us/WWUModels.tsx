@@ -69,7 +69,8 @@ export default function WWUModels() {
       className="padding-section"
       style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg)" }}
     >
-      <div className="layou        <div className="grid md:grid-cols-2 gap-12 mb-24">
+      <div className="layout-grid">
+        <div className="grid md:grid-cols-2 gap-12 mb-24">
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-8">Engagement Architectures</span>
             <h2 className="text-section-title">

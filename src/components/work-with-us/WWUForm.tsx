@@ -48,7 +48,8 @@ export default function WWUForm() {
       className="padding-section"
       style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg)" }}
     >
-      <div className="layout-grid"        <AnimateOnScroll className="mb-24">
+      <div className="layout-grid">
+        <AnimateOnScroll className="mb-24">
           <span className="label-eyebrow block mb-8">System Initiation</span>
           <h2 className="text-section-title">
             Tell us about
