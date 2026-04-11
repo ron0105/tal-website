@@ -1,91 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
+import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 
 export default function HomeCTA() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
-
   return (
-    <section
-      ref={ref}
-      className="relative overflow-hidden"
-      style={{
-        paddingTop: "clamp(6rem, 12vh, 10rem)",
-        paddingBottom: "clamp(6rem, 12vh, 10rem)",
-        background: "var(--bg-secondary)",
-      }}
-    >
-      <AnimatedLine className="opacity-50" />
-      {/* Background ticker */}
-      <div className="absolute inset-0 flex items-center overflow-hidden pointer-events-none" aria-hidden>
-        <motion.div
-          style={{ x, opacity: 0.03 }}
-          className="flex gap-20 whitespace-nowrap font-black text-foreground"
-        >
-          {Array(4).fill("VALIDATE FIRST BUILD RIGHT VALIDATE FIRST BUILD RIGHT").map((t, i) => (
-            <span
-              key={i}
-              style={{ fontSize: "clamp(5rem, 14vw, 12rem)", letterSpacing: "-0.04em", fontWeight: 900, lineHeight: 1 }}
-            >
-              {t}
-            </span>
-          ))}
-        </motion.div>
-      </div>
+    <section className="padding-section bg-text-primary text-background border-t border-border-subtle overflow-hidden">
+      <div className="layout-grid py-20">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <AnimateOnScroll>
+            <h2 className="text-display !text-background mb-8">
+              START
+              <br />
+              <span className="opacity-40 italic">THE PROCESS.</span>
+            </h2>
+            <p className="body-copy !text-background opacity-80 max-w-[480px] mb-12">
+              We kill bad ideas so the right ones can breathe. 
+              Let&apos;s find out where your venture actually stands.
+            </p>
+          </AnimateOnScroll>
 
-      <div className="relative layout-grid px-6 md:px-10">
+          <AnimateOnScroll delay={0.15}>
+            <div className="flex flex-col gap-6">
+              <Link 
+                href="/work-with-us" 
+                className="btn-primary !bg-background !text-text-primary !border-background hover:!bg-bg-secondary w-full py-8 text-xl"
+              >
+                RUN A VALIDATION SPRINT
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <Link 
+                href="/work-with-us" 
+                className="btn-ghost !border-background/20 !text-background hover:!border-background w-full py-8 text-xl"
+              >
+                BOOK A DIAGNOSTIC
+              </Link>
+            </div>
+          </AnimateOnScroll>
+        </div>
 
-        <AnimateOnScroll>
-          <p className="label-eyebrow mb-12">Before you build</p>
-
-          {/* Big statement */}
-          <h2
-            style={{
-              fontSize: "clamp(3rem, 8vw, 7rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.04em",
-              lineHeight: 0.95,
-              color: "var(--text-primary)",
-              marginBottom: "clamp(2.5rem, 5vh, 4rem)",
-              maxWidth: "820px",
-            }}
-          >
-            Bring us a problem
-            <br />
-            <span style={{ color: "var(--text-muted)" }}>worth solving.</span>
-          </h2>
-
-          <p
-            style={{
-              fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
-              lineHeight: 1.7,
-              color: "var(--text-body)",
-              maxWidth: "520px",
-              marginBottom: "3rem",
-            }}
-          >
-            You don&apos;t need a finished plan. You need a real problem,
-            an honest account of what you know, and the willingness to be
-            wrong about your assumptions.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/work-with-us" className="btn-primary">
-              Start a Validation Sprint
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link href="/how-it-works" className="btn-ghost">
-              See how it works
-            </Link>
-          </div>
-        </AnimateOnScroll>
+        {/* Footer info line */}
+        <div className="mt-32 pt-12 border-t border-background/10 flex flex-col md:flex-row justify-between gap-6 opacity-40">
+          <p className="text-xs font-bold uppercase tracking-widest">The Adda Labs // Venture Lab // Mumbai</p>
+          <p className="text-xs font-bold uppercase tracking-widest">© 2024 Built for high-conviction founders</p>
+        </div>
       </div>
     </section>
   );
