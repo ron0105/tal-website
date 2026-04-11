@@ -89,7 +89,7 @@ export default function WWUModels() {
         </div>
 
         <StaggerContainer className="grid md:grid-cols-2 gap-px bg-border-subtle border border-border-subtle">
-          {models.map((m, i) => (
+          {models.map((m) => (
             <motion.div
               variants={staggerItem}
               key={m.name}

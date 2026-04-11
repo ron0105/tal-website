@@ -49,7 +49,7 @@ export default function VLOutcomes() {
         </div>
 
         <StaggerContainer className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
-          {outcomes.map((o, i) => (
+          {outcomes.map((o) => (
             <motion.div variants={staggerItem} key={o.decision} className="flex flex-col gap-6 p-10 bg-background h-full">
               <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 self-start">
                 [{o.decision}]

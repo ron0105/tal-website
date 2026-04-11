@@ -155,7 +155,7 @@ export default function TALVIPillars() {
                   <span className="label-eyebrow">Service Specification</span>
                 </div>
                 <StaggerContainer className="flex flex-col">
-                  {current.services.map((s, i) => (
+                  {current.services.map((s) => (
                     <motion.div
                       key={s.name}
                       variants={staggerItem}
