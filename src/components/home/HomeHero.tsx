@@ -62,11 +62,11 @@ export default function HomeHero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="#manifesto" className="btn-primary">
-              READ THE MANIFESTO
+            <Link href="/work-with-us" className="btn-primary uppercase tracking-widest font-black text-sm" style={{ padding: "14px 40px" }}>
+              START A SPRINT
             </Link>
-            <Link href="#system" className="btn-ghost" style={{ padding: "14px 40px" }}>
-              SEE THE SYSTEM
+            <Link href="#system" className="btn-ghost uppercase tracking-widest font-bold text-sm" style={{ padding: "14px 40px" }}>
+              VIEW SYSTEM
             </Link>
           </div>
         </motion.div>
