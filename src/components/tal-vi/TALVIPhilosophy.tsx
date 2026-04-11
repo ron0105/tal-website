@@ -128,23 +128,24 @@ export default function TALVIPhilosophy() {
           </div>
 
           {/* CTA */}
-          <AnimateOnScroll delay={0.2} className="mt-24">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12 p-12 border border-border-subtle bg-background italic">
-              <div>
-                <p className="text-display !text-3xl md:!text-4xl mb-4 italic tracking-tighter">
-                  READY TO BUILD
-                  <br />
-                  BEFORE YOU SCALE?
-                </p>
-                <p className="body-copy !text-base !text-muted uppercase font-black tracking-widest">
-                  Audit where you are and tell you exactly what needs to be built.
-                </p>
-              </div>
+          <AnimateOnScroll delay={0.2} className="mt-24 flex justify-center">
+            <div className="w-full max-w-[900px] flex flex-col items-center text-center p-12 md:p-16 border border-border-subtle bg-bg-secondary">
+              <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 mb-8">
+                [ DIAGNOSTIC REQUIRED ]
+              </span>
+              <p className="text-display !text-4xl md:!text-5xl mb-8 uppercase italic tracking-tighter text-foreground">
+                SYSTEMS BREAK AT SCALE.
+                <br />
+                FIND THE FRACTURES NOW.
+              </p>
+              <p className="body-copy !text-xl text-body font-bold tracking-tight leading-relaxed max-w-[640px] mb-10">
+                Run a full structural diagnostic to isolate operational bottlenecks and extract the definitive build sequence for your next phase.
+              </p>
               <Link
                 href="/work-with-us"
-                className="flex-shrink-0 btn-primary px-12 py-6"
+                className="btn-primary !px-12 !py-6 text-sm uppercase tracking-widest font-black"
               >
-                Book a Diagnostic
+                Start Diagnostic
               </Link>
             </div>
           </AnimateOnScroll>
