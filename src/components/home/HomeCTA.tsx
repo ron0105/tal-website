@@ -5,7 +5,7 @@ import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 
 export default function HomeCTA() {
   return (
-    <section className="padding-section bg-text-primary text-background border-t border-border-subtle overflow-hidden">
+    <section className="padding-section bg-foreground text-background border-t border-border-subtle overflow-hidden">
       <div className="layout-grid py-20">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <AnimateOnScroll>
@@ -24,7 +24,7 @@ export default function HomeCTA() {
             <div className="flex flex-col gap-6">
               <Link 
                 href="/work-with-us" 
-                className="btn-primary !bg-background !text-text-primary !border-background hover:!bg-bg-secondary w-full py-8 text-xl"
+                className="btn-primary !bg-background !text-foreground !border-background hover:opacity-90 w-full py-8 text-xl"
               >
                 RUN A VALIDATION SPRINT
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
