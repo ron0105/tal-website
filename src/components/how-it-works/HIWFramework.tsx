@@ -25,7 +25,7 @@ const steps = [
     duration: "2-3 days",
     question: "What are the biggest risks to this idea?",
     description:
-      "Every new business is built on a few 'must-be-true' guesses. We list everything you're assuming—like what people will pay or why they'll switch—and rank them. We test the scariest, most important guesses first so you don't waste time on the small stuff.",
+      "Every new business is built on a few 'must-be-true' guesses. We list everything you're assuming (like what people will pay or why they'll switch) and rank them. We test the scariest, most important guesses first so you don't waste time on the small stuff.",
     whatHappens: [
       "Full assumption list across customer, product, and revenue",
       "Each assumption scored by risk and uncertainty",
