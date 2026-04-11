@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 
 export default function HomeSplit() {
