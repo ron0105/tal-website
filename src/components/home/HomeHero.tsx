@@ -35,9 +35,9 @@ export default function HomeHero() {
           ].map(({ text, delay, muted }) => (
             <div key={text} className="overflow-hidden mb-1">
               <motion.h1
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease, delay }}
+                initial={{ filter: "blur(20px)", y: "40%", opacity: 0 }}
+                animate={{ filter: "blur(0px)", y: 0, opacity: 1 }}
+                transition={{ duration: 1, ease, delay }}
                 className="text-display block"
                 style={{
                   color: muted ? "var(--text-muted)" : "var(--text-primary)",
@@ -58,8 +58,7 @@ export default function HomeHero() {
           className="max-w-[700px]"
         >
           <p className="body-copy mb-16 max-w-[600px]">
-            We run structured experiments that tell you whether to build, pivot, or kill 
-            — before you waste capital.
+            We run structured experiments that tell you whether to build, pivot, or kill: before you waste capital.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

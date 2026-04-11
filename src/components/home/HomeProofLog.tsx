@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimateOnScroll } from "../shared/AnimateOnScroll";
+import { motion } from "framer-motion";
+import { AnimateOnScroll, StaggerContainer, staggerItem } from "../shared/AnimateOnScroll";
 
 const stats = [
   { value: "12", label: "Ideas Tested", sub: "Clinical validation cycles" },
@@ -23,25 +24,23 @@ export default function HomeProofLog() {
         </AnimateOnScroll>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border-subtle border border-border-subtle overflow-hidden">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border-subtle border border-border-subtle overflow-hidden">
           {stats.map((stat, i) => (
-            <div key={stat.label} className="bg-background p-8 md:p-12 flex flex-col gap-4">
-              <AnimateOnScroll delay={i * 0.1}>
-                <span className="text-6xl md:text-8xl font-black tracking-tighter tabular-nums leading-none">
-                  {stat.value}
+            <motion.div variants={staggerItem} key={stat.label} className="bg-background p-8 md:p-12 flex flex-col gap-4">
+              <span className="text-6xl md:text-8xl font-black tracking-tighter tabular-nums leading-none">
+                {stat.value}
+              </span>
+              <div className="mt-8 flex flex-col gap-1">
+                <span className="text-xs font-black uppercase tracking-widest text-text-primary">
+                  [ {stat.label} ]
                 </span>
-                <div className="mt-8 flex flex-col gap-1">
-                  <span className="text-xs font-black uppercase tracking-widest text-text-primary">
-                    [ {stat.label} ]
-                  </span>
-                  <p className="text-xs font-bold text-muted uppercase tracking-tight">
-                    {stat.sub}
-                  </p>
-                </div>
-              </AnimateOnScroll>
-            </div>
+                <p className="text-xs font-bold text-muted uppercase tracking-tight">
+                  {stat.sub}
+                </p>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* Log Footer */}
         <div className="mt-12 flex justify-end">

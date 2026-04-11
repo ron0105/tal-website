@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
+import { AnimateOnScroll, AnimatedLine, StaggerContainer, staggerItem } from "@/components/shared/AnimateOnScroll";
 
 const steps = [
   {
@@ -146,28 +146,17 @@ export default function HIWFramework() {
                 </p>
 
                 {/* What happens — plain text list */}
-                <motion.div
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: "-20px" }}
-                  variants={{
-                    show: { transition: { staggerChildren: 0.05 } }
-                  }}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-12 max-w-[800px]"
-                >
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-12 max-w-[800px]">
                   {step.whatHappens.map((item) => (
                     <motion.p
                       key={item}
-                      variants={{
-                        hidden: { opacity: 0, x: -5 },
-                        show: { opacity: 1, x: 0 }
-                      }}
+                      variants={staggerItem}
                       className="text-sm font-bold uppercase tracking-tight text-body border-l-2 border-border-subtle pl-4 py-1"
                     >
                       {item}
                     </motion.p>
                   ))}
-                </motion.div>
+                </StaggerContainer>
 
                 {/* Output — inline, no badge */}
                 <div className="pt-8 border-t border-border-subtle flex flex-col md:flex-row md:items-center gap-2 md:gap-8">

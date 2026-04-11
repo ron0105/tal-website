@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AnimateOnScroll } from "../shared/AnimateOnScroll";
+import { AnimateOnScroll, StaggerContainer, staggerItem } from "../shared/AnimateOnScroll";
 
 const steps = [
   { n: "01", title: "Problem Framing", body: "We strip away assumptions to define the core problem worth solving." },
@@ -34,30 +34,30 @@ export default function HomeSystem() {
         </AnimateOnScroll>
 
         {/* 6-Step Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border-subtle mb-32 border border-border-subtle">
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border-subtle mb-32 border border-border-subtle">
           {steps.map((step) => (
-            <div key={step.n} className="bg-background p-10 flex flex-col gap-6">
+            <motion.div variants={staggerItem} key={step.n} className="bg-background p-10 flex flex-col gap-6">
               <span className="section-num">{step.n}</span>
               <h3 className="text-subsection">{step.title}</h3>
               <p className="body-copy !text-base !line-height-relaxed text-muted">
                 {step.body}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* DECISION ENGINE TABLE */}
-        <AnimateOnScroll>
-          <div className="mb-12">
+        <StaggerContainer>
+          <motion.div variants={staggerItem} className="mb-12">
             <h3 className="text-subsection mb-4 uppercase tracking-wider">
               [ BUILD / PIVOT / KILL ]
             </h3>
             <p className="body-copy text-muted max-w-[600px]">
               How the engine processes evidence to reach a definitive conclusion.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="overflow-x-auto border border-border-subtle">
+          <motion.div variants={staggerItem} className="overflow-x-auto border border-border-subtle">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-border-subtle bg-bg-secondary">
@@ -86,8 +86,8 @@ export default function HomeSystem() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </AnimateOnScroll>
+          </motion.div>
+        </StaggerContainer>
       </div>
     </section>
   );

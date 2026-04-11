@@ -1,7 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { AnimateOnScroll, StaggerContainer, staggerItem } from "@/components/shared/AnimateOnScroll";
 
 const outcomes = [
   {
@@ -12,12 +13,12 @@ const outcomes = [
   {
     decision: "Pivot",
     title: "Something needs to change. Here's what.",
-    body: "The core idea has signal — but something is wrong. We tell you exactly what: the wrong customer, the wrong price, the wrong problem framing. A new direction, not a dead end.",
+    body: "The core idea has signal: but something is wrong. We tell you exactly what: the wrong customer, the wrong price, the wrong problem framing. A new direction, not a dead end.",
   },
   {
     decision: "Kill",
     title: "The market doesn't support it. Stop now.",
-    body: "A clean stop is not a failure. It is capital preserved and time protected. You leave with a clear explanation of why — and what, if anything, is worth taking from the wreckage.",
+    body: "A clean stop is not a failure. It is capital preserved and time protected. You leave with a clear explanation of why: and what, if anything, is worth taking from the wreckage.",
   },
 ];
 
@@ -41,29 +42,27 @@ export default function VLOutcomes() {
           <AnimateOnScroll delay={0.1} className="flex items-end">
             <p className="body-copy">
               The criteria for each decision are defined before the sprint
-              starts — not invented at the end. What you find is the evidence.
+              starts: not invented at the end. What you find is the evidence.
               What you decide is the outcome. No surprises.
             </p>
           </AnimateOnScroll>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
+        <StaggerContainer className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
           {outcomes.map((o, i) => (
-            <AnimateOnScroll key={o.decision} delay={0.08 * i}>
-              <div className="flex flex-col gap-6 p-10 bg-background h-full">
-                <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 self-start">
-                  [{o.decision}]
-                </span>
-                <h3 className="text-2xl font-black italic uppercase italic-accent leading-none mb-2">
-                  {o.title}
-                </h3>
-                <p className="text-sm font-bold text-muted uppercase tracking-tight leading-relaxed">
-                  {o.body}
-                </p>
-              </div>
-            </AnimateOnScroll>
+            <motion.div variants={staggerItem} key={o.decision} className="flex flex-col gap-6 p-10 bg-background h-full">
+              <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 self-start">
+                [{o.decision}]
+              </span>
+              <h3 className="text-2xl font-black italic uppercase italic-accent leading-none mb-2">
+                {o.title}
+              </h3>
+              <p className="text-sm font-bold text-muted uppercase tracking-tight leading-relaxed">
+                {o.body}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
 
         <AnimateOnScroll delay={0.25} className="mt-24">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12 p-12 border border-border-subtle bg-bg-secondary italic">

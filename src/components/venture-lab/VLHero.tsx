@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { StaggerContainer, staggerItem } from "../shared/AnimateOnScroll";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -26,9 +27,9 @@ export default function VLHero() {
         <div className="mb-10">
           <div className="overflow-hidden">
             <motion.h1
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.75, ease, delay: 0.08 }}
+              initial={{ filter: "blur(20px)", y: "40%", opacity: 0 }}
+              animate={{ filter: "blur(0px)", y: 0, opacity: 1 }}
+              transition={{ duration: 1, ease, delay: 0.08 }}
               className="text-display text-foreground block"
             >
               Test the idea.
@@ -36,9 +37,9 @@ export default function VLHero() {
           </div>
           <div className="overflow-hidden">
             <motion.h1
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.75, ease, delay: 0.16 }}
+              initial={{ filter: "blur(20px)", y: "40%", opacity: 0 }}
+              animate={{ filter: "blur(0px)", y: 0, opacity: 1 }}
+              transition={{ duration: 1, ease, delay: 0.16 }}
               className="text-display block text-muted"
             >
               Then build it.
@@ -79,28 +80,30 @@ export default function VLHero() {
               <span className="label-eyebrow">Target Profile Matrix</span>
             </div>
             
-            <table className="w-full text-left border-collapse">
-              <tbody>
-                {[
-                  { segment: "Pre-Build", status: "Concept Phase", focus: "You have an idea: but haven't built anything yet" },
-                  { segment: "Market Check", status: "Demand Check", focus: "You're not sure: if people will actually pay for it" },
-                  { segment: "Pivot Phase", status: "Signal Detection", focus: "You've built something: but it's not working as expected" },
-                  { segment: "Velocity", status: "Risk Mitigation", focus: "You want to move fast: without making expensive mistakes" },
-                ].map((row, i) => (
-                  <tr key={i} className="border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors">
-                    <td className="p-6 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle">
-                      [{row.segment}]
-                    </td>
-                    <td className="p-6 text-xs font-bold uppercase tracking-tight bg-bg-lift/10 border-r border-border-subtle">
-                      {row.status}
-                    </td>
-                    <td className="p-6 text-sm font-bold text-body">
-                      {row.focus}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <StaggerContainer>
+              <table className="w-full text-left border-collapse">
+                <tbody>
+                  {[
+                    { segment: "Pre-Build", status: "Concept Phase", focus: "You have an idea: but haven't built anything yet" },
+                    { segment: "Market Check", status: "Demand Check", focus: "You're not sure: if people will actually pay for it" },
+                    { segment: "Pivot Phase", status: "Signal Detection", focus: "You've built something: but it's not working as expected" },
+                    { segment: "Velocity", status: "Risk Mitigation", focus: "You want to move fast: without making expensive mistakes" },
+                  ].map((row, i) => (
+                    <motion.tr variants={staggerItem} key={i} className="border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors">
+                      <td className="p-6 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle">
+                        [{row.segment}]
+                      </td>
+                      <td className="p-6 text-xs font-bold uppercase tracking-tight bg-bg-lift/10 border-r border-border-subtle">
+                        {row.status}
+                      </td>
+                      <td className="p-6 text-sm font-bold text-body">
+                        {row.focus}
+                      </td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </StaggerContainer>
           </div>
         </motion.div>
       </div>

@@ -8,6 +8,7 @@ interface AnimateOnScrollProps {
   delay?: number;
   className?: string;
   direction?: "up" | "left" | "right" | "none";
+  variant?: "fade" | "blur";
 }
 
 export function AnimateOnScroll({
@@ -15,12 +16,14 @@ export function AnimateOnScroll({
   delay = 0,
   className = "",
   direction = "up",
+  variant = "fade",
 }: AnimateOnScrollProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   const initial = {
     opacity: 0,
+    filter: variant === "blur" ? "blur(10px)" : "blur(0px)",
     y: direction === "up" ? 20 : 0,
     x: direction === "left" ? -20 : direction === "right" ? 20 : 0,
   };
@@ -29,14 +32,60 @@ export function AnimateOnScroll({
     <motion.div
       ref={ref}
       initial={initial}
-      animate={inView ? { opacity: 1, y: 0, x: 0 } : initial}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      animate={inView ? { opacity: 1, y: 0, x: 0, filter: "blur(0px)" } : initial}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
     </motion.div>
   );
 }
+
+export function StaggerContainer({
+  children,
+  delay = 0,
+  className = "",
+  stagger = 0.1,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+  stagger?: number;
+}) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: stagger,
+            delayChildren: delay,
+          },
+        },
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export const staggerItem = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+export const blurItem = {
+  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+};
 
 export function AnimatedLine({ delay = 0, className = "" }: { delay?: number; className?: string }) {
   const ref = useRef(null);

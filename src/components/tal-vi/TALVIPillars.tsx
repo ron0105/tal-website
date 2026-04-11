@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
+import { AnimateOnScroll, AnimatedLine, StaggerContainer, staggerItem } from "@/components/shared/AnimateOnScroll";
 
 const pillars = [
   {
@@ -14,7 +14,7 @@ const pillars = [
       "We organize your business so you can hand off work without losing control. When everyone knows exactly what they're responsible for, you stop being the bottleneck in every decision.",
     purpose: "Remove operational friction.",
     services: [
-      { name: "Org mapping", desc: "Who owns what — clearly defined" },
+      { name: "Org mapping", desc: "Who owns what: clearly defined" },
       { name: "Role clarity", desc: "Job descriptions that actually match the work" },
       { name: "Hiring roadmap", desc: "The right sequence for building a team" },
       { name: "KPI framework", desc: "What you measure, and what you don't" },
@@ -49,7 +49,7 @@ const pillars = [
       { name: "Founder positioning", desc: "Your story, told in a way that builds authority" },
       { name: "Messaging architecture", desc: "What you say, to whom, in what order" },
       { name: "LinkedIn authority system", desc: "Consistent presence that builds inbound trust" },
-      { name: "Content framework", desc: "What to create and why — not just what to post" },
+      { name: "Content framework", desc: "What to create and why: not just what to post" },
       { name: "Brand voice guide", desc: "So everyone sounds like one company" },
     ],
   },
@@ -80,7 +80,7 @@ export default function TALVIPillars() {
           <AnimateOnScroll delay={0.1} className="flex items-end">
             <p className="text-lg leading-relaxed text-body">
               Most ventures work on one of these areas in isolation. TAL VI
-              builds all three together — because the bottleneck shifts as you
+              builds all three together: because the bottleneck shifts as you
               grow, and a gap in any one pillar limits all three.
             </p>
           </AnimateOnScroll>
@@ -154,20 +154,11 @@ export default function TALVIPillars() {
                 <div className="px-6 py-4 border-b border-border-subtle bg-bg-lift/30">
                   <span className="label-eyebrow">Service Specification</span>
                 </div>
-                <motion.div 
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: "-20px" }}
-                  variants={{ show: { transition: { staggerChildren: 0.05 } } }}
-                  className="flex flex-col"
-                >
+                <StaggerContainer className="flex flex-col">
                   {current.services.map((s, i) => (
                     <motion.div
                       key={s.name}
-                      variants={{
-                        hidden: { opacity: 0, x: -5 },
-                        show: { opacity: 1, x: 0 }
-                      }}
+                      variants={staggerItem}
                       className="grid grid-cols-12 border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors"
                     >
                       <div className="col-span-4 p-5 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle bg-bg-lift/10">
@@ -178,7 +169,7 @@ export default function TALVIPillars() {
                       </div>
                     </motion.div>
                   ))}
-                </motion.div>
+                </StaggerContainer>
               </div>
             </motion.div>
           </AnimatePresence>
