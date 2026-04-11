@@ -3,6 +3,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const causes = [
   { label: "Solution in search of a problem", pct: 42 },
   { label: "Premature execution before validation", pct: 35 },
@@ -141,7 +143,7 @@ export default function ProblemSection() {
                         transition={{
                           duration: 1,
                           delay: 0.4 + i * 0.1,
-                          ease: [0.16, 1, 0.3, 1] as [number,number,number,number],
+                          ease: EASE,
                         }}
                       />
                     </div>

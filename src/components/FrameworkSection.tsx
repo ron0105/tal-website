@@ -3,6 +3,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const steps = [
   {
     number: "01",
@@ -173,7 +175,7 @@ export default function FrameworkSection() {
                       height: active === i ? "auto" : 0,
                       opacity: active === i ? 1 : 0,
                     }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] }}
+                    transition={{ duration: 0.3, ease: EASE }}
                     style={{ overflow: "hidden" }}
                   >
                     <div className="pt-4 pb-2">

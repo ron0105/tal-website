@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { AnimateOnScroll, AnimatedLine, StaggerContainer, staggerItem } from "@/components/shared/AnimateOnScroll";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const pillars = [
   {
@@ -130,7 +132,7 @@ export default function TALVIPillars() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.3, ease: EASE }}
               className="grid md:grid-cols-2 gap-10 py-10"
             >
               {/* Left */}

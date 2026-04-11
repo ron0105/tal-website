@@ -3,6 +3,8 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const statements = [
   "Most ideas are not killed by the market.",
   "They are killed by premature execution.",
@@ -75,7 +77,7 @@ export default function ManifestoSection() {
                 transition={{
                   duration: 0.6,
                   delay: 0.06 * i,
-                  ease: [0.16, 1, 0.3, 1] as [number,number,number,number],
+                  ease: EASE,
                 }}
                 className="font-bold leading-none py-6 md:py-8"
                 style={{

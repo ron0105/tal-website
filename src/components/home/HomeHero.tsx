@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function HomeHero() {
   return (

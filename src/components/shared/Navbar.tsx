@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
@@ -33,7 +35,7 @@ export default function Navbar() {
       <motion.header
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: EASE }}
         className="fixed top-0 left-0 right-0 z-50 h-16 w-full"
         style={{
           backdropFilter: scrolled ? "blur(16px)" : "none",
@@ -139,7 +141,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.25, ease: EASE }}
             className="fixed inset-x-0 top-16 z-40 md:hidden flex flex-col px-6 py-6 gap-1"
             style={{
               background: "var(--bg)",
