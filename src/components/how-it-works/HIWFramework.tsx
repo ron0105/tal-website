@@ -110,21 +110,11 @@ export default function HIWFramework() {
 
         {/* Section header — left-aligned, no symmetry */}
         <AnimateOnScroll>
-          <p className="label-eyebrow mb-8">The 6-stage framework</p>
-          <h2
-            style={{
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.035em",
-              lineHeight: 1.0,
-              color: "var(--text-primary)",
-              maxWidth: "640px",
-              marginBottom: "clamp(4rem, 8vh, 7rem)",
-            }}
-          >
-            What happens
+          <span className="label-eyebrow mb-8 block">Process Specification</span>
+          <h2 className="text-section-title mb-24">
+            Six stages.
             <br />
-            <span style={{ color: "var(--text-muted)" }}>at each stage.</span>
+            <span className="text-muted">One definitive answer.</span>
           </h2>
         </AnimateOnScroll>
 
@@ -132,77 +122,26 @@ export default function HIWFramework() {
         <div>
           {steps.map((step, i) => (
             <AnimateOnScroll key={step.n} delay={0.06 * Math.min(i, 3)}>
-              <div
-                style={{
-                  paddingTop: "clamp(3rem, 6vh, 5rem)",
-                  paddingBottom: "clamp(3rem, 6vh, 5rem)",
-                }}
-              >
+              <div className="py-20">
                 <AnimatedLine className="mb-12" />
                 {/* Stage number + title + duration — one line, no box */}
-                <div
-                  className="flex flex-wrap items-baseline gap-4 mb-6"
-                >
-                  <span
-                    style={{
-                      fontSize: "0.7rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.1em",
-                      color: "var(--text-muted)",
-                      fontVariantNumeric: "tabular-nums",
-                    }}
-                  >
-                    {step.n}
-                  </span>
-                  <h3
-                    style={{
-                      fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                      fontWeight: 800,
-                      letterSpacing: "-0.03em",
-                      lineHeight: 1.05,
-                      color: "var(--text-primary)",
-                      margin: 0,
-                    }}
-                  >
+                <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-8 mb-10">
+                  <span className="section-num text-lg">{step.n}</span>
+                  <h3 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter">
                     {step.title}
                   </h3>
-                  <span
-                    style={{
-                      fontSize: "0.85rem",
-                      fontWeight: 600,
-                      color: "var(--text-muted)",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
+                  <span className="label-eyebrow !text-muted">
                     {step.duration}
                   </span>
                 </div>
 
                 {/* The key question — italicised, prominent */}
-                <p
-                  style={{
-                    fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
-                    fontWeight: 600,
-                    fontStyle: "italic",
-                    color: "var(--text-body)",
-                    letterSpacing: "-0.01em",
-                    marginBottom: "1.75rem",
-                    maxWidth: "640px",
-                  }}
-                >
+                <p className="text-xl md:text-2xl font-black italic mb-8 max-w-[640px] text-body">
                   &ldquo;{step.question}&rdquo;
                 </p>
 
                 {/* Description */}
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    color: "var(--text-body)",
-                    maxWidth: "680px",
-                    marginBottom: "3rem",
-                  }}
-                >
+                <p className="body-copy mb-12 max-w-[700px]">
                   {step.description}
                 </p>
 
@@ -214,13 +153,7 @@ export default function HIWFramework() {
                   variants={{
                     show: { transition: { staggerChildren: 0.05 } }
                   }}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                    gap: "0.5rem 3rem",
-                    marginBottom: "2rem",
-                    maxWidth: "720px",
-                  }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-12 max-w-[800px]"
                 >
                   {step.whatHappens.map((item) => (
                     <motion.p
@@ -229,13 +162,7 @@ export default function HIWFramework() {
                         hidden: { opacity: 0, x: -5 },
                         show: { opacity: 1, x: 0 }
                       }}
-                      style={{
-                        fontSize: "0.95rem",
-                        color: "var(--text-body)",
-                        lineHeight: 1.7,
-                        paddingLeft: "1.25rem",
-                        borderLeft: "1.5px solid var(--border-color)",
-                      }}
+                      className="text-sm font-bold uppercase tracking-tight text-body border-l-2 border-border-subtle pl-4 py-1"
                     >
                       {item}
                     </motion.p>
@@ -243,52 +170,23 @@ export default function HIWFramework() {
                 </motion.div>
 
                 {/* Output — inline, no badge */}
-                <p
-                  style={{
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    color: "var(--text-muted)",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  What you get:
-                  <span
-                    style={{
-                      fontWeight: 600,
-                      textTransform: "none",
-                      letterSpacing: "0",
-                      color: "var(--text-primary)",
-                      marginLeft: "1rem",
-                    }}
-                  >
-                    {step.output}
-                  </span>
-                </p>
+                <div className="pt-8 border-t border-border-subtle flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
+                  <span className="label-eyebrow !text-muted">SYSTEM OUTPUT:</span>
+                  <span className="text-lg font-black uppercase tracking-tight">{step.output}</span>
+                </div>
               </div>
             </AnimateOnScroll>
           ))}
 
           {/* Final rule — the decision */}
-          <div style={{ paddingTop: "clamp(3rem, 6vh, 5rem)" }}>
-            <AnimatedLine className="mb-12" />
+          <div className="pt-24">
+            <AnimatedLine className="mb-16" />
             <AnimateOnScroll>
-              <p
-                style={{
-                  fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-                  fontWeight: 900,
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1.1,
-                  color: "var(--text-primary)",
-                  maxWidth: "560px",
-                }}
-              >
-                Every sprint ends with one answer.
+              <h2 className="text-section-title max-w-[600px]">
+                Every sprint ends with one answer:
                 <br />
-                <span style={{ color: "var(--text-muted)" }}>
-                  Build. Change the approach. Or stop.
-                </span>
-              </p>
+                <span className="text-muted">Build. Pivot. Or Stop.</span>
+              </h2>
             </AnimateOnScroll>
           </div>
         </div>

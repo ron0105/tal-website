@@ -29,17 +29,17 @@ export default function VLOutcomes() {
     >
       <div className="layout-grid">
 
-        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-24">
           <AnimateOnScroll>
-            <span className="label-eyebrow block mb-6">Every sprint ends here</span>
-            <h2 className="text-section-title text-foreground">
+            <span className="label-eyebrow block mb-8">System Output</span>
+            <h2 className="text-section-title">
               Three possible
               <br />
               <span className="text-muted">outcomes.</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex items-end">
-            <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
+            <p className="body-copy">
               The criteria for each decision are defined before the sprint
               starts — not invented at the end. What you find is the evidence.
               What you decide is the outcome. No surprises.
@@ -47,28 +47,17 @@ export default function VLOutcomes() {
           </AnimateOnScroll>
         </div>
 
-        <div
-          className="grid md:grid-cols-3"
-          style={{ border: "1px solid var(--border-color)", gap: "1px", background: "var(--border-color)" }}
-        >
+        <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
           {outcomes.map((o, i) => (
             <AnimateOnScroll key={o.decision} delay={0.08 * i}>
-              <div
-                className="flex flex-col gap-5 p-7 md:p-8 h-full"
-                style={{ background: "var(--bg)" }}
-              >
-                <span
-                  className="text-xs font-black tracking-widest uppercase"
-                  style={{ color: "var(--text-muted)", letterSpacing: "0.12em" }}
-                >
-                  {o.decision}
+              <div className="flex flex-col gap-6 p-10 bg-background h-full">
+                <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 self-start">
+                  [{o.decision}]
                 </span>
-                <h3
-                  className="text-subsection text-foreground leading-snug"
-                >
+                <h3 className="text-2xl font-black italic uppercase italic-accent leading-none mb-2">
                   {o.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                <p className="text-sm font-bold text-muted uppercase tracking-tight leading-relaxed">
                   {o.body}
                 </p>
               </div>
@@ -76,27 +65,20 @@ export default function VLOutcomes() {
           ))}
         </div>
 
-        <AnimateOnScroll delay={0.25} className="mt-12">
-          <div
-            className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8"
-            style={{ border: "1px solid var(--border-color)", background: "var(--bg)" }}
-          >
+        <AnimateOnScroll delay={0.25} className="mt-24">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12 p-12 border border-border-subtle bg-bg-secondary italic">
             <div>
-              <p
-                className="font-black tracking-tight mb-2"
-                style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.75rem)", color: "var(--text-primary)", letterSpacing: "-0.02em" }}
-              >
-                Start your validation sprint.
+              <p className="text-display !text-3xl md:!text-4xl mb-4 italic tracking-tighter">
+                START YOUR
+                <br />
+                VALIDATION SPRINT.
               </p>
-              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              <p className="label-eyebrow !text-muted">
                 Tell us the problem. We&apos;ll tell you if it&apos;s worth building.
               </p>
             </div>
-            <Link href="/work-with-us" className="flex-shrink-0 btn-primary">
+            <Link href="/work-with-us" className="flex-shrink-0 btn-primary px-12 py-6">
               Start a Sprint
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
             </Link>
           </div>
         </AnimateOnScroll>

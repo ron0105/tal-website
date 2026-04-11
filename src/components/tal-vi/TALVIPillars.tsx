@@ -135,39 +135,25 @@ export default function TALVIPillars() {
             >
               {/* Left */}
               <div>
-                <div
-                  className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-bold"
-                  style={{
-                    background: "var(--bg-lift)",
-                    color: "var(--text-primary)",
-                    borderRadius: "0px",
-                    letterSpacing: "0.06em",
-                  }}
-                >
+                <div className="label-eyebrow !text-primary bg-bg-lift px-3 py-1 mb-10 inline-block">
                   {current.purpose}
                 </div>
-                <h3
-                  className="font-black mb-3 tracking-tight text-foreground"
-                  style={{
-                    fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                    letterSpacing: "-0.025em",
-                  }}
-                >
+                <h3 className="text-display !text-4xl md:!text-6xl mb-8 uppercase italic tracking-tighter">
                   {current.title}
                 </h3>
-                <p className="text-base font-semibold mb-5 text-body">
+                <p className="text-xl md:text-2xl font-black italic mb-6 text-body">
                   {current.tagline}
                 </p>
-                <p className="text-lg leading-relaxed text-body">
+                <p className="body-copy">
                   {current.description}
                 </p>
               </div>
 
               {/* Right: services */}
-              <div>
-                <p className="label-eyebrow mb-5">
-                  What&apos;s included
-                </p>
+              <div className="border border-border-subtle bg-background overflow-hidden relative">
+                <div className="px-6 py-4 border-b border-border-subtle bg-bg-lift/30">
+                  <span className="label-eyebrow">Service Specification</span>
+                </div>
                 <motion.div 
                   initial="hidden"
                   whileInView="show"
@@ -182,17 +168,13 @@ export default function TALVIPillars() {
                         hidden: { opacity: 0, x: -5 },
                         show: { opacity: 1, x: 0 }
                       }}
-                      className="flex items-start gap-5 py-4"
-                      style={{
-                        borderBottom: i < current.services.length - 1 ? "1px solid var(--border-subtle)" : "none",
-                      }}
+                      className="grid grid-cols-12 border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors"
                     >
-                      <svg className="flex-shrink-0 mt-1" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                      <div>
-                        <p className="text-lg font-semibold mb-0.5 text-foreground">{s.name}</p>
-                        <p className="text-base text-body">{s.desc}</p>
+                      <div className="col-span-4 p-5 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle bg-bg-lift/10">
+                        {s.name}
+                      </div>
+                      <div className="col-span-8 p-5 text-sm font-bold text-body">
+                        {s.desc}
                       </div>
                     </motion.div>
                   ))}

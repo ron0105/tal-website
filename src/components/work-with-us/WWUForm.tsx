@@ -48,10 +48,9 @@ export default function WWUForm() {
       className="padding-section"
       style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg)" }}
     >
-      <div className="layout-grid">
-        <AnimateOnScroll className="mb-12">
-          <span className="label-eyebrow block mb-6">Get in touch</span>
-          <h2 className="text-section-title text-foreground">
+      <div className="layout-grid"        <AnimateOnScroll className="mb-24">
+          <span className="label-eyebrow block mb-8">System Initiation</span>
+          <h2 className="text-section-title">
             Tell us about
             <br />
             <span className="text-muted">your problem.</span>
@@ -63,37 +62,29 @@ export default function WWUForm() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="max-w-xl"
+            className="max-w-xl border border-border-subtle bg-bg-secondary p-12 italic"
           >
-            <div
-              className="w-10 h-10 flex items-center justify-center mb-6"
-              style={{ background: "var(--bg-lift)", borderRadius: "0px" }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 6L9 17l-5-5" />
-              </svg>
-            </div>
-            <h3
-              className="font-black tracking-tight mb-3"
-              style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "var(--text-primary)", letterSpacing: "-0.03em" }}
-            >
-              Received.
+            <h3 className="text-display !text-3xl md:!text-4xl mb-6 italic tracking-tighter">
+              RECEIVED.
             </h3>
-            <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
+            <p className="body-copy !text-muted mb-8 uppercase font-black tracking-widest text-sm">
               We read every submission personally. If the problem is worth
-              exploring, you&apos;ll hear from us within 48 hours to schedule a
-              short call.
+              exploring, you&apos;ll hear from us within 48 hours.
             </p>
+            <button 
+              onClick={() => setSubmitted(false)}
+              className="text-xs font-black uppercase tracking-widest underline underline-offset-4"
+            >
+              Back to form
+            </button>
           </motion.div>
         ) : (
           <AnimateOnScroll>
-            <form onSubmit={handleSubmit} className="max-w-2xl flex flex-col gap-6">
+            <form onSubmit={handleSubmit} className="max-w-3xl flex flex-col gap-12">
               {/* Name + Email */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-[0.8rem] font-bold" style={{ color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                    Your name
-                  </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="flex flex-col gap-4">
+                  <span className="label-eyebrow !text-muted">[ 01 ] IDENTIFIER</span>
                   <input
                     id="name"
                     type="text"
@@ -101,15 +92,11 @@ export default function WWUForm() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    style={inputStyle}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "var(--text-primary)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border-color)")}
+                    className="bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors"
                   />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-[0.8rem] font-bold" style={{ color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                    Email
-                  </label>
+                <div className="flex flex-col gap-4">
+                  <span className="label-eyebrow !text-muted">[ 02 ] CHANNEL</span>
                   <input
                     id="email"
                     type="email"
@@ -117,44 +104,30 @@ export default function WWUForm() {
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    style={inputStyle}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "var(--text-primary)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border-color)")}
+                    className="bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors"
                   />
                 </div>
               </div>
 
               {/* Interest */}
-              <div className="flex flex-col gap-2.5">
-                <label className="text-[0.8rem] font-bold" style={{ color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  What are you looking for?
-                </label>
-                <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-col gap-6">
+                <span className="label-eyebrow !text-muted">[ 03 ] INTENT</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {interests.map((opt) => (
                     <button
                       key={opt.id}
                       type="button"
                       onClick={() => setInterest(opt.id)}
-                      className="flex items-center gap-3 p-3.5 text-left cursor-pointer transition-all duration-200"
+                      className="group flex flex-col justify-between p-6 text-left border border-border-subtle hover:border-text-primary transition-all duration-200"
                       style={{
-                        border: interest === opt.id ? "1px solid var(--text-primary)" : "1px solid var(--border-color)",
-                        borderRadius: "0px",
-                        background: interest === opt.id ? "var(--bg-lift)" : "var(--bg)",
+                        background: interest === opt.id ? "var(--bg-lift)" : "transparent",
+                        borderColor: interest === opt.id ? "var(--text-primary)" : "var(--border-subtle)",
                       }}
                     >
-                      <div
-                        className="w-4 h-4 flex items-center justify-center flex-shrink-0"
-                        style={{
-                          border: interest === opt.id ? "none" : "1.5px solid var(--border-color)",
-                          background: interest === opt.id ? "var(--text-primary)" : "transparent",
-                          borderRadius: "50%",
-                        }}
-                      >
-                        {interest === opt.id && (
-                          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--bg)" }} />
-                        )}
-                      </div>
-                      <span className="text-xs font-semibold" style={{ color: interest === opt.id ? "var(--text-primary)" : "var(--text-body)" }}>
+                      <span className="text-[10px] font-black tracking-widest text-muted mb-4">
+                        {interest === opt.id ? "SELECTED" : "DESELECTED"}
+                      </span>
+                      <span className="text-sm md:text-base font-black uppercase italic italic-accent tracking-tighter">
                         {opt.label}
                       </span>
                     </button>
@@ -163,59 +136,53 @@ export default function WWUForm() {
               </div>
 
               {/* Stage */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="stage" className="text-[0.8rem] font-bold" style={{ color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  Where are you right now?
-                </label>
-                <select
-                  id="stage"
-                  required
-                  value={stage}
-                  onChange={(e) => setStage(e.target.value)}
-                  style={{ ...inputStyle, appearance: "none", cursor: "pointer", color: stage ? "var(--text-primary)" : "var(--text-body)" }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "var(--text-primary)")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border-color)")}
-                >
-                  <option value="" disabled style={{ color: "var(--text-muted)" }}>Select your current stage</option>
-                  {stages.map((s) => (
-                    <option key={s} value={s} style={{ background: "var(--bg)", color: "var(--text-primary)" }}>{s}</option>
-                  ))}
-                </select>
+              <div className="flex flex-col gap-6">
+                <span className="label-eyebrow !text-muted">[ 04 ] STATUS</span>
+                <div className="relative">
+                  <select
+                    id="stage"
+                    required
+                    value={stage}
+                    onChange={(e) => setStage(e.target.value)}
+                    className="w-full bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors appearance-none"
+                  >
+                    <option value="" disabled className="bg-background">Current venture stage</option>
+                    {stages.map((s) => (
+                      <option key={s} value={s} className="bg-background text-sm font-bold">{s}</option>
+                    ))}
+                  </select>
+                  <div className="absolute right-0 bottom-4 pointer-events-none text-muted">↓</div>
+                </div>
               </div>
 
               {/* Problem */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="problem" className="text-[0.8rem] font-bold" style={{ color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  Describe the problem you&apos;re trying to solve
-                </label>
+              <div className="flex flex-col gap-6">
+                <span className="label-eyebrow !text-muted">[ 05 ] SPECIFICATION</span>
                 <textarea
                   id="problem"
-                  rows={5}
+                  rows={4}
                   required
-                  placeholder="What problem are you solving? Who has it? What do you currently know — and what are you not sure about?"
+                  placeholder="The real problem you're trying to solve. Be clinical."
                   value={form.problem}
                   onChange={(e) => setForm({ ...form, problem: e.target.value })}
-                  style={{ ...inputStyle, resize: "none" }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "var(--text-primary)")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border-color)")}
+                  className="bg-transparent border border-border-subtle p-8 text-lg font-bold tracking-tight focus:border-text-primary outline-none transition-colors resize-none"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="btn-primary w-full mt-4 flex items-center justify-center gap-2.5"
-              >
-                Submit — we&apos;ll respond within 48 hours
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-              <p className="text-sm" style={{ color: "var(--text-body)" }}>
-                No spam. No automated replies. A real person reads every submission.
-              </p>
+              <div className="flex flex-col md:flex-row items-center gap-12 mt-8">
+                <button
+                  type="submit"
+                  className="btn-primary px-16 py-8 w-full md:w-auto text-xl"
+                >
+                  Submit: Response in 48h
+                </button>
+                <div className="label-eyebrow !text-muted leading-relaxed max-w-[280px]">
+                  No automated replies. A real person reads every submission.
+                </div>
+              </div>
             </form>
           </AnimateOnScroll>
-        )}
+        )}    )}
       </div>
     </section>
   );

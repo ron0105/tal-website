@@ -34,72 +34,61 @@ export default function TALVIProblem() {
       <div className="layout-grid">
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left */}
-          <AnimateOnScroll>
-            <span className="label-eyebrow block mb-6">01 | The Real Problem</span>
-            <h2 
-              className="text-foreground mb-8"
-              style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", fontWeight: 900, lineHeight: 1.0, letterSpacing: "-0.03em" }}
-            >
-              Growing too fast,
-              <br />
-              <span className="text-muted">too soon.</span>
-            </h2>
-            <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--text-body)" }}>
-              Growth doesn&apos;t fix a fragile foundation. It amplifies it.
-              Every new hire, new channel, and new feature compounds the gaps
-              you ignored while moving fast.
-            </p>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "var(--text-body)" }}>
-              TAL VI is for businesses where the idea works, but the team, the
-              tools, and the story haven&apos;t kept up. We build the foundation
-              so you can scale with confidence.
-            </p>
+          <div className="lg:col-span-6">
+            <AnimateOnScroll>
+              <span className="label-eyebrow block mb-8">Infrastructure Rationale</span>
+              <h2 className="text-section-title mb-12">
+                Growing too fast,
+                <br />
+                <span className="text-muted">too soon.</span>
+              </h2>
+              <div className="flex flex-col gap-8 mb-12">
+                <p className="body-copy">
+                  Growth doesn&apos;t fix a fragile foundation. It amplifies it.
+                  Every new hire, new channel, and new feature compounds the gaps
+                  you ignored while moving fast.
+                </p>
+                <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8">
+                  TAL VI is for businesses where the idea works, but the team, the
+                  tools, and the story haven&apos;t kept up. We build the foundation
+                  so you can scale with confidence.
+                </p>
+              </div>
 
-            {/* Quote */}
-            <div
-              className="pl-5 py-1"
-              style={{ borderLeft: "2px solid var(--text-primary)" }}
-            >
-              <p
-                className="text-lg font-semibold leading-snug"
-                style={{ color: "var(--text-body)", letterSpacing: "-0.01em" }}
-              >
-                &ldquo;Growth amplifies weaknesses.
-                <br />Structure prevents collapse.&rdquo;
-              </p>
-            </div>
-          </AnimateOnScroll>
+              {/* Quote */}
+              <div className="mt-16 bg-bg-secondary p-8 border border-border-subtle italic">
+                <p className="text-xl font-black tracking-tight leading-relaxed">
+                  &ldquo;Growth amplifies weaknesses. Structure prevents collapse.&rdquo;
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
 
           {/* Right: mistake table */}
-          <AnimateOnScroll delay={0.15}>
-            <div style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
-              <div
-                className="px-6 py-4"
-                style={{ borderBottom: "1px solid var(--border-subtle)" }}
-              >
+          <AnimateOnScroll delay={0.15} className="lg:col-span-6">
+            <div className="border border-border-subtle bg-bg-secondary overflow-hidden">
+              <div className="px-8 py-6 border-b border-border-subtle bg-bg-lift/30">
                 <span className="label-eyebrow">
-                  What happens when you scale too early
+                  Diagnostic: Failure Mode Table
                 </span>
               </div>
-              {mistakes.map((m, i) => (
-                <div
-                  key={m.action}
-                  className="px-6 py-5"
-                  style={{ borderBottom: i < mistakes.length - 1 ? "1px solid var(--border-subtle)" : "none" }}
-                >
-                  <div className="flex flex-wrap items-baseline gap-1.5 mb-1.5">
-                    <span className="text-base font-bold" style={{ color: "var(--text-primary)" }}>{m.action}</span>
-                    <span className="text-base" style={{ color: "var(--text-body)" }}>{m.before}</span>
+              <div className="flex flex-col">
+                {mistakes.map((m, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-12 border-b border-border-subtle last:border-0"
+                  >
+                    <div className="col-span-5 p-6 border-r border-border-subtle bg-bg-lift/10">
+                      <p className="text-xs font-black uppercase text-text-primary tracking-widest leading-none mb-1">ACTION</p>
+                      <p className="text-sm font-bold text-body">{m.action} {m.before}</p>
+                    </div>
+                    <div className="col-span-7 p-6 italic">
+                      <p className="text-xs font-black uppercase text-muted tracking-widest leading-none mb-1">SYSTEM FAILURE</p>
+                      <p className="text-sm font-bold text-muted">{m.result}</p>
+                    </div>
                   </div>
-                  <div className="flex items-start gap-2.5">
-                    <svg className="flex-shrink-0 mt-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ color: "var(--text-muted)" }}>
-                      <path d="M18 6L6 18M6 6l12 12" />
-                    </svg>
-                    <span className="text-xs" style={{ color: "var(--text-body)" }}>{m.result}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </AnimateOnScroll>
         </div>

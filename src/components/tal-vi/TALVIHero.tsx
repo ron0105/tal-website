@@ -53,25 +53,22 @@ export default function TALVIHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.3 }}
-          className="grid md:grid-cols-2 gap-12 items-start"
+          className="grid lg:grid-cols-12 gap-16 items-start"
         >
-          <div>
-            <p className="text-xl leading-relaxed mb-4 text-body font-normal max-w-[500px]">
-            TAL VI is where we actually build what you need. Once we know your
-            idea works, we set up the systems your business needs to grow:
-            without the usual growing pains and chaos.
+          <div className="lg:col-span-5">
+            <p className="body-copy mb-8">
+              TAL VI is where we actually build what you need. Once we know your
+              idea works, we set up the systems your business needs to grow:
+              without the usual growing pains and chaos.
             </p>
-            <p className="text-lg leading-relaxed mb-10 text-body max-w-[460px]">
-            Most founders try to grow before they have a solid foundation.
-            TAL VI fixes that before it becomes an expensive problem.
+            <p className="body-copy !text-muted mb-12">
+              Most founders try to grow before they have a solid foundation.
+              TAL VI fixes that before it becomes an expensive problem.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/work-with-us" className="btn-primary">
                 Book a Diagnostic
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
               </Link>
               <Link href="/venture-lab" className="btn-ghost">
                 Need to validate first?
@@ -79,41 +76,35 @@ export default function TALVIHero() {
             </div>
           </div>
 
-          {/* Right: who it's for */}
-          <div style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
-            <div className="px-7 py-4" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-              <span className="label-eyebrow">
-                TAL VI is right for you if
-              </span>
+          {/* INFRASTRUCTURE STATUS MATRIX */}
+          <div className="lg:col-span-7 border border-border-subtle bg-bg-secondary overflow-hidden">
+            <div className="px-8 py-6 border-b border-border-subtle bg-bg-lift/30">
+              <span className="label-eyebrow">Infrastructure Status Diagnostic</span>
             </div>
-            {[
-              "You have a validated idea: but no systems in place",
-              "You have early users: but no clear way to make money",
-              "You hired people: and suddenly everything got harder",
-              "You can't step back: because it all lives in your head",
-              "Growth is making your problems worse: not better",
-            ].map((item, i) => (
-              <div
-                key={item}
-                className={`flex items-start gap-4 px-7 py-4 ${i < 4 ? "border-b" : ""}`}
-                style={{ borderColor: "var(--border-subtle)" }}
-              >
-                <svg
-                  className="flex-shrink-0 mt-0.5"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-                <span className="text-base text-body">{item}</span>
-              </div>
-            ))}
+            
+            <table className="w-full text-left border-collapse">
+              <tbody>
+                {[
+                  { segment: "Operations", status: "Validated Start", focus: "You have a validated idea: but no systems in place" },
+                  { segment: "Economics", status: "Early Scale", focus: "You have early users: but no clear way to make money" },
+                  { segment: "Team", status: "Growth Chaos", focus: "You hired people: and suddenly everything got harder" },
+                  { segment: "Systems", status: "Founder Trap", focus: "You can't step back: because it all lives in your head" },
+                  { segment: "Growth", status: "Risk Amplified", focus: "Growth is making your problems worse: not better" },
+                ].map((row, i) => (
+                  <tr key={i} className="border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors">
+                    <td className="p-6 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle">
+                      [{row.segment}]
+                    </td>
+                    <td className="p-6 text-xs font-bold uppercase tracking-tight bg-bg-lift/10 border-r border-border-subtle">
+                      {row.status}
+                    </td>
+                    <td className="p-6 text-sm font-bold text-body">
+                      {row.focus}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </motion.div>
       </div>

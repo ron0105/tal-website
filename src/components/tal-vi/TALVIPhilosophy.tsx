@@ -63,29 +63,17 @@ export default function TALVIPhilosophy() {
 
         <div className="relative layout-grid">
           <AnimateOnScroll className="mb-14">
-            <span className="label-eyebrow block mb-6">04 | Our Philosophy</span>
+            <span className="label-eyebrow block mb-6">Infrastructure Beliefs</span>
           </AnimateOnScroll>
 
           <div className="flex flex-col">
             {beliefs.map((b, i) => (
               <AnimateOnScroll key={b.statement} delay={0.06 * i}>
-                <div
-                  className="grid md:grid-cols-2 gap-8 py-8 items-center"
-                  style={{
-                    borderBottom: i < beliefs.length - 1 ? "1px solid var(--border-subtle)" : "none",
-                  }}
-                >
-                  <h3
-                    className="font-black text-foreground tracking-tight"
-                    style={{
-                      fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)",
-                      letterSpacing: "-0.03em",
-                      lineHeight: "1.05",
-                    }}
-                  >
+                <div className="grid md:grid-cols-2 gap-8 py-12 items-center border-b border-border-subtle last:border-0">
+                  <h3 className="text-display !text-3xl md:!text-5xl uppercase italic italic-accent tracking-tighter">
                     {b.statement}
                   </h3>
-                  <p className="text-lg leading-relaxed text-body">
+                  <p className="body-copy">
                     {b.detail}
                   </p>
                 </div>
@@ -96,87 +84,65 @@ export default function TALVIPhilosophy() {
       </section>
 
       {/* ── Who it's for ── */}
-      <section
-        className="padding-section"
-        style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg-secondary)" }}
-      >
+      <section className="padding-section bg-bg-secondary border-t border-border-subtle">
         <div className="layout-grid">
-          <AnimateOnScroll className="mb-12">
-            <span className="label-eyebrow block mb-5">05 | Ideal Client</span>
-            <h2 className="text-section-title text-foreground max-w-[480px]">
+          <AnimateOnScroll className="mb-24">
+            <span className="label-eyebrow block mb-8">System Compatibility</span>
+            <h2 className="text-section-title max-w-[560px]">
               This is not for
               <br />
               <span className="text-muted">everyone.</span>
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-px bg-border-subtle border border-border-subtle">
             {/* Right for */}
-            <AnimateOnScroll>
-              <div style={{ border: "1px solid var(--border-color)", background: "var(--bg)" }}>
-                <div className="px-7 py-4" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                  <span className="label-eyebrow">Right for</span>
-                </div>
+            <div className="bg-background p-10">
+              <span className="label-eyebrow !text-text-primary block mb-12 bg-bg-lift/30 px-3 py-1 self-start inline-block">
+                [ COMPATIBLE ]
+              </span>
+              <ul className="flex flex-col gap-6">
                 {whoFor.map((item, i) => (
-                  <div key={item} className={`flex items-start gap-4 px-7 py-4 ${i < whoFor.length - 1 ? "border-b" : ""}`} style={{ borderColor: "var(--border-subtle)" }}>
-                    <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span className="text-base text-body">{item}</span>
-                  </div>
+                  <li key={i} className="flex gap-4 items-baseline">
+                    <div className="w-1.5 h-1.5 bg-text-primary rounded-full mt-2" />
+                    <span className="text-base font-bold text-body uppercase tracking-tight">{item}</span>
+                  </li>
                 ))}
-              </div>
-            </AnimateOnScroll>
+              </ul>
+            </div>
 
             {/* Not for */}
-            <AnimateOnScroll delay={0.1}>
-              <div style={{ border: "1px solid var(--border-color)", background: "var(--bg)" }}>
-                <div className="px-7 py-4" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                  <span className="label-eyebrow">Not for</span>
-                </div>
+            <div className="bg-background p-10">
+              <span className="label-eyebrow !text-muted block mb-12 bg-bg-lift/10 px-3 py-1 self-start inline-block">
+                [ INCOMPATIBLE ]
+              </span>
+              <ul className="flex flex-col gap-6">
                 {notFor.map((item, i) => (
-                  <div key={item} className={`flex items-start gap-4 px-7 py-4 ${i < notFor.length - 1 ? "border-b" : ""}`} style={{ borderColor: "var(--border-subtle)" }}>
-                    <svg className="flex-shrink-0 mt-0.5 text-muted" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                      <path d="M18 6L6 18M6 6l12 12" />
-                    </svg>
-                    <span className="text-base text-body">{item}</span>
-                  </div>
+                  <li key={i} className="flex gap-4 items-baseline opacity-50">
+                    <div className="w-1.5 h-1.5 bg-text-muted rounded-full mt-2" />
+                    <span className="text-base font-bold text-muted uppercase tracking-tight">{item}</span>
+                  </li>
                 ))}
-
-                {/* Callout */}
-                <div
-                  className="mx-7 mb-7 mt-2 p-4"
-                  style={{ background: "var(--bg-lift)" }}
-                >
-                  <p className="text-xs text-muted">
-                    &ldquo;This is not a low-cost marketing service. TAL VI is for
-                    founders serious about building something that lasts.&rdquo;
-                  </p>
-                </div>
-              </div>
-            </AnimateOnScroll>
+              </ul>
+            </div>
           </div>
 
           {/* CTA */}
-          <AnimateOnScroll delay={0.2} className="mt-12">
-            <div
-              className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8"
-              style={{ border: "1px solid var(--border-color)", background: "var(--bg)" }}
-            >
+          <AnimateOnScroll delay={0.2} className="mt-24">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-12 p-12 border border-border-subtle bg-background italic">
               <div>
-                <p
-                  className="font-black tracking-tight mb-2 text-foreground"
-                  style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.75rem)", letterSpacing: "-0.02em" }}
-                >
-                  Ready to build before you scale?
+                <p className="text-display !text-3xl md:!text-4xl mb-4 italic tracking-tighter">
+                  READY TO BUILD
+                  <br />
+                  BEFORE YOU SCALE?
                 </p>
-                <p className="text-base text-body">
-                  Book a diagnostic. We&apos;ll audit where you are and tell you exactly what needs to be built.
+                <p className="body-copy !text-base !text-muted uppercase font-black tracking-widest">
+                  Audit where you are and tell you exactly what needs to be built.
                 </p>
               </div>
               <Link
                 href="/work-with-us"
-                className="flex-shrink-0 btn-primary"
+                className="flex-shrink-0 btn-primary px-12 py-6"
               >
                 Book a Diagnostic
               </Link>

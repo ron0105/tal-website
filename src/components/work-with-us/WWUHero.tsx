@@ -24,17 +24,17 @@ export default function WWUHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease, delay: 0.08 }}
           >
-            <h1 className="text-page-title text-foreground mb-8">
+            <h1 className="text-display !text-4xl md:!text-6xl uppercase italic tracking-tighter mb-8">
               Bring us a
               <br />
-              <span className="text-muted">real problem.</span>
+              <span className="text-muted opacity-50">real problem.</span>
             </h1>
-            <p className="text-lg leading-relaxed mb-4 text-body max-w-[480px]">
+            <p className="body-copy mb-8">
               You don&apos;t need a pitch deck or a finished plan. Describe the
               problem you&apos;re trying to solve, where you are, and what
               you currently know.
             </p>
-            <p className="text-lg leading-relaxed text-body max-w-[460px]">
+            <p className="body-copy !text-base !text-muted">
               We read every submission personally. If the problem is worth
               exploring, you&apos;ll hear from us within 48 hours.
             </p>
@@ -45,26 +45,31 @@ export default function WWUHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease, delay: 0.2 }}
           >
-            <div style={{ border: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
-              <div className="px-7 py-4" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                <span className="label-eyebrow">What to expect</span>
+            <div className="border border-border-subtle bg-bg-secondary overflow-hidden">
+              <div className="px-8 py-6 border-b border-border-subtle bg-bg-lift/30">
+                <span className="label-eyebrow">Onboarding Pipeline</span>
               </div>
-              {[
-                { step: "01", text: "Fill in the form below — takes 3 minutes" },
-                { step: "02", text: "We read it and assess the problem" },
-                { step: "03", text: "If there's a fit, we schedule a 45-minute call" },
-                { step: "04", text: "We propose the right engagement model" },
-                { step: "05", text: "We begin within 2 weeks of alignment" },
-              ].map((item, i) => (
-                <div
-                  key={item.step}
-                  className={`flex items-start gap-5 px-7 py-4 ${i < 4 ? "border-b" : ""}`}
-                  style={{ borderColor: "var(--border-subtle)" }}
-                >
-                  <span className="section-num w-6 flex-shrink-0">{item.step}</span>
-                  <span className="text-base text-body">{item.text}</span>
-                </div>
-              ))}
+              <div className="flex flex-col">
+                {[
+                  { segment: "Initiation", focus: "Fill in the form below — takes 3 minutes" },
+                  { segment: "Assessment", focus: "We read it and assess the problem" },
+                  { segment: "Alignment", focus: "If there's a fit, we schedule a 45-min call" },
+                  { segment: "Engagement", focus: "We propose the right engagement model" },
+                  { segment: "Deployment", focus: "We begin within 2 weeks of alignment" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-12 border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors"
+                  >
+                    <div className="col-span-4 p-5 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle bg-bg-lift/10 italic">
+                      [{item.segment}]
+                    </div>
+                    <div className="col-span-8 p-5 text-sm font-bold text-body">
+                      {item.focus}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

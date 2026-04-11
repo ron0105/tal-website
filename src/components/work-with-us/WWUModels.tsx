@@ -69,104 +69,73 @@ export default function WWUModels() {
       className="padding-section"
       style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg)" }}
     >
-      <div className="layout-grid">
-
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
+      <div className="layou        <div className="grid md:grid-cols-2 gap-12 mb-24">
           <AnimateOnScroll>
-            <span className="label-eyebrow block mb-6">Engagement Models</span>
-            <h2 className="text-section-title text-foreground">
+            <span className="label-eyebrow block mb-8">Engagement Architectures</span>
+            <h2 className="text-section-title">
               Choose what fits
               <br />
               <span className="text-muted">where you are.</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex items-end">
-            <p className="text-lg leading-relaxed text-body">
+            <p className="body-copy">
               Not sure which one is right? Describe your situation in the form
               below and we&apos;ll suggest the right starting point.
             </p>
           </AnimateOnScroll>
         </div>
 
-        <div
-          className="grid md:grid-cols-2"
-          style={{ gap: "1px", background: "var(--border-color)" }}
-        >
+        <div className="grid md:grid-cols-2 gap-px bg-border-subtle border border-border-subtle">
           {models.map((m, i) => (
             <AnimateOnScroll key={m.name} delay={0.08 * i}>
-              <div
-                className="flex flex-col h-full p-7 md:p-8"
-                style={{
-                  background: m.featured ? "var(--bg-secondary)" : "var(--bg)",
-                  borderLeft: m.featured ? "3px solid var(--text-primary)" : "3px solid transparent",
-                }}
-              >
+              <div className="flex flex-col h-full bg-background p-10 md:p-12 border-l-4 border-transparent data-[featured=true]:border-text-primary data-[featured=true]:bg-bg-secondary" data-featured={m.featured}>
                 {/* Header */}
-                <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-start justify-between gap-6 mb-12">
                   <div>
-                    <h3
-                      className="font-bold tracking-tight mb-1.5 text-foreground"
-                      style={{ fontSize: "1.2rem", letterSpacing: "-0.01em" }}
-                    >
+                    <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-4">
                       {m.name}
                     </h3>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-muted">{m.duration}</span>
-                      <span style={{ color: "var(--border-color)" }}>·</span>
-                      <span className="text-xs text-muted">{m.price}</span>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                      <span className="label-eyebrow !text-muted">[ {m.duration} ]</span>
+                      <span className="label-eyebrow !text-muted text-[10px]">•</span>
+                      <span className="label-eyebrow !text-muted">[ {m.price} ]</span>
                     </div>
                   </div>
                   {m.tag && (
-                    <span
-                      className="flex-shrink-0 text-xs font-bold px-2 py-0.5"
-                      style={{
-                        background: "var(--bg-lift)",
-                        color: "var(--text-primary)",
-                        borderRadius: "0px",
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                      }}
-                    >
+                    <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1">
                       {m.tag}
                     </span>
                   )}
                 </div>
 
                 {/* Best for */}
-                <div
-                  className="px-4 py-3.5 mb-6"
-                  style={{ background: "var(--bg-lift)", borderLeft: "2px solid var(--border-color)" }}
-                >
-                  <p className="text-xs font-semibold mb-1 text-muted">Best for</p>
-                  <p className="text-base leading-relaxed text-body">{m.best}</p>
+                <div className="bg-bg-lift/10 border-l-2 border-border-subtle p-6 mb-10">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-muted block mb-2">TARGET SCENARIO</span>
+                  <p className="text-lg font-bold text-body italic tracking-tight">{m.best}</p>
                 </div>
 
                 {/* What's included */}
-                <p className="text-xs font-bold uppercase tracking-widest mb-3.5 text-muted" style={{ letterSpacing: "0.12em" }}>
-                  Includes
-                </p>
-                <div className="flex flex-col gap-2.5 mb-8">
+                <div className="flex flex-col gap-4 mb-12 flex-grow">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-muted block mb-2">SPECIFICATION</span>
                   {m.what.map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <svg className="flex-shrink-0 mt-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                      <span className="text-base text-body">{item}</span>
+                    <div key={item} className="flex items-start gap-4">
+                      <div className="w-1.5 h-1.5 bg-text-primary mt-2" />
+                      <span className="text-sm font-bold text-body uppercase tracking-tight">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 <a
                   href="#contact-form"
-                  className="mt-auto btn-ghost flex items-center justify-center gap-2 py-3 text-xs font-bold cursor-pointer transition-all duration-200"
-                  style={{ letterSpacing: "0.04em", textTransform: "uppercase" }}
+                  className="btn-ghost w-full py-6 text-sm font-black uppercase tracking-widest border border-border-subtle hover:border-text-primary transition-colors text-center"
                 >
-                  Enquire →
+                  Initiate Inquiry →
                 </a>
               </div>
             </AnimateOnScroll>
           ))}
-        </div>
+        </div>       </div>
       </div>
     </section>
   );

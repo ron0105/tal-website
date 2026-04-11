@@ -49,7 +49,7 @@ export default function HIWHero() {
                   fontSize: "clamp(3rem, 9.5vw, 7rem)",
                   fontWeight: 900,
                   letterSpacing: "-0.04em",
-                  lineHeight: 0.85,
+                  lineHeight: 1.0,
                   color: muted ? "var(--text-muted)" : "var(--text-primary)",
                   display: "block",
                 }}
@@ -69,31 +69,28 @@ export default function HIWHero() {
         >
           {/* Left: statement + CTA */}
           <div>
-            <p
-              className="leading-relaxed mb-14"
-              style={{
-                fontSize: "clamp(1.15rem, 2vw, 1.4rem)",
-                color: "var(--text-body)",
-                maxWidth: "520px",
-                lineHeight: 1.8,
-              }}
-            >
+            <p className="body-copy mb-14 max-w-[520px]">
               Building a new business is full of guesswork. We replace that
-              with a simple, six-stage roadmap. You&apos;ll always know
-              exactly where you stand, what we&apos;re learning from your
+              with a simple, six-stage roadmap. You'll always know
+              exactly where you stand, what we're learning from your
               customers, and whether the idea is ready to build.
             </p>
-            <Link href="/work-with-us" className="btn-primary">
+            <Link href="/work-with-us" className="flex-shrink-0 btn-primary px-12 py-6">
               Start a Sprint
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
             </Link>
+            <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8 mt-12">
+              Six months of building. One launch day. Zero paying customers.
+              That is the cost of skipping validation.
+            </p>
           </div>
 
           {/* Right: raw stage list — no box, no borders */}
           <div>
-            <p className="label-eyebrow mb-8">Six stages</p>
+            <h2 className="text-section-title mb-8">
+              The 6-stage framework.
+              <br />
+              <span className="text-muted">From thought to build.</span>
+            </h2>
             <motion.ol
               variants={{
                 show: { transition: { staggerChildren: 0.08, delayChildren: 0.5 } },
@@ -157,6 +154,14 @@ export default function HIWHero() {
                 </motion.li>
               ))}
             </motion.ol>
+            <div className="mt-12">
+              <a
+                href="#contact-form"
+                className="btn-ghost w-full py-6 text-sm font-black uppercase tracking-widest border border-border-subtle hover:border-text-primary transition-colors text-center"
+              >
+                Enquire: Next Steps
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
