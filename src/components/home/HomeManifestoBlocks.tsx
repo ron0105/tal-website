@@ -9,9 +9,9 @@ export default function HomeManifestoBlocks() {
         <AnimateOnScroll>
           <span className="label-eyebrow mb-12 block">The Manifesto</span>
           <h2 className="text-section-title mb-24">
-            Conviction by design.
+            Built on evidence.
             <br />
-            <span className="text-muted">Not consensus.</span>
+            <span className="text-muted">Not guesswork.</span>
           </h2>
         </AnimateOnScroll>
 
@@ -19,12 +19,12 @@ export default function HomeManifestoBlocks() {
           {/* WE REJECT */}
           <div className="bg-background p-10 md:p-16">
             <AnimateOnScroll>
-              <h3 className="text-xl font-black mb-12 text-muted uppercase tracking-widest">[ WE REJECT ]</h3>
+              <h3 className="text-xl font-black mb-12 text-muted uppercase tracking-widest">[ WHAT WE AVOID ]</h3>
               <ul className="flex flex-col gap-10">
                 {[
-                  "Execution without validation",
-                  "Hype as product-market fit",
-                  "Speed as thinking substitute",
+                  "Building before you know it works",
+                  "Excitement mistaken for demand",
+                  "Moving fast without moving smart",
                 ].map((item, i) => (
                   <li key={i} className="flex flex-col gap-2">
                     <span className="text-3xl md:text-4xl font-black tracking-tight leading-none uppercase">
@@ -43,9 +43,9 @@ export default function HomeManifestoBlocks() {
               <h3 className="text-xl font-black mb-12 text-text-primary uppercase tracking-widest">[ WE BELIEVE ]</h3>
               <ul className="flex flex-col gap-10">
                 {[
-                  "Evidence > assumptions",
-                  "Structure > speed",
-                  "Validation before scale",
+                  "Real data beats best guesses",
+                  "The right foundation beats rushing",
+                  "Know it works, then grow it big",
                 ].map((item, i) => (
                   <li key={i} className="flex flex-col gap-2">
                     <span className="text-3xl md:text-4xl font-black tracking-tight leading-none uppercase italic italic-accent">

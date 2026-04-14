@@ -8,7 +8,7 @@ const models = [
     name: "Validation Sprint",
     duration: "4 – 6 weeks",
     description:
-      "A focused, time-boxed engagement to validate a single business hypothesis. Includes problem framing, assumption mapping, research design, and a go/no-go decision gate.",
+      "A focused 4–6 week engagement to find out if your core idea holds up — with structured research and a clear go/refine decision at the end.",
     forWhom: "New ideas, pivots, early-stage founders",
     includes: [
       "Problem framing workshop",
@@ -23,7 +23,7 @@ const models = [
     name: "Pilot Blueprint",
     duration: "6 – 10 weeks",
     description:
-      "End-to-end pilot design and execution — from business model structuring through to a frugal market test and post-pilot analysis.",
+      "The full journey — from business model clarity through to a lean market test and a clear recommendation on what to do next.",
     forWhom: "Validated ideas ready for first market contact",
     includes: [
       "All Sprint deliverables",
@@ -38,7 +38,7 @@ const models = [
     name: "Monthly Validation",
     duration: "Retainer",
     description:
-      "Ongoing validation support for founders running multiple experiments or iterating rapidly. Structured monthly sprints, weekly review cadences, and decision support.",
+      "Ongoing support for founders who are moving fast and running multiple ideas at once. Monthly structured sprints and weekly check-ins keep you clear and on track.",
     forWhom: "Active builders running parallel experiments",
     includes: [
       "2 validation sprints per month",
@@ -52,8 +52,8 @@ const models = [
     name: "Co-Build Ventures",
     duration: "Selective",
     description:
-      "For rare opportunities where we take equity and operate as co-founders. We co-design, co-validate, and co-build from zero to first revenue — with full lab infrastructure.",
-    forWhom: "By invitation. For ideas that clear our gate.",
+      "For select opportunities where we go all-in as co-founders. We co-design, co-validate, and co-build from zero to first revenue — with the full weight of the Lab behind it.",
+    forWhom: "Selective. For founders whose ideas show real signal.",
     includes: [
       "Full lab commitment",
       "Equity-based engagement",
@@ -99,9 +99,9 @@ export default function EngagementSection() {
               className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
               style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
             >
-              Structured for
+              An engagement that fits
               <br />
-              <span style={{ color: "#444" }}>every stage.</span>
+              <span style={{ color: "#444" }}>where you are right now.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -114,9 +114,7 @@ export default function EngagementSection() {
               className="text-base md:text-lg leading-relaxed"
               style={{ color: "#666" }}
             >
-              We engage differently depending on where you are. Every model is
-              designed around a clear output and a defined decision point. No
-              open-ended retainers without structured deliverables.
+              Every model we offer is built around a specific outcome and a clear next step — no vague retainers, no open-ended timelines. You know what you&apos;re getting from day one.
             </p>
           </motion.div>
         </div>
@@ -244,7 +242,7 @@ export default function EngagementSection() {
                     : "#666";
                 }}
               >
-                Discuss this model
+                Ask us about this
                 <svg
                   width="12"
                   height="12"

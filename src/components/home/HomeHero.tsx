@@ -22,16 +22,16 @@ export default function HomeHero() {
           transition={{ duration: 0.5, ease }}
           className="label-eyebrow mb-14"
         >
-          The Adda Labs / Venture Validation Engine
+          The Adda Labs — Where Good Ideas Get Built Right
         </motion.p>
 
         {/* ── DOMINANT HEADLINE ── */}
         <div className="mb-14">
           {[
             { text: "IDEAS ARE", delay: 0.08, muted: false },
-            { text: "CHEAP.", delay: 0.16, muted: true },
+            { text: "EASY.", delay: 0.16, muted: true },
             { text: "DECISIONS", delay: 0.24, muted: false },
-            { text: "ARE NOT.", delay: 0.32, muted: true },
+            { text: "TAKE COURAGE.", delay: 0.32, muted: true },
           ].map(({ text, delay, muted }) => (
             <div key={text} className="overflow-hidden mb-1">
               <motion.h1
@@ -58,15 +58,15 @@ export default function HomeHero() {
           className="max-w-[700px]"
         >
           <p className="body-copy mb-16 max-w-[600px]">
-            We run structured experiments that tell you whether to build, pivot, or kill: before you waste capital.
+            We run structured experiments that tell you exactly what to do next — before you spend a rupee on the wrong thing.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/work-with-us" className="btn-primary uppercase tracking-widest font-black text-sm" style={{ padding: "14px 40px" }}>
-              START A SPRINT
+              GET CLARITY ON YOUR IDEA
             </Link>
             <Link href="#system" className="btn-ghost uppercase tracking-widest font-bold text-sm" style={{ padding: "14px 40px" }}>
-              VIEW SYSTEM
+              SEE HOW IT WORKS
             </Link>
           </div>
         </motion.div>

@@ -50,28 +50,23 @@ export default function ProblemSection() {
               className="text-3xl md:text-4xl font-bold tracking-tight leading-snug mb-8"
               style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
             >
-              Most ideas are not
+              Most ideas don&apos;t fail
               <br />
-              killed by the market.
+              because of the market.
             </h2>
 
             <p
               className="text-base leading-relaxed mb-6"
               style={{ color: "#666" }}
             >
-              They are killed by premature execution. By founders who move to
-              build before they have moved to understand. The market rarely
-              rejects a well-validated idea. It consistently rejects assumptions
-              presented as products.
+              They stumble because of premature execution — building before fully understanding the problem. The market is actually quite receptive to well-validated ideas. What it can&apos;t support is assumptions shipped as products.
             </p>
 
             <p
               className="text-base leading-relaxed"
               style={{ color: "#555" }}
             >
-              The failure is not in the idea. It is in the methodology.
-              Enthusiasm is not a validation strategy. Speed is not a substitute
-              for structure.
+              The idea is rarely the problem. It&apos;s the approach that needs work. Enthusiasm is a great starting point — but structure is what takes you the rest of the way.
             </p>
 
             {/* Pull quote */}
@@ -83,8 +78,8 @@ export default function ProblemSection() {
                 className="text-lg md:text-xl font-medium leading-snug"
                 style={{ color: "#C0C0C0", letterSpacing: "-0.01em" }}
               >
-                &ldquo;The cost of a wrong build is not just money.
-                It is irreversible time.&rdquo;
+                &ldquo;The most valuable thing you can protect isn&apos;t money.
+                It&apos;s time. And that&apos;s exactly what we do.&rdquo;
               </p>
             </div>
           </motion.div>
@@ -107,7 +102,7 @@ export default function ProblemSection() {
                 className="text-xs font-semibold tracking-widest uppercase mb-8"
                 style={{ color: "#444", letterSpacing: "0.12em" }}
               >
-                Common causes of venture failure
+                Where early-stage ventures most often go wrong
               </p>
               <div className="flex flex-col gap-7">
                 {causes.map((c, i) => (

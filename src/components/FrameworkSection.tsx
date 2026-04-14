@@ -10,42 +10,42 @@ const steps = [
     number: "01",
     title: "Problem Framing",
     description:
-      "Define the problem with surgical precision. A poorly framed problem is an unsolvable one. We separate root causes from symptoms, and the real market pain from the founder's interpretation of it.",
+      "We work with you to define the real problem underneath your idea — not just the symptom. Separating the root cause from assumptions is what makes the rest of the process work.",
     output: "Problem Statement Document",
   },
   {
     number: "02",
     title: "Assumption Mapping",
     description:
-      "Every business model rests on assumptions. We surface them all — about the customer, the behavior change required, the willingness to pay, the distribution channel — and rank them by criticality and uncertainty.",
+      "Every idea rests on assumptions about your customer, their behaviour, and their willingness to pay. We surface all of them, rank by risk level, and decide together which ones to test first.",
     output: "Assumption Risk Matrix",
   },
   {
     number: "03",
     title: "Research & Validation",
     description:
-      "Structured primary research. Interviews, observation, behavioral data, demand proxies. Not to confirm, but to challenge. Evidence collected against the highest-risk assumptions first.",
+      "We conduct real customer research — interviews, observation, demand signals — to test your highest-risk assumptions first. Our goal isn\'t to confirm what you hope is true, but to find out what\'s actually true.",
     output: "Validation Evidence Report",
   },
   {
     number: "04",
     title: "Business Model Structuring",
     description:
-      "A viable business is a system. We model the unit economics, the retention logic, the acquisition pathway, and the revenue mechanism — before any product exists.",
+      "We map out how the business actually makes money — unit economics, how customers come in, stay, and pay — before building a single feature. You go into product development with a model that works on paper first.",
     output: "Business Model Canvas + Unit Economics",
   },
   {
     number: "05",
     title: "Frugal Pilot",
     description:
-      "The smallest experiment that can answer the biggest question. Designed to stress-test demand, willingness to pay, and the core value proposition — with minimum resources and maximum signal.",
+      "We design the leanest possible test that answers your most important question. You get real market feedback — on demand, price, and value — without overcommitting time or money.",
     output: "Pilot Design + Results Analysis",
   },
   {
     number: "06",
     title: "Decision Gate",
     description:
-      "Build, Pivot, or Kill. The gate is defined before the sprint begins. If the evidence crosses the threshold — build. If not, either restructure the hypothesis or close the experiment with clarity.",
+      "Build, Refine, or Redirect. We define what success looks like before the sprint begins — so when the evidence is in, your next move is clear, objective, and yours to own.",
     output: "Decision Memo + Next-step Roadmap",
   },
 ];
@@ -88,7 +88,7 @@ export default function FrameworkSection() {
             >
               Six stages.
               <br />
-              <span style={{ color: "#444" }}>One standard.</span>
+              <span style={{ color: "#444" }}>One clear outcome.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -98,10 +98,7 @@ export default function FrameworkSection() {
             className="flex items-end"
           >
             <p className="text-base md:text-lg leading-relaxed" style={{ color: "#666" }}>
-              Every engagement runs through the same six-stage process. No
-              shortcuts. The framework is designed to eliminate the most
-              expensive mistake in entrepreneurship: building the wrong thing
-              with conviction.
+              Every engagement runs through the same six-stage process — tried, tested, and refined. It&apos;s designed to make sure you build the right thing with confidence, not just the first thing that feels right.
             </p>
           </motion.div>
         </div>

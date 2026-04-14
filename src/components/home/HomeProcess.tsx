@@ -7,17 +7,17 @@ const steps = [
   {
     n: "01",
     title: "You bring the idea.",
-    body: "No pitch deck. No business plan. Just a problem you think is worth solving and an honest account of what you know — and don't know.",
+    body: "No pitch deck. No business plan needed. Just tell us the problem you want to solve — including what you\'re still figuring out. That\'s exactly where we start.",
   },
   {
     n: "02",
-    title: "We run the validation.",
-    body: "We follow a 6-stage process — problem framing, customer research, demand testing — to find out if the idea holds up before you commit.",
+    title: "We do the research.",
+    body: "We use our 6-stage process — real customer conversations, demand testing, market signal analysis — to give you a clear picture of where your idea stands.",
   },
   {
     n: "03",
-    title: "You get a clear decision.",
-    body: "Build it. Change the approach. Or stop — and save months of time and serious capital for something that actually works.",
+    title: "You get a clear path forward.",
+    body: "Build with confidence. Refine the approach. Or redirect your energy to something with a stronger signal — and save months of time and real capital in the process.",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function HomeProcess() {
           >
             Three steps.
             <br />
-            <span style={{ color: "var(--text-muted)" }}>One clear answer.</span>
+            <span style={{ color: "var(--text-muted)" }}>One confident decision.</span>
           </h2>
         </AnimateOnScroll>
 
@@ -114,7 +114,7 @@ export default function HomeProcess() {
             >
               <AnimatedLine className="mb-12" />
               <Link href="/how-it-works" className="btn-ghost">
-                See the full 6-stage framework →
+                Explore the full 6-stage process →
               </Link>
             </div>
           </AnimateOnScroll>

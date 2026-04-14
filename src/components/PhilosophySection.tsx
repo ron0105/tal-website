@@ -5,28 +5,28 @@ import { useRef } from "react";
 
 const principles = [
   {
-    title: "Intellectual honesty over ego.",
-    body: "A bad idea defended with confidence is still a bad idea. We separate the founder from the hypothesis, so the data can do its work.",
+    title: "We follow the evidence, not our preferences.",
+    body: "Even the most passionate idea needs to face real data. We help you separate what you believe from what the evidence shows — so you can make the most informed decision possible.",
   },
   {
-    title: "Small experiments before large commitments.",
-    body: "Capital is not the bottleneck. Clarity is. A well-designed experiment costs less than a poorly-designed product.",
+    title: "Test small. Learn fast. Commit with confidence.",
+    body: "The biggest blocker isn\'t funding — it\'s clarity. A well-designed experiment costs a fraction of what a premature build does, and gives you far more to work with.",
   },
   {
-    title: "Revenue as sustainability, not vanity.",
-    body: "Revenue validates demand. It is not a growth metric. The first rupee earned matters more than the tenth crore projected.",
+    title: "Real revenue beats projected revenue.",
+    body: "Revenue is how you know demand is real — not a milestone to celebrate, but a signal to understand. The first rupee you earn tells you more than the tenth crore you forecast.",
   },
   {
-    title: "Structure enables creativity.",
-    body: "The framework is not a cage. It is a scaffold. Constraints produce better thinking than open fields.",
+    title: "Structure sets creativity free.",
+    body: "Our process isn\'t a cage — it\'s scaffolding. The clearer the constraints, the better the thinking. And better thinking leads to better ideas.",
   },
   {
-    title: "Data before emotion.",
-    body: "Founders feel before they think. That is a feature, not a flaw — as long as the decision is ultimately made on evidence.",
+    title: "Feel first. Decide on evidence.",
+    body: "Founders who feel strongly about their ideas are exactly who we work with. That passion is a strength — and pairing it with solid evidence is what turns conviction into traction.",
   },
   {
-    title: "Kill fast, learn faster.",
-    body: "A clean exit from a bad idea is not failure. It is capital preservation and intellectual rigour in action.",
+    title: "Learn fast. Redirect faster.",
+    body: "Choosing to stop a test that isn\'t working is one of the smartest moves a founder can make. It preserves your capital, sharpens your thinking, and keeps you free to pursue what actually works.",
   },
 ];
 
@@ -67,9 +67,9 @@ export default function PhilosophySection() {
             className="text-3xl md:text-5xl font-bold tracking-tight"
             style={{ color: "#F0F0F0", letterSpacing: "-0.025em", maxWidth: "600px" }}
           >
-            How we think
+            The thinking
             <br />
-            <span style={{ color: "#444" }}>before we build.</span>
+            <span style={{ color: "#444" }}>behind everything we do.</span>
           </h2>
         </motion.div>
 

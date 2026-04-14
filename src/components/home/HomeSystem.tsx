@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import { AnimateOnScroll, StaggerContainer, staggerItem } from "../shared/AnimateOnScroll";
 
 const steps = [
-  { n: "01", title: "Problem Framing", body: "We strip away assumptions to define the core problem worth solving." },
-  { n: "02", title: "Hypothesis Definition", body: "We translate ideas into testable 'must-be-true' statements." },
-  { n: "03", title: "User Identification", body: "We find and filter the exact audience who has the problem today." },
-  { n: "04", title: "Pilot Design", body: "We design the smallest experiment that generates maximum signal." },
-  { n: "05", title: "Metrics & Success", body: "We define clear quantitative gates before the test begins." },
-  { n: "06", title: "Decision Gate", body: "Evidence-based conclusion: Build, Pivot, or Kill." },
+  { n: "01", title: "Problem Framing", body: "We work with you to uncover the real problem underneath the idea — the one worth solving." },
+  { n: "02", title: "Hypothesis Definition", body: "We turn your idea into a set of clear statements we can actually test in the real world." },
+  { n: "03", title: "User Identification", body: "We identify exactly who experiences this problem — and who has the most reason to pay for a solution." },
+  { n: "04", title: "Pilot Design", body: "We design the simplest test that gives you the clearest answer — with minimal time and cost." },
+  { n: "05", title: "Metrics & Success", body: "We agree upfront on what success looks like — so you know exactly what you\'re measuring and why." },
+  { n: "06", title: "Decision Gate", body: "A clear, evidence-backed recommendation: build with confidence, refine the approach, or redirect your energy." },
 ];
 
 const engineRow = [
-  { label: "Demand Signal", build: "Consistent pull from target users", pivot: "Interest in sub-feature only", kill: "No willingness to pay or act" },
-  { label: "Unit Economics", build: "Clear path to profitable LTV/CAC", pivot: "Requires significant model shift", kill: "Negative margins at scale" },
-  { label: "Execution Feasibility", build: "Built within team/capital constraints", pivot: "Requires major tech pivot", kill: "Unreasonable technical risk" },
-  { label: "Competitive Position", build: "10x better than existing alternatives", pivot: "Niche angle with high retention", kill: "Red ocean with zero edge" },
-  { label: "Founder Conviction", build: "Evidence matches internal drive", pivot: "Drive remains, focus changes", kill: "Data reveals lack of alignment" },
+  { label: "Demand Signal", build: "Consistent pull from target users", pivot: "Interest in sub-feature only", kill: "No clear demand signal at this time" },
+  { label: "Unit Economics", build: "Clear path to profitable LTV/CAC", pivot: "Requires significant model shift", kill: "Model requires fundamental restructuring" },
+  { label: "Execution Feasibility", build: "Built within team/capital constraints", pivot: "Requires major tech pivot", kill: "Technical complexity exceeds current constraints" },
+  { label: "Competitive Position", build: "10x better than existing alternatives", pivot: "Niche angle with high retention", kill: "Highly competitive market with no differentiated edge yet" },
+  { label: "Founder Conviction", build: "Evidence matches internal drive", pivot: "Drive remains, focus changes", kill: "Evidence suggests a different direction may suit you better" },
 ];
 
 export default function HomeSystem() {
@@ -27,9 +27,9 @@ export default function HomeSystem() {
         <AnimateOnScroll>
           <span className="label-eyebrow mb-12 block">The System</span>
           <h2 className="text-section-title mb-24">
-            A structured framework
+            A clear process
             <br />
-            <span className="text-muted">for high-stakes decisions.</span>
+            <span className="text-muted">for making your most important call.</span>
           </h2>
         </AnimateOnScroll>
 
@@ -60,10 +60,10 @@ export default function HomeSystem() {
         <StaggerContainer>
           <motion.div variants={staggerItem} className="mb-12">
             <h3 className="text-subsection mb-4 uppercase tracking-wider">
-              [ BUILD / PIVOT / KILL ]
+              [ BUILD / REFINE / REDIRECT ]
             </h3>
             <p className="body-copy text-muted max-w-[600px]">
-              How the engine processes evidence to reach a definitive conclusion.
+              How we use evidence to reach a clear, confident recommendation — together.
             </p>
           </motion.div>
 
@@ -73,8 +73,8 @@ export default function HomeSystem() {
                 <tr className="border-b border-border-subtle bg-bg-secondary">
                   <th className="p-6 label-eyebrow !text-primary">Decision Matrix</th>
                   <th className="p-6 label-eyebrow !text-primary bg-bg-lift/50">BUILD</th>
-                  <th className="p-6 label-eyebrow !text-primary">PIVOT</th>
-                  <th className="p-6 label-eyebrow !text-primary">KILL</th>
+                  <th className="p-6 label-eyebrow !text-primary">REFINE</th>
+                  <th className="p-6 label-eyebrow !text-primary">REDIRECT</th>
                 </tr>
               </thead>
               <tbody>

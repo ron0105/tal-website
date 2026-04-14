@@ -10,13 +10,12 @@ export default function HomeCTA() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <AnimateOnScroll>
             <h2 className="text-display !text-background mb-8">
-              START
+              READY TO
               <br />
-              <span className="opacity-40 italic">THE PROCESS.</span>
+              <span className="opacity-40 italic">FIND OUT?</span>
             </h2>
             <p className="body-copy !text-background opacity-80 max-w-[480px] mb-12">
-              We kill bad ideas so the right ones can breathe. 
-              Let&apos;s find out where your venture actually stands.
+              We help you find out which ideas are worth building — so you can put your energy where it actually matters. Let’s start with what you’re working on.
             </p>
           </AnimateOnScroll>
 
@@ -26,7 +25,7 @@ export default function HomeCTA() {
                 href="/work-with-us" 
                 className="btn-primary !bg-background !text-foreground !border-background hover:opacity-90 w-full py-8 text-xl"
               >
-                RUN A VALIDATION SPRINT
+                START A VALIDATION SPRINT
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

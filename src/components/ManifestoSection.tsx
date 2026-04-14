@@ -6,13 +6,13 @@ import { useRef } from "react";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const statements = [
-  "Most ideas are not killed by the market.",
-  "They are killed by premature execution.",
-  "Clarity is not the enemy of speed.",
-  "It is the prerequisite.",
-  "We do not celebrate launches.",
-  "We celebrate decisions made on evidence.",
-  "Build less. Validate more.",
+  "Most ideas don't fail because the market isn't ready.",
+  "They stall because of building before validating.",
+  "Clarity is what makes speed possible.",
+  "It's what you build everything else on.",
+  "We celebrate decisions made on solid ground.",
+  "Evidence collected. Conviction earned.",
+  "Validate first. Then build exactly what works.",
   "Then build the right thing — once.",
 ];
 
@@ -116,7 +116,7 @@ export default function ManifestoSection() {
               ((e.currentTarget as HTMLElement).style.background = "#2563EB")
             }
           >
-            Bring us a problem worth solving
+            Tell us what you&apos;re working on
             <svg
               width="14"
               height="14"
@@ -131,8 +131,8 @@ export default function ManifestoSection() {
             </svg>
           </a>
           <p className="text-sm" style={{ color: "#555" }}>
-            If it passes the problem framing test,
-            <br className="hidden sm:block" /> we will take it from there.
+            We&apos;ll start with a problem framing conversation
+            <br className="hidden sm:block" /> and figure out the best next step together.
           </p>
         </motion.div>
       </div>

@@ -8,25 +8,25 @@ const services = [
     index: "01",
     title: "Venture Validation",
     description:
-      "Before a single line of code is written or rupee spent, we stress-test the idea against real market signals. No assumptions pass unchallenged.",
+      "Before you write a line of code or spend a rupee, we test your idea against real market signals — so you go into execution with genuine confidence.",
   },
   {
     index: "02",
     title: "Research & Evidence Design",
     description:
-      "We build structured research frameworks — qualitative and quantitative — that produce evidence you can act on, not just insight you can quote.",
+      "We build research that gives you evidence you can actually use — not just interesting insights to quote in a meeting.",
   },
   {
     index: "03",
     title: "Pilot Architecture",
     description:
-      "A frugal pilot is not a half-baked product. It is a precisely scoped experiment designed to answer one question: does the demand exist at the price?",
+      "A well-designed pilot isn\'t a half-built product. It\'s the smartest possible test to answer one question: will the right people pay the right price?",
   },
   {
     index: "04",
     title: "Decision Gate Analysis",
     description:
-      "Every sprint ends with a binary decision: build, pivot, or kill. We design the gate conditions before the experiment starts, not after.",
+      "Every sprint ends with a clear recommendation: build, refine, or redirect. We set the success criteria before the experiment starts — so the outcome is always objective.",
   },
 ];
 
@@ -65,9 +65,9 @@ export default function WhatWeDoSection() {
               className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
               style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
             >
-              A lab built for
+              A lab built to turn
               <br />
-              <span style={{ color: "#444" }}>disciplined</span> thinking.
+              <span style={{ color: "#444" }}>serious thinking</span> into smart execution.
             </h2>
           </motion.div>
 
@@ -81,10 +81,7 @@ export default function WhatWeDoSection() {
               className="text-base md:text-lg leading-relaxed"
               style={{ color: "#666" }}
             >
-              The Adda Labs is not a consulting firm. We do not deliver
-              decks. We design experiments, run pilots, and produce
-              evidence-based decisions. Every engagement is structured around
-              one question: is this idea worth building?
+              The Adda Labs isn&apos;t a consulting firm — we don&apos;t hand you a slide deck and walk away. We design real experiments, run pilots, and give you evidence-backed decisions you can act on. Every engagement focuses on one question: is this idea ready to build?
             </p>
           </motion.div>
         </div>
