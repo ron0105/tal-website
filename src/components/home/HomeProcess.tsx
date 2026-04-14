@@ -7,17 +7,17 @@ const steps = [
   {
     n: "01",
     title: "You bring the idea.",
-    body: "No pitch deck. No business plan needed. Just tell us the problem you want to solve — including what you\'re still figuring out. That\'s exactly where we start.",
+    body: "No pitch deck. No business plan needed. Just tell us the problem you want to solve, including what you're still figuring out. That\'s exactly where we start.",
   },
   {
     n: "02",
     title: "We do the research.",
-    body: "We use our 6-stage process — real customer conversations, demand testing, market signal analysis — to give you a clear picture of where your idea stands.",
+    body: "We use our 6-stage process: real customer conversations, demand testing, market signal analysis. All to give you a clear picture of where your idea stands.",
   },
   {
     n: "03",
     title: "You get a clear path forward.",
-    body: "Build with confidence. Refine the approach. Or redirect your energy to something with a stronger signal — and save months of time and real capital in the process.",
+    body: "Build with confidence. Refine the approach. Or redirect your energy to something with a stronger signal. That alone saves months of time and real capital in the process.",
   },
 ];
 

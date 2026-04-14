@@ -8,13 +8,13 @@ const services = [
     index: "01",
     title: "Venture Validation",
     description:
-      "Before you write a line of code or spend a rupee, we test your idea against real market signals — so you go into execution with genuine confidence.",
+      "Before you write a line of code or spend a rupee, we test your idea against real market signals, so you go into execution with genuine confidence.",
   },
   {
     index: "02",
     title: "Research & Evidence Design",
     description:
-      "We build research that gives you evidence you can actually use — not just interesting insights to quote in a meeting.",
+      "We build research that gives you evidence you can actually use. Not just interesting insights to quote in a meeting.",
   },
   {
     index: "03",
@@ -26,7 +26,7 @@ const services = [
     index: "04",
     title: "Decision Gate Analysis",
     description:
-      "Every sprint ends with a clear recommendation: build, refine, or redirect. We set the success criteria before the experiment starts — so the outcome is always objective.",
+      "Every sprint ends with a clear recommendation: build, refine, or redirect. We set the success criteria before the experiment starts, so the outcome is always objective.",
   },
 ];
 
@@ -81,7 +81,7 @@ export default function WhatWeDoSection() {
               className="text-base md:text-lg leading-relaxed"
               style={{ color: "#666" }}
             >
-              The Adda Labs isn&apos;t a consulting firm — we don&apos;t hand you a slide deck and walk away. We design real experiments, run pilots, and give you evidence-backed decisions you can act on. Every engagement focuses on one question: is this idea ready to build?
+              The Adda Labs isn&apos;t a consulting firm. We don&apos;t hand you a slide deck and walk away. We design real experiments, run pilots, and give you evidence-backed decisions you can act on. Every engagement focuses on one question: is this idea ready to build?
             </p>
           </motion.div>
         </div>

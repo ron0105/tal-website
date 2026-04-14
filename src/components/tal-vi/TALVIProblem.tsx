@@ -16,7 +16,7 @@ const mistakes = [
   {
     action: "Add tools",
     before: "before processes exist",
-    result: "More tools, same confusion — just faster.",
+    result: "More tools, same confusion. Just faster.",
   },
   {
     action: "Raise funding",
@@ -44,11 +44,11 @@ export default function TALVIProblem() {
               </h2>
               <div className="flex flex-col gap-8 mb-12">
                 <p className="body-copy">
-                  Growth reveals what’s working — and what isn’t built to last.
+                  Growth reveals what’s working and what isn’t built to last.
                   Every new hire, new channel, and new feature puts pressure on the gaps in your foundation. That’s where we come in.
                 </p>
                 <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8">
-                  TAL VI is for businesses where the idea is working — but the team, tools, and narrative need to catch up. We build what’s missing so you can scale with clarity and confidence.
+                  TAL VI is for businesses where the idea is working, but the team, tools, and narrative need to catch up. We build what’s missing so you can scale with clarity and confidence.
                 </p>
               </div>
 

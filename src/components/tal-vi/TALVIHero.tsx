@@ -18,7 +18,7 @@ export default function TALVIHero() {
           transition={{ duration: 0.5, ease }}
           className="flex items-center gap-5 mb-10"
         >
-          <span className="label-eyebrow">TAL VI — Build the Foundation. Then Scale.</span>
+          <span className="label-eyebrow">TAL VI: Build the Foundation. Then Scale.</span>
           <div className="flex-1 h-px max-w-[80px]" style={{ background: "var(--border-color)" }} />
           <span className="text-xs font-bold tracking-[0.1em] uppercase" style={{ color: "var(--text-muted)" }}>
             THE EXECUTION PART
@@ -58,10 +58,10 @@ export default function TALVIHero() {
         >
           <div className="lg:col-span-5">
             <p className="body-copy mb-8">
-              TAL VI is where ideas become operations. Once your idea is validated, we help you build the systems, team, and structure your business needs to grow — smoothly, not chaotically.
+              TAL VI is where ideas become operations. Once your idea is validated, we help you build the systems, team, and structure your business needs to grow. Smoothly, not chaotically.
             </p>
             <p className="body-copy !text-muted mb-12">
-              Most founders hit a wall when they try to scale without the right foundation in place. TAL VI is how you build that foundation — systematically, before growth exposes the gaps.
+              Most founders hit a wall when they try to scale without the right foundation in place. TAL VI is how you build that foundation, systematically, before growth exposes the gaps.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -88,7 +88,7 @@ export default function TALVIHero() {
                     { segment: "Economics", status: "Early Scale", focus: "You have early traction. Let\'s build a clear, sustainable revenue model around it." },
                     { segment: "Team", status: "Growth Clarity", focus: "Your team is growing. Now\'s the time to get clarity on roles and ownership." },
                     { segment: "Systems", status: "Founder Focus", focus: "Everything lives with you right now. Let\'s create systems so the business can run without you." },
-                    { segment: "Growth", status: "Structure Needed", focus: "You\'re growing — and that growth is surfacing things that need structure. Let\'s get ahead of it." },
+                    { segment: "Growth", status: "Structure Needed", focus: "You\'re growing, and that growth is surfacing things that need structure. Let\'s get ahead of it." },
                   ].map((row, i) => (
                     <motion.tr variants={staggerItem} key={i} className="border-b border-border-subtle last:border-0 hover:bg-bg-lift/10 transition-colors">
                       <td className="p-6 text-xs font-black uppercase tracking-widest text-muted border-r border-border-subtle">

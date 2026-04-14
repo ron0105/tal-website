@@ -13,7 +13,7 @@ const statements = [
   "We celebrate decisions made on solid ground.",
   "Evidence collected. Conviction earned.",
   "Validate first. Then build exactly what works.",
-  "Then build the right thing — once.",
+  "Then build the right thing. Once.",
 ];
 
 export default function ManifestoSection() {

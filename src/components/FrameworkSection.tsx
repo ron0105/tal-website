@@ -10,7 +10,7 @@ const steps = [
     number: "01",
     title: "Problem Framing",
     description:
-      "We work with you to define the real problem underneath your idea — not just the symptom. Separating the root cause from assumptions is what makes the rest of the process work.",
+      "We work with you to define the real problem underneath your idea, not just the symptom. Separating the root cause from assumptions is what makes the rest of the process work.",
     output: "Problem Statement Document",
   },
   {
@@ -24,28 +24,28 @@ const steps = [
     number: "03",
     title: "Research & Validation",
     description:
-      "We conduct real customer research — interviews, observation, demand signals — to test your highest-risk assumptions first. Our goal isn\'t to confirm what you hope is true, but to find out what\'s actually true.",
+      "We conduct real customer research: interviews, observation, demand signals. All of it aimed at testing your highest-risk assumptions first. Our goal is not to confirm what you hope is true, but to find out what is actually true.",
     output: "Validation Evidence Report",
   },
   {
     number: "04",
     title: "Business Model Structuring",
     description:
-      "We map out how the business actually makes money — unit economics, how customers come in, stay, and pay — before building a single feature. You go into product development with a model that works on paper first.",
+      "We map out how the business actually makes money: unit economics, how customers come in, stay, and pay. All of this before building a single feature, so you go into product development with a model that already works.",
     output: "Business Model Canvas + Unit Economics",
   },
   {
     number: "05",
     title: "Frugal Pilot",
     description:
-      "We design the leanest possible test that answers your most important question. You get real market feedback — on demand, price, and value — without overcommitting time or money.",
+      "We design the leanest possible test that answers your most important question. You get real market feedback on demand, price, and value, without overcommitting time or money.",
     output: "Pilot Design + Results Analysis",
   },
   {
     number: "06",
     title: "Decision Gate",
     description:
-      "Build, Refine, or Redirect. We define what success looks like before the sprint begins — so when the evidence is in, your next move is clear, objective, and yours to own.",
+      "Build, Refine, or Redirect. We define what success looks like before the sprint begins. So when the evidence is in, your next move is clear, objective, and yours to own.",
     output: "Decision Memo + Next-step Roadmap",
   },
 ];
@@ -98,7 +98,7 @@ export default function FrameworkSection() {
             className="flex items-end"
           >
             <p className="text-base md:text-lg leading-relaxed" style={{ color: "#666" }}>
-              Every engagement runs through the same six-stage process — tried, tested, and refined. It&apos;s designed to make sure you build the right thing with confidence, not just the first thing that feels right.
+              Every engagement runs through the same six-stage process, tried, tested, and refined. It&apos;s designed to make sure you build the right thing with confidence, not just the first thing that feels right.
             </p>
           </motion.div>
         </div>

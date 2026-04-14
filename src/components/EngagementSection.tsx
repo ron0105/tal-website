@@ -8,7 +8,7 @@ const models = [
     name: "Validation Sprint",
     duration: "4 – 6 weeks",
     description:
-      "A focused 4–6 week engagement to find out if your core idea holds up — with structured research and a clear go/refine decision at the end.",
+      "A focused 4–6 week engagement to find out if your core idea holds up, with structured research and a clear go/refine decision at the end.",
     forWhom: "New ideas, pivots, early-stage founders",
     includes: [
       "Problem framing workshop",
@@ -23,7 +23,7 @@ const models = [
     name: "Pilot Blueprint",
     duration: "6 – 10 weeks",
     description:
-      "The full journey — from business model clarity through to a lean market test and a clear recommendation on what to do next.",
+      "The full journey from business model clarity through to a lean market test and a clear recommendation on what to do next.",
     forWhom: "Validated ideas ready for first market contact",
     includes: [
       "All Sprint deliverables",
@@ -52,7 +52,7 @@ const models = [
     name: "Co-Build Ventures",
     duration: "Selective",
     description:
-      "For select opportunities where we go all-in as co-founders. We co-design, co-validate, and co-build from zero to first revenue — with the full weight of the Lab behind it.",
+      "For select opportunities where we go all-in as co-founders. We co-design, co-validate, and co-build from zero to first revenue, with the full weight of the Lab behind it.",
     forWhom: "Selective. For founders whose ideas show real signal.",
     includes: [
       "Full lab commitment",
@@ -114,7 +114,7 @@ export default function EngagementSection() {
               className="text-base md:text-lg leading-relaxed"
               style={{ color: "#666" }}
             >
-              Every model we offer is built around a specific outcome and a clear next step — no vague retainers, no open-ended timelines. You know what you&apos;re getting from day one.
+              Every model we offer is built around a specific outcome and a clear next step. No vague retainers, no open-ended timelines. You know what you&apos;re getting from day one.
             </p>
           </motion.div>
         </div>

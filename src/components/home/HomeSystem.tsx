@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { AnimateOnScroll, StaggerContainer, staggerItem } from "../shared/AnimateOnScroll";
 
 const steps = [
-  { n: "01", title: "Problem Framing", body: "We work with you to uncover the real problem underneath the idea — the one worth solving." },
+  { n: "01", title: "Problem Framing", body: "We work with you to uncover the real problem underneath the idea. The one worth solving." },
   { n: "02", title: "Hypothesis Definition", body: "We turn your idea into a set of clear statements we can actually test in the real world." },
-  { n: "03", title: "User Identification", body: "We identify exactly who experiences this problem — and who has the most reason to pay for a solution." },
-  { n: "04", title: "Pilot Design", body: "We design the simplest test that gives you the clearest answer — with minimal time and cost." },
-  { n: "05", title: "Metrics & Success", body: "We agree upfront on what success looks like — so you know exactly what you\'re measuring and why." },
+  { n: "03", title: "User Identification", body: "We identify exactly who experiences this problem, and who has the most reason to pay for a solution." },
+  { n: "04", title: "Pilot Design", body: "We design the simplest test that gives you the clearest answer, with minimal time and cost." },
+  { n: "05", title: "Metrics & Success", body: "We agree upfront on what success looks like, so you know exactly what you\'re measuring and why." },
   { n: "06", title: "Decision Gate", body: "A clear, evidence-backed recommendation: build with confidence, refine the approach, or redirect your energy." },
 ];
 
@@ -63,7 +63,7 @@ export default function HomeSystem() {
               [ BUILD / REFINE / REDIRECT ]
             </h3>
             <p className="body-copy text-muted max-w-[600px]">
-              How we use evidence to reach a clear, confident recommendation — together.
+              How we use evidence to reach a clear, confident recommendation, together.
             </p>
           </motion.div>
 

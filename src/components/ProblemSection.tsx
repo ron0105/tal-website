@@ -59,14 +59,14 @@ export default function ProblemSection() {
               className="text-base leading-relaxed mb-6"
               style={{ color: "#666" }}
             >
-              They stumble because of premature execution — building before fully understanding the problem. The market is actually quite receptive to well-validated ideas. What it can&apos;t support is assumptions shipped as products.
+              They stumble because of premature execution, building before fully understanding the problem. The market is actually quite receptive to well-validated ideas. What it can&apos;t support is assumptions shipped as products.
             </p>
 
             <p
               className="text-base leading-relaxed"
               style={{ color: "#555" }}
             >
-              The idea is rarely the problem. It&apos;s the approach that needs work. Enthusiasm is a great starting point — but structure is what takes you the rest of the way.
+              The idea is rarely the problem. It&apos;s the approach that needs work. Enthusiasm is a great starting point, but structure is what takes you the rest of the way.
             </p>
 
             {/* Pull quote */}

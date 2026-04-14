@@ -6,23 +6,23 @@ import { useRef } from "react";
 const principles = [
   {
     title: "We follow the evidence, not our preferences.",
-    body: "Even the most passionate idea needs to face real data. We help you separate what you believe from what the evidence shows — so you can make the most informed decision possible.",
+    body: "Even the most passionate idea needs to face real data. We help you separate what you believe from what the evidence shows, so you can make the most informed decision possible.",
   },
   {
     title: "Test small. Learn fast. Commit with confidence.",
-    body: "The biggest blocker isn\'t funding — it\'s clarity. A well-designed experiment costs a fraction of what a premature build does, and gives you far more to work with.",
+    body: "The biggest blocker isn\'t funding. It's clarity. A well-designed experiment costs a fraction of what a premature build does, and gives you far more to work with.",
   },
   {
     title: "Real revenue beats projected revenue.",
-    body: "Revenue is how you know demand is real — not a milestone to celebrate, but a signal to understand. The first rupee you earn tells you more than the tenth crore you forecast.",
+    body: "Revenue is how you know demand is real. Not a milestone to celebrate, but a signal to understand. The first rupee you earn tells you more than the tenth crore you forecast.",
   },
   {
     title: "Structure sets creativity free.",
-    body: "Our process isn\'t a cage — it\'s scaffolding. The clearer the constraints, the better the thinking. And better thinking leads to better ideas.",
+    body: "Our process isn\'t a cage, it's scaffolding. The clearer the constraints, the better the thinking. And better thinking leads to better ideas.",
   },
   {
     title: "Feel first. Decide on evidence.",
-    body: "Founders who feel strongly about their ideas are exactly who we work with. That passion is a strength — and pairing it with solid evidence is what turns conviction into traction.",
+    body: "Founders who feel strongly about their ideas are exactly who we work with. That passion is a strength, and pairing it with solid evidence is what turns conviction into traction.",
   },
   {
     title: "Learn fast. Redirect faster.",

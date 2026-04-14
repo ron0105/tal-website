@@ -22,7 +22,7 @@ export default function HomeHero() {
           transition={{ duration: 0.5, ease }}
           className="label-eyebrow mb-14"
         >
-          The Adda Labs — Where Good Ideas Get Built Right
+          The Adda Labs: Where Good Ideas Get Built Right
         </motion.p>
 
         {/* ── DOMINANT HEADLINE ── */}
@@ -58,7 +58,7 @@ export default function HomeHero() {
           className="max-w-[700px]"
         >
           <p className="body-copy mb-16 max-w-[600px]">
-            We run structured experiments that tell you exactly what to do next — before you spend a rupee on the wrong thing.
+            We run structured experiments that tell you exactly what to do next, before you spend a rupee on the wrong thing.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

@@ -15,7 +15,7 @@ export default function HomeCTA() {
               <span className="opacity-40 italic">FIND OUT?</span>
             </h2>
             <p className="body-copy !text-background opacity-80 max-w-[480px] mb-12">
-              We help you find out which ideas are worth building — so you can put your energy where it actually matters. Let’s start with what you’re working on.
+              We help you find out which ideas are worth building, so you can put your energy where it actually matters. Let’s start with what you’re working on.
             </p>
           </AnimateOnScroll>
 
