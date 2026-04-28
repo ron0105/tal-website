@@ -12,8 +12,7 @@ const pillars = [
     id: "structural",
     title: "Internal Foundation",
     tagline: "The way your team works together.",
-    description:
-      "We organize your business so you can hand off work without losing control. When everyone knows exactly what they're responsible for, you stop being the bottleneck in every decision.",
+    description: "Organize your business to hand off work without losing control. Stop being the bottleneck.",
     purpose: "Remove operational friction.",
     services: [
       { name: "Org mapping", desc: "Who owns what: clearly defined" },
@@ -28,8 +27,7 @@ const pillars = [
     id: "digital",
     title: "The Digital Engine",
     tagline: "The tech that powers your growth.",
-    description:
-      "We set up the tools and automation your team needs to work faster and track performance. Instead of messy spreadsheets and disconnected tools, you get a single system that tells you exactly how the business is doing.",
+    description: "Replace messy spreadsheets with a single system that tells you exactly how the business is doing.",
     purpose: "Enable scalable momentum.",
     services: [
       { name: "Positioning-led website", desc: "Built to convert, not just to exist" },
@@ -44,8 +42,7 @@ const pillars = [
     id: "narrative",
     title: "Your Market Story",
     tagline: "Why customers should choose you.",
-    description:
-      "We lock in your positioning before you spend money on marketing. We help you figure out what to say, who to say it to, and how to build trust in the market so your message actually sticks.",
+    description: "Lock in positioning before spending on marketing. Figure out what to say, and who to say it to.",
     purpose: "Drive premium perception.",
     services: [
       { name: "Founder positioning", desc: "Your story, told in a way that builds authority" },
@@ -81,9 +78,7 @@ export default function TALVIPillars() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex items-end">
             <p className="text-lg leading-relaxed text-body">
-              Most ventures work on one of these areas in isolation. TAL VI
-              builds all three together: because the bottleneck shifts as you
-              grow, and a gap in any one pillar limits all three.
+              Most work on these in isolation. We build all three together, because a gap in one limits them all.
             </p>
           </AnimateOnScroll>
         </div>
@@ -146,9 +141,13 @@ export default function TALVIPillars() {
                 <p className="text-xl md:text-2xl font-black italic mb-6 text-body">
                   {current.tagline}
                 </p>
-                <p className="body-copy">
+                <p className="body-copy mb-8">
                   {current.description}
                 </p>
+                <div className="aspect-[3/1] w-full max-w-[320px] bg-background border border-border-subtle p-4 flex flex-col justify-center items-center text-center">
+                  <p className="text-xs font-bold text-text-primary uppercase tracking-widest mb-1">Pillar Visual</p>
+                  <p className="text-[10px] text-muted">Placeholder representing {current.title}</p>
+                </div>
               </div>
 
               {/* Right: services */}

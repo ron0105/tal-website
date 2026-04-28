@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { GrowthPressureVisual } from "@/components/visuals";
 
 const mistakes = [
   {
@@ -44,19 +45,15 @@ export default function TALVIProblem() {
               </h2>
               <div className="flex flex-col gap-8 mb-12">
                 <p className="body-copy">
-                  Growth reveals what’s working and what isn’t built to last.
-                  Every new hire, new channel, and new feature puts pressure on the gaps in your foundation. That’s where we come in.
+                  Growth reveals what isn't built to last. Every new hire and feature puts pressure on the gaps in your foundation.
                 </p>
                 <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8">
-                  TAL VI is for businesses where the idea is working, but the team, tools, and narrative need to catch up. We build what’s missing so you can scale with clarity and confidence.
+                  TAL VI is for businesses where the idea works, but the structure doesn't. We build what's missing so you can scale.
                 </p>
               </div>
 
-              {/* Quote */}
-              <div className="mt-16 bg-bg-secondary p-8 border border-border-subtle italic">
-                <p className="text-xl font-black tracking-tight leading-relaxed">
-                  &ldquo;Structure is what turns growth into momentum.&rdquo;
-                </p>
+              <div className="aspect-video bg-bg-secondary border border-border-subtle p-6 flex flex-col justify-center items-center text-center">
+                <GrowthPressureVisual />
               </div>
             </AnimateOnScroll>
           </div>

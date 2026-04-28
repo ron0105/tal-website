@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { LinearProgressionVisual } from "@/components/visuals";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -69,11 +70,11 @@ export default function HIWHero() {
         >
           {/* Left: statement + CTA */}
           <div>
+            <div className="aspect-video bg-bg-secondary border border-border-subtle p-6 mb-10 flex flex-col justify-center items-center text-center">
+              <LinearProgressionVisual />
+            </div>
             <p className="body-copy mb-14 max-w-[520px]">
-              Building a new business is full of guesswork. We replace that
-              with a simple, six-stage roadmap. You'll always know
-              exactly where you stand, what we're learning from your
-              customers, and whether the idea is ready to build.
+              We replace guesswork with a six-stage roadmap. You'll always know where you stand and whether the idea is ready to build.
             </p>
             <Link href="/work-with-us" className="flex-shrink-0 btn-primary px-12 py-6">
               Start a Sprint
@@ -88,8 +89,6 @@ export default function HIWHero() {
           <div>
             <h2 className="text-section-title mb-8">
               The 6-stage framework.
-              <br />
-              <span className="text-muted">From thought to build.</span>
             </h2>
             <motion.ol
               variants={{

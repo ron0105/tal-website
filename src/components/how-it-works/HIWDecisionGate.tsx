@@ -2,25 +2,23 @@
 
 import Link from "next/link";
 import { AnimateOnScroll, AnimatedLine } from "@/components/shared/AnimateOnScroll";
+import { DecisionTreeVisual } from "@/components/visuals";
 
 const outcomes = [
   {
     label: "Build.",
-    description:
-      "The idea is validated. Real customers confirmed the problem. At least one paid or pre-committed. The unit economics work. You know exactly what to build and who to build it for.",
-    gets: "A build brief — scope, target customer profile, pricing, and a 90-day roadmap.",
+    description: "Idea validated. Customers confirmed the problem. Economics work. You know what to build and for whom.",
+    gets: "A build brief — scope, customer profile, pricing, and 90-day roadmap.",
   },
   {
     label: "Pivot.",
-    description:
-      "The core idea has signal — but something is wrong. The wrong customer, the wrong price, the wrong framing. We tell you exactly what changed and what to test next. A new direction, not a dead end.",
-    gets: "A pivot brief — defined direction change, what to retest, and a new sprint plan.",
+    description: "The core idea has signal, but something is off. We tell you what changed and what to test next.",
+    gets: "A pivot brief — new direction, what to retest, and a new sprint plan.",
   },
   {
     label: "Kill.",
-    description:
-      "The evidence doesn't support building this. No one confirmed the problem strongly enough. Nobody paid. The economics don't work at any realistic price. A clean stop saves months and capital.",
-    gets: "A kill memo — why, what we learned, and what (if anything) is worth keeping.",
+    description: "Evidence doesn't support building this. A clean stop saves months and capital.",
+    gets: "A kill memo — why, what we learned, and what is worth keeping.",
   },
 ];
 
@@ -36,36 +34,42 @@ export default function HIWDecisionGate() {
       <AnimatedLine className="mb-20 opacity-50" />
       <div className="layout-grid px-6 md:px-10">
 
-        <AnimateOnScroll>
-          <p className="label-eyebrow mb-8">Stage 6 — Decision Gate</p>
-          <h2
-            style={{
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.035em",
-              lineHeight: 1.0,
-              color: "var(--text-primary)",
-              marginBottom: "1.25rem",
-            }}
-          >
-            Every sprint ends
-            <br />
-            <span style={{ color: "var(--text-muted)" }}>with a clear answer.</span>
-          </h2>
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start mb-[clamp(5rem,10vh,8rem)]">
+          <AnimateOnScroll className="flex-1">
+            <p className="label-eyebrow mb-8">Stage 6 — Decision Gate</p>
+            <h2
+              style={{
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontWeight: 900,
+                letterSpacing: "-0.035em",
+                lineHeight: 1.0,
+                color: "var(--text-primary)",
+                marginBottom: "1.25rem",
+              }}
+            >
+              Every sprint ends
+              <br />
+              <span style={{ color: "var(--text-muted)" }}>with a clear answer.</span>
+            </h2>
 
-          <p
-            style={{
-              fontSize: "1.2rem",
-              lineHeight: 1.8,
-              color: "var(--text-body)",
-              maxWidth: "560px",
-              marginBottom: "clamp(5rem, 10vh, 8rem)",
-            }}
-          >
-            The decision criteria are defined before the sprint starts — not invented at the end.
-            Three outcomes are possible. All are valid.
-          </p>
-        </AnimateOnScroll>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                lineHeight: 1.8,
+                color: "var(--text-body)",
+                maxWidth: "560px",
+              }}
+            >
+              Decision criteria are defined before the sprint starts — not invented at the end.
+              Three outcomes are possible. All are valid.
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={0.15} className="w-full lg:w-[400px] shrink-0">
+            <div className="aspect-[4/3] bg-background border border-border-subtle p-8 flex flex-col justify-center items-center text-center">
+              <DecisionTreeVisual />
+            </div>
+          </AnimateOnScroll>
+        </div>
 
         {/* Three outcomes — full width vertical stack, no cards */}
         <div>

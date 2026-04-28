@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PipelineFlowVisual } from "@/components/visuals";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -30,14 +31,14 @@ export default function WWUHero() {
               <span className="text-muted opacity-50">real problem.</span>
             </h1>
             <p className="body-copy mb-8">
-              You don&apos;t need a pitch deck or a finished plan. Describe the
-              problem you&apos;re trying to solve, where you are, and what
-              you currently know.
+              No pitch decks needed. Just describe the problem you're solving and where you are now.
             </p>
-            <p className="body-copy !text-base !text-muted">
-              We read every submission personally. If the problem is worth
-              exploring, you&apos;ll hear from us within 48 hours.
+            <p className="body-copy !text-base !text-muted mb-8">
+              We read every submission. If it's worth exploring, we'll reply within 48 hours.
             </p>
+            <div className="aspect-[3/1] w-full max-w-[320px] bg-bg-secondary border border-border-subtle p-4 flex flex-col justify-center items-center text-center">
+              <PipelineFlowVisual />
+            </div>
           </motion.div>
 
           <motion.div

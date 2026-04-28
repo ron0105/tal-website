@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AnimateOnScroll } from "../shared/AnimateOnScroll";
+import { ValidationLoopVisual, ScalingMapVisual } from "@/components/visuals";
 
 export default function HomeSplit() {
   return (
@@ -18,16 +19,14 @@ export default function HomeSplit() {
             <AnimateOnScroll>
               <span className="label-eyebrow mb-8 block">Phase 01</span>
               <h3 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter">
-                TAL
-                <br />
-                <span className="text-muted">Core Lab</span>
+                TAL Core Lab
               </h3>
               
-              <ul className="flex flex-col gap-6">
+              <ul className="flex flex-col gap-6 mb-16">
                 {[
-                  "Rigorous Validation",
-                  "Pre-build Testing",
-                  "Question: Should this exist?",
+                  "Validate",
+                  "Test",
+                  "Should this exist?",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="w-1.5 h-1.5 bg-text-primary rounded-full" />
@@ -35,6 +34,10 @@ export default function HomeSplit() {
                   </li>
                 ))}
               </ul>
+
+              <div className="aspect-[4/3] bg-bg-secondary border border-border-subtle p-6 flex flex-col justify-center items-center text-center">
+                <ValidationLoopVisual />
+              </div>
             </AnimateOnScroll>
           </motion.div>
 
@@ -48,16 +51,14 @@ export default function HomeSplit() {
           <AnimateOnScroll delay={0.15}>
             <span className="label-eyebrow mb-8 block">Phase 02</span>
             <h3 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter">
-              TAL VI
-              <br />
-              <span className="text-muted">Infrastructure</span>
+              TAL VI Infrastructure
             </h3>
             
-            <ul className="flex flex-col gap-6">
+            <ul className="flex flex-col gap-6 mb-16">
               {[
-                "Growth Systems",
-                "Post-validation Execution",
-                "Question: How do we scale this?",
+                "Grow",
+                "Execute",
+                "How do we scale this?",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4">
                   <div className="w-1.5 h-1.5 bg-text-muted rounded-full" />
@@ -65,6 +66,10 @@ export default function HomeSplit() {
                 </li>
               ))}
             </ul>
+
+            <div className="aspect-[4/3] bg-background border border-border-subtle p-6 flex flex-col justify-center items-center text-center">
+              <ScalingMapVisual />
+            </div>
           </AnimateOnScroll>
         </motion.div>
       </div>

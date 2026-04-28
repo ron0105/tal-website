@@ -55,13 +55,10 @@ export default function VLHero() {
         >
           <div className="lg:col-span-5">
             <p className="body-copy mb-8">
-              Venture Lab is how we test if an idea actually works. Before you
-              spend months building, we find out if customers are ready to pay
-              for what you&apos;re offering.
+              We test if an idea actually works. Before you build, we find out if customers will pay.
             </p>
             <p className="body-copy !text-muted mb-12">
-              Every test ends with a clear result: Build it. Change the approach.
-              Or stop, and save your time for a better idea.
+              Every test ends with a clear result: Build. Pivot. Or Kill.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -84,10 +81,10 @@ export default function VLHero() {
               <table className="w-full text-left border-collapse">
                 <tbody>
                   {[
-                    { segment: "Pre-Build", status: "Concept Phase", focus: "You have an idea: but haven't built anything yet" },
-                    { segment: "Market Check", status: "Demand Check", focus: "You're not sure: if people will actually pay for it" },
-                    { segment: "Pivot Phase", status: "Signal Detection", focus: "You've built something: but it's not working as expected" },
-                    { segment: "Velocity", status: "Risk Mitigation", focus: "You want to move fast: without making expensive mistakes" },
+                    { segment: "Pre-Build", status: "Concept Phase", focus: "Idea exists: but nothing built yet" },
+                    { segment: "Market Check", status: "Demand Check", focus: "Uncertainty: will people pay for this?" },
+                    { segment: "Pivot Phase", status: "Signal Detection", focus: "Built: but not working as expected" },
+                    { segment: "Velocity", status: "Risk Mitigation", focus: "Move fast: avoid expensive mistakes" },
                   ].map((row, i) => (
                     <motion.tr 
                       variants={staggerItem} 

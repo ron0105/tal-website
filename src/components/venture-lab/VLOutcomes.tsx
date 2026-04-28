@@ -3,22 +3,23 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AnimateOnScroll, StaggerContainer, staggerItem } from "@/components/shared/AnimateOnScroll";
+import { DecisionVisual } from "@/components/visuals";
 
 const outcomes = [
   {
     decision: "Build",
     title: "The idea holds up. Build it.",
-    body: "You get a clear build brief: what to build, who to build it for, what to charge, and which assumptions to keep testing. No ambiguity about what version one should be.",
+    body: "You get a build brief: what to build, for whom, and what to charge. No ambiguity.",
   },
   {
     decision: "Pivot",
     title: "Something needs to change. Here's what.",
-    body: "The core idea has signal: but something is wrong. We tell you exactly what: the wrong customer, the wrong price, the wrong problem framing. A new direction, not a dead end.",
+    body: "The core idea has signal, but something is off. We tell you what needs to change. A new direction, not a dead end.",
   },
   {
     decision: "Kill",
     title: "The market doesn't support it. Stop now.",
-    body: "A clean stop is not a failure. It is capital preserved and time protected. You leave with a clear explanation of why: and what, if anything, is worth taking from the wreckage.",
+    body: "A clean stop saves capital and time. You leave with a clear explanation of why.",
   },
 ];
 
@@ -41,9 +42,7 @@ export default function VLOutcomes() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex items-end">
             <p className="body-copy">
-              The criteria for each decision are defined before the sprint
-              starts: not invented at the end. What you find is the evidence.
-              What you decide is the outcome. No surprises.
+              Decision criteria are defined before the sprint starts. Evidence drives the outcome. No surprises.
             </p>
           </AnimateOnScroll>
         </div>
@@ -75,8 +74,8 @@ export default function VLOutcomes() {
         </StaggerContainer>
 
         <AnimateOnScroll delay={0.25} className="mt-24">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12 p-12 border border-border-subtle bg-bg-secondary italic">
-            <div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12 p-12 border border-border-subtle bg-bg-secondary italic">
+            <div className="flex-1">
               <p className="text-display !text-3xl md:!text-4xl mb-4 italic tracking-tighter">
                 START YOUR
                 <br />
@@ -85,6 +84,11 @@ export default function VLOutcomes() {
               <p className="label-eyebrow !text-muted">
                 Tell us the problem. We&apos;ll tell you if it&apos;s worth building.
               </p>
+            </div>
+            <div className="w-full md:w-[240px] shrink-0">
+              <div className="aspect-video bg-background border border-border-subtle p-4 flex flex-col justify-center items-center text-center">
+                <DecisionVisual />
+              </div>
             </div>
             <Link href="/work-with-us" className="flex-shrink-0 btn-primary px-12 py-6">
               Start a Sprint

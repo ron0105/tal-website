@@ -3,20 +3,21 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { IntakeAbstractVisual } from "@/components/visuals";
 
 const stages = [
-  "I have an idea, haven't built anything",
-  "I'm building / have an early product",
-  "I have users but no reliable revenue",
-  "I'm generating revenue and want to grow",
-  "I'm exploring whether to pivot or stop",
+  "Idea stage: nothing built",
+  "Building / early product",
+  "Users, but no revenue",
+  "Revenue, ready to scale",
+  "Deciding to pivot or kill",
 ];
 
 const interests = [
-  { id: "vl", label: "Venture Lab (validate my idea)" },
-  { id: "talvi", label: "TAL VI (grow my business)" },
-  { id: "both", label: "Not sure — help me figure it out" },
-  { id: "cobuild", label: "Co-build (equity partnership)" },
+  { id: "vl", label: "Venture Lab (Validation)" },
+  { id: "talvi", label: "TAL VI (Growth)" },
+  { id: "both", label: "Not sure" },
+  { id: "cobuild", label: "Co-build (Equity)" },
 ];
 
 const inputStyle: React.CSSProperties = {
@@ -49,14 +50,21 @@ export default function WWUForm() {
       style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg)" }}
     >
       <div className="layout-grid">
-        <AnimateOnScroll className="mb-24">
-          <span className="label-eyebrow block mb-8">System Initiation</span>
-          <h2 className="text-section-title">
-            Tell us about
-            <br />
-            <span className="text-muted">your problem.</span>
-          </h2>
-        </AnimateOnScroll>
+        <div className="flex flex-col lg:flex-row gap-16 mb-24 items-start">
+          <AnimateOnScroll className="flex-1">
+            <span className="label-eyebrow block mb-8">System Initiation</span>
+            <h2 className="text-section-title">
+              Tell us about
+              <br />
+              <span className="text-muted">your problem.</span>
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={0.1} className="w-full lg:w-[320px] shrink-0">
+            <div className="aspect-[4/3] bg-bg-secondary border border-border-subtle p-6 flex flex-col justify-center items-center text-center">
+              <IntakeAbstractVisual />
+            </div>
+          </AnimateOnScroll>
+        </div>
 
         {submitted ? (
           <motion.div

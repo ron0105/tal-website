@@ -22,16 +22,16 @@ export default function HomeHero() {
           transition={{ duration: 0.5, ease }}
           className="label-eyebrow mb-14"
         >
-          The Adda Labs: Where Good Ideas Get Built Right
+          The Adda Labs
         </motion.p>
 
         {/* ── DOMINANT HEADLINE ── */}
         <div className="mb-14">
           {[
-            { text: "IDEAS ARE", delay: 0.08, muted: false },
-            { text: "EASY.", delay: 0.16, muted: true },
-            { text: "DECISIONS", delay: 0.24, muted: false },
-            { text: "TAKE COURAGE.", delay: 0.32, muted: true },
+            { text: "EXECUTION IS", delay: 0.08, muted: false },
+            { text: "A SYSTEM,", delay: 0.16, muted: true },
+            { text: "NOT AN", delay: 0.24, muted: false },
+            { text: "ACCIDENT.", delay: 0.32, muted: true },
           ].map(({ text, delay, muted }) => (
             <div key={text} className="overflow-hidden mb-1">
               <motion.h1
@@ -58,15 +58,15 @@ export default function HomeHero() {
           className="max-w-[700px]"
         >
           <p className="body-copy mb-16 max-w-[600px]">
-            We run structured experiments that tell you exactly what to do next, before you spend a rupee on the wrong thing.
+            We do not just give advice. We engineer the structural foundation your startup needs to actually work.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/work-with-us" className="btn-primary uppercase tracking-widest font-black text-sm" style={{ padding: "14px 40px" }}>
-              GET CLARITY ON YOUR IDEA
+              START BUILDING
             </Link>
             <Link href="#system" className="btn-ghost uppercase tracking-widest font-bold text-sm" style={{ padding: "14px 40px" }}>
-              SEE HOW IT WORKS
+              SEE HOW WE WORK
             </Link>
           </div>
         </motion.div>

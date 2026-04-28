@@ -2,41 +2,42 @@
 
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { TimelineProcessVisual } from "@/components/visuals";
 
 const steps = [
   {
     n: "01",
     title: "Diagnostic",
     duration: "Week 1",
-    body: "We audit your current state across all three pillars — structural, digital, and narrative. No assumptions. No templates. We start with what exists and map the gaps.",
+    body: "We audit your current state across all three pillars. We start with what exists and map the gaps.",
     output: "Infrastructure audit report",
   },
   {
     n: "02",
     title: "Blueprint",
     duration: "Week 1–2",
-    body: "We design the full infrastructure map — what to build, in what order, and why. You see the complete picture before any execution begins. No surprises mid-engagement.",
+    body: "We design the full infrastructure map — what to build, in what order, and why. No surprises.",
     output: "Full infrastructure blueprint",
   },
   {
     n: "03",
     title: "Sprints",
     duration: "Weeks 2–8",
-    body: "We build in focused two-week sprints. Each sprint delivers one complete system — not a draft, not a recommendation. A working output that runs without us.",
+    body: "We build in focused two-week sprints. Each sprint delivers a working system that runs without us.",
     output: "Delivered systems (per sprint)",
   },
   {
     n: "04",
     title: "Documentation",
     duration: "Ongoing",
-    body: "Every system we build is documented in plain language. Your team can use it, your hires can follow it, and your next operator won't need to call us to understand it.",
+    body: "Every system is documented in plain language. Your team can use it without needing to call us.",
     output: "Operational playbooks",
   },
   {
     n: "05",
     title: "Governance",
     duration: "Final phase",
-    body: "We set the review cadence, the metrics to watch, and the trigger conditions for each system. You know when something needs attention and exactly what to do about it.",
+    body: "We set the review cadence, metrics, and triggers. You know when something needs attention.",
     output: "Governance framework",
   },
 ];
@@ -59,14 +60,14 @@ export default function TALVIProcess() {
                 <span className="text-muted">No ad-hoc work.</span>
               </h2>
               <p className="text-base leading-relaxed mb-4 text-muted">
-                No reactive task lists. No random marketing. Every engagement
-                follows a defined process — diagnostic to governance — with clear
-                outputs at each stage.
+                No reactive task lists. Every engagement follows a defined process with clear outputs.
               </p>
               <p className="text-base leading-relaxed mb-10 text-body">
-                At the end, you own everything we built. You don&apos;t need us to
-                keep it running.
+                You own everything we build. You don't need us to keep it running.
               </p>
+              <div className="aspect-[4/3] w-full bg-bg-secondary border border-border-subtle p-6 mb-10 flex flex-col justify-center items-center text-center">
+                <TimelineProcessVisual />
+              </div>
               <Link
                 href="/work-with-us"
                 className="btn-primary"

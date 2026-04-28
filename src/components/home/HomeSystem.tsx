@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import { AnimateOnScroll, StaggerContainer, staggerItem } from "../shared/AnimateOnScroll";
+import { ProgressionVisual } from "@/components/visuals";
 
 const steps = [
-  { n: "01", title: "Problem Framing", body: "We work with you to uncover the real problem underneath the idea. The one worth solving." },
-  { n: "02", title: "Hypothesis Definition", body: "We turn your idea into a set of clear statements we can actually test in the real world." },
-  { n: "03", title: "User Identification", body: "We identify exactly who experiences this problem, and who has the most reason to pay for a solution." },
-  { n: "04", title: "Pilot Design", body: "We design the simplest test that gives you the clearest answer, with minimal time and cost." },
-  { n: "05", title: "Metrics & Success", body: "We agree upfront on what success looks like, so you know exactly what you\'re measuring and why." },
-  { n: "06", title: "Decision Gate", body: "A clear, evidence-backed recommendation: build with confidence, refine the approach, or redirect your energy." },
+  { n: "01", title: "Problem Framing", body: "Find the actual problem, not just the symptom." },
+  { n: "02", title: "Hypothesis Definition", body: "Turn ideas into testable statements." },
+  { n: "03", title: "User Identification", body: "Find who pays to solve this." },
+  { n: "04", title: "Pilot Design", body: "The simplest test for the clearest answer." },
+  { n: "05", title: "Metrics & Success", body: "Define success before you start." },
+  { n: "06", title: "Decision Gate", body: "Build, refine, or redirect based on evidence." },
 ];
 
 const engineRow = [
@@ -24,14 +25,19 @@ export default function HomeSystem() {
   return (
     <section id="system" className="padding-section bg-background border-t border-border-subtle">
       <div className="layout-grid">
-        <AnimateOnScroll>
-          <span className="label-eyebrow mb-12 block">The System</span>
-          <h2 className="text-section-title mb-24">
-            A clear process
-            <br />
-            <span className="text-muted">for making your most important call.</span>
-          </h2>
-        </AnimateOnScroll>
+        <div className="flex flex-col lg:flex-row gap-16 mb-24 items-start">
+          <AnimateOnScroll className="flex-1">
+            <span className="label-eyebrow mb-12 block">The System</span>
+            <h2 className="text-section-title">
+              How we work.
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={0.15} className="flex-1 w-full">
+            <div className="aspect-video bg-bg-secondary border border-border-subtle p-8 flex flex-col justify-center items-center text-center">
+              <ProgressionVisual />
+            </div>
+          </AnimateOnScroll>
+        </div>
 
         {/* 6-Step Grid */}
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border-subtle mb-32 border border-border-subtle">
@@ -63,7 +69,7 @@ export default function HomeSystem() {
               [ BUILD / REFINE / REDIRECT ]
             </h3>
             <p className="body-copy text-muted max-w-[600px]">
-              How we use evidence to reach a clear, confident recommendation, together.
+              Our output: build, refine, or redirect.
             </p>
           </motion.div>
 

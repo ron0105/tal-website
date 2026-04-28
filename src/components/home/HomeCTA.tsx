@@ -12,10 +12,10 @@ export default function HomeCTA() {
             <h2 className="text-display !text-background mb-8">
               READY TO
               <br />
-              <span className="opacity-40 italic">FIND OUT?</span>
+              <span className="opacity-40 italic">BUILD?</span>
             </h2>
             <p className="body-copy !text-background opacity-80 max-w-[480px] mb-12">
-              We help you find out which ideas are worth building, so you can put your energy where it actually matters. Let’s start with what you’re working on.
+              Let's find out if your idea is worth building.
             </p>
           </AnimateOnScroll>
 

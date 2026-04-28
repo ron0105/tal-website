@@ -9,8 +9,7 @@ const steps = [
     title: "Problem Framing",
     duration: "2-3 days",
     question: "Is this a problem people actually care about?",
-    description:
-      "Before we talk about products or apps, we look for a real problem. We help you figure out if what you want to build solves a genuine pain point for people, or if it's just a nice-to-have. Many great ideas fail because they solve a problem that nobody actually has.",
+    description: "Before talking products, we find a real problem. We figure out if your idea solves a genuine pain point, or if it's just a nice-to-have.",
     whatHappens: [
       "1:1 founder session to map your assumptions",
       "Customer pain hypothesis written in plain language",
@@ -24,8 +23,7 @@ const steps = [
     title: "Assumption Mapping",
     duration: "2-3 days",
     question: "What are the biggest risks to this idea?",
-    description:
-      "Every new business is built on a few 'must-be-true' guesses. We list everything you're assuming (like what people will pay or why they'll switch) and rank them. We test the scariest, most important guesses first so you don't waste time on the small stuff.",
+    description: "We list your assumptions and rank them by risk. We test the scariest guesses first so you don't waste time.",
     whatHappens: [
       "Full assumption list across customer, product, and revenue",
       "Each assumption scored by risk and uncertainty",
@@ -39,8 +37,7 @@ const steps = [
     title: "Research & Validation",
     duration: "1-2 weeks",
     question: "Will people actually use this and pay for it?",
-    description:
-      "We go out and talk to your future customers. These aren't just polite surveys, but deep conversations to find the truth. We want to know if they have the problem, how they deal with it now, and what they would give up to have your solution instead.",
+    description: "We go out and talk to your future customers. We want to know if they have the problem, how they deal with it now, and what they would give up for a solution.",
     whatHappens: [
       "10–15 in-depth customer interviews",
       "Demand proxy test (e.g. landing page, pre-sales)",
@@ -54,8 +51,7 @@ const steps = [
     title: "Business Model Structuring",
     duration: "2-3 days",
     question: "Will this business actually make money?",
-    description:
-      "A great idea still needs a way to pay the bills. We look at the basic math of your business: how much it costs to find a customer, how much they spend, and how long it takes to become profitable. We do this with simple models before you spend a single rupee on building anything.",
+    description: "We look at the basic math: how much it costs to find a customer, what they spend, and the time to profitability.",
     whatHappens: [
       "Revenue model options mapped and compared",
       "Customer acquisition cost estimated",
@@ -69,12 +65,11 @@ const steps = [
     title: "Frugal Pilot",
     duration: "1-3 weeks",
     question: "Do people put their money where their mouth is?",
-    description:
-      "A pilot isn't a finished product, but it's a real test. We create the smallest, fastest version of your idea to see if people will actually commit or pay. It's the best way to get a real 'yes' or 'no' from the market without over-investing in a full build.",
+    description: "We create the smallest, fastest version of your idea to see if people will actually commit or pay.",
     whatHappens: [
       "Pilot scope and success criteria defined",
       "Pilot designed and launched",
-      "Real customers, real transactions (where possible)",
+      "Real customers, real transactions",
       "Data collected and analyzed",
     ],
     output: "Pilot Results + Demand Analysis",
@@ -84,11 +79,10 @@ const steps = [
     title: "Decision Gate",
     duration: "1-2 days",
     question: "Based on the evidence, what is the next step?",
-    description:
-      "Every sprint ends with a clear path forward. We look at everything we learned and make a final choice. We either 'Build' (the idea is a winner), 'Pivot' (good idea, wrong direction), or 'Stop' (the evidence says save your money and move on).",
+    description: "We look at everything we learned and make a final choice: Build, Pivot, or Stop.",
     whatHappens: [
       "All evidence reviewed against original assumptions",
-      "Decision criteria assessed (defined at the start)",
+      "Decision criteria assessed",
       "Clear recommendation with supporting evidence",
       "Next steps defined for all three outcomes",
     ],

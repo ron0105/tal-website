@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { CostOfSkippingVisual } from "@/components/visuals";
 
 export default function VLProblem() {
   return (
@@ -21,22 +22,21 @@ export default function VLProblem() {
               </h2>
               <div className="flex flex-col gap-8 mb-12">
                 <p className="body-copy">
-                  Not because the idea was bad, but because the founder built the
-                  wrong version of it: for the wrong people, at the wrong price,
-                  long before they checked.
+                  Not because the idea was bad, but because the founder built the wrong version: for the wrong people, at the wrong price.
                 </p>
                 <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8">
-                  Six months of building. One launch day. Zero paying customers.
-                  That is the cost of skipping validation.
+                  Six months of building. Zero paying customers. That is the cost of skipping validation.
                 </p>
                 <p className="body-copy">
-                  A Validation Sprint takes 4–6 weeks. It answers the questions
-                  that most founders skip. It costs a fraction of what a failed
-                  build does.
+                  A Validation Sprint answers the questions most skip, costing a fraction of a failed build.
                 </p>
               </div>
 
-              <div className="mt-16 bg-bg-secondary p-8 border border-border-subtle italic">
+              <div className="aspect-video bg-bg-secondary border border-border-subtle p-6 mb-12 flex flex-col justify-center items-center text-center">
+                <CostOfSkippingVisual />
+              </div>
+
+              <div className="bg-bg-secondary p-8 border border-border-subtle italic">
                 <p className="text-xl font-black tracking-tight leading-relaxed">
                   &ldquo;The real risk is not that the market rejects you. 
                   It&apos;s that you never found out what they actually wanted.&rdquo;

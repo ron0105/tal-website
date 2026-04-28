@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { DiagnosticVisual } from "@/components/visuals";
 
 const beliefs = [
   { statement: "Structure before speed.", detail: "Moving fast on a fragile base just gets you to the wrong destination faster." },
@@ -13,16 +14,16 @@ const beliefs = [
 ];
 
 const whoFor = [
-  "Founder-led ventures, 0 to 30 people",
-  "Teams experiencing structural strain as they grow",
-  "Founders who want to build something that outlasts their daily involvement",
-  "Ventures post-validation that need operational rigour before scale",
+  "Founder-led ventures (0-30 people)",
+  "Teams feeling structural strain",
+  "Founders building beyond themselves",
+  "Post-validation ventures needing rigour",
 ];
 
 const notFor = [
-  "Ventures looking for quick, low-cost marketing campaigns",
-  "Founders who want opinions without execution",
-  "Teams not willing to document how they work",
+  "Quick, low-cost marketing",
+  "Opinions without execution",
+  "Teams unwilling to document",
 ];
 
 export default function TALVIPhilosophy() {
@@ -109,7 +110,7 @@ export default function TALVIPhilosophy() {
               <span className="label-eyebrow !text-text-primary block mb-12 bg-bg-lift/30 px-3 py-1 self-start inline-block">
                 [ COMPATIBLE ]
               </span>
-              <ul className="flex flex-col gap-6">
+              <ul className="flex flex-col gap-6 mb-12">
                 {whoFor.map((item, i) => (
                   <li key={i} className="flex gap-4 items-baseline">
                     <div className="w-1.5 h-1.5 bg-text-primary rounded-full mt-2" />
@@ -124,7 +125,7 @@ export default function TALVIPhilosophy() {
               <span className="label-eyebrow !text-muted block mb-12 bg-bg-lift/10 px-3 py-1 self-start inline-block">
                 [ INCOMPATIBLE ]
               </span>
-              <ul className="flex flex-col gap-6">
+              <ul className="flex flex-col gap-6 mb-12">
                 {notFor.map((item, i) => (
                   <li key={i} className="flex gap-4 items-baseline opacity-50">
                     <div className="w-1.5 h-1.5 bg-text-muted rounded-full mt-2" />
@@ -137,24 +138,31 @@ export default function TALVIPhilosophy() {
 
           {/* CTA */}
           <AnimateOnScroll delay={0.2} className="mt-24 flex justify-center">
-            <div className="w-full max-w-[900px] flex flex-col items-center text-center p-12 md:p-16 border border-border-subtle bg-bg-secondary">
-              <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 mb-8">
-                [ DIAGNOSTIC REQUIRED ]
-              </span>
-              <p className="text-display !text-4xl md:!text-5xl mb-8 uppercase italic tracking-tighter text-foreground">
-                SYSTEMS BREAK AT SCALE.
-                <br />
-                FIND THE FRACTURES NOW.
-              </p>
-              <p className="body-copy !text-xl text-body font-bold tracking-tight leading-relaxed max-w-[640px] mb-10">
-                Run a full structural diagnostic to isolate operational bottlenecks and extract the definitive build sequence for your next phase.
-              </p>
-              <Link
-                href="/work-with-us"
-                className="btn-primary !px-12 !py-6 text-sm uppercase tracking-widest font-black"
-              >
-                Start Diagnostic
-              </Link>
+            <div className="w-full max-w-[900px] flex flex-col md:flex-row items-center gap-12 text-left p-12 md:p-16 border border-border-subtle bg-bg-secondary">
+              <div className="flex-1">
+                <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 mb-8 inline-block">
+                  [ DIAGNOSTIC REQUIRED ]
+                </span>
+                <p className="text-display !text-4xl md:!text-5xl mb-8 uppercase italic tracking-tighter text-foreground">
+                  SYSTEMS BREAK AT SCALE.
+                  <br />
+                  FIND THE FRACTURES NOW.
+                </p>
+                <p className="body-copy !text-xl text-body font-bold tracking-tight leading-relaxed max-w-[640px] mb-10">
+                  Run a structural diagnostic to isolate bottlenecks and define what to build next.
+                </p>
+                <Link
+                  href="/work-with-us"
+                  className="btn-primary !px-12 !py-6 text-sm uppercase tracking-widest font-black inline-block"
+                >
+                  Start Diagnostic
+                </Link>
+              </div>
+              <div className="w-full md:w-[300px] shrink-0">
+                <div className="aspect-square bg-background border border-border-subtle p-6 flex flex-col justify-center items-center text-center">
+                  <DiagnosticVisual />
+                </div>
+              </div>
             </div>
           </AnimateOnScroll>
         </div>

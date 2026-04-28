@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AnimateOnScroll, StaggerContainer, staggerItem } from "@/components/shared/AnimateOnScroll";
+import { ModelComparisonVisual } from "@/components/visuals";
 
 const models = [
   {
@@ -9,7 +10,7 @@ const models = [
     tag: "Most Common",
     duration: "4–6 weeks",
     price: "Fixed fee",
-    best: "You have an idea and want to know if it's worth building before spending more time or money.",
+    best: "You want to know if your idea is worth building before spending money.",
     what: [
       "Full 6-stage validation process",
       "10–15 customer interviews",
@@ -24,7 +25,7 @@ const models = [
     tag: null,
     duration: "6–10 weeks",
     price: "Fixed fee",
-    best: "Your idea is validated and you're ready for your first real market test.",
+    best: "Idea validated. Ready for your first real market test.",
     what: [
       "Everything in a Validation Sprint",
       "Full pilot design and execution",
@@ -38,7 +39,7 @@ const models = [
     tag: null,
     duration: "Monthly retainer",
     price: "Monthly",
-    best: "You're running multiple ideas or iterating quickly and need ongoing validation support.",
+    best: "Running multiple ideas and need ongoing validation support.",
     what: [
       "2 validation sprints per month",
       "Weekly review sessions",
@@ -52,7 +53,7 @@ const models = [
     tag: "Growth Arm",
     duration: "8–12 weeks",
     price: "Fixed fee",
-    best: "You have a validated idea and need help building revenue, go-to-market, and growth systems.",
+    best: "Idea validated. Need to build revenue, GTM, and growth systems.",
     what: [
       "Revenue model and pricing design",
       "Go-to-market plan (first 100 customers)",
@@ -71,7 +72,7 @@ export default function WWUModels() {
       style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg)" }}
     >
       <div className="layout-grid">
-        <div className="grid md:grid-cols-2 gap-12 mb-24">
+        <div className="grid md:grid-cols-2 gap-12 mb-24 items-start">
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-8">Engagement Architectures</span>
             <h2 className="text-section-title">
@@ -79,12 +80,14 @@ export default function WWUModels() {
               <br />
               <span className="text-muted">where you are.</span>
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll delay={0.1} className="flex items-end">
-            <p className="body-copy">
-              Not sure which one is right? Describe your situation in the form
-              below and we&apos;ll suggest the right starting point.
+            <p className="body-copy mt-6 max-w-[480px]">
+              Not sure which is right? Describe your situation and we'll suggest the starting point.
             </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={0.1}>
+            <div className="aspect-[2/1] w-full bg-bg-secondary border border-border-subtle p-6 flex flex-col justify-center items-center text-center">
+              <ModelComparisonVisual />
+            </div>
           </AnimateOnScroll>
         </div>
 
