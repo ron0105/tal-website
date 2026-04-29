@@ -99,7 +99,7 @@ export default function Navbar() {
               className="btn-primary"
               style={{ padding: "8px 20px", fontSize: "0.8rem" }}
             >
-              Start a Sprint
+              Start the conversation
             </Link>
           </div>
 
@@ -175,7 +175,7 @@ export default function Navbar() {
               href="/work-with-us"
               className="btn-primary flex items-center justify-center mt-6"
             >
-              Start a Sprint
+              Start the conversation
             </Link>
           </motion.div>
         )}

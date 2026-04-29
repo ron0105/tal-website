@@ -76,8 +76,8 @@ export default function HIWHero() {
             <p className="body-copy mb-14 max-w-[520px]">
               We replace guesswork with a six-stage roadmap. You'll always know where you stand and whether the idea is ready to build.
             </p>
-            <Link href="/work-with-us" className="flex-shrink-0 btn-primary px-12 py-6">
-              Start a Sprint
+            <Link href="/work-with-us" className="btn-primary">
+              Start the conversation
             </Link>
             <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8 mt-12">
               Six months of building. One launch day. Zero paying customers.

@@ -14,16 +14,16 @@ const beliefs = [
 ];
 
 const whoFor = [
-  "Founder-led ventures (0-30 people)",
-  "Teams feeling structural strain",
-  "Founders building beyond themselves",
-  "Post-validation ventures needing rigour",
+  "Owner-led businesses (0 to 30 people)",
+  "Teams where growth is creating more chaos than momentum",
+  "Businesses where the owner is still in every decision",
+  "Any business that works but is getting harder to run",
 ];
 
 const notFor = [
-  "Quick, low-cost marketing",
-  "Opinions without execution",
-  "Teams unwilling to document",
+  "Businesses looking for a quick marketing fix",
+  "Teams that want advice but not implementation",
+  "Anyone unwilling to change how they work",
 ];
 
 export default function TALVIPhilosophy() {
@@ -144,12 +144,12 @@ export default function TALVIPhilosophy() {
                   [ INQUIRY REQUIRED ]
                 </span>
                 <p className="text-display !text-4xl md:!text-5xl mb-8 uppercase italic tracking-tighter text-foreground">
-                  SYSTEMS BREAK AT SCALE.
+                  THINGS BREAK WHEN YOU GROW.
                   <br />
-                  FIND THE FRACTURES NOW.
+                  LET'S FIND WHAT NEEDS FIXING.
                 </p>
                 <p className="body-copy !text-xl text-body font-bold tracking-tight leading-relaxed max-w-[640px] mb-10">
-                  Run a structural assessment to isolate bottlenecks and define what to build next.
+                  Tell us about your business. We will tell you where the gaps are and what to build first.
                 </p>
                 <Link
                   href="/work-with-us"

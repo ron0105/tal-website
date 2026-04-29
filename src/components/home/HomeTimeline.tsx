@@ -4,9 +4,9 @@ import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 import { VelocityVisual } from "@/components/visuals";
 
 const rhythm = [
-  { day: "MONDAY", task: "Problem framing", sub: "Stripping assumptions. Aligning objectives." },
-  { day: "WEDNESDAY", task: "Experiment design", sub: "Building pilots. Deploying tests." },
-  { day: "FRIDAY", task: "Decision gate", sub: "Reviewing evidence. Build/Pivot/Kill decision." },
+  { day: "WEEK OPEN", task: "Problem Framing", sub: "We start with the question, not the answer. What is the real problem here?" },
+  { day: "MID WEEK", task: "Experiment Design", sub: "We build the smallest test that can give us a real answer." },
+  { day: "WEEK CLOSE", task: "Decision Gate", sub: "We look at what the evidence actually says. Build, pivot or kill." },
 ];
 
 export default function HomeTimeline() {

@@ -94,7 +94,7 @@ export default function Navbar() {
           ((e.currentTarget as HTMLElement).style.background = "#2563EB")
         }
       >
-        Start a Sprint
+        Start the conversation
       </a>
     </motion.header>
   );

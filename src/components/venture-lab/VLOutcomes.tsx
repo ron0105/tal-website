@@ -91,7 +91,7 @@ export default function VLOutcomes() {
               </div>
             </div>
             <Link href="/work-with-us" className="flex-shrink-0 btn-primary px-12 py-6">
-              Start a Sprint
+              Start the conversation
             </Link>
           </div>
         </AnimateOnScroll>

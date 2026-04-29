@@ -45,10 +45,10 @@ export default function TALVIProblem() {
               </h2>
               <div className="flex flex-col gap-8 mb-12">
                 <p className="body-copy">
-                  Growth reveals what isn't built to last. Every new hire and feature puts pressure on the gaps in your foundation.
+                  Growth does not create problems. It reveals the ones that were already there. Every new hire, every new customer, every new channel puts pressure on whatever was not properly built.
                 </p>
                 <p className="body-copy !text-muted border-l-2 border-border-subtle pl-8">
-                  TAL VI is for businesses where the idea works, but the structure doesn't. We build what's missing so you can scale.
+                  TAL VI is for businesses where things are working but getting harder to manage. We build what is missing so growth does not break what you have built.
                 </p>
               </div>
 

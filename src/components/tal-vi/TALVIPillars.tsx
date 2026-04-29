@@ -12,7 +12,7 @@ const pillars = [
     id: "digital",
     title: "Digital",
     tagline: "Infrastructure & Tools",
-    description: "We build the digital infrastructure and tools that power your day-to-day operations. Most businesses run on WhatsApp and manual processes longer than they should.",
+    description: "We set up the digital tools and systems your business actually needs. Most teams run on WhatsApp and spreadsheets longer than they should. We fix that.",
     purpose: "Enable scalable momentum.",
     services: [
       { name: "Positioning-led website", desc: "Built to convert, not just to exist" },
@@ -27,7 +27,7 @@ const pillars = [
     id: "narrative",
     title: "Narrative",
     tagline: "Your Market Story",
-    description: "We build your market story — positioning, messaging, and communication architecture. If people outside your team can't explain what you do and why it matters, you don't have a narrative yet.",
+    description: "We work out what your business actually stands for and how to say it. Most businesses are doing good work that the world cannot see clearly because the story is not yet sharp enough. We make it sharp.",
     purpose: "Drive premium perception.",
     services: [
       { name: "Founder positioning", desc: "Your story, told in a way that builds authority" },
@@ -42,7 +42,7 @@ const pillars = [
     id: "org",
     title: "Org",
     tagline: "Internal Foundation",
-    description: "We map your organization, clarify roles, document processes, and build the KPI framework that lets the business run without the founder in every decision.",
+    description: "We map how the business runs today and how it needs to run tomorrow. Most teams grow faster than their structure. People end up doing everything and nothing at the same time. We fix the roles, the process, and the accountability.",
     purpose: "Remove operational friction.",
     services: [
       { name: "Org mapping", desc: "Who owns what: clearly defined" },
@@ -78,7 +78,7 @@ export default function TALVIPillars() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1} className="flex flex-col justify-end gap-6">
             <p className="text-lg leading-relaxed text-body">
-              <span className="font-bold">Target client for TAL VI:</span> Operating businesses with existing revenue. Teams feeling structural strain. Founders who are the bottleneck in their own business.
+              TAL VI is for businesses that are already running. If you have customers, revenue, and a team, but feel like things are getting harder to manage as you grow, this is where to start.
             </p>
           </AnimateOnScroll>
         </div>

@@ -57,11 +57,8 @@ export default function TALVIHero() {
           className="grid lg:grid-cols-12 gap-16 items-start"
         >
           <div className="lg:col-span-5">
-            <p className="body-copy mb-8">
-              TAL VI turns ideas into operations. We help you build the systems and structure needed to grow without chaos.
-            </p>
-            <p className="body-copy !text-muted mb-12">
-              Don't hit the wall. Build the foundation before growth breaks your business.
+            <p className="body-copy mb-12">
+              Most businesses hit a wall when they grow. Not because the idea is wrong, but because the foundation was never built properly. TAL VI fixes that.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
