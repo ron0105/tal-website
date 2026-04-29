@@ -69,7 +69,7 @@ export default function Footer() {
               className="btn-primary uppercase tracking-widest font-black"
               style={{ padding: "12px 24px", fontSize: "0.75rem" }}
             >
-              Start Diagnostic
+              Start the conversation
             </Link>
           </div>
         </div>

@@ -5,20 +5,7 @@ import { motion } from "framer-motion";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 import { IntakeAbstractVisual } from "@/components/visuals";
 
-const stages = [
-  "Idea stage: nothing built",
-  "Building / early product",
-  "Users, but no revenue",
-  "Revenue, ready to scale",
-  "Deciding to pivot or kill",
-];
 
-const interests = [
-  { id: "vl", label: "Venture Lab (Validation)" },
-  { id: "talvi", label: "TAL VI (Growth)" },
-  { id: "both", label: "Not sure" },
-  { id: "cobuild", label: "Co-build (Equity)" },
-];
 
 const inputStyle: React.CSSProperties = {
   background: "var(--bg-secondary)",
@@ -34,9 +21,7 @@ const inputStyle: React.CSSProperties = {
 
 export default function WWUForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [interest, setInterest] = useState("");
-  const [stage, setStage] = useState("");
-  const [form, setForm] = useState({ name: "", email: "", problem: "" });
+  const [form, setForm] = useState({ name: "", workingOn: "", helpWith: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,104 +75,56 @@ export default function WWUForm() {
         ) : (
           <AnimateOnScroll>
             <form onSubmit={handleSubmit} className="max-w-3xl flex flex-col gap-12">
-              {/* Name + Email */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div className="flex flex-col gap-4">
-                  <span className="label-eyebrow !text-muted">[ 01 ] IDENTIFIER</span>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Full name"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors"
-                  />
-                </div>
-                <div className="flex flex-col gap-4">
-                  <span className="label-eyebrow !text-muted">[ 02 ] CHANNEL</span>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="you@domain.com"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Interest */}
-              <div className="flex flex-col gap-6">
-                <span className="label-eyebrow !text-muted">[ 03 ] INTENT</span>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {interests.map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => setInterest(opt.id)}
-                      className="group flex flex-col justify-between p-6 text-left border border-border-subtle hover:border-text-primary transition-all duration-200"
-                      style={{
-                        background: interest === opt.id ? "var(--bg-lift)" : "transparent",
-                        borderColor: interest === opt.id ? "var(--text-primary)" : "var(--border-subtle)",
-                      }}
-                    >
-                      <span className="text-[10px] font-black tracking-widest text-muted mb-4">
-                        {interest === opt.id ? "SELECTED" : "DESELECTED"}
-                      </span>
-                      <span className="text-sm md:text-base font-black uppercase italic italic-accent tracking-tighter">
-                        {opt.label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Stage */}
-              <div className="flex flex-col gap-6">
-                <span className="label-eyebrow !text-muted">[ 04 ] STATUS</span>
-                <div className="relative">
-                  <select
-                    id="stage"
-                    required
-                    value={stage}
-                    onChange={(e) => setStage(e.target.value)}
-                    className="w-full bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors appearance-none"
-                  >
-                    <option value="" disabled className="bg-background">Current venture stage</option>
-                    {stages.map((s) => (
-                      <option key={s} value={s} className="bg-background text-sm font-bold">{s}</option>
-                    ))}
-                  </select>
-                  <div className="absolute right-0 bottom-4 pointer-events-none text-muted">↓</div>
-                </div>
-              </div>
-
-              {/* Problem */}
-              <div className="flex flex-col gap-6">
-                <span className="label-eyebrow !text-muted">[ 05 ] SPECIFICATION</span>
-                <textarea
-                  id="problem"
-                  rows={4}
+              {/* Name */}
+              <div className="flex flex-col gap-4">
+                <span className="label-eyebrow !text-muted">[ 01 ] IDENTIFIER</span>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
                   required
-                  placeholder="The real problem you're trying to solve. Be clinical."
-                  value={form.problem}
-                  onChange={(e) => setForm({ ...form, problem: e.target.value })}
-                  className="bg-transparent border border-border-subtle p-8 text-lg font-bold tracking-tight focus:border-text-primary outline-none transition-colors resize-none"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors"
                 />
               </div>
 
-              <div className="flex flex-col md:flex-row items-center gap-12 mt-8">
+              {/* What are you working on */}
+              <div className="flex flex-col gap-4">
+                <span className="label-eyebrow !text-muted">[ 02 ] CURRENT STATE</span>
+                <input
+                  id="workingOn"
+                  type="text"
+                  placeholder="What are you working on? (1–2 lines)"
+                  required
+                  value={form.workingOn}
+                  onChange={(e) => setForm({ ...form, workingOn: e.target.value })}
+                  className="bg-transparent border-b border-border-subtle py-4 text-xl md:text-2xl font-black italic tracking-tight focus:border-text-primary outline-none transition-colors"
+                />
+              </div>
+
+              {/* What do you need help with */}
+              <div className="flex flex-col gap-4">
+                <span className="label-eyebrow !text-muted">[ 03 ] REQUEST</span>
+                <textarea
+                  id="helpWith"
+                  rows={4}
+                  placeholder="What do you need help with?"
+                  required
+                  value={form.helpWith}
+                  onChange={(e) => setForm({ ...form, helpWith: e.target.value })}
+                  className="bg-transparent border border-border-subtle p-6 text-lg font-medium resize-y focus:border-text-primary outline-none transition-colors"
+                />
+              </div>
+
+              {/* Submit */}
+              <div className="flex justify-end pt-4">
                 <button
                   type="submit"
-                  className="btn-primary px-16 py-8 w-full md:w-auto text-xl"
+                  className="btn-primary px-12 py-6 text-sm"
                 >
-                  Submit: Response in 48h
+                  Start the conversation
                 </button>
-                <div className="label-eyebrow !text-muted leading-relaxed max-w-[280px]">
-                  No automated replies. A real person reads every submission.
-                </div>
               </div>
             </form>
           </AnimateOnScroll>

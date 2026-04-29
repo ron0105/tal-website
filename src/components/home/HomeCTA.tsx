@@ -34,7 +34,7 @@ export default function HomeCTA() {
                 href="/work-with-us" 
                 className="btn-ghost !border-background/20 !text-background hover:!border-background w-full py-8 text-xl"
               >
-                BOOK A DIAGNOSTIC
+                START THE CONVERSATION
               </Link>
             </div>
           </AnimateOnScroll>

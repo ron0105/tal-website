@@ -9,25 +9,10 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const pillars = [
   {
     n: "01",
-    id: "structural",
-    title: "Internal Foundation",
-    tagline: "The way your team works together.",
-    description: "Organize your business to hand off work without losing control. Stop being the bottleneck.",
-    purpose: "Remove operational friction.",
-    services: [
-      { name: "Org mapping", desc: "Who owns what: clearly defined" },
-      { name: "Role clarity", desc: "Job descriptions that actually match the work" },
-      { name: "Hiring roadmap", desc: "The right sequence for building a team" },
-      { name: "KPI framework", desc: "What you measure, and what you don't" },
-      { name: "Process documentation", desc: "How work gets done when you're not there" },
-    ],
-  },
-  {
-    n: "02",
     id: "digital",
-    title: "The Digital Engine",
-    tagline: "The tech that powers your growth.",
-    description: "Replace messy spreadsheets with a single system that tells you exactly how the business is doing.",
+    title: "Digital",
+    tagline: "Infrastructure & Tools",
+    description: "We build the digital infrastructure and tools that power your day-to-day operations. Most businesses run on WhatsApp and manual processes longer than they should.",
     purpose: "Enable scalable momentum.",
     services: [
       { name: "Positioning-led website", desc: "Built to convert, not just to exist" },
@@ -38,11 +23,11 @@ const pillars = [
     ],
   },
   {
-    n: "03",
+    n: "02",
     id: "narrative",
-    title: "Your Market Story",
-    tagline: "Why customers should choose you.",
-    description: "Lock in positioning before spending on marketing. Figure out what to say, and who to say it to.",
+    title: "Narrative",
+    tagline: "Your Market Story",
+    description: "We build your market story — positioning, messaging, and communication architecture. If people outside your team can't explain what you do and why it matters, you don't have a narrative yet.",
     purpose: "Drive premium perception.",
     services: [
       { name: "Founder positioning", desc: "Your story, told in a way that builds authority" },
@@ -50,6 +35,21 @@ const pillars = [
       { name: "LinkedIn authority system", desc: "Consistent presence that builds inbound trust" },
       { name: "Content framework", desc: "What to create and why: not just what to post" },
       { name: "Brand voice guide", desc: "So everyone sounds like one company" },
+    ],
+  },
+  {
+    n: "03",
+    id: "org",
+    title: "Org",
+    tagline: "Internal Foundation",
+    description: "We map your organization, clarify roles, document processes, and build the KPI framework that lets the business run without the founder in every decision.",
+    purpose: "Remove operational friction.",
+    services: [
+      { name: "Org mapping", desc: "Who owns what: clearly defined" },
+      { name: "Role clarity", desc: "Job descriptions that actually match the work" },
+      { name: "Hiring roadmap", desc: "The right sequence for building a team" },
+      { name: "KPI framework", desc: "What you measure, and what you don't" },
+      { name: "Process documentation", desc: "How work gets done when you're not there" },
     ],
   },
 ];
@@ -76,9 +76,9 @@ export default function TALVIPillars() {
               <span className="text-muted">All load-bearing.</span>
             </h2>
           </AnimateOnScroll>
-          <AnimateOnScroll delay={0.1} className="flex items-end">
+          <AnimateOnScroll delay={0.1} className="flex flex-col justify-end gap-6">
             <p className="text-lg leading-relaxed text-body">
-              Most work on these in isolation. We build all three together, because a gap in one limits them all.
+              <span className="font-bold">Target client for TAL VI:</span> Operating businesses with existing revenue. Teams feeling structural strain. Founders who are the bottleneck in their own business.
             </p>
           </AnimateOnScroll>
         </div>

@@ -141,7 +141,7 @@ export default function TALVIPhilosophy() {
             <div className="w-full max-w-[900px] flex flex-col md:flex-row items-center gap-12 text-left p-12 md:p-16 border border-border-subtle bg-bg-secondary">
               <div className="flex-1">
                 <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 mb-8 inline-block">
-                  [ DIAGNOSTIC REQUIRED ]
+                  [ INQUIRY REQUIRED ]
                 </span>
                 <p className="text-display !text-4xl md:!text-5xl mb-8 uppercase italic tracking-tighter text-foreground">
                   SYSTEMS BREAK AT SCALE.
@@ -149,13 +149,13 @@ export default function TALVIPhilosophy() {
                   FIND THE FRACTURES NOW.
                 </p>
                 <p className="body-copy !text-xl text-body font-bold tracking-tight leading-relaxed max-w-[640px] mb-10">
-                  Run a structural diagnostic to isolate bottlenecks and define what to build next.
+                  Run a structural assessment to isolate bottlenecks and define what to build next.
                 </p>
                 <Link
                   href="/work-with-us"
                   className="btn-primary !px-12 !py-6 text-sm uppercase tracking-widest font-black inline-block"
                 >
-                  Start Diagnostic
+                  Start the conversation
                 </Link>
               </div>
               <div className="w-full md:w-[300px] shrink-0">

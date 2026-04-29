@@ -8,8 +8,6 @@ const models = [
   {
     name: "Validation Sprint",
     tag: "Most Common",
-    duration: "4–6 weeks",
-    price: "Fixed fee",
     best: "You want to know if your idea is worth building before spending money.",
     what: [
       "Full 6-stage validation process",
@@ -23,8 +21,6 @@ const models = [
   {
     name: "Pilot Blueprint",
     tag: null,
-    duration: "6–10 weeks",
-    price: "Fixed fee",
     best: "Idea validated. Ready for your first real market test.",
     what: [
       "Everything in a Validation Sprint",
@@ -35,31 +31,25 @@ const models = [
     featured: false,
   },
   {
-    name: "Monthly Validation",
-    tag: null,
-    duration: "Monthly retainer",
-    price: "Monthly",
-    best: "Running multiple ideas and need ongoing validation support.",
+    name: "TAL VI",
+    tag: "Growth & Infrastructure",
+    best: "Idea validated. Need to build digital, narrative, and organizational infrastructure.",
     what: [
-      "2 validation sprints per month",
-      "Weekly review sessions",
-      "Assumption tracker and evidence log",
-      "Priority access to the lab",
+      "Digital OS & Automation",
+      "Market Story & Positioning",
+      "Org Structure & KPIs",
+      "Targeted Execution Sprints",
     ],
     featured: false,
   },
   {
-    name: "TAL VI: Growth",
-    tag: "Growth Arm",
-    duration: "8–12 weeks",
-    price: "Fixed fee",
-    best: "Idea validated. Need to build revenue, GTM, and growth systems.",
+    name: "Co-Build & Equity",
+    tag: "Partnership",
+    best: "For founders with a validated concept who want TAL to co-build the venture alongside them.",
     what: [
-      "Revenue model and pricing design",
-      "Go-to-market plan (first 100 customers)",
-      "Growth loop and channel design",
-      "Unit economics modeling",
-      "Full playbook handed over at the end",
+      "TAL takes an equity stake",
+      "Deep, ongoing execution support",
+      "We build together",
     ],
     featured: false,
   },
@@ -107,16 +97,9 @@ export default function WWUModels() {
             >
               {/* Header */}
               <div className="flex items-start justify-between gap-6 mb-12">
-                <div>
-                  <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-4">
-                    {m.name}
-                  </h3>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                    <span className="label-eyebrow !text-muted">[ {m.duration} ]</span>
-                    <span className="label-eyebrow !text-muted text-[10px]">•</span>
-                    <span className="label-eyebrow !text-muted">[ {m.price} ]</span>
-                  </div>
-                </div>
+                <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-4">
+                  {m.name}
+                </h3>
                 {m.tag && (
                   <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1">
                     {m.tag}
@@ -145,7 +128,7 @@ export default function WWUModels() {
                 href="#contact-form"
                 className="btn-ghost w-full py-6 text-sm font-black uppercase tracking-widest border border-border-subtle hover:border-text-primary transition-colors text-center"
               >
-                Initiate Inquiry →
+                Start the conversation →
               </a>
             </motion.div>
           ))}

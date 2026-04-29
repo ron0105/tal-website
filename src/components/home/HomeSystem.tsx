@@ -5,12 +5,12 @@ import { AnimateOnScroll, StaggerContainer, staggerItem } from "../shared/Animat
 import { ProgressionVisual } from "@/components/visuals";
 
 const steps = [
-  { n: "01", title: "Problem Framing", body: "Find the actual problem, not just the symptom." },
-  { n: "02", title: "Hypothesis Definition", body: "Turn ideas into testable statements." },
-  { n: "03", title: "User Identification", body: "Find who pays to solve this." },
-  { n: "04", title: "Pilot Design", body: "The simplest test for the clearest answer." },
-  { n: "05", title: "Metrics & Success", body: "Define success before you start." },
-  { n: "06", title: "Decision Gate", body: "Build, refine, or redirect based on evidence." },
+  { n: "Stage 01", title: "Problem Framing", body: "Find the actual problem, not just the symptom." },
+  { n: "Stage 02", title: "Assumption Mapping", body: "Turn ideas into testable statements." },
+  { n: "Stage 03", title: "Research & Validation", body: "Find who pays to solve this." },
+  { n: "Stage 04", title: "Business Model Structuring", body: "The simplest test for the clearest answer." },
+  { n: "Stage 05", title: "Frugal Pilot", body: "Define success before you start." },
+  { n: "Stage 06", title: "Decision Gate — THE FINAL DECISION", body: "Build, pivot, or kill based on evidence." },
 ];
 
 const engineRow = [
@@ -66,10 +66,10 @@ export default function HomeSystem() {
         <StaggerContainer>
           <motion.div variants={staggerItem} className="mb-12">
             <h3 className="text-subsection mb-4 uppercase tracking-wider">
-              [ BUILD / REFINE / REDIRECT ]
+              [ BUILD / PIVOT / KILL ]
             </h3>
             <p className="body-copy text-muted max-w-[600px]">
-              Our output: build, refine, or redirect.
+              Our output: build, pivot, or kill.
             </p>
           </motion.div>
 
@@ -79,8 +79,8 @@ export default function HomeSystem() {
                 <tr className="border-b border-border-subtle bg-bg-secondary">
                   <th className="p-6 label-eyebrow !text-primary">Decision Matrix</th>
                   <th className="p-6 label-eyebrow !text-primary bg-bg-lift/50">BUILD</th>
-                  <th className="p-6 label-eyebrow !text-primary">REFINE</th>
-                  <th className="p-6 label-eyebrow !text-primary">REDIRECT</th>
+                  <th className="p-6 label-eyebrow !text-primary">PIVOT</th>
+                  <th className="p-6 label-eyebrow !text-primary">KILL</th>
                 </tr>
               </thead>
               <tbody>

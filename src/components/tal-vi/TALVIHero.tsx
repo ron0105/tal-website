@@ -66,7 +66,7 @@ export default function TALVIHero() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/work-with-us" className="btn-primary">
-                Book a Diagnostic
+                Start the conversation
               </Link>
               <Link href="/venture-lab" className="btn-ghost">
                 Need to validate first?
@@ -77,7 +77,7 @@ export default function TALVIHero() {
           {/* INFRASTRUCTURE STATUS MATRIX */}
           <div className="lg:col-span-7 border border-border-subtle bg-bg-secondary overflow-hidden">
             <div className="px-8 py-6 border-b border-border-subtle bg-bg-lift/30">
-              <span className="label-eyebrow">Infrastructure Status Diagnostic</span>
+              <span className="label-eyebrow">Infrastructure Status Matrix</span>
             </div>
             
             <StaggerContainer>

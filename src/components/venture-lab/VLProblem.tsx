@@ -49,7 +49,7 @@ export default function VLProblem() {
             <div className="border border-border-subtle bg-bg-secondary overflow-hidden">
               <div className="px-8 py-6 border-b border-border-subtle bg-bg-lift/30">
                 <span className="label-eyebrow">
-                  Diagnostic: Validated vs Skipped
+                  Analysis: Validated vs Skipped
                 </span>
               </div>
               <div className="flex flex-col">

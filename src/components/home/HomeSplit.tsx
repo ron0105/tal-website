@@ -17,7 +17,7 @@ export default function HomeSplit() {
             }}
           >
             <AnimateOnScroll>
-              <span className="label-eyebrow mb-8 block">Phase 01</span>
+              <span className="label-eyebrow mb-8 block">Layer 1</span>
               <h3 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter">
                 TAL Core Lab
               </h3>
@@ -49,9 +49,9 @@ export default function HomeSplit() {
           }}
         >
           <AnimateOnScroll delay={0.15}>
-            <span className="label-eyebrow mb-8 block">Phase 02</span>
+            <span className="label-eyebrow mb-8 block">Layer 2</span>
             <h3 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter">
-              TAL VI Infrastructure
+              TAL VI &mdash; Venture Infrastructure
             </h3>
             
             <ul className="flex flex-col gap-6 mb-16">

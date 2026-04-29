@@ -6,45 +6,24 @@ import { GrowthLeversVisual } from "@/components/visuals";
 const services = [
   {
     n: "01",
-    title: "Revenue Architecture",
-    tagline: "What should you charge — and why?",
-    body: "Build a pricing model your customers accept and your business needs to survive.",
-    output: "Pricing model + revenue forecast",
+    title: "Digital",
+    tagline: "Infrastructure & Tools",
+    body: "We build the digital infrastructure and tools that power your day-to-day operations. Most businesses run on WhatsApp and manual processes longer than they should.",
+    output: "Digital OS + Automation",
   },
   {
     n: "02",
-    title: "Go-to-Market Design",
-    tagline: "Who buys first — and how do you reach them?",
-    body: "Define your first 100 customers: who they are, where to find them, and what to say.",
-    output: "GTM plan + first 100 customer map",
+    title: "Narrative",
+    tagline: "Positioning & Messaging",
+    body: "We build your market story — positioning, messaging, and communication architecture. If people outside your team can't explain what you do and why it matters, you don't have a narrative yet.",
+    output: "Market Story + Comms Architecture",
   },
   {
     n: "03",
-    title: "Growth Systems",
-    tagline: "How does your business grow without you?",
-    body: "Design referral loops and channel strategies that make your business grow systematically.",
-    output: "Growth loop design + channel playbook",
-  },
-  {
-    n: "04",
-    title: "Retention & Loyalty Design",
-    tagline: "How do you keep customers coming back?",
-    body: "Acquisition is expensive. We build systems that reduce churn and increase lifetime value.",
-    output: "Retention system + churn reduction plan",
-  },
-  {
-    n: "05",
-    title: "Unit Economics Review",
-    tagline: "Does the math work at 10x scale?",
-    body: "Model acquisition costs and margins to ensure growth makes you profitable, not broke.",
-    output: "Unit economics model + breakeven analysis",
-  },
-  {
-    n: "06",
-    title: "Scale Readiness Assessment",
-    tagline: "Are you ready to raise money or grow fast?",
-    body: "Assess your metrics and operational foundation before you hire, fundraise, or expand.",
-    output: "Readiness report + scale roadmap",
+    title: "Org",
+    tagline: "Structure & KPIs",
+    body: "We map your organization, clarify roles, document processes, and build the KPI framework that lets the business run without the founder in every decision.",
+    output: "Org Chart + KPI Framework",
   },
 ];
 
@@ -59,12 +38,12 @@ export default function TALVIServices() {
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-5">What we work on</span>
             <h2 className="text-section-title text-foreground">
-              Six growth levers.
+              Three service lines.
               <br />
-              <span className="text-muted">All measurable.</span>
+              <span className="text-muted">Targeted execution.</span>
             </h2>
             <p className="text-base leading-relaxed text-muted mt-6 max-w-[480px]">
-              Every engagement is built around these areas. We prioritize based on what's holding your growth back.
+              Target client for TAL VI: Operating businesses with existing revenue. Teams feeling structural strain. Founders who are the bottleneck in their own business.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1}>
@@ -75,7 +54,7 @@ export default function TALVIServices() {
         </div>
 
         <div
-          className="grid md:grid-cols-2"
+          className="grid md:grid-cols-3"
           style={{ gap: "1px", background: "var(--border-color)" }}
         >
           {services.map((s, i) => (
