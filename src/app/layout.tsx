@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | The Adda Labs",
   },
   description:
-    "A founder-led venture experimentation lab. We help founders test their ideas before building them — with a structured 6-stage process and clear outcomes.",
+    "A venture experimentation lab. We help you test your idea before you build it — with a structured 6-stage process and a clear decision at the end.",
 };
 
 export default function RootLayout({

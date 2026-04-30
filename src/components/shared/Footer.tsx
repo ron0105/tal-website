@@ -5,7 +5,7 @@ import Link from "next/link";
 const pages = [
   { label: "Venture Lab", href: "/venture-lab" },
   { label: "TAL VI", href: "/tal-vi" },
-  { label: "How It Works", href: "/how-it-works" },
+  { label: "Venture Lab Process", href: "/how-it-works" },
   { label: "Work With Us", href: "/work-with-us" },
 ];
 

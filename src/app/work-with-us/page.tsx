@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import WWUHero from "@/components/work-with-us/WWUHero";
-import WWUModels from "@/components/work-with-us/WWUModels";
+import WWUCallCTA from "@/components/work-with-us/WWUCallCTA";
 import WWUForm from "@/components/work-with-us/WWUForm";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function WorkWithUs() {
   return (
     <>
       <WWUHero />
-      <WWUModels />
+      <WWUCallCTA />
       <WWUForm />
     </>
   );

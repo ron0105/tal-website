@@ -8,7 +8,7 @@ import TALVIPhilosophy from "@/components/tal-vi/TALVIPhilosophy";
 export const metadata: Metadata = {
   title: "TAL VI — Venture Infrastructure",
   description:
-    "Structure before scale. TAL VI builds the structural, digital, and narrative infrastructure early-stage ventures need before growth amplifies chaos.",
+    "Structure before scale. TAL VI builds the digital, narrative, and operational infrastructure that existing businesses need to grow without breaking.",
 };
 
 export default function TALVI() {

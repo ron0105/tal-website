@@ -65,9 +65,6 @@ export default function TALVIHero() {
               <Link href="/work-with-us" className="btn-primary">
                 Start the conversation
               </Link>
-              <Link href="/venture-lab" className="btn-ghost">
-                Need to validate first?
-              </Link>
             </div>
           </div>
 
@@ -81,7 +78,7 @@ export default function TALVIHero() {
               <table className="w-full text-left border-collapse">
                 <tbody>
                   {[
-                    { segment: "Operations", status: "Validated Start", focus: "Idea validated. Now build the systems to support it." },
+                    { segment: "Operations", status: "Running & Growing", focus: "Your business is running. Now build the systems to support growth." },
                     { segment: "Economics", status: "Early Scale", focus: "Early traction. Now build a sustainable revenue model." },
                     { segment: "Team", status: "Growth Clarity", focus: "Team growing. Clarify roles and ownership." },
                     { segment: "Systems", status: "Founder Focus", focus: "Create systems so the business runs without you." },
