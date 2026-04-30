@@ -10,8 +10,8 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Venture Lab", href: "/venture-lab" },
+  { label: "Venture Lab Process", href: "/how-it-works" },
   { label: "TAL VI", href: "/tal-vi" },
-  { label: "How It Works", href: "/how-it-works" },
   { label: "Work With Us", href: "/work-with-us" },
 ];
 

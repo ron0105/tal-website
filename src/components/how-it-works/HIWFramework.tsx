@@ -79,7 +79,7 @@ const steps = [
     title: "Decision Gate",
     duration: "1-2 days",
     question: "Based on the evidence, what is the next step?",
-    description: "We look at everything we learned and make a final choice: Build, Pivot, or Stop.",
+    description: "We look at everything we learned and make a final choice: Build, Pivot, or Kill.",
     whatHappens: [
       "All evidence reviewed against original assumptions",
       "Decision criteria assessed",
@@ -177,7 +177,7 @@ export default function HIWFramework() {
               <h2 className="text-section-title max-w-[600px]">
                 Every sprint ends with one answer:
                 <br />
-                <span className="text-muted">Build. Pivot. Or Stop.</span>
+                <span className="text-muted">Build. Pivot. Or Kill.</span>
               </h2>
             </AnimateOnScroll>
           </div>

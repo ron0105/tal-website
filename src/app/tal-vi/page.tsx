@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import TALVIHero from "@/components/tal-vi/TALVIHero";
 import TALVIProblem from "@/components/tal-vi/TALVIProblem";
 import TALVIPillars from "@/components/tal-vi/TALVIPillars";
+import TALVIHowItWorks from "@/components/tal-vi/TALVIHowItWorks";
 import TALVIPhilosophy from "@/components/tal-vi/TALVIPhilosophy";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function TALVI() {
       <TALVIHero />
       <TALVIProblem />
       <TALVIPillars />
+      <TALVIHowItWorks />
       <TALVIPhilosophy />
     </>
   );

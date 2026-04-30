@@ -33,7 +33,7 @@ const models = [
   {
     name: "TAL VI",
     tag: "Growth & Infrastructure",
-    best: "Idea validated. Need to build digital, narrative, and organizational infrastructure.",
+    best: "Your business is running and you want to grow it properly. You need a website that works, a content and social presence that builds the brand, and the digital systems to support it all.",
     what: [
       "Digital OS & Automation",
       "Market Story & Positioning",
