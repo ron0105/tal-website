@@ -155,10 +155,10 @@ export default function HIWHero() {
             </motion.ol>
             <div className="mt-12">
               <a
-                href="#contact-form"
+                href="/work-with-us"
                 className="btn-ghost w-full py-6 text-sm font-black uppercase tracking-widest border border-border-subtle hover:border-text-primary transition-colors text-center"
               >
-                Enquire: Next Steps
+                Start the conversation
               </a>
             </div>
           </div>

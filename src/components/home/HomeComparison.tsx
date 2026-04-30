@@ -53,16 +53,12 @@ export default function HomeComparison() {
           </div>
 
           <AnimateOnScroll delay={0.2} className="w-full lg:w-[400px] shrink-0">
-            <div className="aspect-square bg-background border border-border-subtle p-8 flex flex-col justify-between">
-              <p className="text-xs font-bold uppercase tracking-widest text-muted">Process Diagram Placeholder</p>
-              <div className="flex-1 flex items-center justify-center">
-                <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" stroke="var(--text-muted)" strokeWidth="2" strokeDasharray="4 4" className="opacity-30">
-                  <circle cx="100" cy="100" r="80" />
-                  <path d="M100 20 L100 180 M20 100 L180 100" />
-                  <rect x="60" y="60" width="80" height="80" />
-                </svg>
-              </div>
-              <p className="text-sm font-bold text-text-primary text-center">Visual showing structured vs chaotic growth</p>
+            <div className="aspect-square overflow-hidden border border-border-subtle">
+              <img
+                src="/process-diagram.png"
+                alt="Structured vs chaotic growth diagram"
+                className="w-full h-full object-cover"
+              />
             </div>
           </AnimateOnScroll>
         </div>

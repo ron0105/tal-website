@@ -54,6 +54,12 @@ const pillars = [
   },
 ];
 
+const pillarImages: Record<string, string> = {
+  digital: "/digital-visual.png",
+  narrative: "/narrative-visual.png",
+  org: "/org-visual.png",
+};
+
 export default function TALVIPillars() {
   const [active, setActive] = useState(0);
   const current = pillars[active];
@@ -144,9 +150,12 @@ export default function TALVIPillars() {
                 <p className="body-copy mb-8">
                   {current.description}
                 </p>
-                <div className="aspect-[3/1] w-full max-w-[320px] bg-background border border-border-subtle p-4 flex flex-col justify-center items-center text-center">
-                  <p className="text-xs font-bold text-text-primary uppercase tracking-widest mb-1">Pillar Visual</p>
-                  <p className="text-[10px] text-muted">Placeholder representing {current.title}</p>
+                <div className="aspect-[3/1] w-full max-w-[320px] overflow-hidden border border-border-subtle">
+                  <img
+                    src={pillarImages[current.id]}
+                    alt={`${current.title} visual`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
