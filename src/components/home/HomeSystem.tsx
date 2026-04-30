@@ -8,9 +8,9 @@ const steps = [
   { n: "Stage 01", title: "Problem Framing", body: "Find the actual problem, not just the symptom." },
   { n: "Stage 02", title: "Assumption Mapping", body: "Turn ideas into testable statements." },
   { n: "Stage 03", title: "Research & Validation", body: "Find who pays to solve this." },
-  { n: "Stage 04", title: "Business Model Structuring", body: "The simplest test for the clearest answer." },
-  { n: "Stage 05", title: "Frugal Pilot", body: "Define success before you start." },
-  { n: "Stage 06", title: "Decision Gate — THE FINAL DECISION", body: "Build, pivot, or kill based on evidence." },
+  { n: "Stage 04", title: "Business Model Structuring", body: "Work out how the business actually makes money." },
+  { n: "Stage 05", title: "Frugal Pilot", body: "Run the smallest test that gets you a real answer." },
+  { n: "Stage 06", title: "Decision Gate: THE FINAL DECISION", body: "Build, pivot, or kill based on evidence." },
 ];
 
 const engineRow = [
