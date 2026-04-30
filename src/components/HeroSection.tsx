@@ -96,7 +96,7 @@ export default function HeroSection() {
                     "#2563EB")
                 }
               >
-                Start a Validation Sprint
+                Start the conversation
                 <svg
                   width="14"
                   height="14"

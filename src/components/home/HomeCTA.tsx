@@ -22,10 +22,10 @@ export default function HomeCTA() {
           <AnimateOnScroll delay={0.15}>
             <div className="flex flex-col gap-6">
               <Link 
-                href="/work-with-us" 
+                href="/venture-lab" 
                 className="btn-primary !bg-background !text-foreground !border-background hover:opacity-90 w-full py-8 text-xl"
               >
-                START A VALIDATION SPRINT
+                SEE HOW IT WORKS
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

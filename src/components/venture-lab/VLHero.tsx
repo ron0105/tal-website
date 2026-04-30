@@ -63,7 +63,7 @@ export default function VLHero() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/work-with-us" className="btn-primary">
-                Start a Validation Sprint
+                Start the conversation
               </Link>
               <Link href="/how-it-works" className="btn-ghost">
                 See the 6-stage process
