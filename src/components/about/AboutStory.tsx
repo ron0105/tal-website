@@ -28,7 +28,7 @@ export default function AboutStory() {
                   color: "var(--text-primary)",
                 }}
               >
-                How we got here.
+                The foundation.
               </h2>
             </AnimateOnScroll>
 
@@ -38,10 +38,10 @@ export default function AboutStory() {
                   We started by helping people figure out if their ideas were worth building. Not with opinions, but with a structured process: map assumptions, test them cheaply, get a real answer before spending real money.
                 </p>
                 <p className="text-lg leading-relaxed text-body">
-                  While doing that work, we kept running into the same thing: businesses that were already running but felt broken underneath. Good ideas, paying customers, and a founder who could not step back because everything depended on them.
+                  While doing that work, we consistently found the same pattern: businesses that were running but structurally fragile. Good ideas, paying customers, and a founder who could not step back because everything depended on them.
                 </p>
                 <p className="text-lg leading-relaxed text-body">
-                  The discipline turned out to be the same in both cases: understand the real problem first, then build the right structure around it. That is what TAL does, whether you have an idea or a business.
+                  The discipline proved identical in both cases: understand the real problem first, then build the right structure around it. That is what TAL does, whether you have an idea or a business.
                 </p>
               </div>
             </AnimateOnScroll>

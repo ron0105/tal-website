@@ -193,7 +193,7 @@ export default function AboutHero() {
             </motion.div>
 
             <LineReveal
-              lines={["We started with ideas.", "We got good at", "businesses too."]}
+              lines={["We started with ideas.", "Businesses", "followed."]}
               delay={0.1}
               stagger={0.12}
               className="font-poppins mb-10"
