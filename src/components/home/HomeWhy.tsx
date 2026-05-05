@@ -38,7 +38,7 @@ export default function HomeWhy() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease }}
           >
-            <span className="label-eyebrow mb-6 block text-accent">Why work with us</span>
+            <span className="label-eyebrow mb-6 block text-accent">Why TAL</span>
             <h2
               className="font-poppins mb-8"
               style={{
@@ -49,14 +49,13 @@ export default function HomeWhy() {
                 color: "var(--text-primary)",
               }}
             >
-              Not a large firm.<br />
-              <span style={{ color: "var(--text-muted)", fontWeight: 700 }}>A focused one.</span>
+              We work across both sides of the table.
             </h2>
             <p className="text-lg leading-relaxed text-body mb-5" style={{ maxWidth: "440px" }}>
-              We do not have a 30-slide deck for every engagement. What we have is a clear process, direct communication, and a genuine interest in getting your situation right — not in selling you more hours.
+              Most consultants work with either established businesses or early-stage ideas. We do both — and the discipline is the same in both cases. That means we understand the full arc: what an idea needs before it becomes a business, and what a business needs to stop running on its founder.
             </p>
             <p className="text-lg leading-relaxed text-body" style={{ maxWidth: "440px" }}>
-              Most engagements fail because the consultant understands the framework but not the business. We spend the first part of every engagement listening, not presenting. Everything we recommend comes from what we actually learn about your specific situation.
+              We do not have a 30-slide deck for every engagement. We listen first, recommend second, and measure success by whether the work holds after we leave — not by how many hours we bill.
             </p>
           </motion.div>
 
