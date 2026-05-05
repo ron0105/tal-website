@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FNIHero from "@/components/for-new-ideas/FNIHero";
+import FNIStatBar from "@/components/for-new-ideas/FNIStatBar";
 import FNIReframe from "@/components/for-new-ideas/FNIReframe";
 import FNIFeatures from "@/components/for-new-ideas/FNIFeatures";
 import FNIFramework from "@/components/for-new-ideas/FNIFramework";
@@ -17,6 +18,7 @@ export default function ForNewIdeas() {
   return (
     <>
       <FNIHero />
+      <FNIStatBar />
       <FNIReframe />
       <FNIFeatures />
       <FNIFramework />
