@@ -65,20 +65,17 @@ export default function HomeProblem() {
                   </div>
                 ))}
               </div>
+              <div className="px-8 py-6 border-t border-border-subtle bg-bg-secondary">
+                <p className="text-sm leading-relaxed text-body mb-2">
+                  Most ideas fail not because of poor execution, but because they were pushed into the market before validating whether the problem and the market were real.
+                </p>
+                <p className="text-sm font-semibold" style={{ color: "var(--accent)" }}>
+                  We help you test the waters before you commit.
+                </p>
+              </div>
             </div>
           </AnimateOnScroll>
         </div>
-
-        <AnimateOnScroll>
-          <div className="pt-8 border-t border-border-subtle max-w-3xl">
-            <p className="text-xl md:text-2xl leading-relaxed font-medium text-body mb-3">
-              Most businesses struggle not because they lacked effort, but because they moved before the ground was tested. The idea was never validated. The systems were never built. The market was assumed, not confirmed.
-            </p>
-            <p className="text-xl md:text-2xl font-semibold" style={{ color: "var(--accent)" }}>
-              We help you test the ground before you commit to it — whether you are building something new or scaling something that already exists.
-            </p>
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
