@@ -65,14 +65,6 @@ export default function HomeProblem() {
                   </div>
                 ))}
               </div>
-              <div className="px-8 py-6 border-t border-border-subtle bg-bg-secondary">
-                <p className="text-sm leading-relaxed text-body mb-2">
-                  Most ideas fail not because of poor execution, but because they were pushed into the market before validating whether the problem and the market were real.
-                </p>
-                <p className="text-sm font-semibold" style={{ color: "var(--accent)" }}>
-                  We help you test the waters before you commit.
-                </p>
-              </div>
             </div>
           </AnimateOnScroll>
         </div>
