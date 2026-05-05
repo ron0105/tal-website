@@ -70,9 +70,12 @@ export default function HomeProblem() {
         </div>
 
         <AnimateOnScroll>
-          <div className="pt-8 border-t border-border-subtle">
-            <p className="text-2xl md:text-3xl font-medium text-body">
-              Either way, the starting point is the same. <span className="text-accent font-bold">Understand clearly, then move.</span>
+          <div className="pt-8 border-t border-border-subtle max-w-3xl">
+            <p className="text-xl md:text-2xl leading-relaxed font-medium text-body mb-3">
+              Most businesses struggle not because they lacked effort, but because they moved before the ground was tested. The idea was never validated. The systems were never built. The market was assumed, not confirmed.
+            </p>
+            <p className="text-xl md:text-2xl font-semibold" style={{ color: "var(--accent)" }}>
+              We help you test the ground before you commit to it — whether you are building something new or scaling something that already exists.
             </p>
           </div>
         </AnimateOnScroll>
