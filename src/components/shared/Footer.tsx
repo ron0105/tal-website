@@ -22,9 +22,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-6 cursor-pointer w-fit group">
-              <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                <rect x="1.5" y="1.5" width="25" height="25" rx="6" stroke="var(--accent)" strokeWidth="2.5"/>
-                <rect x="8" y="8" width="12" height="12" rx="3" fill="var(--accent)"/>
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#1D4ED8"/>
+                <rect x="7" y="16" width="4" height="10" rx="2" fill="white"/>
+                <rect x="14" y="11" width="4" height="15" rx="2" fill="white"/>
+                <rect x="21" y="7" width="4" height="19" rx="2" fill="white"/>
               </svg>
               <span className="text-lg font-bold tracking-tight text-foreground font-poppins">
                 TAL Consulting

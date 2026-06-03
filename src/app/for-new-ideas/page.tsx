@@ -6,6 +6,8 @@ import FNIFeatures from "@/components/for-new-ideas/FNIFeatures";
 import FNIFramework from "@/components/for-new-ideas/FNIFramework";
 import FNIOutcomes from "@/components/for-new-ideas/FNIOutcomes";
 import FNIDifferentiation from "@/components/for-new-ideas/FNIDifferentiation";
+import FNIProcess from "@/components/for-new-ideas/FNIProcess";
+import FNIWhoThisIsFor from "@/components/for-new-ideas/FNIWhoThisIsFor";
 import FNICTA from "@/components/for-new-ideas/FNICTA";
 
 export const metadata: Metadata = {
@@ -24,6 +26,8 @@ export default function ForNewIdeas() {
       <FNIFramework />
       <FNIOutcomes />
       <FNIDifferentiation />
+      <FNIProcess />
+      <FNIWhoThisIsFor />
       <FNICTA />
     </>
   );

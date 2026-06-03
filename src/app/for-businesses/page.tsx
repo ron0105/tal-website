@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FBHero from "@/components/for-businesses/FBHero";
 import FBTrustBar from "@/components/for-businesses/FBTrustBar";
+import FBWhoThisIsFor from "@/components/for-businesses/FBWhoThisIsFor";
 import FBServices from "@/components/for-businesses/FBServices";
 import FBProcess from "@/components/for-businesses/FBProcess";
 import FBCTA from "@/components/for-businesses/FBCTA";
@@ -16,6 +17,7 @@ export default function ForBusinesses() {
     <>
       <FBHero />
       <FBTrustBar />
+      <FBWhoThisIsFor />
       <FBServices />
       <FBProcess />
       <FBCTA />

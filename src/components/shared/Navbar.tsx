@@ -13,6 +13,7 @@ const navLinks = [
   { label: "For New Ideas", href: "/for-new-ideas" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "About", href: "/about" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -48,11 +49,12 @@ export default function Navbar() {
         <div className="layout-grid flex items-center justify-between h-full px-6 md:px-10">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 cursor-pointer flex-shrink-0 group">
-            {/* Logo mark — solid fill with inner white mark */}
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-              <rect width="30" height="30" rx="7" style={{ fill: "var(--accent)" }}/>
-              <rect x="5" y="5" width="20" height="20" rx="4.5" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" fill="none"/>
-              <rect x="10" y="10" width="10" height="10" rx="2.5" fill="white"/>
+            {/* Logo mark */}
+            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#1D4ED8"/>
+              <rect x="7" y="16" width="4" height="10" rx="2" fill="white"/>
+              <rect x="14" y="11" width="4" height="15" rx="2" fill="white"/>
+              <rect x="21" y="7" width="4" height="19" rx="2" fill="white"/>
             </svg>
             <span className="text-lg font-bold tracking-tight text-foreground font-poppins">
               TAL Consulting

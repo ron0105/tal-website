@@ -179,7 +179,7 @@ export default function FBHero() {
               transition={{ duration: 0.6, ease, delay: 0.3 }}
               className="text-sm text-muted mb-10 max-w-md"
             >
-              Strategy and systems, together — so your growth compounds instead of creating new problems.
+              Strategy and systems, working together so your growth compounds instead of creating new problems.
             </motion.p>
 
             <motion.div

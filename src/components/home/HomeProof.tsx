@@ -38,11 +38,11 @@ export default function HomeProof() {
             {[
               {
                 value: "6-stage",
-                label: "Structured validation framework — every idea goes through the same rigorous process.",
+                label: "Structured validation framework: every idea goes through the same rigorous process.",
               },
               {
                 value: "3-phase",
-                label: "Business engagement model — listen, map, build. No guesswork at any step.",
+                label: "Business engagement model: listen, map, build. No guesswork at any step.",
               },
               {
                 value: "One rule",

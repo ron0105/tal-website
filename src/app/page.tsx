@@ -6,6 +6,7 @@ import HomeWhy from "@/components/home/HomeWhy";
 import HomeProcess from "@/components/home/HomeProcess";
 import HomeProof from "@/components/home/HomeProof";
 import HomeCTA from "@/components/home/HomeCTA";
+import HiringMarquee from "@/components/careers/HiringMarquee";
 
 // AIDA / PAS / StoryBrand flow:
 //
@@ -28,6 +29,7 @@ export default function Home() {
       <HomeWhy />
       <HomeProcess />
       <HomeProof />
+      <HiringMarquee />
       <HomeCTA />
     </main>
   );

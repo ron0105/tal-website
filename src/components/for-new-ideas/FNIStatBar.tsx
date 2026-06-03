@@ -58,7 +58,7 @@ export default function FNIStatBar() {
               className="text-sm font-medium"
               style={{ color: "var(--bg)", opacity: 0.55 }}
             >
-              Source: CB Insights, &ldquo;The Top 12 Reasons Startups Fail&rdquo; — analysis of 101 startup post-mortems. No market need is the single largest cause of startup failure.
+              Source: CB Insights, &ldquo;The Top 12 Reasons Startups Fail&rdquo;: analysis of 101 startup post-mortems. No market need is the single largest cause of startup failure.
             </p>
           </motion.div>
 

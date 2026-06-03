@@ -52,10 +52,10 @@ export default function HomeWhy() {
               We work across both sides of the table.
             </h2>
             <p className="text-lg leading-relaxed text-body mb-5" style={{ maxWidth: "440px" }}>
-              Most consultants work with either established businesses or early-stage ideas. We do both — and the discipline is the same in both cases. That means we understand the full arc: what an idea needs before it becomes a business, and what a business needs to stop running on its founder.
+              Most consultants work with either established businesses or early-stage ideas. We do both, and the discipline is the same in both cases. That means we understand the full arc: what an idea needs before it becomes a business, and what a business needs to stop running on its founder.
             </p>
             <p className="text-lg leading-relaxed text-body" style={{ maxWidth: "440px" }}>
-              We do not have a 30-slide deck for every engagement. We listen first, recommend second, and measure success by whether the work holds after we leave — not by how many hours we bill.
+              We do not have a 30-slide deck for every engagement. We listen first, recommend second, and measure success by whether the work holds after we leave, not by how many hours we bill.
             </p>
           </motion.div>
 

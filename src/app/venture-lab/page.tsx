@@ -6,7 +6,7 @@ import VLOutcomes from "@/components/venture-lab/VLOutcomes";
 export const metadata: Metadata = {
   title: "Venture Lab",
   description:
-    "Test your idea before you build it. Venture Lab runs a structured 6-stage validation process to find out if your idea is worth building — before you spend money on it.",
+    "Test your idea before you build it. Venture Lab runs a structured 6-stage validation process to find out if your idea is worth building, before you spend money on it.",
 };
 
 export default function VentureLab() {

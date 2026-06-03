@@ -7,12 +7,12 @@ const steps = [
   {
     n: "01",
     title: "Understand the idea",
-    body: "We start with the core question — what problem are you solving, and who has it? We help you articulate this clearly.",
+    body: "We start with the core question: what problem are you solving, and who has it? We help you articulate this clearly.",
   },
   {
     n: "02",
     title: "Test your assumptions",
-    body: "Every idea is built on assumptions. We identify them and turn them into things we can actually test — without spending a lot.",
+    body: "Every idea is built on assumptions. We identify them and turn them into things we can actually test, without spending a lot.",
   },
   {
     n: "03",

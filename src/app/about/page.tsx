@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
 import AboutStory from "@/components/about/AboutStory";
+import AboutTeam from "@/components/about/AboutTeam";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,6 +14,7 @@ export default function About() {
     <>
       <AboutHero />
       <AboutStory />
+      <AboutTeam />
     </>
   );
 }

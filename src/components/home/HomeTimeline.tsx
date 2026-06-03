@@ -6,7 +6,7 @@ const steps = [
   {
     n: "01",
     title: "Understand your business",
-    body: "We start by listening — your team, your customers, your daily operations. No assumptions.",
+    body: "We start by listening: your team, your customers, your daily operations. No assumptions.",
   },
   {
     n: "02",
@@ -16,7 +16,7 @@ const steps = [
   {
     n: "03",
     title: "Set simple systems",
-    body: "We create clear processes your team can actually follow — without needing you to explain everything.",
+    body: "We create clear processes your team can actually follow, without needing you to explain everything.",
   },
   {
     n: "04",

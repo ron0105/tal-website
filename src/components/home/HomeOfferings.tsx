@@ -82,7 +82,7 @@ export default function HomeOfferings() {
                   marginBottom: "1.25rem",
                 }}
               >
-                You have an idea. You haven&apos;t built anything yet — or you
+                You have an idea. You haven&apos;t built anything yet, or you
                 have, and you&apos;re not sure if you built the right thing.
               </p>
               <p
@@ -154,7 +154,7 @@ export default function HomeOfferings() {
                 }}
               >
                 The idea is validated. Now the work of building a real business
-                begins — and most founders skip the foundations.
+                begins. Most founders skip the foundations.
               </p>
               <p
                 style={{

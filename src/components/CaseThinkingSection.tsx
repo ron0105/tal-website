@@ -116,7 +116,7 @@ export default function CaseThinkingSection() {
           >
             <p className="text-base md:text-lg leading-relaxed" style={{ color: "#666" }}>
               We don&apos;t share case studies. We share decision logic. These are
-              thinking frameworks applied to real hypotheses — outcomes are
+              thinking frameworks applied to real hypotheses. Outcomes are
               secondary to the reasoning process.
             </p>
           </motion.div>
