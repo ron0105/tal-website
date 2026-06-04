@@ -33,7 +33,7 @@ export default function FBProcess() {
         <AnimateOnScroll className="mb-14">
           <span className="label-eyebrow mb-4 block text-accent">How We Work</span>
           <h2
-            className="font-poppins"
+            className="font-poppins mb-3"
             style={{
               fontSize: "clamp(1.75rem, 5vw, 3rem)",
               fontWeight: 700,
@@ -42,9 +42,28 @@ export default function FBProcess() {
               color: "var(--text-primary)",
             }}
           >
-            Simple process. Real results.
+            No agency mindset. No fluff.
           </h2>
         </AnimateOnScroll>
+
+        {/* Trust signals */}
+        <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle mb-16">
+          {[
+            { stat: "50%", label: "upfront, always. We don't bill by the hour — you pay for outcomes, not effort." },
+            { stat: "30 days", label: "credit-back window. Start with any entry service and it counts toward the full build." },
+            { stat: "Zero", label: "discounts. We price what it's worth. What you get in return is our full attention." },
+          ].map((item) => (
+            <div key={item.stat} className="bg-background p-8">
+              <p
+                className="font-poppins font-black mb-3"
+                style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em", color: "var(--accent)" }}
+              >
+                {item.stat}
+              </p>
+              <p className="text-sm leading-relaxed text-muted">{item.label}</p>
+            </div>
+          ))}
+        </div>
 
         {/* Steps */}
         <div className="grid md:grid-cols-4 gap-0 mb-16 relative">

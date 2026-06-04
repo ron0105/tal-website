@@ -31,10 +31,10 @@ export default function FBCTA() {
                 color: "var(--text-primary)",
               }}
             >
-              Let’s grow your business together.
+              Ready to stop being invisible?
             </h2>
             <p className="text-xl text-muted max-w-lg">
-              Tell us where you are and what you want to achieve. We will tell you honestly how we can help.
+              You don&apos;t need a pitch deck or a brief. Just tell us what your business does and where you feel stuck. We&apos;ll take it from there.
             </p>
           </AnimateOnScroll>
 

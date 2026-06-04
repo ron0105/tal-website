@@ -14,9 +14,9 @@ function WAIcon() {
 }
 
 const hubNodes = [
-  { label: ["Team &", "Work Clarity"], angle: -90 },
-  { label: ["Getting More", "Customers"], angle: 30 },
-  { label: ["Clear Business", "Communication"], angle: 150 },
+  { label: ["Get Found.", "Get Trusted."], angle: -90 },
+  { label: ["Show Up.", "Consistently."], angle: 30 },
+  { label: ["Let It", "Run Itself."], angle: 150 },
 ];
 
 function HubDiagram() {
@@ -160,26 +160,19 @@ export default function FBHero() {
                 color: "var(--text-primary)",
               }}
             >
-              We help you grow your business
-              {" "}<span className="text-accent">faster and smarter.</span>
+              You built something real.
+              <br />
+              Now let's make sure{" "}
+              <span className="text-accent">the right people see it.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.2 }}
-              className="text-lg text-body mb-4 max-w-lg leading-relaxed"
+              className="text-lg text-body mb-10 max-w-lg leading-relaxed"
             >
-              We help growing businesses bring in more customers, grow revenue, and build the operations that make it all sustainable.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease, delay: 0.3 }}
-              className="text-sm text-muted mb-10 max-w-md"
-            >
-              Strategy and systems, working together so your growth compounds instead of creating new problems.
+              You&apos;re not here for more posts. You&apos;re here because you want customers, trust, and growth — without spending half your week figuring out the internet. That&apos;s exactly what we do.
             </motion.p>
 
             <motion.div
@@ -188,23 +181,23 @@ export default function FBHero() {
               transition={{ duration: 0.5, ease, delay: 0.35 }}
               className="flex flex-col sm:flex-row gap-4"
             >
+              <Link
+                href="/contact"
+                className="btn-primary inline-flex items-center justify-center gap-2"
+                style={{ padding: "14px 32px" }}
+              >
+                Start a Conversation
+              </Link>
               <a
                 href="https://wa.me/918169315080?text=Hi%2C%20I%20have%20a%20running%20business%20and%20would%20like%20to%20know%20more%20about%20TAL%20Consulting."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center gap-2"
+                className="btn-ghost inline-flex items-center justify-center gap-2"
                 style={{ padding: "14px 32px" }}
               >
                 <WAIcon />
                 Chat on WhatsApp
               </a>
-              <Link
-                href="/contact"
-                className="btn-ghost inline-flex items-center justify-center"
-                style={{ padding: "14px 32px" }}
-              >
-                Book a Call
-              </Link>
             </motion.div>
           </div>
 
