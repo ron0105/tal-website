@@ -157,6 +157,118 @@ export const JOBS: Job[] = [
     },
   },
 
+  // ── Strategic Growth Partner — Sales Outreach ─────────────────────────────────────────
+  {
+    slug: "strategic-growth-partner",
+    title: "Strategic Growth Partner — Sales Outreach",
+    shortTitle: "Strategic Growth Partner",
+    department: "Sales",
+    type: "Full-Time",
+    location: "Mumbai",
+    teaser:
+      "Build TAL's outreach pipeline from the ground up. If you need a lead list handed to you or a script to read from, this is not the role. If you can find anyone, anywhere, and get them talking — read on.",
+    highlights: [
+      "20 qualified contacts per week — minimum",
+      "Direct reporting to founding team",
+      "Full Pipeline hiring process",
+    ],
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSekSDNezQM4NbMeD1G95LvwIsMtHEmLOy0ioO3DnfCVnOsX2A/viewform",
+    pipeline: "Full Pipeline",
+    pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
+    pipelineNote:
+      "The execution task will test your ability to find real prospects, write outreach that gets responses, and manage a follow-up sequence without hand-holding. Speed, precision, and communication clarity all count.",
+    content: {
+      whoWeAre: [
+        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients across industries. We move fast, we hold high standards, and we are not looking for people who need motivation to do their job.",
+        "This role sits at the front of TAL's commercial engine. You are the first contact most prospects will ever have with us. That means how you show up reflects directly on what we are building.",
+      ],
+      whyExists: {
+        problem: [
+          "TAL needs a consistent, active pipeline of warm leads. Right now, outreach competes with everything else the founders are doing. This role takes that entirely off the founding team's plate.",
+          "You will be responsible for identifying prospects, reaching out, following up, and handing off warm leads to the founders. Everything before the sales conversation is yours. The quality of your handoffs determines the quality of TAL's client pipeline.",
+        ],
+        bandwidthFreed: [
+          "You find the right people, get them interested, and pass them over ready to close. Founders stop spending time on cold outreach entirely.",
+        ],
+        weeklyOutcome: [
+          "20 qualified contacts reached per week. A live tracker updated daily. At least one warm lead handed off to the founding team every week after the first month.",
+        ],
+      },
+      whatYouOwn: {
+        items: [
+          "Prospecting — identifying SMEs in target sectors using LinkedIn, Google Maps, industry directories, and social platforms",
+          "Cold outreach — personalised messages across LinkedIn DMs, email, and other relevant channels",
+          "Follow-up sequences — structured follow-ups at Day 3, Day 7, Day 14, and Day 16 with a 4-touch maximum",
+          "Lead qualification — identifying warm leads and understanding their needs before handoff",
+          "Handoff — passing warm leads to the founding team via Flock with full context: contact details, interest level, and relevant package",
+          "Weekly reporting — a Friday 4 PM report covering contacts reached, responses received, and pipeline status",
+        ],
+        notYourJob: [
+          "You do not pitch or quote prices without explicit approval from the founding team.",
+          "You do not make commitments on behalf of TAL — not on timelines, not on deliverables, not on pricing.",
+          "You do not operate in client-facing meetings independently.",
+          "Closing deals is not your job. Getting the right people to the table is.",
+        ],
+      },
+      mustHaves: {
+        skills: [
+          "Ability to write outreach messages that sound human, not templated — every message must be personalised",
+          "Research ability — you can find decision-makers at any business using publicly available information",
+          "Follow-up discipline — you manage a structured cadence without losing track of where each prospect stands",
+          "Clear, professional written communication — your messages represent TAL externally",
+        ],
+        behaviours: [
+          "Rejection does not slow you down. It is data, not failure.",
+          "You do not wait to be told who to reach out to — you find the targets yourself.",
+          "You update the tracker daily. Not weekly. Not when asked. Daily.",
+          "When a lead goes warm, you escalate immediately — you do not sit on it.",
+          "You follow the handoff process exactly. Founders should never have to ask for context on a lead you passed.",
+        ],
+        tools: [
+          "LinkedIn",
+          "Google Maps",
+          "Google Workspace",
+          "Flock",
+          "ChatGPT / Claude",
+          "Google Sheets",
+          "Email",
+        ],
+      },
+      ownershipSignal:
+        "You have done outreach before — formally or informally. You know what a good opening message looks like and what gets ignored. You have a system for tracking follow-ups and you use it. You do not need someone to build your prospect list for you. You find people.",
+      nicesToHave: {
+        signal:
+          "You've done cold outreach in any context — sales, recruitment, partnerships, sponsorships — and you have results to show for it. You understand what SMEs care about and how they make buying decisions. You've worked in a fast-moving environment where targets were real and non-negotiable.",
+        standOut: [
+          "Prior experience in sales outreach, business development, or lead generation — even in a freelance or college context",
+          "You have a response rate or conversion metric you can point to from previous outreach work",
+          "You understand the service sector — gyms, salons, restaurants, creators, brands — and how they think about marketing spend",
+          "You've used LinkedIn Sales Navigator, Apollo, or similar tools",
+        ],
+      },
+      redFlags: {
+        trust: [
+          "Sending templated messages and calling it personalised outreach",
+          "Letting leads go cold because you did not follow up on time",
+          "Updating the tracker only when asked",
+          "Quoting prices or making commitments without founder approval",
+        ],
+        willFail: [
+          "You need a pre-built lead list to start working",
+          "Rejection affects your motivation or output",
+          "You prefer relationship-based selling and struggle with cold contact",
+          "You are uncomfortable with targets and weekly accountability",
+        ],
+        warningText:
+          "If any of the above sounds like you — please do not apply. We mean this. We will part ways immediately, no matter what stage of the process we're at.",
+      },
+      ninetyDays:
+        "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
+      worthIt:
+        "You work directly with three founders and see exactly how a startup builds its commercial pipeline from zero. Your work has a direct, visible impact on TAL's revenue. There are no layers between you and the outcome. If you are good at this, it will be obvious — and it will be rewarded.",
+    },
+  },
+
   // ── Growth Hacker ─────────────────────────────────────────────────────────
   {
     slug: "growth-hacker",
