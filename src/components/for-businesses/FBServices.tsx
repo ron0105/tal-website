@@ -57,9 +57,81 @@ const afterItems = [
   "Your pipeline is predictable, not accidental",
 ];
 
+const quickCards = [
+  {
+    benefit: "Your customers can find you.",
+    plain: "We build your website, set up your Google profile, and make sure you show up when people search for what you do.",
+    features: ["Website design & development", "Google Business Profile", "Local SEO"],
+    step: "Step 1",
+  },
+  {
+    benefit: "Your brand stays active — without you touching it.",
+    plain: "We write, design, and post content for you every month. You stay consistent online without spending your evenings on it.",
+    features: ["12–20 posts/month across your platforms", "Captions, creatives, stories", "Monthly review call"],
+    step: "Step 2",
+  },
+  {
+    benefit: "Every lead gets followed up. Automatically.",
+    plain: "We set up a system so every enquiry — WhatsApp, form, DM — gets a response and a follow-up. Even when you're heads-down.",
+    features: ["Automated WhatsApp sequences", "Lead capture & follow-up flows", "CRM setup"],
+    step: "Step 3",
+  },
+];
+
 export default function FBServices() {
   return (
     <>
+      {/* 10-second overview */}
+      <section className="py-24 md:py-32 bg-background border-t border-border-subtle">
+        <div className="layout-grid px-6 md:px-10">
+
+          <AnimateOnScroll className="mb-14">
+            <span className="label-eyebrow mb-4 block text-accent">What we do</span>
+            <h2
+              className="font-poppins mb-3"
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.25rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.04em",
+                lineHeight: 1.1,
+                color: "var(--text-primary)",
+              }}
+            >
+              Three things. Clear outcomes.
+            </h2>
+            <p className="text-lg text-muted max-w-lg">No jargon. No 47-step playbooks. Here&apos;s exactly what you get.</p>
+          </AnimateOnScroll>
+
+          <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
+            {quickCards.map((card, i) => (
+              <AnimateOnScroll key={card.step} delay={i * 0.1}>
+                <div className="bg-background p-8 md:p-10 flex flex-col gap-5 h-full">
+                  <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--accent)" }}>
+                    {card.step}
+                  </p>
+                  <h3
+                    className="font-poppins font-bold leading-snug"
+                    style={{ fontSize: "1.25rem", color: "var(--text-primary)" }}
+                  >
+                    {card.benefit}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted flex-1">{card.plain}</p>
+                  <ul className="flex flex-col gap-2 pt-4 border-t border-border-subtle">
+                    {card.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-xs text-muted">
+                        <span className="shrink-0 font-bold mt-0.5" style={{ color: "var(--accent)" }}>→</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* Honest truth */}
       <section className="py-24 md:py-32 bg-bg-secondary border-t border-border-subtle">
         <div className="layout-grid px-6 md:px-10">
@@ -71,7 +143,7 @@ export default function FBServices() {
                 fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.03em",
-                lineHeight: 1.2,
+                lineHeight: 1.25,
                 color: "var(--text-primary)",
               }}
             >
@@ -91,12 +163,11 @@ export default function FBServices() {
       <section className="border-t border-border-subtle bg-background">
         <div className="layout-grid px-6 md:px-10 py-6">
           <AnimateOnScroll>
-            <p className="text-[11px] font-black uppercase tracking-widest text-muted mb-0">What shifts</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-muted">What shifts</p>
           </AnimateOnScroll>
         </div>
         <AnimateOnScroll delay={0.05}>
           <div className="grid grid-cols-2 gap-px bg-border-subtle border-y border-border-subtle">
-
             {/* Before */}
             <div className="bg-bg-secondary px-8 md:px-16 py-14 md:py-20">
               <p className="text-[11px] font-black uppercase tracking-widest text-muted mb-10 pb-5 border-b border-border-subtle">Before</p>
@@ -109,7 +180,6 @@ export default function FBServices() {
                 ))}
               </ul>
             </div>
-
             {/* After */}
             <div className="bg-background px-8 md:px-16 py-14 md:py-20">
               <p className="text-[11px] font-black uppercase tracking-widest mb-10 pb-5 border-b border-border-subtle" style={{ color: "var(--accent)" }}>After</p>
@@ -122,7 +192,6 @@ export default function FBServices() {
                 ))}
               </ul>
             </div>
-
           </div>
         </AnimateOnScroll>
       </section>

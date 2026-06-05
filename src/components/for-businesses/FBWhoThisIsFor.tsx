@@ -68,16 +68,10 @@ export default function FBWhoThisIsFor() {
             >
               <div className="bg-background p-8 flex flex-col gap-4 h-full card-interactive">
                 <span className="text-3xl">{cat.icon}</span>
-                <p
-                  className="text-[11px] font-black uppercase tracking-widest"
-                  style={{ color: "var(--accent)" }}
-                >
+                <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--accent)" }}>
                   {cat.type}
                 </p>
-                <h3
-                  className="font-poppins font-bold leading-snug"
-                  style={{ fontSize: "1.05rem", color: "var(--text-primary)" }}
-                >
+                <h3 className="font-poppins font-bold leading-snug" style={{ fontSize: "1.05rem", color: "var(--text-primary)" }}>
                   {cat.heading}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted">{cat.body}</p>
