@@ -121,7 +121,7 @@ export default function FBServices() {
                       {card.step}
                     </p>
                     <h3
-                      className="font-poppins font-bold leading-snug"
+                      className="font-bold leading-snug"
                       style={{ fontSize: "1.25rem", color: featured ? "#FFFFFF" : "var(--text-primary)" }}
                     >
                       {card.benefit}

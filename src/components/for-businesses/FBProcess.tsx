@@ -91,7 +91,7 @@ export default function FBProcess() {
                     Step
                   </span>
                   <span
-                    className="text-xl font-black font-poppins leading-none"
+                    className="text-xl font-black leading-none"
                     style={{ color: i === steps.length - 1 ? "var(--bg)" : "var(--text-primary)" }}
                   >
                     {step.num}
@@ -99,7 +99,7 @@ export default function FBProcess() {
                 </div>
 
                 <h3
-                  className="text-lg font-bold font-poppins mb-2"
+                  className="text-lg font-bold mb-2"
                   style={{ color: i === steps.length - 1 ? "var(--accent)" : "var(--text-primary)" }}
                 >
                   {step.title}

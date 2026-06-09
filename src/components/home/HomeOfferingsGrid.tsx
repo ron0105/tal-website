@@ -76,7 +76,7 @@ export default function HomeOfferingsGrid() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold font-poppins mb-4 tracking-tight uppercase italic text-primary">
+                  <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase italic text-primary">
                     {item.title}
                   </h3>
                   <p className="text-lg text-muted mb-8 leading-relaxed">

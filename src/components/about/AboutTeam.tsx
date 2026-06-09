@@ -70,7 +70,7 @@ export default function AboutTeam() {
                 {/* Text */}
                 <div className="p-8 flex flex-col gap-4 flex-1">
                   <div>
-                    <p className="font-poppins font-bold text-xl leading-none mb-1" style={{ color: "var(--text-primary)" }}>
+                    <p className="font-bold text-xl leading-none mb-1" style={{ color: "var(--text-primary)" }}>
                       {f.name}
                     </p>
                     <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>

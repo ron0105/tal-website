@@ -34,7 +34,7 @@ function TimelineGraphic() {
             x="260" y="230"
             textAnchor="middle"
             dominantBaseline="middle"
-            fontFamily="Poppins, sans-serif"
+            fontFamily="Plus Jakarta Sans, sans-serif"
             fontWeight="900"
             fontSize="160"
             letterSpacing="-8"
@@ -87,7 +87,7 @@ function TimelineGraphic() {
                 y={n.y + 26}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontFamily="Poppins, sans-serif"
+                fontFamily="Plus Jakarta Sans, sans-serif"
                 fontWeight="700"
                 fontSize="11"
                 style={{ fill: "var(--text-muted)" }}
@@ -102,7 +102,7 @@ function TimelineGraphic() {
             x={nodes[0].x}
             y={nodes[0].y - 24}
             textAnchor="middle"
-            fontFamily="Poppins, sans-serif"
+            fontFamily="Plus Jakarta Sans, sans-serif"
             fontWeight="800"
             fontSize="10"
             style={{ fill: "var(--accent)", opacity: 0.6 }}
@@ -116,7 +116,7 @@ function TimelineGraphic() {
             x={nodes[3].x}
             y={nodes[3].y - 24}
             textAnchor="middle"
-            fontFamily="Poppins, sans-serif"
+            fontFamily="Plus Jakarta Sans, sans-serif"
             fontWeight="800"
             fontSize="10"
             style={{ fill: "var(--accent)", opacity: 0.6 }}

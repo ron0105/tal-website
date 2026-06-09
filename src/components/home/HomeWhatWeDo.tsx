@@ -53,7 +53,7 @@ export default function HomeWhatWeDo() {
           {services.map((service, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
               <div className="bg-background p-10 rounded-2xl border border-border-subtle h-full">
-                <h3 className="text-2xl font-bold font-poppins mb-8 text-primary">
+                <h3 className="text-2xl font-bold mb-8 text-primary">
                   {service.title}
                 </h3>
 
@@ -95,7 +95,7 @@ export default function HomeWhatWeDo() {
           <div className="bg-background rounded-2xl border border-border-subtle overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="p-10 md:p-14 md:border-r border-b md:border-b-0 border-border-subtle">
-                <h3 className="text-2xl font-bold font-poppins mb-4 text-primary">Idea Validation</h3>
+                <h3 className="text-2xl font-bold mb-4 text-primary">Idea Validation</h3>
                 <p className="text-base text-body mb-6">
                   You have an idea but are not sure if it is worth building. We run it through a structured 6-stage process to find out before you spend real money.
                 </p>

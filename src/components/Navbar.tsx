@@ -51,7 +51,7 @@ export default function Navbar() {
           />
         </div>
         <span
-          className="text-lg font-bold tracking-tight font-poppins"
+          className="text-lg font-bold tracking-tight"
           style={{ color: "var(--text-primary)" }}
         >
           TAL Consulting

@@ -77,7 +77,7 @@ export default function HomeWhy() {
                     0{i + 1}
                   </span>
                   <div>
-                    <p className="text-base font-bold font-poppins text-primary mb-2 leading-snug">
+                    <p className="text-base font-bold text-primary mb-2 leading-snug">
                       {point.title}
                     </p>
                     <p className="text-sm leading-relaxed text-muted">

@@ -70,7 +70,7 @@ export default function NIPaths() {
                 <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--text-muted)" }}>
                   {p.eyebrow}
                 </p>
-                <p className="font-poppins text-xl md:text-2xl mb-8" style={{ fontWeight: 500, fontStyle: "italic", color: "var(--text-primary)", lineHeight: 1.35 }}>
+                <p className="text-xl md:text-2xl mb-8" style={{ fontWeight: 500, fontStyle: "italic", color: "var(--text-primary)", lineHeight: 1.35 }}>
                   {p.situation}
                 </p>
                 <p className="text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--accent)" }}>

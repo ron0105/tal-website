@@ -24,7 +24,7 @@ function TwoPathsDiagram() {
 
           {/* Ghost background number */}
           <text x="240" y="230" textAnchor="middle" dominantBaseline="middle"
-            fontFamily="Poppins, sans-serif" fontWeight="900" fontSize="220"
+            fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="900" fontSize="220"
             style={{ fill: "var(--text-primary)", opacity: 0.022 }}>
             2
           </text>
@@ -64,12 +64,12 @@ function TwoPathsDiagram() {
               strokeWidth="1.5"
             />
             <text x="29" y="90" textAnchor="middle" dominantBaseline="middle"
-              fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="11"
+              fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="800" fontSize="11"
               style={{ fill: "var(--accent)" }}>
               FOR
             </text>
             <text x="29" y="108" textAnchor="middle" dominantBaseline="middle"
-              fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="11"
+              fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="800" fontSize="11"
               style={{ fill: "var(--accent)" }}>
               BIZ
             </text>
@@ -82,12 +82,12 @@ function TwoPathsDiagram() {
               strokeWidth="1.5"
             />
             <text x="29" y="310" textAnchor="middle" dominantBaseline="middle"
-              fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="11"
+              fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="800" fontSize="11"
               style={{ fill: "var(--text-muted)" }}>
               NEW
             </text>
             <text x="29" y="328" textAnchor="middle" dominantBaseline="middle"
-              fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="11"
+              fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="800" fontSize="11"
               style={{ fill: "var(--text-muted)" }}>
               IDEAS
             </text>
@@ -119,12 +119,12 @@ function TwoPathsDiagram() {
               style={{ fill: "var(--accent)" }}
             />
             <text x="439" y="216" textAnchor="middle" dominantBaseline="middle"
-              fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="13"
+              fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="800" fontSize="13"
               style={{ fill: "var(--bg)" }}>
               Clarity
             </text>
             <text x="439" y="234" textAnchor="middle" dominantBaseline="middle"
-              fontFamily="Poppins, sans-serif" fontWeight="600" fontSize="10"
+              fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="600" fontSize="10"
               style={{ fill: "var(--bg)", opacity: 0.75 }}>
               + direction
             </text>
@@ -132,7 +132,7 @@ function TwoPathsDiagram() {
 
           {/* One-way thinking label */}
           <motion.text x="240" y="260" textAnchor="middle"
-            fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="12"
+            fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="700" fontSize="12"
             style={{ fill: "var(--text-muted)" }}
             initial={{ opacity: 0 }} animate={{ opacity: 0.7 }}
             transition={{ delay: 1.8 }}

@@ -32,7 +32,7 @@ export default function FNIStatBar() {
               42%
             </span>
             <span
-              className="font-poppins font-bold text-xl"
+              className="font-bold text-xl"
               style={{ color: "var(--bg)", opacity: 0.5 }}
             >
               of startups

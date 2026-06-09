@@ -110,7 +110,7 @@ export default function HomeProcess() {
                   Step
                 </span>
                 <span
-                  className="text-lg font-black font-poppins leading-none"
+                  className="text-lg font-black leading-none"
                   style={{ color: i === steps.length - 1 ? "var(--bg)" : "var(--text-primary)" }}
                 >
                   {step.n}
@@ -119,7 +119,7 @@ export default function HomeProcess() {
 
               {/* Text */}
               <h3
-                className="font-poppins text-lg font-bold mb-3"
+                className="text-lg font-bold mb-3"
                 style={{
                   color: i === steps.length - 1 ? "var(--accent)" : "var(--text-primary)",
                   lineHeight: 1.2,

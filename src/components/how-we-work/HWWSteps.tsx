@@ -103,7 +103,7 @@ export default function HWWSteps() {
               className="mt-10 p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
               style={{ background: "var(--navy)", borderRadius: "var(--radius-card)", borderBottom: "3px solid var(--accent)" }}
             >
-              <div className="flex items-center gap-3 font-poppins text-lg md:text-xl shrink-0" style={{ color: "#FFFFFF", fontWeight: 500 }}>
+              <div className="flex items-center gap-3 text-lg md:text-xl shrink-0" style={{ color: "#FFFFFF", fontWeight: 500 }}>
                 <span>Get found</span>
                 <span style={{ color: "var(--accent)" }}>+</span>
                 <span>Show up</span>

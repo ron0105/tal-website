@@ -34,7 +34,7 @@ export default function HWWIdeas() {
               <div className="bg-background p-6 md:p-8 grid md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-start">
                 <span className="label-eyebrow text-muted pt-1">{stage.n}</span>
                 <div>
-                  <p className="text-lg font-bold text-primary font-poppins mb-1">{stage.title}</p>
+                  <p className="text-lg font-bold text-primary mb-1">{stage.title}</p>
                   <p className="text-base text-muted">{stage.desc}</p>
                 </div>
               </div>

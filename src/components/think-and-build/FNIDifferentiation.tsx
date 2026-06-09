@@ -34,7 +34,7 @@ export default function FNIDifferentiation() {
               <AnimateOnScroll key={i} delay={i * 0.1}>
                 <div className="flex items-center gap-6">
                   <div className="w-2 h-2 rounded-full bg-accent" />
-                  <p className="text-2xl md:text-3xl font-bold font-poppins text-primary italic">
+                  <p className="text-2xl md:text-3xl font-bold text-primary italic">
                     {point}
                   </p>
                 </div>

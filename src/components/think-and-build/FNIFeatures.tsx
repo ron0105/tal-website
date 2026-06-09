@@ -34,7 +34,7 @@ export default function FNIFeatures() {
           {questions.map((q, i) => (
             <AnimateOnScroll key={i} delay={i * 0.07}>
               <div className="relative p-8 pb-14 rounded-2xl border border-border-subtle bg-bg-secondary overflow-hidden card-interactive" style={{ minHeight: "180px" }}>
-                <p className="relative text-xl md:text-2xl font-bold font-poppins leading-tight text-primary">
+                <p className="relative text-xl md:text-2xl font-bold leading-tight text-primary">
                   {q}
                 </p>
 

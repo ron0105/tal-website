@@ -26,7 +26,7 @@ export default function HomePricing() {
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
           <AnimateOnScroll>
             <div className="p-10 md:p-14 bg-bg-secondary rounded-2xl border border-border-subtle h-full flex flex-col">
-              <h3 className="text-2xl font-bold font-poppins mb-10 text-primary">India</h3>
+              <h3 className="text-2xl font-bold mb-10 text-primary">India</h3>
               
               <div className="mb-10">
                 <p className="text-[10px] font-black uppercase tracking-widest mb-4 text-muted">One-time setup:</p>
@@ -50,7 +50,7 @@ export default function HomePricing() {
 
           <AnimateOnScroll delay={0.1}>
             <div className="p-10 md:p-14 bg-background rounded-2xl border border-border-subtle h-full flex flex-col">
-              <h3 className="text-2xl font-bold font-poppins mb-10 text-primary">International</h3>
+              <h3 className="text-2xl font-bold mb-10 text-primary">International</h3>
               
               <div className="mb-12 flex-1">
                 <p className="text-xl font-medium leading-relaxed text-body mb-8">

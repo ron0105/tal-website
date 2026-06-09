@@ -38,7 +38,7 @@ export default function FNIOutcomes() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <p className="text-xl md:text-2xl font-bold text-primary font-poppins">
+                <p className="text-xl md:text-2xl font-bold text-primary">
                   {item}
                 </p>
               </div>

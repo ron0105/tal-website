@@ -72,7 +72,7 @@ export default function AboutStory() {
               <AnimateOnScroll key={i} delay={i * 0.1}>
                 <div className="bg-bg-secondary p-8 rounded-2xl border border-border-subtle flex items-start gap-6">
                   <span className="text-sm font-bold text-accent mt-1">0{i + 1}</span>
-                  <p className="text-xl font-bold font-poppins text-primary leading-snug">
+                  <p className="text-xl font-bold text-primary leading-snug">
                     {b}
                   </p>
                 </div>
