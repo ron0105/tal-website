@@ -10,7 +10,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/venture-lab",
-        destination: "/for-new-ideas",
+        destination: "/think-and-build",
+        permanent: true,
+      },
+      {
+        source: "/for-new-ideas",
+        destination: "/think-and-build",
         permanent: true,
       },
       {

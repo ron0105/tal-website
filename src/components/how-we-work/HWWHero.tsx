@@ -75,7 +75,7 @@ function TwoPathsDiagram() {
             </text>
           </motion.g>
 
-          {/* Label B — For New Ideas */}
+          {/* Label B — Think & Build */}
           <motion.g initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.7 }}>
             <rect x="0" y="288" width="58" height="64" rx="10"
               style={{ fill: "var(--bg-secondary)", stroke: "var(--border-color)" }}
@@ -235,7 +235,7 @@ export default function HWWHero() {
                   className="flex items-center gap-3 px-5 py-3 border border-border-subtle rounded-lg text-sm font-semibold text-body hover:border-accent hover:text-accent transition-colors"
                 >
                   <div className="w-2 h-2 rounded-sm shrink-0" style={{ background: "var(--border-color)" }} />
-                  For New Ideas: 6-stage framework
+                  Think & Build: 6-stage framework
                 </a>
               </div>
             </motion.div>

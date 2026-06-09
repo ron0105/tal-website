@@ -87,9 +87,9 @@ export default function HomeWhatWeDo() {
           ))}
         </div>
 
-        {/* For New Ideas */}
+        {/* Think & Build */}
         <AnimateOnScroll className="mb-3">
-          <span className="label-eyebrow block mb-3">For New Ideas</span>
+          <span className="label-eyebrow block mb-3">Think & Build</span>
         </AnimateOnScroll>
         <AnimateOnScroll delay={0.1}>
           <div className="bg-background rounded-2xl border border-border-subtle overflow-hidden">
@@ -127,7 +127,7 @@ export default function HomeWhatWeDo() {
                   </ol>
                 </div>
                 <div className="mt-8">
-                  <Link href="/for-new-ideas" className="btn-ghost" style={{ padding: "12px 28px" }}>
+                  <Link href="/think-and-build" className="btn-ghost" style={{ padding: "12px 28px" }}>
                     See the full framework →
                   </Link>
                 </div>

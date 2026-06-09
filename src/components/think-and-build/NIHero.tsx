@@ -16,7 +16,7 @@ export default function NIHero() {
             className="label-eyebrow mb-6 block"
             style={{ color: "var(--accent)" }}
           >
-            For New Ideas
+            Think & Build
           </motion.span>
 
           <motion.h1

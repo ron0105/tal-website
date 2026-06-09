@@ -20,7 +20,7 @@ const models = [
     details: ["Regular check-ins", "System refinement as needed", "Available when things shift"],
   },
   {
-    label: "For New Ideas",
+    label: "Think & Build",
     title: "Idea validation",
     desc: "We run your idea through our 6-stage validation process. The output is one clear answer: build it, change it, or stop.",
     details: ["Problem framing to decision gate", "Real market testing", "Clear recommendation at the end"],

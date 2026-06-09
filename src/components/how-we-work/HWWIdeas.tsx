@@ -17,7 +17,7 @@ export default function HWWIdeas() {
     <section id="for-new-ideas" className="padding-section bg-background border-t border-border-subtle">
       <div className="layout-grid">
         <AnimateOnScroll className="mb-16">
-          <span className="label-eyebrow mb-8 block text-accent">For New Ideas</span>
+          <span className="label-eyebrow mb-8 block text-accent">Think & Build</span>
           <h2 className="text-section-title">
             Six stages.
             <br />
@@ -43,7 +43,7 @@ export default function HWWIdeas() {
         </div>
 
         <AnimateOnScroll className="flex flex-col sm:flex-row gap-4">
-          <Link href="/for-new-ideas" className="btn-primary" style={{ padding: "14px 36px" }}>
+          <Link href="/think-and-build" className="btn-primary" style={{ padding: "14px 36px" }}>
             See the full framework
           </Link>
           <Link href="/contact" className="btn-ghost" style={{ padding: "14px 36px" }}>

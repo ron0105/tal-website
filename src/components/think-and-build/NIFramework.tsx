@@ -16,7 +16,7 @@ export default function NIFramework() {
     <section id="how-it-works" className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "3px solid var(--accent)" }}>
       <div className="layout-grid px-6 md:px-10">
         <AnimateOnScroll className="mb-16 max-w-2xl">
-          <span className="label-eyebrow mb-5 block" style={{ color: "#EAB308" }}>The framework</span>
+          <span className="label-eyebrow mb-5 block" style={{ color: "#EAB308" }}>The validation framework</span>
           <h2
             className="font-poppins mb-4"
             style={{
@@ -30,7 +30,7 @@ export default function NIFramework() {
             Six stages. A few weeks. One honest answer.
           </h2>
           <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)", maxWidth: "480px" }}>
-            This is the same sequence we run for every idea — structured enough to trust, fast enough that you don&apos;t lose momentum.
+            This is how Idea Validation works — the same sequence for every idea, structured enough to trust, fast enough that you don&apos;t lose momentum. (Consulting engagements are shaped around your business instead.)
           </p>
         </AnimateOnScroll>
 

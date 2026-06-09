@@ -200,7 +200,7 @@ export default function FNIHero() {
               className="flex items-center gap-4 mb-10"
             >
               <div className="w-6 h-px" style={{ background: "var(--accent)" }} />
-              <span className="label-eyebrow text-accent">For New Ideas</span>
+              <span className="label-eyebrow text-accent">Think & Build</span>
             </motion.div>
 
             {/* Headline */}

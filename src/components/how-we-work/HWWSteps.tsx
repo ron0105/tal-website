@@ -6,27 +6,27 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 const phases = [
   {
     n: "01",
-    title: "Understand",
-    duration: "Week 1–2",
+    title: "Get found",
+    duration: "Week 1–3",
     description:
-      "We spend time with your business, your team, and your customers. We ask the right questions and listen before we recommend anything.",
-    outputs: ["Clear picture of how the business runs", "Agreement on what we are solving", "Prioritised starting point"],
+      "We build your digital foundation — a website that converts, your Google Business Profile set up properly, and SEO so you show up when people search for what you do.",
+    outputs: ["A website that works like a 24/7 salesperson", "Found on Google when it matters", "Analytics so you know what's working"],
   },
   {
     n: "02",
-    title: "Structure",
-    duration: "Week 2–4",
+    title: "Show up",
+    duration: "Monthly",
     description:
-      "We design clear, practical systems that fit how your business actually works. Simple enough for anyone to follow.",
-    outputs: ["Documented processes your team can own", "Clear roles and responsibilities", "Communication standards across touchpoints"],
+      "We become your brand's voice online. Posts, stories, reels, captions — written, designed, and published every month. You just approve.",
+    outputs: ["12–20 posts a month across your platforms", "A brand that looks active and credible", "Monthly review call so we stay aligned"],
   },
   {
     n: "03",
-    title: "Guide",
-    duration: "Ongoing",
+    title: "Let it run",
+    duration: "Week 3–5, then ongoing",
     description:
-      "We stay involved while your team adopts the new systems, refining as needed until everything runs smoothly.",
-    outputs: ["Team trained and confident", "Systems refined through real use", "You step back knowing things are covered"],
+      "We wire up the follow-through — lead capture, WhatsApp sequences, booking confirmations — so every enquiry gets a response, even when you're heads-down.",
+    outputs: ["Every lead followed up automatically", "WhatsApp flows that feel human", "A pipeline that's predictable, not accidental"],
   },
 ];
 
@@ -62,7 +62,7 @@ export default function HWWSteps() {
               <span className="text-muted">One clear outcome.</span>
             </h2>
             <p className="text-xl text-body mt-6 max-w-2xl">
-              When your business is already running but feels messy or hard to grow, we come in and build the clarity it needs.
+              Your business is real. The internet just doesn&apos;t reflect that yet. We build your presence in three steps — each one useful on its own, unstoppable together.
             </p>
           </AnimateOnScroll>
 

@@ -11,7 +11,7 @@ import Logo from "./Logo";
 
 const navLinks = [
   { label: "For Businesses", href: "/for-businesses" },
-  { label: "For New Ideas", href: "/for-new-ideas" },
+  { label: "Think & Build", href: "/think-and-build" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },

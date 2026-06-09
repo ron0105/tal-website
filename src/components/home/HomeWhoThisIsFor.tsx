@@ -59,11 +59,11 @@ export default function HomeWhoThisIsFor() {
             </div>
           </AnimateOnScroll>
 
-          {/* For New Ideas */}
+          {/* Think & Build */}
           <AnimateOnScroll delay={0.1}>
             <div className="bg-background rounded-2xl border border-border-subtle overflow-hidden h-full flex flex-col">
               <div className="p-8 border-b border-border-subtle">
-                <span className="label-eyebrow block mb-2">For New Ideas</span>
+                <span className="label-eyebrow block mb-2">Think & Build</span>
                 <p className="text-base text-muted">Testing an idea before building it</p>
               </div>
               <div className="p-8 flex flex-col gap-4 flex-1">
@@ -75,8 +75,8 @@ export default function HomeWhoThisIsFor() {
                 ))}
               </div>
               <div className="p-8 pt-0">
-                <Link href="/for-new-ideas" className="btn-ghost w-full text-center" style={{ display: "block" }}>
-                  For New Ideas →
+                <Link href="/think-and-build" className="btn-ghost w-full text-center" style={{ display: "block" }}>
+                  Think & Build →
                 </Link>
               </div>
             </div>

@@ -60,9 +60,9 @@ export default function HomeSplit() {
           borderRight
         />
 
-        {/* For New Ideas */}
+        {/* Think & Build */}
         <SplitPanel
-          eyebrow="For New Ideas"
+          eyebrow="Think & Build"
           eyebrowAccent={false}
           headline="We help you understand if your idea actually works, before you build it."
           items={[
@@ -72,7 +72,7 @@ export default function HomeSplit() {
           ]}
           itemAccent={false}
           cta="Explore idea validation"
-          ctaHref="/for-new-ideas"
+          ctaHref="/think-and-build"
           ctaVariant="ghost"
           ghostLabel="02"
           delay={0.1}
