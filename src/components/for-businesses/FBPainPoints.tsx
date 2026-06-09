@@ -36,7 +36,7 @@ export default function FBPainPoints() {
             className="font-poppins"
             style={{
               fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 800,
+              fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 1.1,
               color: "var(--text-primary)",

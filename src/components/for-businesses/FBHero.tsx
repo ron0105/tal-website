@@ -158,7 +158,7 @@ export default function FBHero() {
               className="font-poppins mb-6"
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4.25rem)",
-                fontWeight: 800,
+                fontWeight: 500,
                 letterSpacing: "-0.04em",
                 lineHeight: 1.05,
                 color: "#FFFFFF",

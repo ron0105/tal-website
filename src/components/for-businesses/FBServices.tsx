@@ -91,7 +91,7 @@ export default function FBServices() {
               className="font-poppins mb-3"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.25rem)",
-                fontWeight: 800,
+                fontWeight: 500,
                 letterSpacing: "-0.04em",
                 lineHeight: 1.1,
                 color: "var(--text-primary)",
@@ -141,7 +141,7 @@ export default function FBServices() {
               className="font-poppins mb-6"
               style={{
                 fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                fontWeight: 700,
+                fontWeight: 500,
                 letterSpacing: "-0.03em",
                 lineHeight: 1.25,
                 color: "var(--text-primary)",
@@ -206,7 +206,7 @@ export default function FBServices() {
               className="font-poppins mb-3"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.25rem)",
-                fontWeight: 800,
+                fontWeight: 500,
                 letterSpacing: "-0.04em",
                 lineHeight: 1.1,
                 color: "var(--text-primary)",
@@ -229,7 +229,7 @@ export default function FBServices() {
                       className="font-poppins"
                       style={{
                         fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                        fontWeight: 700,
+                        fontWeight: 500,
                         letterSpacing: "-0.03em",
                         lineHeight: 1.2,
                         color: "var(--text-primary)",
@@ -272,7 +272,7 @@ export default function FBServices() {
                 className="font-poppins mb-5"
                 style={{
                   fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   letterSpacing: "-0.03em",
                   lineHeight: 1.2,
                   color: "#fff",
