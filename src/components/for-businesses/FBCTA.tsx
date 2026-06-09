@@ -13,49 +13,50 @@ function WAIcon() {
 
 export default function FBCTA() {
   return (
-    <section
-      className="py-24 md:py-32 border-t border-border-subtle"
-      style={{ background: "var(--bg-secondary)" }}
-    >
+    <section className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "3px solid var(--accent)" }}>
       <div className="layout-grid px-6 md:px-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <AnimateOnScroll>
             <h2
               className="font-poppins"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
-                marginBottom: "2rem",
-                color: "var(--text-primary)",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.12,
+                marginBottom: "1.5rem",
+                color: "#FFFFFF",
               }}
             >
               Ready to stop being invisible?
             </h2>
-            <p className="text-xl text-muted max-w-lg">
+            <p className="text-xl max-w-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
               You don&apos;t need a pitch deck or a brief. Just tell us what your business does and where you feel stuck. We&apos;ll take it from there.
             </p>
           </AnimateOnScroll>
 
           <AnimateOnScroll delay={0.15}>
-            <div className="flex flex-col gap-5">
-              <Link
-                href="/contact"
-                className="btn-primary w-full text-center py-5 text-lg"
-              >
-                Book a Call
-              </Link>
+            <div className="flex flex-col gap-4">
               <a
                 href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ghost w-full text-center py-5 text-lg flex items-center justify-center gap-3"
-                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
+                className="w-full text-center py-5 text-base font-bold uppercase tracking-widest flex items-center justify-center gap-3 transition-opacity hover:opacity-90 cursor-pointer"
+                style={{ background: "#CA8A04", color: "#fff", borderRadius: "12px", boxShadow: "0 10px 30px rgba(202,138,4,0.35)" }}
               >
                 <WAIcon />
                 Chat on WhatsApp
               </a>
+              <Link
+                href="/contact"
+                className="w-full text-center py-5 text-base font-bold uppercase tracking-widest transition-colors cursor-pointer"
+                style={{ border: "1.5px solid rgba(255,255,255,0.3)", color: "#fff", borderRadius: "12px" }}
+              >
+                Book a Call
+              </Link>
+              <p className="text-xs text-center mt-1" style={{ color: "rgba(255,255,255,0.45)" }}>
+                Replies within a day · Mumbai-based, working globally
+              </p>
             </div>
           </AnimateOnScroll>
         </div>

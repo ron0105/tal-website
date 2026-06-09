@@ -13,118 +13,95 @@ function WAIcon() {
   );
 }
 
-const hubNodes = [
-  { label: ["Get Found.", "Get Trusted."], angle: -90 },
-  { label: ["Show Up.", "Consistently."], angle: 30 },
-  { label: ["Let It", "Run Itself."], angle: 150 },
-];
+const outcomes = ["Get Found. Get Trusted.", "Show Up. Consistently.", "Let It Run Itself."];
 
-function HubDiagram() {
-  const cx = 260;
-  const cy = 260;
-  const r = 165;
-  const orbitR = 115;
-  const orbitC = 2 * Math.PI * orbitR;
-
-  const nodes = hubNodes.map((n) => {
-    const rad = (n.angle * Math.PI) / 180;
-    return { ...n, x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
-  });
-
+/* Decorative mock: what "being found" looks like — search card + instant reply */
+function FoundVisual() {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 24 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.9, ease, delay: 0.25 }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease, delay: 0.3 }}
       className="relative w-full mx-auto"
-      style={{ maxWidth: "520px" }}
+      style={{ maxWidth: "460px" }}
+      aria-hidden="true"
     >
+      {/* Search result card */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="relative z-10 p-6"
+        style={{
+          background: "var(--bg)",
+          border: "1px solid var(--border-color)",
+          borderRadius: "14px",
+          boxShadow: "0 24px 60px rgba(15,23,42,0.10)",
+        }}
       >
-        <svg viewBox="0 0 520 520" className="w-full h-auto" aria-hidden="true">
-
-          {/* Rotating orbit ring */}
-          <motion.circle
-            cx={cx} cy={cy} r={orbitR}
-            style={{ fill: "none", stroke: "var(--accent)", transformOrigin: `${cx}px ${cy}px` }}
-            strokeWidth="1"
-            strokeDasharray={`${orbitC * 0.18} ${orbitC * 0.82}`}
-            opacity={0.3}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-          />
-
-          {/* Connecting lines */}
-          {nodes.map((n, i) => (
-            <motion.line
-              key={i}
-              x1={cx} y1={cy} x2={n.x} y2={n.y}
-              style={{ stroke: "var(--border-color)" }}
-              strokeWidth="1.5"
-              strokeDasharray="5 5"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.7 }}
-              transition={{ duration: 0.9, delay: 0.55 + i * 0.15 }}
-            />
-          ))}
-
-          {/* Center pulse glow */}
-          <motion.circle
-            cx={cx} cy={cy} r={54}
-            style={{ fill: "var(--accent)" }}
-            initial={{ opacity: 0.08 }}
-            animate={{ r: [54, 68, 54], opacity: [0.08, 0.03, 0.08] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Center hub */}
-          <circle cx={cx} cy={cy} r={40} style={{ fill: "var(--accent)" }} />
-          <rect
-            x={cx - 12} y={cy - 12} width="24" height="24" rx="6"
-            style={{ fill: "var(--bg)", opacity: 0.25 }}
-          />
-          <rect
-            x={cx - 5} y={cy - 5} width="10" height="10" rx="3"
-            style={{ fill: "var(--bg)" }}
-          />
-
-          {/* Node cards */}
-          {nodes.map((n, i) => (
-            <motion.g
-              key={i}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 + i * 0.15, ease }}
-              style={{ transformOrigin: `${n.x}px ${n.y}px` }}
-            >
-              <rect
-                x={n.x - 60} y={n.y - 32}
-                width="120" height="64"
-                rx="12"
-                style={{ fill: "var(--bg-secondary)", stroke: "var(--border-color)" }}
-                strokeWidth="1.5"
-              />
-              {n.label.map((line, li) => (
-                <text
-                  key={li}
-                  x={n.x}
-                  y={n.y + (li === 0 ? -10 : 10)}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize="11.5"
-                  fontWeight="700"
-                  fontFamily="Poppins, sans-serif"
-                  style={{ fill: "var(--text-primary)" }}
-                >
-                  {line}
-                </text>
+        <div className="flex items-center gap-2 mb-4">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+          </svg>
+          <div className="h-2.5 flex-1 rounded-full" style={{ background: "var(--bg-lift)" }} />
+        </div>
+        <div className="flex items-start gap-4">
+          <div
+            className="w-12 h-12 shrink-0 flex items-center justify-center font-black text-lg rounded-lg"
+            style={{ background: "var(--navy)", color: "#fff", border: "2px solid var(--accent)" }}
+          >
+            B
+          </div>
+          <div className="flex-1">
+            <div className="h-3 w-2/3 rounded-full mb-2" style={{ background: "var(--text-primary)", opacity: 0.85 }} />
+            <div className="flex items-center gap-1.5 mb-2">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)">
+                  <path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" />
+                </svg>
               ))}
-            </motion.g>
-          ))}
+              <div className="h-2 w-12 rounded-full ml-1" style={{ background: "var(--bg-lift)" }} />
+            </div>
+            <div className="h-2 w-full rounded-full mb-1.5" style={{ background: "var(--bg-lift)" }} />
+            <div className="h-2 w-4/5 rounded-full" style={{ background: "var(--bg-lift)" }} />
+          </div>
+        </div>
+        <div className="flex gap-2 mt-4">
+          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(202,138,4,0.1)", color: "var(--accent-hover)" }}>
+            Website
+          </span>
+          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(202,138,4,0.1)", color: "var(--accent-hover)" }}>
+            Directions
+          </span>
+          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(202,138,4,0.1)", color: "var(--accent-hover)" }}>
+            Call
+          </span>
+        </div>
+      </motion.div>
 
-        </svg>
+      {/* WhatsApp auto-reply bubble */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease, delay: 1.0 }}
+        className="relative z-20 flex items-start gap-3 p-4 -mt-5 ml-8 md:ml-16"
+        style={{
+          background: "var(--navy)",
+          borderRadius: "14px",
+          borderBottomLeftRadius: "4px",
+          boxShadow: "0 16px 40px rgba(15,23,42,0.18)",
+          maxWidth: "330px",
+        }}
+      >
+        <span className="shrink-0 mt-0.5" style={{ color: "#25D366" }}>
+          <WAIcon />
+        </span>
+        <div className="flex-1">
+          <div className="h-2.5 w-3/4 rounded-full mb-2" style={{ background: "rgba(255,255,255,0.85)" }} />
+          <div className="h-2 w-full rounded-full mb-1.5" style={{ background: "rgba(255,255,255,0.3)" }} />
+          <div className="h-2 w-1/2 rounded-full" style={{ background: "rgba(255,255,255,0.3)" }} />
+        </div>
+        <span className="text-[10px] font-bold shrink-0 self-end" style={{ color: "var(--accent)" }}>✓✓</span>
       </motion.div>
     </motion.div>
   );
@@ -132,21 +109,18 @@ function HubDiagram() {
 
 export default function FBHero() {
   return (
-    <section
-      className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden"
-      style={{ background: "var(--navy)", borderBottom: "3px solid #CA8A04" }}
-    >
+    <section className="bg-background pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
       <div className="layout-grid px-6 md:px-10">
-        <div className="grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-20 items-center">
 
-          {/* Left — copy */}
+          {/* Left — copy (unchanged) */}
           <div>
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease }}
               className="label-eyebrow mb-6 block"
-              style={{ color: "#EAB308" }}
+              style={{ color: "var(--accent)" }}
             >
               For Businesses
             </motion.span>
@@ -157,25 +131,25 @@ export default function FBHero() {
               transition={{ duration: 0.7, ease, delay: 0.1 }}
               className="font-poppins mb-6"
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 4.25rem)",
+                fontSize: "clamp(2.4rem, 4.8vw, 4rem)",
                 fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.05,
-                color: "#FFFFFF",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.08,
+                color: "var(--text-primary)",
               }}
             >
               You built something real.
               <br />
-              Now let's make sure{" "}
-              <span style={{ color: "#EAB308" }}>the right people see it.</span>
+              Now let&apos;s make sure{" "}
+              <span style={{ color: "var(--accent)", borderBottom: "3px solid var(--accent)" }}>the right people see it.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.2 }}
-              className="text-lg mb-10 max-w-lg leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.75)" }}
+              className="text-lg mb-9 max-w-lg leading-relaxed"
+              style={{ color: "var(--text-body)" }}
             >
               You&apos;re not here for more posts. You&apos;re here because you want customers, trust, and growth — without spending half your week figuring out the internet. That&apos;s exactly what we do.
             </motion.p>
@@ -183,38 +157,50 @@ export default function FBHero() {
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease, delay: 0.35 }}
-              className="flex flex-col sm:flex-row gap-4"
+              transition={{ duration: 0.5, ease, delay: 0.32 }}
+              className="flex flex-col sm:flex-row gap-4 mb-9"
             >
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"
-                style={{ padding: "14px 32px", background: "#CA8A04", color: "#fff", borderRadius: "var(--radius-btn)" }}
-              >
-                Start a Conversation
-              </Link>
               <a
                 href="https://wa.me/918169315080?text=Hi%2C%20I%20have%20a%20running%20business%20and%20would%20like%20to%20know%20more%20about%20TAL%20Consulting."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-colors cursor-pointer"
-                style={{ padding: "14px 32px", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", borderRadius: "var(--radius-btn)" }}
+                className="inline-flex items-center justify-center gap-2.5 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"
+                style={{ padding: "16px 32px", background: "#CA8A04", color: "#fff", borderRadius: "10px", boxShadow: "0 8px 24px rgba(202,138,4,0.3)" }}
               >
                 <WAIcon />
                 Chat on WhatsApp
               </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-colors cursor-pointer hover:border-accent"
+                style={{ padding: "16px 32px", border: "1.5px solid var(--border-color)", color: "var(--text-primary)", borderRadius: "10px" }}
+              >
+                Start a Conversation
+              </Link>
             </motion.div>
+
+            {/* Outcome ticks */}
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease, delay: 0.45 }}
+              className="flex flex-wrap gap-x-6 gap-y-2"
+            >
+              {outcomes.map((o) => (
+                <li key={o} className="flex items-center gap-2 text-sm font-semibold" style={{ color: "var(--text-muted)" }}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  {o}
+                </li>
+              ))}
+            </motion.ul>
           </div>
 
-          {/* Right — hub diagram */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.2 }}
-            className="hidden lg:block"
-          >
-            <HubDiagram />
-          </motion.div>
+          {/* Right — found-online visual */}
+          <div className="hidden lg:block">
+            <FoundVisual />
+          </div>
 
         </div>
       </div>

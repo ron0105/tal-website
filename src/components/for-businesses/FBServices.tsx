@@ -104,14 +104,18 @@ export default function FBServices() {
             </p>
           </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
             {quickCards.map((card, i) => {
               const featured = i === 1;
               return (
                 <AnimateOnScroll key={card.step} delay={i * 0.1}>
                   <div
-                    className="p-8 md:p-10 flex flex-col gap-5 h-full"
-                    style={featured ? { background: "var(--navy)", borderBottom: "3px solid var(--accent)" } : { background: "var(--bg)" }}
+                    className="p-8 md:p-10 flex flex-col gap-5 h-full transition-shadow duration-200 hover:shadow-lg"
+                    style={
+                      featured
+                        ? { background: "var(--navy)", borderBottom: "4px solid var(--accent)", borderRadius: "14px", boxShadow: "0 12px 36px rgba(15,23,42,0.16)" }
+                        : { background: "var(--bg)", border: "1px solid var(--border-color)", borderRadius: "14px", boxShadow: "0 2px 10px rgba(15,23,42,0.04)" }
+                    }
                   >
                     <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "#EAB308" : "var(--accent)" }}>
                       {card.step}
