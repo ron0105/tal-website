@@ -6,7 +6,6 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 const phases = [
   {
     n: "01",
-    name: "Groundwork",
     title: "Get found",
     duration: "One-time build",
     description:
@@ -15,7 +14,6 @@ const phases = [
   },
   {
     n: "02",
-    name: "Narrative",
     title: "Show up",
     duration: "Monthly",
     description:
@@ -24,7 +22,6 @@ const phases = [
   },
   {
     n: "03",
-    name: "Autopilot",
     title: "Let it run",
     duration: "Setup, then ongoing",
     description:
@@ -75,14 +72,11 @@ export default function HWWSteps() {
                 <div className="bg-background p-8 md:p-12 grid md:grid-cols-[200px_1fr_1fr] gap-8">
                   <div>
                     <span className="section-num block mb-2">{phase.n}</span>
-                    <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: "var(--accent)" }}>
-                      {phase.name}
-                    </p>
                     <h3 className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
                       {phase.title}
                     </h3>
                     <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
-                      {phase.duration} · Standalone service
+                      {phase.duration} · Works on its own
                     </p>
                   </div>
                   <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
@@ -110,14 +104,14 @@ export default function HWWSteps() {
               style={{ background: "var(--navy)", borderRadius: "var(--radius-card)", borderBottom: "3px solid var(--accent)" }}
             >
               <div className="flex items-center gap-3 font-poppins text-lg md:text-xl shrink-0" style={{ color: "#FFFFFF", fontWeight: 500 }}>
-                <span>Groundwork</span>
+                <span>Get found</span>
                 <span style={{ color: "var(--accent)" }}>+</span>
-                <span>Narrative</span>
+                <span>Show up</span>
                 <span style={{ color: "var(--accent)" }}>+</span>
-                <span>Autopilot</span>
+                <span>Let it run</span>
               </div>
               <p className="text-sm leading-relaxed flex-1" style={{ color: "rgba(255,255,255,0.7)" }}>
-                Together they become <strong style={{ color: "#EAB308" }}>The Complete Story</strong> — your website, content, and follow-up working as one system. Most clients start with one service and stack the rest as results come in. Whatever you start with credits toward the full build.
+                Together, your website, your content, and your follow-up tell <strong style={{ color: "#EAB308" }}>one story</strong> — and that&apos;s when it compounds. Most clients start with one, see results, and add the rest. Whatever you start with credits toward the full build.
               </p>
             </div>
           </AnimateOnScroll>

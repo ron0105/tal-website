@@ -4,7 +4,7 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 
 const outcomes = [
   {
-    tag: "01 · Groundwork",
+    tag: "Step One",
     title: "Get found. Get trusted.",
     headline: "When someone searches your business at 11pm, what do they find? If the answer is \"not much\" — this is where we start.",
     body: "We build you a website that works like a 24/7 salesperson. It loads fast, looks sharp on every phone, and says exactly what it needs to so a stranger becomes a customer. Then we make sure you show up right where your customers are looking.",
@@ -16,7 +16,7 @@ const outcomes = [
     ],
   },
   {
-    tag: "02 · Narrative",
+    tag: "Step Two",
     title: "Show up. Consistently.",
     headline: "Consistency is the thing most businesses can't pull off. Not because they don't want to — because they're busy running a business.",
     body: "We become your brand's voice online. Every month, fresh content goes out — posts, stories, reels, captions — that sound like you, represent you well, and quietly build an audience that trusts you before they've even met you.",
@@ -28,7 +28,7 @@ const outcomes = [
     ],
   },
   {
-    tag: "03 · Autopilot",
+    tag: "Step Three",
     title: "Let it run itself.",
     headline: "What if every new enquiry got followed up automatically, even while you were asleep?",
     body: "We wire your business for automation. Lead capture, follow-up messages, WhatsApp replies, booking confirmations — all of it runs in the background so nothing falls through the cracks. You focus on delivery. The system handles the follow-through.",
@@ -62,19 +62,19 @@ const quickCards = [
     benefit: "Your customers can find you.",
     plain: "We build your website, set up your Google profile, and make sure you show up when people search for what you do.",
     features: ["Website design & development", "Google Business Profile", "Local SEO"],
-    step: "01 · Groundwork",
+    step: "Step 1",
   },
   {
     benefit: "Your brand stays active — without you touching it.",
     plain: "We write, design, and post content for you every month. You stay consistent online without spending your evenings on it.",
     features: ["12–20 posts/month across your platforms", "Captions, creatives, stories", "Monthly review call"],
-    step: "02 · Narrative",
+    step: "Step 2",
   },
   {
     benefit: "Every lead gets followed up. Automatically.",
     plain: "We set up a system so every enquiry — WhatsApp, form, DM — gets a response and a follow-up. Even when you're heads-down.",
     features: ["Automated WhatsApp sequences", "Lead capture & follow-up flows", "CRM setup"],
-    step: "03 · Autopilot",
+    step: "Step 3",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function FBServices() {
               Three things. Clear outcomes.
             </h2>
             <p className="text-lg text-muted max-w-lg">
-              No jargon. No 47-step playbooks. Three services — take one, take all three, or start small and stack them as results come in.
+              No jargon. No 47-step playbooks. Take one, take all three, or start small and add the rest as results come in.
             </p>
           </AnimateOnScroll>
 
