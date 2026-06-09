@@ -2,7 +2,18 @@
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 
-const paths = [
+type Path = {
+  eyebrow: string;
+  situation: string;
+  name: string;
+  body: string;
+  areas?: string[];
+  promise: string;
+  cta: string;
+  href: string;
+};
+
+const paths: Path[] = [
   {
     eyebrow: "Start here if…",
     situation: "“I have an idea. I haven't built anything yet.”",
@@ -16,7 +27,13 @@ const paths = [
     eyebrow: "Start here if…",
     situation: "“I'm already building — and I could use a second brain.”",
     name: "Founder Consulting",
-    body: "You don't need a co-founder or a guru. You need someone outside your head who'll tell you the truth — about your model, your pricing, your positioning — and help you structure the next 90 days so the business doesn't depend on you for every decision.",
+    body: "You don't need a co-founder or a guru. You need someone outside your head who'll tell you the truth, and work it through with you — wherever the business is stuck.",
+    areas: [
+      "Strategy & scaling — what to do next, in what order",
+      "Go-to-market & growth — finding and winning the right customers",
+      "Marketing & brand strategy — positioning that makes you the obvious choice",
+      "New revenue streams — design-thinking your way to what else the business can sell",
+    ],
     promise: "Honest feedback and working systems. No retainers-for-life, no dependency model — we build it so you can run it without us.",
     cta: "Talk to us",
     href: "https://wa.me/918169315080?text=Hi%2C%20I%27m%20building%20something%20and%20would%20like%20a%20consult%20with%20TAL.",
@@ -62,6 +79,16 @@ export default function NIPaths() {
                 <p className="text-base leading-relaxed mb-5" style={{ color: "var(--text-body)" }}>
                   {p.body}
                 </p>
+                {p.areas && (
+                  <ul className="flex flex-col gap-2.5 mb-6">
+                    {p.areas.map((a) => (
+                      <li key={a} className="flex items-start gap-2.5 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                        <span className="shrink-0 font-bold mt-0.5" style={{ color: "var(--accent)" }}>→</span>
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <p className="text-base leading-relaxed mb-8 flex-1" style={{ color: "var(--text-muted)" }}>
                   {p.promise}
                 </p>
