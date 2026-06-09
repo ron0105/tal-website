@@ -103,30 +103,41 @@ export default function FBServices() {
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
-            {quickCards.map((card, i) => (
-              <AnimateOnScroll key={card.step} delay={i * 0.1}>
-                <div className="bg-background p-8 md:p-10 flex flex-col gap-5 h-full">
-                  <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--accent)" }}>
-                    {card.step}
-                  </p>
-                  <h3
-                    className="font-poppins font-bold leading-snug"
-                    style={{ fontSize: "1.25rem", color: "var(--text-primary)" }}
+            {quickCards.map((card, i) => {
+              const featured = i === 1;
+              return (
+                <AnimateOnScroll key={card.step} delay={i * 0.1}>
+                  <div
+                    className="p-8 md:p-10 flex flex-col gap-5 h-full"
+                    style={featured ? { background: "var(--navy)", borderBottom: "3px solid var(--accent)" } : { background: "var(--bg)" }}
                   >
-                    {card.benefit}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted flex-1">{card.plain}</p>
-                  <ul className="flex flex-col gap-2 pt-4 border-t border-border-subtle">
-                    {card.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-xs text-muted">
-                        <span className="shrink-0 font-bold mt-0.5" style={{ color: "var(--accent)" }}>→</span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AnimateOnScroll>
-            ))}
+                    <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "#EAB308" : "var(--accent)" }}>
+                      {card.step}
+                    </p>
+                    <h3
+                      className="font-poppins font-bold leading-snug"
+                      style={{ fontSize: "1.25rem", color: featured ? "#FFFFFF" : "var(--text-primary)" }}
+                    >
+                      {card.benefit}
+                    </h3>
+                    <p className="text-sm leading-relaxed flex-1" style={{ color: featured ? "rgba(255,255,255,0.7)" : "var(--text-muted)" }}>
+                      {card.plain}
+                    </p>
+                    <ul
+                      className="flex flex-col gap-2 pt-4"
+                      style={{ borderTop: featured ? "1px solid rgba(255,255,255,0.15)" : "1px solid var(--border-subtle)" }}
+                    >
+                      {card.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-xs" style={{ color: featured ? "rgba(255,255,255,0.7)" : "var(--text-muted)" }}>
+                          <span className="shrink-0 font-bold mt-0.5" style={{ color: featured ? "#EAB308" : "var(--accent)" }}>→</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </AnimateOnScroll>
+              );
+            })}
           </div>
 
         </div>

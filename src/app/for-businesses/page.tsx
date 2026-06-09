@@ -4,6 +4,7 @@ import FBPainPoints from "@/components/for-businesses/FBPainPoints";
 import FBTrustBar from "@/components/for-businesses/FBTrustBar";
 import FBWhoThisIsFor from "@/components/for-businesses/FBWhoThisIsFor";
 import FBServices from "@/components/for-businesses/FBServices";
+import FBPartners from "@/components/for-businesses/FBPartners";
 import FBProcess from "@/components/for-businesses/FBProcess";
 import FBCTA from "@/components/for-businesses/FBCTA";
 
@@ -21,6 +22,7 @@ export default function ForBusinesses() {
       <FBTrustBar />
       <FBWhoThisIsFor />
       <FBServices />
+      <FBPartners />
       <FBProcess />
       <FBCTA />
     </>
