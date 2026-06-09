@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Logo from "@/components/shared/Logo";
 
 const pages = [
   { label: "For Businesses", href: "/for-businesses" },
@@ -22,14 +23,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-6 cursor-pointer w-fit group">
-              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <rect width="32" height="32" rx="8" fill="#1D4ED8"/>
-                <rect x="7" y="16" width="4" height="10" rx="2" fill="white"/>
-                <rect x="14" y="11" width="4" height="15" rx="2" fill="white"/>
-                <rect x="21" y="7" width="4" height="19" rx="2" fill="white"/>
-              </svg>
-              <span className="text-lg font-bold tracking-tight text-foreground font-poppins">
-                TAL Consulting
+              <Logo size={28} />
+              <span className="text-lg font-bold tracking-tight text-foreground">
+                The Adda Labs
               </span>
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "280px" }}>

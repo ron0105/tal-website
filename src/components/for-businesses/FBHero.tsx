@@ -132,7 +132,10 @@ function HubDiagram() {
 
 export default function FBHero() {
   return (
-    <section className="bg-background pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+    <section
+      className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden"
+      style={{ background: "var(--navy)", borderBottom: "3px solid #CA8A04" }}
+    >
       <div className="layout-grid px-6 md:px-10">
         <div className="grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16 items-center">
 
@@ -142,7 +145,8 @@ export default function FBHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease }}
-              className="label-eyebrow mb-6 block text-accent"
+              className="label-eyebrow mb-6 block"
+              style={{ color: "#EAB308" }}
             >
               For Businesses
             </motion.span>
@@ -157,20 +161,21 @@ export default function FBHero() {
                 fontWeight: 800,
                 letterSpacing: "-0.04em",
                 lineHeight: 1.05,
-                color: "var(--text-primary)",
+                color: "#FFFFFF",
               }}
             >
               You built something real.
               <br />
               Now let's make sure{" "}
-              <span className="text-accent">the right people see it.</span>
+              <span style={{ color: "#EAB308" }}>the right people see it.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.2 }}
-              className="text-lg text-body mb-10 max-w-lg leading-relaxed"
+              className="text-lg mb-10 max-w-lg leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.75)" }}
             >
               You&apos;re not here for more posts. You&apos;re here because you want customers, trust, and growth — without spending half your week figuring out the internet. That&apos;s exactly what we do.
             </motion.p>
@@ -183,8 +188,8 @@ export default function FBHero() {
             >
               <Link
                 href="/contact"
-                className="btn-primary inline-flex items-center justify-center gap-2"
-                style={{ padding: "14px 32px" }}
+                className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"
+                style={{ padding: "14px 32px", background: "#CA8A04", color: "#fff", borderRadius: "var(--radius-btn)" }}
               >
                 Start a Conversation
               </Link>
@@ -192,8 +197,8 @@ export default function FBHero() {
                 href="https://wa.me/918169315080?text=Hi%2C%20I%20have%20a%20running%20business%20and%20would%20like%20to%20know%20more%20about%20TAL%20Consulting."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ghost inline-flex items-center justify-center gap-2"
-                style={{ padding: "14px 32px" }}
+                className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-colors cursor-pointer"
+                style={{ padding: "14px 32px", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", borderRadius: "var(--radius-btn)" }}
               >
                 <WAIcon />
                 Chat on WhatsApp

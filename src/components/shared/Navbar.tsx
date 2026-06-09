@@ -7,6 +7,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "For Businesses", href: "/for-businesses" },
@@ -41,7 +42,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 h-20 w-full"
         style={{
           backdropFilter: scrolled ? "blur(12px)" : "none",
-          background: scrolled ? "var(--navbar-bg)" : "transparent",
+          background: "var(--navbar-bg)",
           borderBottom: scrolled ? "1px solid var(--border-subtle)" : "1px solid transparent",
           transition: "all 0.3s ease",
         }}
@@ -49,15 +50,18 @@ export default function Navbar() {
         <div className="layout-grid flex items-center justify-between h-full px-6 md:px-10">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 cursor-pointer flex-shrink-0 group">
-            {/* Logo mark */}
-            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect width="32" height="32" rx="8" fill="#1D4ED8"/>
-              <rect x="7" y="16" width="4" height="10" rx="2" fill="white"/>
-              <rect x="14" y="11" width="4" height="15" rx="2" fill="white"/>
-              <rect x="21" y="7" width="4" height="19" rx="2" fill="white"/>
-            </svg>
-            <span className="text-lg font-bold tracking-tight text-foreground font-poppins">
-              TAL Consulting
+            {/* Logo mark — brand book Direction B */}
+            <Logo size={30} />
+            <span className="flex flex-col leading-none">
+              <span className="text-base font-bold tracking-tight text-foreground">
+                The Adda Labs
+              </span>
+              <span
+                className="text-[9px] font-medium uppercase"
+                style={{ color: "var(--text-muted)", letterSpacing: "0.22em", marginTop: "3px" }}
+              >
+                Consulting · Execution
+              </span>
             </span>
           </Link>
 
