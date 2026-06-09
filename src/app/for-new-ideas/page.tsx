@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FNIHero from "@/components/for-new-ideas/FNIHero";
+import FNIOfferings from "@/components/for-new-ideas/FNIOfferings";
 import FNIStatBar from "@/components/for-new-ideas/FNIStatBar";
 import FNIReframe from "@/components/for-new-ideas/FNIReframe";
 import FNIFeatures from "@/components/for-new-ideas/FNIFeatures";
@@ -13,13 +14,14 @@ import FNICTA from "@/components/for-new-ideas/FNICTA";
 export const metadata: Metadata = {
   title: "For New Ideas",
   description:
-    "We help founders test, validate, and structure business ideas before investing time and money. Our 6-step framework brings structure before execution.",
+    "Idea validation and founder consulting. We help founders test ideas before investing — then build them right with business model, pricing, and go-to-market support.",
 };
 
 export default function ForNewIdeas() {
   return (
     <>
       <FNIHero />
+      <FNIOfferings />
       <FNIStatBar />
       <FNIReframe />
       <FNIFeatures />
