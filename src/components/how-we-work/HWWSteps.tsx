@@ -6,14 +6,16 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 const phases = [
   {
     n: "01",
+    name: "Groundwork",
     title: "Get found",
-    duration: "Week 1–3",
+    duration: "One-time build",
     description:
-      "We build your digital foundation — a website that converts, your Google Business Profile set up properly, and SEO so you show up when people search for what you do.",
+      "Your digital foundation — a website that converts, your Google Business Profile set up properly, and SEO so you show up when people search for what you do.",
     outputs: ["A website that works like a 24/7 salesperson", "Found on Google when it matters", "Analytics so you know what's working"],
   },
   {
     n: "02",
+    name: "Narrative",
     title: "Show up",
     duration: "Monthly",
     description:
@@ -22,8 +24,9 @@ const phases = [
   },
   {
     n: "03",
+    name: "Autopilot",
     title: "Let it run",
-    duration: "Week 3–5, then ongoing",
+    duration: "Setup, then ongoing",
     description:
       "We wire up the follow-through — lead capture, WhatsApp sequences, booking confirmations — so every enquiry gets a response, even when you're heads-down.",
     outputs: ["Every lead followed up automatically", "WhatsApp flows that feel human", "A pipeline that's predictable, not accidental"],
@@ -62,7 +65,7 @@ export default function HWWSteps() {
               <span className="text-muted">One clear outcome.</span>
             </h2>
             <p className="text-xl text-body mt-6 max-w-2xl">
-              Your business is real. The internet just doesn&apos;t reflect that yet. We build your presence in three steps — each one useful on its own, unstoppable together.
+              Your business is real. The internet just doesn&apos;t reflect that yet. Three services fix that — <strong>each one stands alone</strong>. Start with the one that hurts most, add the others when you&apos;re ready, or take all three together.
             </p>
           </AnimateOnScroll>
 
@@ -72,11 +75,14 @@ export default function HWWSteps() {
                 <div className="bg-background p-8 md:p-12 grid md:grid-cols-[200px_1fr_1fr] gap-8">
                   <div>
                     <span className="section-num block mb-2">{phase.n}</span>
+                    <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: "var(--accent)" }}>
+                      {phase.name}
+                    </p>
                     <h3 className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
                       {phase.title}
                     </h3>
                     <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
-                      {phase.duration}
+                      {phase.duration} · Standalone service
                     </p>
                   </div>
                   <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
@@ -97,6 +103,24 @@ export default function HWWSteps() {
               </AnimateOnScroll>
             ))}
           </div>
+
+          <AnimateOnScroll delay={0.1}>
+            <div
+              className="mt-10 p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
+              style={{ background: "var(--navy)", borderRadius: "var(--radius-card)", borderBottom: "3px solid var(--accent)" }}
+            >
+              <div className="flex items-center gap-3 font-poppins text-lg md:text-xl shrink-0" style={{ color: "#FFFFFF", fontWeight: 500 }}>
+                <span>Groundwork</span>
+                <span style={{ color: "var(--accent)" }}>+</span>
+                <span>Narrative</span>
+                <span style={{ color: "var(--accent)" }}>+</span>
+                <span>Autopilot</span>
+              </div>
+              <p className="text-sm leading-relaxed flex-1" style={{ color: "rgba(255,255,255,0.7)" }}>
+                Together they become <strong style={{ color: "#EAB308" }}>The Complete Story</strong> — your website, content, and follow-up working as one system. Most clients start with one service and stack the rest as results come in. Whatever you start with credits toward the full build.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
