@@ -261,7 +261,7 @@ export default function FBServices() {
       </section>
 
       {/* Flagship */}
-      <section className="py-20 border-t border-border-subtle" style={{ background: "#002960" }}>
+      <section className="py-20 border-t border-border-subtle" style={{ background: "var(--navy)", borderBottom: "3px solid #CA8A04" }}>
         <div className="layout-grid px-6 md:px-10">
           <AnimateOnScroll>
             <div className="max-w-2xl">
@@ -290,7 +290,7 @@ export default function FBServices() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest px-8 py-4 transition-opacity hover:opacity-90"
-                style={{ background: "#fff", color: "#002960" }}
+                style={{ background: "#CA8A04", color: "#fff" }}
               >
                 Ask us about this →
               </a>
