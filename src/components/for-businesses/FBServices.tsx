@@ -117,7 +117,7 @@ export default function FBServices() {
                         : { background: "var(--bg)", border: "1px solid var(--border-color)", borderRadius: "14px", boxShadow: "0 2px 10px rgba(15,23,42,0.04)" }
                     }
                   >
-                    <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "#EAB308" : "var(--accent)" }}>
+                    <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "rgba(255,255,255,0.55)" : "var(--accent)" }}>
                       {card.step}
                     </p>
                     <h3
@@ -135,7 +135,7 @@ export default function FBServices() {
                     >
                       {card.features.map((f) => (
                         <li key={f} className="flex items-start gap-2 text-xs" style={{ color: featured ? "rgba(255,255,255,0.7)" : "var(--text-muted)" }}>
-                          <span className="shrink-0 font-bold mt-0.5" style={{ color: featured ? "#EAB308" : "var(--accent)" }}>→</span>
+                          <span className="shrink-0 font-bold mt-0.5" style={{ color: featured ? "rgba(255,255,255,0.5)" : "var(--accent)" }}>→</span>
                           {f}
                         </li>
                       ))}
@@ -278,7 +278,7 @@ export default function FBServices() {
       </section>
 
       {/* Flagship */}
-      <section className="py-20 border-t border-border-subtle" style={{ background: "var(--navy)", borderBottom: "3px solid #CA8A04" }}>
+      <section className="py-20 border-t border-border-subtle" style={{ background: "var(--navy)" }}>
         <div className="layout-grid px-6 md:px-10">
           <AnimateOnScroll>
             <div className="max-w-2xl">
@@ -307,7 +307,7 @@ export default function FBServices() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest px-8 py-4 transition-opacity hover:opacity-90"
-                style={{ background: "#CA8A04", color: "#fff" }}
+                style={{ background: "#fff", color: "var(--navy)" }}
               >
                 Ask us about this →
               </a>

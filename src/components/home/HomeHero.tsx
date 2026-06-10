@@ -77,7 +77,10 @@ export default function HomeHero() {
             color: var(--text-primary);
           }
           h1 span.block:last-child > span.block {
-            color: var(--accent);
+            background: linear-gradient(105deg, var(--text-primary) 0%, var(--accent) 75%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
           }
         `}</style>
 

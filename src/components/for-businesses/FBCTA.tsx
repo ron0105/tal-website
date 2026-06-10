@@ -13,7 +13,7 @@ function WAIcon() {
 
 export default function FBCTA() {
   return (
-    <section className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "3px solid var(--accent)" }}>
+    <section className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
       <div className="layout-grid px-6 md:px-10">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <AnimateOnScroll>
@@ -42,7 +42,7 @@ export default function FBCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center py-5 text-base font-bold uppercase tracking-widest flex items-center justify-center gap-3 transition-opacity hover:opacity-90 cursor-pointer"
-                style={{ background: "#CA8A04", color: "#fff", borderRadius: "12px", boxShadow: "0 10px 30px rgba(202,138,4,0.35)" }}
+                style={{ background: "#fff", color: "var(--navy)", borderRadius: "12px" }}
               >
                 <WAIcon />
                 Chat on WhatsApp

@@ -141,7 +141,7 @@ export default function FBHero() {
               You built something real.
               <br />
               Now let&apos;s make sure{" "}
-              <span style={{ color: "var(--accent)", borderBottom: "3px solid var(--accent)" }}>the right people see it.</span>
+              <span style={{ color: "var(--accent)" }}>the right people see it.</span>
             </motion.h1>
 
             <motion.p
@@ -165,7 +165,7 @@ export default function FBHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"
-                style={{ padding: "16px 32px", background: "#CA8A04", color: "#fff", borderRadius: "10px", boxShadow: "0 8px 24px rgba(202,138,4,0.3)" }}
+                style={{ padding: "16px 32px", background: "var(--navy)", color: "#fff", borderRadius: "10px" }}
               >
                 <WAIcon />
                 Chat on WhatsApp

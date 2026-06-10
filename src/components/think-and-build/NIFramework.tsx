@@ -13,10 +13,10 @@ const stages = [
 
 export default function NIFramework() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "3px solid var(--accent)" }}>
+    <section id="how-it-works" className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="layout-grid px-6 md:px-10">
         <AnimateOnScroll className="mb-16 max-w-2xl">
-          <span className="label-eyebrow mb-5 block" style={{ color: "#EAB308" }}>The validation framework</span>
+          <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>The validation framework</span>
           <h2
             className="font-poppins mb-4"
             style={{

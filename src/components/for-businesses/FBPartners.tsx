@@ -42,7 +42,7 @@ export default function FBPartners() {
         {/* Navy panel */}
         <div className="px-8 md:px-16 py-16 md:py-24" style={{ background: "var(--navy)" }}>
           <AnimateOnScroll>
-            <span className="label-eyebrow mb-5 block" style={{ color: "#EAB308" }}>Who you&apos;ll work with</span>
+            <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>Who you&apos;ll work with</span>
             <h2
               className="font-poppins mb-6"
               style={{
@@ -76,7 +76,7 @@ export default function FBPartners() {
             <a
               href="/about"
               className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest mt-10 transition-opacity hover:opacity-90 cursor-pointer"
-              style={{ padding: "13px 28px", background: "#CA8A04", color: "#fff", borderRadius: "var(--radius-btn)" }}
+              style={{ padding: "13px 28px", background: "#fff", color: "var(--navy)", borderRadius: "var(--radius-btn)" }}
             >
               Meet the team →
             </a>

@@ -99,7 +99,7 @@ export default function FBPainPoints() {
           >
             <p className="text-base leading-relaxed max-w-2xl" style={{ color: "rgba(255,255,255,0.8)" }}>
               None of this is your fault. You built a real business. You just haven&apos;t had the right team making sure the internet reflects that.
-              <span className="font-semibold" style={{ color: "#EAB308" }}> That&apos;s where we come in.</span>
+              <span className="font-semibold" style={{ color: "#FFFFFF" }}> That&apos;s where we come in.</span>
             </p>
           </div>
         </AnimateOnScroll>

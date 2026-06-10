@@ -73,15 +73,14 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium transition-colors duration-200 cursor-pointer relative hover:text-accent"
-                  style={{ color: active ? "var(--accent)" : "var(--text-muted)" }}
+                  className={`text-sm font-medium transition-colors duration-200 cursor-pointer relative hover:text-accent${active ? " nav-link-active" : ""}`}
+                  style={{ color: active ? undefined : "var(--text-muted)" }}
                 >
                   {link.label}
                   {active && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute -bottom-1.5 left-0 right-0 h-[1.5px]"
-                      style={{ background: "var(--accent)" }}
+                      className="nav-indicator absolute -bottom-1.5 left-0 right-0 h-[1.5px]"
                     />
                   )}
                 </Link>
@@ -155,15 +154,12 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className="flex items-center justify-between py-4 text-base font-semibold cursor-pointer border-b border-border-subtle transition-colors hover:text-accent"
-                  style={{ color: pathname === link.href ? "var(--accent)" : "var(--text-muted)" }}
+                  className={`flex items-center justify-between py-4 text-base font-semibold cursor-pointer border-b border-border-subtle transition-colors hover:text-accent${pathname === link.href ? " nav-link-active" : ""}`}
+                  style={{ color: pathname === link.href ? undefined : "var(--text-muted)" }}
                 >
                   {link.label}
                   {pathname === link.href && (
-                    <div
-                      className="w-1.5 h-1.5 flex-shrink-0"
-                      style={{ background: "var(--accent)" }}
-                    />
+                    <div className="nav-indicator w-1.5 h-1.5 flex-shrink-0 rounded-full" />
                   )}
                 </Link>
               </motion.div>

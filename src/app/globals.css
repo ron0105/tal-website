@@ -60,11 +60,11 @@
     --text-body: #E8E8E8;
     --text-muted: #9CA3AF;
 
-    /* Gold accent on dark navy */
+    /* Gold accent on dark — reduced brightness vs light mode */
     --navy: #0F172A;
-    --accent: #EAB308;
-    --accent-hover: #CA8A04;
-    --accent-indigo: #EAB308;
+    --accent: #CA8A04;
+    --accent-hover: #92610B;
+    --accent-indigo: #6B7280;
 
     /* Navbar background */
     --navbar-bg: rgba(10, 10, 10, 0.90);
@@ -188,29 +188,29 @@ body {
   background: var(--border-color);
 }
 
-/* ─── Buttons — Editorial Black/White ─── */
+/* ─── Buttons — Editorial Navy / White ─── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
-  background: var(--accent);
+  background: var(--navy);
   color: #FFFFFF;
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius-btn);
-  border: 1px solid var(--accent);
+  border: 1px solid var(--navy);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
   letter-spacing: 0.01em;
 }
 .btn-primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
+  background: #1E293B;
+  border-color: #1E293B;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(0, 41, 96, 0.4);
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.35);
 }
 .btn-primary:active {
   transform: translateY(0px) scale(0.98);
@@ -224,14 +224,14 @@ body {
 }
 
 .dark .btn-primary {
-  background: var(--accent);
-  color: #000000;
-  border-color: var(--accent);
+  background: #FFFFFF;
+  color: #0A0A0A;
+  border-color: #FFFFFF;
 }
 .dark .btn-primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: #000000;
+  background: #F1F5F9;
+  border-color: #F1F5F9;
+  color: #0A0A0A;
 }
 
 .btn-ghost {
@@ -272,11 +272,12 @@ body {
 }
 .card-interactive:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.12);
-  border-color: var(--accent) !important;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(202, 138, 4, 0.2);
+  border-color: rgba(202, 138, 4, 0.3) !important;
 }
 .dark .card-interactive:hover {
-  box-shadow: 0 16px 40px -12px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(202, 138, 4, 0.15);
+  border-color: rgba(202, 138, 4, 0.2) !important;
 }
 
 /* ─── Layout Utilities ─── */
@@ -293,6 +294,20 @@ body {
 
 .padding-hero {
   padding: clamp(9rem, 16vh, 13rem) 1.5rem clamp(6rem, 11vh, 9rem) 1.5rem;
+}
+
+/* ─── Nav active state — gold on light, white on dark ─── */
+.nav-link-active {
+  color: var(--accent) !important;
+}
+.dark .nav-link-active {
+  color: #FFFFFF !important;
+}
+.nav-indicator {
+  background: var(--accent);
+}
+.dark .nav-indicator {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 @media (min-width: 768px) {
