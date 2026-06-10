@@ -43,7 +43,7 @@ export default function FNIOfferings() {
             className="font-poppins mb-3"
             style={{
               fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 700,
+              fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 1.1,
               color: "var(--text-primary)",
@@ -65,7 +65,7 @@ export default function FNIOfferings() {
                 </p>
                 <h3
                   className="font-poppins"
-                  style={{ fontSize: "1.6rem", fontWeight: 700, letterSpacing: "-0.02em", color: "var(--text-primary)" }}
+                  style={{ fontSize: "1.6rem", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--text-primary)" }}
                 >
                   {o.title}
                 </h3>

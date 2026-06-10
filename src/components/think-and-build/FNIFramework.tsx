@@ -74,7 +74,7 @@ export default function FNIFramework() {
             className="font-poppins"
             style={{
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 700,
+              fontWeight: 500,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
               color: "var(--text-primary)",
@@ -109,7 +109,7 @@ export default function FNIFramework() {
                   className="font-poppins"
                   style={{
                     fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)",
-                    fontWeight: 700,
+                    fontWeight: 500,
                     letterSpacing: "-0.02em",
                     lineHeight: 1.2,
                     color: "var(--text-primary)",
@@ -140,7 +140,7 @@ export default function FNIFramework() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
               style={{
                 fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-                fontWeight: 800,
+                fontWeight: 500,
                 color: "var(--text-primary)",
                 lineHeight: 1.1,
               }}

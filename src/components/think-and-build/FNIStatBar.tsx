@@ -26,7 +26,7 @@ export default function FNIStatBar() {
             transition={{ duration: 0.7, ease }}
           >
             <span
-              className="font-poppins font-black"
+              className="font-poppins"
               style={{ fontSize: "clamp(3.5rem, 8vw, 6rem)", lineHeight: 1, color: "var(--bg)" }}
             >
               42%

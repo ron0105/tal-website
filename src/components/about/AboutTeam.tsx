@@ -38,7 +38,7 @@ export default function AboutTeam() {
             className="font-poppins mb-5"
             style={{
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 700,
+              fontWeight: 500,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
               color: "var(--text-primary)",

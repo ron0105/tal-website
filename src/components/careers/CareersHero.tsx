@@ -47,7 +47,7 @@ export default function CareersHero() {
           className="font-poppins mb-8"
           style={{
             fontSize: "clamp(3rem, 8vw, 6rem)",
-            fontWeight: 800,
+            fontWeight: 500,
             letterSpacing: "-0.04em",
             lineHeight: 1.05,
             color: "var(--text-primary)",

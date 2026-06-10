@@ -51,7 +51,7 @@ export default function HomeProof() {
             ].map((item) => (
               <div key={item.value}>
                 <p
-                  className="font-poppins font-black mb-2"
+                  className="font-poppins mb-2"
                   style={{
                     fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
                     letterSpacing: "-0.03em",

@@ -20,7 +20,7 @@ export default function FNIFeatures() {
             className="font-poppins"
             style={{
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 700,
+              fontWeight: 500,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
               color: "var(--text-primary)",
@@ -40,7 +40,7 @@ export default function FNIFeatures() {
 
                 {/* Decorative number — anchored to bottom-right, never overlaps */}
                 <span
-                  className="absolute bottom-2 right-5 font-black font-poppins select-none pointer-events-none"
+                  className="absolute bottom-2 right-5 font-poppins select-none pointer-events-none"
                   style={{
                     fontSize: "3.5rem",
                     lineHeight: 1,

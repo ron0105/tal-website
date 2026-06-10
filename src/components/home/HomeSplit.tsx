@@ -25,7 +25,7 @@ export default function HomeSplit() {
             className="font-poppins"
             style={{
               fontSize: "clamp(2rem, 4vw, 3.25rem)",
-              fontWeight: 800,
+              fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 1.1,
               color: "var(--text-primary)",
@@ -111,7 +111,7 @@ function SplitPanel({
     >
       {/* Ghost number backdrop */}
       <span
-        className="absolute bottom-0 right-4 font-poppins font-black select-none pointer-events-none leading-none"
+        className="absolute bottom-0 right-4 font-poppins select-none pointer-events-none leading-none"
         style={{
           fontSize: "clamp(8rem, 16vw, 14rem)",
           letterSpacing: "-0.05em",
@@ -140,7 +140,7 @@ function SplitPanel({
           className="font-poppins"
           style={{
             fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-            fontWeight: 700,
+            fontWeight: 500,
             letterSpacing: "-0.03em",
             lineHeight: 1.15,
             marginBottom: "2rem",

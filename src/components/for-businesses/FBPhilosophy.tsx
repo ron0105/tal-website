@@ -61,7 +61,7 @@ export default function FBPhilosophy() {
               <div
                 className="grid md:grid-cols-2 gap-8 py-10 items-center border-b border-border-subtle last:border-0"
               >
-                <h3 className="text-3xl md:text-4xl font-bold font-poppins tracking-tighter text-primary italic">
+                <h3 className="text-3xl md:text-4xl font-poppins tracking-tighter text-primary italic">
                   {b.statement}
                 </h3>
                 <p className="text-lg md:text-xl text-body font-medium leading-relaxed">

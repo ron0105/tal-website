@@ -34,7 +34,7 @@ export default function HomeCTA() {
         aria-hidden="true"
       >
         <span
-          className="font-poppins font-black whitespace-nowrap"
+          className="font-poppins whitespace-nowrap"
           style={{
             fontSize: "clamp(8rem, 20vw, 18rem)",
             letterSpacing: "-0.05em",
@@ -98,7 +98,7 @@ export default function HomeCTA() {
               className="font-poppins"
               style={{
                 fontSize: "clamp(2.75rem, 7vw, 5.5rem)",
-                fontWeight: 800,
+                fontWeight: 500,
                 letterSpacing: "-0.04em",
                 lineHeight: 1.05,
                 color: "var(--text-primary)",

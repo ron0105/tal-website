@@ -69,7 +69,7 @@ export default function FBPainPoints() {
                       borderRadius: "10px",
                       background: "rgba(202,138,4,0.1)",
                       color: "var(--accent-hover)",
-                      fontWeight: 600,
+                      fontWeight: 500,
                       fontSize: "0.95rem",
                     }}
                   >

@@ -52,7 +52,7 @@ export default function FNIProcess() {
               className="font-poppins"
               style={{
                 fontSize: "clamp(1.75rem, 8vw, 3.5rem)",
-                fontWeight: 700,
+                fontWeight: 500,
                 letterSpacing: "-0.03em",
                 lineHeight: 1.1,
                 color: "var(--text-primary)",
@@ -93,7 +93,7 @@ export default function FNIProcess() {
               className="font-poppins"
               style={{
                 fontSize: "clamp(1.75rem, 8vw, 3.5rem)",
-                fontWeight: 700,
+                fontWeight: 500,
                 letterSpacing: "-0.03em",
                 lineHeight: 1.1,
                 color: "var(--text-primary)",

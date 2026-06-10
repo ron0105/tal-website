@@ -23,7 +23,7 @@ export default function CareersCTA() {
             className="font-poppins mb-6"
             style={{
               fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-              fontWeight: 800,
+              fontWeight: 500,
               letterSpacing: "-0.03em",
               lineHeight: 1.2,
               color: "var(--text-primary)",

@@ -28,7 +28,7 @@ export default function HomeProblem() {
             className="font-poppins mb-6"
             style={{
               fontSize: "clamp(2.25rem, 6vw, 4rem)",
-              fontWeight: 800,
+              fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 1.05,
               color: "var(--text-primary)",

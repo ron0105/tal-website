@@ -36,7 +36,7 @@ export default function FBProcess() {
             className="font-poppins mb-3"
             style={{
               fontSize: "clamp(1.75rem, 5vw, 3rem)",
-              fontWeight: 700,
+              fontWeight: 500,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
               color: "var(--text-primary)",
@@ -55,7 +55,7 @@ export default function FBProcess() {
           ].map((item) => (
             <div key={item.stat} className="bg-background p-8">
               <p
-                className="font-poppins font-black mb-3"
+                className="font-poppins mb-3"
                 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.03em", color: "var(--accent)" }}
               >
                 {item.stat}

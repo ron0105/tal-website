@@ -49,7 +49,7 @@ export default function HomeProcess() {
             className="font-poppins"
             style={{
               fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-              fontWeight: 800,
+              fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 1.1,
               color: "var(--text-primary)",

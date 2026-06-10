@@ -82,7 +82,7 @@ export default function JDHero({ job }: JDHeroProps) {
           className="font-poppins mb-8"
           style={{
             fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
-            fontWeight: 800,
+            fontWeight: 500,
             letterSpacing: "-0.04em",
             lineHeight: 1.05,
             color: "var(--text-primary)",
