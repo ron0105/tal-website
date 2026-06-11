@@ -109,7 +109,7 @@ export default function FBWhoThisIsFor() {
               className="shrink-0 w-[78vw] sm:w-[46vw] md:w-auto snap-start"
             >
               <div
-                className="p-7 flex flex-col gap-4 h-full transition-shadow duration-200 hover:shadow-lg cursor-default"
+                className="card-lift p-7 flex flex-col gap-4 h-full cursor-default"
                 style={{
                   background: "var(--bg)",
                   border: "1px solid var(--border-color)",

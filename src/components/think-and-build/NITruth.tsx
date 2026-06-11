@@ -44,7 +44,7 @@ export default function NITruth() {
           <div className="flex flex-col gap-px bg-border-subtle border-y border-border-subtle">
             {truths.map((t, i) => (
               <AnimateOnScroll key={t.title} delay={i * 0.08}>
-                <div className="py-8 px-2 md:px-6" style={{ background: "var(--bg-secondary)" }}>
+                <div className="row-hover py-8 px-2 md:px-6" style={{ background: "var(--bg-secondary)" }}>
                   <h3 className="font-bold text-lg mb-2" style={{ color: "var(--text-primary)" }}>
                     {t.title}
                   </h3>

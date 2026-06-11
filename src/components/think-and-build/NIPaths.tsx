@@ -64,7 +64,7 @@ export default function NIPaths() {
           {paths.map((p, i) => (
             <AnimateOnScroll key={p.name} delay={i * 0.1}>
               <div
-                className="flex flex-col h-full p-8 md:p-10"
+                className="card-lift flex flex-col h-full p-8 md:p-10"
                 style={{ border: "1px solid var(--border-color)", borderTop: "3px solid var(--accent)", borderRadius: "var(--radius-card)", background: "var(--bg)" }}
               >
                 <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--text-muted)" }}>

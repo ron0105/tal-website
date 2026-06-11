@@ -51,7 +51,7 @@ export default function FBPainPoints() {
           {pains.map((pain, i) => (
             <AnimateOnScroll key={pain.number} delay={i * 0.08}>
               <div
-                className="p-7 md:p-9 flex flex-col gap-3.5 h-full transition-shadow duration-200 hover:shadow-lg cursor-default"
+                className="card-lift p-7 md:p-9 flex flex-col gap-3.5 h-full cursor-default"
                 style={{
                   background: "var(--bg)",
                   border: "1px solid var(--border-color)",

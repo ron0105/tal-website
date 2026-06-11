@@ -43,7 +43,7 @@ export default function NIOutcome() {
         <div className="grid md:grid-cols-3 gap-8">
           {outcomes.map((o, i) => (
             <AnimateOnScroll key={o.title} delay={i * 0.08}>
-              <div className="pt-6" style={{ borderTop: "3px solid var(--accent)" }}>
+              <div className="block-lift pt-6 h-full" style={{ borderTop: "3px solid var(--accent)" }}>
                 <h3 className="font-bold text-lg mb-3" style={{ color: "var(--text-primary)" }}>{o.title}</h3>
                 <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>{o.body}</p>
               </div>

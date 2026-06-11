@@ -110,7 +110,7 @@ export default function FBServices() {
               return (
                 <AnimateOnScroll key={card.step} delay={i * 0.1}>
                   <div
-                    className="p-8 md:p-10 flex flex-col gap-5 h-full transition-shadow duration-200 hover:shadow-lg"
+                    className="card-lift p-8 md:p-10 flex flex-col gap-5 h-full"
                     style={
                       featured
                         ? { background: "var(--navy)", borderBottom: "4px solid var(--accent)", borderRadius: "14px", boxShadow: "0 12px 36px rgba(15,23,42,0.16)" }
