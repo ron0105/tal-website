@@ -25,17 +25,19 @@
 
 @layer base {
   :root {
-    /* Light Theme — Clean, Minimal */
-    --bg: #FFFFFF;
-    --bg-secondary: #F8FAFC;
-    --bg-lift: #F1F5F9;
+    /* Light Theme — Clean, Minimal
+       Soft paper instead of pure white, navy ink instead of near-black —
+       lower peak contrast, easier on the eyes */
+    --bg: #FAFBFC;
+    --bg-secondary: #F2F5F8;
+    --bg-lift: #EAEFF4;
 
-    --border-color: #E2E8F0;
-    --border-subtle: #F1F5F9;
+    --border-color: #DFE6ED;
+    --border-subtle: #EDF1F5;
 
-    --text-primary: #020617;
-    --text-body: #1E293B;
-    --text-muted: #64748B;
+    --text-primary: #0F172A;
+    --text-body: #2B3A4E;
+    --text-muted: #4D5D72;
 
     /* TAL Brand — Authority Navy + Brass Gold (brand book Jun 2026) */
     --navy: #0F172A;
@@ -44,7 +46,7 @@
     --accent-indigo: #0F172A;
 
     /* Navbar background */
-    --navbar-bg: rgba(255, 255, 255, 0.90);
+    --navbar-bg: rgba(250, 251, 252, 0.90);
   }
 
   .dark {
@@ -106,7 +108,7 @@ body {
 }
 
 ::selection {
-  background: #000000;
+  background: var(--navy);
   color: #fff;
 }
 
