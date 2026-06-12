@@ -136,19 +136,19 @@ export const JOBS: Job[] = [
       },
       redFlags: {
         trust: [
-          "Lying about your skills or portfolio",
-          "Slow revision turnarounds — changes take more than a day without reason",
-          "Not following content instructions even when corrected",
-          "Going silent instead of flagging a blocker",
+          "Honesty about your skills and portfolio — always",
+          "Fast revision turnaround — changes completed within the day",
+          "Following content direction precisely, even when you'd do it differently",
+          "Flagging blockers immediately — we never go silent on a problem",
         ],
         willFail: [
-          "You need a detailed brief before starting any piece of content",
-          "You become attached to your creative output and resist changes from the team",
-          "You cannot sustain a high-output workflow week after week",
-          "You are here primarily for the work experience line on your resume",
+          "You find it hard to start without clear direction",
+          "Feedback on your work feels personal rather than directional",
+          "You work in bursts — sustained, consistent output drains you",
+          "The credential matters more to you than the craft",
         ],
         warningText:
-          "These are hard requirements, not preferences. If they describe your working style, this role will be a poor fit — for you and for us.",
+          "If any of the above resonates with how you work, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
         "A growing, consistent content portfolio for both TAL and our clients — one that can be used as proof of work. Measurable improvement in engagement metrics across platforms. A content workflow that operates without any founder involvement on a day-to-day basis.",
@@ -248,19 +248,19 @@ export const JOBS: Job[] = [
       },
       redFlags: {
         trust: [
-          "Sending templated messages and calling it personalised outreach",
-          "Letting leads go cold because you did not follow up on time",
-          "Updating the tracker only when asked",
-          "Quoting prices or making commitments without founder approval",
+          "Genuinely personalised outreach — every message written for that specific person",
+          "Following up on time, every time — no lead goes cold",
+          "Daily tracker updates — not when prompted, just always",
+          "Keeping pricing and commitments within founder approval — always",
         ],
         willFail: [
-          "You need a pre-built lead list to start working",
-          "Rejection affects your motivation or output",
-          "You prefer relationship-based selling and struggle with cold contact",
-          "You are uncomfortable with targets and weekly accountability",
+          "You find it hard to start without a list already in front of you",
+          "Rejection tends to slow your momentum",
+          "Cold outreach feels unnatural — you work best through warm introductions",
+          "Weekly targets and pipeline reporting feel restrictive rather than motivating",
         ],
         warningText:
-          "These are hard requirements, not preferences. If they describe your working style, this partnership will be a poor fit — for you and for us.",
+          "If any of the above resonates with how you work, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
         "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
@@ -360,19 +360,19 @@ export const JOBS: Job[] = [
       },
       redFlags: {
         trust: [
-          "Denial of fault when things go wrong",
-          "Explaining your thought process instead of correcting the mistake",
-          "Lack of due diligence — work submitted without proper checking",
-          "Going silent or avoiding contact when something breaks",
+          "Owning mistakes immediately — no denial, no deflection",
+          "Correcting first, explaining later — the fix comes before the justification",
+          "Due diligence on everything before it leaves your hands",
+          "Immediate communication when something breaks — no disappearing",
         ],
         willFail: [
-          "You are looking for a structured role with clearly defined tasks and fixed hours",
-          "You need constant direction to know what to do next",
-          "You avoid accountability when things go wrong",
-          "You are here to complete an internship and add a line to your LinkedIn",
+          "You do your best work with clear task lists and defined hours",
+          "Self-directing when the next step isn't specified doesn't come naturally to you",
+          "Taking ownership when things break isn't your default",
+          "The credential matters more to you than the contribution",
         ],
         warningText:
-          "These are hard requirements, not preferences. If they describe your working style, this role will be a poor fit — for you and for us.",
+          "If any of the above resonates with how you work, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
         "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team can use. A marketing and lead generation workflow that operates without daily founder involvement. Measurable output, not just effort.",

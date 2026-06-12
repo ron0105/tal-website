@@ -225,14 +225,14 @@ export default function JDContent({ job }: JDContentProps) {
 
             {/* Red Flags */}
             <Section delay={0.05}>
-              <SectionLabel>This Is Not For You If</SectionLabel>
+              <SectionLabel>An Honest Note on Fit</SectionLabel>
               <div className="flex flex-col gap-8">
                 <div>
-                  <SubLabel>We will lose trust in you if</SubLabel>
+                  <SubLabel>What we take seriously</SubLabel>
                   <BulletList items={content.redFlags.trust} />
                 </div>
                 <div>
-                  <SubLabel>You will fail here if</SubLabel>
+                  <SubLabel>Worth reflecting on before you apply</SubLabel>
                   <BulletList items={content.redFlags.willFail} />
                 </div>
                 <div
