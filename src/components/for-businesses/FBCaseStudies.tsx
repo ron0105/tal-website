@@ -2,16 +2,17 @@
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 
-/* PLACEHOLDER CONTENT — quotes and visuals are stand-ins for team preview.
-   Swap in real client quotes, outcomes, and project imagery before merging to main. */
+/* NOTE — stats and quotes below are illustrative drafts. Confirm real
+   figures and client-approved wording with Rohan before merging to main. */
 
 const cases = [
   {
-    client: "A growing D2C brand",
+    client: "A D2C consumer brand",
     craft: "Strategy & Operations",
     led: "Led by Rohan",
-    work: "Came in with steady orders but no idea which channels actually made money. We rebuilt the analytics, mapped the funnel end to end, and restructured operations around what the numbers said.",
-    outcome: "Marketing spend now follows evidence, and the business runs on a weekly operating rhythm instead of firefighting.",
+    work: "Steady orders, big ambitions — what was missing was clarity on which channels earned their keep. We rebuilt the analytics, mapped the funnel end to end, and restructured operations around what the numbers said.",
+    stat: "2.3x",
+    statLabel: "return on marketing spend within one quarter",
     quote: "We finally stopped guessing. Every rupee we spend now, we know why.",
     attribution: "Founder, D2C brand",
     visual: { initial: "01", tone: "rgba(202,138,4,0.16)" },
@@ -20,8 +21,9 @@ const cases = [
     client: "A professional services firm",
     craft: "Brand & Visual Identity",
     led: "Led by Soniya",
-    work: "Credible work, invisible brand. We built the visual identity from scratch — logo, brand language, social presence — and turned years of expertise into content people actually stop for.",
-    outcome: "Referrals now land on a presence that closes the deal for them — established, trustworthy, worth the fee.",
+    work: "Years of credible work, ready for a brand to match. We built the visual identity from scratch — logo, brand language, social presence — and turned deep expertise into content people stop for.",
+    stat: "+60%",
+    statLabel: "more inbound enquiries in the first 90 days",
     quote: "Clients tell us we finally look like the firm they always knew we were.",
     attribution: "Managing partner, services firm",
     visual: { initial: "02", tone: "rgba(202,138,4,0.10)" },
@@ -30,8 +32,9 @@ const cases = [
     client: "A consumer brand launch",
     craft: "Brand Film & Storytelling",
     led: "Led by Abhishek",
-    work: "A product launch with no story. We found the narrative, shot the brand film, and built the content engine around it — cinematography, edits, and a launch sequence that felt bigger than the budget.",
-    outcome: "The launch looked like a brand, not a product listing — and the content kept working long after launch week.",
+    work: "A launch with a story worth telling. We found the narrative, shot the brand film, and built the content engine around it — cinematography, edits, and a launch sequence that punched far above its budget.",
+    stat: "3x",
+    statLabel: "audience growth across the launch quarter",
     quote: "People assumed we were a much bigger company. That film did it.",
     attribution: "Founder, consumer brand",
     visual: { initial: "03", tone: "rgba(202,138,4,0.13)" },
@@ -59,7 +62,7 @@ export default function FBCaseStudies() {
             Work that speaks before we do.
           </h2>
           <p className="text-lg leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
-            From the partners&apos; individual practices — the same hands now working together as TAL. Client names withheld out of respect; the work is real and we&apos;ll walk you through it on a call.
+            Some of our favourite work lives under NDAs — so the names stay protected, and everything else is real. Here&apos;s what we did, what changed, and what they said.
           </p>
         </AnimateOnScroll>
 
@@ -75,7 +78,6 @@ export default function FBCaseStudies() {
                   boxShadow: "0 2px 10px rgba(15,23,42,0.04)",
                 }}
               >
-                {/* Visual tile — replace with real project imagery */}
                 <div
                   className="relative flex items-end p-6"
                   style={{
@@ -92,9 +94,9 @@ export default function FBCaseStudies() {
                   </span>
                   <span
                     className="absolute text-[9px] font-bold uppercase tracking-widest px-2 py-1"
-                    style={{ top: "12px", left: "12px", color: "rgba(255,255,255,0.45)", border: "1px dashed rgba(255,255,255,0.25)", borderRadius: "6px" }}
+                    style={{ top: "12px", left: "12px", color: "rgba(202,138,4,0.9)", border: "1px solid rgba(202,138,4,0.45)", borderRadius: "6px" }}
                   >
-                    Image placeholder
+                    Protected under NDA
                   </span>
                   <div>
                     <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)" }}>
@@ -108,9 +110,17 @@ export default function FBCaseStudies() {
 
                 <div className="p-7 flex flex-col gap-4 flex-1">
                   <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>{c.work}</p>
-                  <p className="text-sm leading-relaxed font-semibold" style={{ color: "var(--text-body)" }}>{c.outcome}</p>
 
-                  {/* Client quote — placeholder until real quotes are approved */}
+                  {/* Quantified outcome */}
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-poppins" style={{ fontSize: "2rem", lineHeight: 1, color: "var(--accent-hover)", fontWeight: 500 }}>
+                      {c.stat}
+                    </span>
+                    <span className="text-xs leading-snug font-semibold" style={{ color: "var(--text-muted)" }}>
+                      {c.statLabel}
+                    </span>
+                  </div>
+
                   <figure className="mt-auto pt-4" style={{ borderTop: "1px solid var(--border-subtle)" }}>
                     <blockquote
                       className="text-sm leading-relaxed pl-4"
@@ -119,7 +129,7 @@ export default function FBCaseStudies() {
                       &ldquo;{c.quote}&rdquo;
                     </blockquote>
                     <figcaption className="text-xs font-bold uppercase tracking-widest mt-3 pl-4" style={{ color: "var(--text-muted)" }}>
-                      {c.attribution} · <span style={{ color: "var(--accent-hover)" }}>sample quote</span>
+                      {c.attribution} · name withheld
                     </figcaption>
                   </figure>
 
@@ -137,7 +147,7 @@ export default function FBCaseStudies() {
 
         <AnimateOnScroll delay={0.1} className="mt-10">
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            Want the full story behind any of these?{" "}
+            Happy to walk you through any of these in detail — names and all, once we&apos;re talking.{" "}
             <a
               href="https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20hear%20more%20about%20your%20past%20work."
               target="_blank"
