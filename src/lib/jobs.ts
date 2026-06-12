@@ -172,7 +172,7 @@ export const JOBS: Job[] = [
       "Exclusive territory — you represent TAL in your market",
       "Full Pipeline hiring process",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSekSDNezQM4NbMeD1G95LvwIsMtHEmLOy0ioO3DnfCVnOsX2A/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/1GOw0DpClRwqnIaOa4W1_m66yN3qmNz3uWnaFwP7LXkA/viewform",
     pipeline: "Full Pipeline",
     pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
     pipelineNote:
