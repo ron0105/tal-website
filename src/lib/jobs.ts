@@ -57,7 +57,7 @@ export const JOBS: Job[] = [
     type: "Full-Time",
     location: "Mumbai",
     teaser:
-      "Own our brand's content output end-to-end — video, design, social. If you need a brief for every post or a reminder to hit deadlines, this is not for you.",
+      "Own our brand's content output end-to-end — video, design, social. We're here for creativity with a purpose — content that actually performs.",
     highlights: [
       "Premiere Pro / DaVinci / FCPX required",
       "High output, fast revision cycles",
@@ -71,7 +71,7 @@ export const JOBS: Job[] = [
     content: {
       whoWeAre: [
         "TAL is a three-founder startup. We're young, we move fast, and we hold our work to an unusually high standard. We build our own brand and execute content and marketing for clients. This role sits at the centre of both.",
-        "We value diligent, quality work above everything else. If you're looking for a relaxed creative environment where ideas are praised regardless of output — this is not that place.",
+        "We value diligent, quality work above everything else. We're here for creativity with a purpose — content that actually performs.",
       ],
       whyExists: {
         problem: [
@@ -148,7 +148,7 @@ export const JOBS: Job[] = [
           "You are here primarily for the work experience line on your resume",
         ],
         warningText:
-          "If any of the above sounds like you — please do not apply. We mean this. We will part ways immediately, no matter what stage of the process we're at.",
+          "These are hard requirements, not preferences. If they describe your working style, this role will be a poor fit — for you and for us.",
       },
       ninetyDays:
         "A growing, consistent content portfolio for both TAL and our clients — one that can be used as proof of work. Measurable improvement in engagement metrics across platforms. A content workflow that operates without any founder involvement on a day-to-day basis.",
@@ -163,13 +163,13 @@ export const JOBS: Job[] = [
     title: "Strategic Growth Partner — Sales Outreach",
     shortTitle: "Strategic Growth Partner",
     department: "Sales",
-    type: "Full-Time",
+    type: "Commission-Based",
     location: "Mumbai",
     teaser:
-      "Build TAL's outreach pipeline from the ground up. If you need a lead list handed to you or a script to read from, this is not the role. If you can find anyone, anywhere, and get them talking — read on.",
+      "You earn what you close. TAL's services are your product to sell — every client you bring in earns you a direct commission. No ceiling, no fixed salary cap. Build your pipeline. Build your income.",
     highlights: [
-      "20 qualified contacts per week — minimum",
-      "Direct reporting to founding team",
+      "Commission on every client you close",
+      "Exclusive territory — you represent TAL in your market",
       "Full Pipeline hiring process",
     ],
     googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSekSDNezQM4NbMeD1G95LvwIsMtHEmLOy0ioO3DnfCVnOsX2A/viewform",
@@ -179,16 +179,16 @@ export const JOBS: Job[] = [
       "The execution task will test your ability to find real prospects, write outreach that gets responses, and manage a follow-up sequence without hand-holding. Speed, precision, and communication clarity all count.",
     content: {
       whoWeAre: [
-        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients across industries. We move fast, we hold high standards, and we are not looking for people who need motivation to do their job.",
-        "This role sits at the front of TAL's commercial engine. You are the first contact most prospects will ever have with us. That means how you show up reflects directly on what we are building.",
+        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients across industries. We're building a network of Strategic Growth Partners — people who represent TAL exclusively in their market, earn on every client they close, and grow as the network grows.",
+        "This is a commission-based partnership. You are not an employee — you are a partner. You own your pipeline, you work exclusively with TAL, and the territory is yours. The commission percentage is discussed at interview.",
       ],
       whyExists: {
         problem: [
-          "TAL needs a consistent, active pipeline of warm leads. Right now, outreach competes with everything else the founders are doing. This role takes that entirely off the founding team's plate.",
-          "You will be responsible for identifying prospects, reaching out, following up, and handing off warm leads to the founders. Everything before the sales conversation is yours. The quality of your handoffs determines the quality of TAL's client pipeline.",
+          "TAL's services need a dedicated outreach partner in Mumbai. Right now, business development competes with everything else the founders are doing. A Strategic Growth Partner takes that entirely off the founding team's plate — and earns directly from the clients they bring in.",
+          "You identify prospects, reach out, follow up, and hand off warm leads to the founders. Everything before the sales conversation is yours. The quality of your pipeline determines the quality of your earnings.",
         ],
         bandwidthFreed: [
-          "You find the right people, get them interested, and pass them over ready to close. Founders stop spending time on cold outreach entirely.",
+          "You find the right people, get them interested, and pass them over ready to close. The founders focus on delivery. You focus on growth. Your income scales with your output.",
         ],
         weeklyOutcome: [
           "20 qualified contacts reached per week. A live tracker updated daily. At least one warm lead handed off to the founding team every week after the first month.",
@@ -201,7 +201,7 @@ export const JOBS: Job[] = [
           "Follow-up sequences — structured follow-ups at Day 3, Day 7, Day 14, and Day 16 with a 4-touch maximum",
           "Lead qualification — identifying warm leads and understanding their needs before handoff",
           "Handoff — passing warm leads to the founding team via Flock with full context: contact details, interest level, and relevant package",
-          "Weekly reporting — a Friday 4 PM report covering contacts reached, responses received, and pipeline status",
+          "A weekly report every Friday — your pipeline, on record",
         ],
         notYourJob: [
           "You do not pitch or quote prices without explicit approval from the founding team.",
@@ -260,12 +260,12 @@ export const JOBS: Job[] = [
           "You are uncomfortable with targets and weekly accountability",
         ],
         warningText:
-          "If any of the above sounds like you — please do not apply. We mean this. We will part ways immediately, no matter what stage of the process we're at.",
+          "These are hard requirements, not preferences. If they describe your working style, this partnership will be a poor fit — for you and for us.",
       },
       ninetyDays:
         "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
       worthIt:
-        "You work directly with three founders and see exactly how a startup builds its commercial pipeline from zero. Your work has a direct, visible impact on TAL's revenue. There are no layers between you and the outcome. If you are good at this, it will be obvious — and it will be rewarded.",
+        "You earn directly on every client you close — no ceiling, no fixed salary cap. You work exclusively with TAL, which means the territory is yours and there is no internal competition. You have direct access to three founders who are invested in your success. We are building a national network of Strategic Growth Partners — across cities, across sectors. The people who come in now help shape how that network grows.",
     },
   },
 
@@ -292,7 +292,7 @@ export const JOBS: Job[] = [
     content: {
       whoWeAre: [
         "TAL is a three-founder startup. We're young, we move at an uncomfortable pace, and we hold ourselves and our team to a high standard. We are not a company where you come in, do your tasks, and go home. We are building something, and everyone in the room is expected to contribute to that.",
-        "This is not a fun startup. It is a serious one, run by people who happen to be young.",
+        "We're young, we move fast, and we hold our work to an uncomfortably high standard.",
       ],
       whyExists: {
         problem: [
@@ -372,7 +372,7 @@ export const JOBS: Job[] = [
           "You are here to complete an internship and add a line to your LinkedIn",
         ],
         warningText:
-          "If any of the above sounds like you — please do not apply. We mean this. We will end the engagement regardless of the stage we are at.",
+          "These are hard requirements, not preferences. If they describe your working style, this role will be a poor fit — for you and for us.",
       },
       ninetyDays:
         "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team can use. A marketing and lead generation workflow that operates without daily founder involvement. Measurable output, not just effort.",
