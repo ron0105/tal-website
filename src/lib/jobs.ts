@@ -148,7 +148,7 @@ export const JOBS: Job[] = [
           "The credential matters more to you than the craft",
         ],
         warningText:
-          "If any of the above resonates with how you work, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
+          "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
         "A growing, consistent content portfolio for both TAL and our clients — one that can be used as proof of work. Measurable improvement in engagement metrics across platforms. A content workflow that operates without any founder involvement on a day-to-day basis.",
@@ -260,7 +260,7 @@ export const JOBS: Job[] = [
           "Weekly targets and pipeline reporting feel restrictive rather than motivating",
         ],
         warningText:
-          "If any of the above resonates with how you work, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
+          "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
         "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
@@ -372,7 +372,7 @@ export const JOBS: Job[] = [
           "The credential matters more to you than the contribution",
         ],
         warningText:
-          "If any of the above resonates with how you work, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
+          "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
         "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team can use. A marketing and lead generation workflow that operates without daily founder involvement. Measurable output, not just effort.",
