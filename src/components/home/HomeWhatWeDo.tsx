@@ -5,19 +5,19 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Team & Work Clarity",
-    do: ["Clear roles", "Simple processes", "Defined work"],
-    get: ["Less confusion", "Faster work", "Fewer mistakes"],
+    title: "Get found",
+    do: ["A website that converts", "Google Business Profile", "SEO that ranks you"],
+    get: ["Found when people search", "A credible first impression", "You know what's working"],
   },
   {
-    title: "Getting More Customers",
-    do: ["Improve website", "Set up lead tracking", "Build customer flow"],
-    get: ["More inquiries", "Better follow-ups", "More conversions"],
+    title: "Show up",
+    do: ["12–20 posts a month", "Captions, creatives, stories", "Monthly review call"],
+    get: ["A brand that looks active", "Trust before the first call", "Your evenings back"],
   },
   {
-    title: "Clear Business Communication",
-    do: ["Clear messaging", "Consistent communication", "Better online presence"],
-    get: ["Customers understand you", "More trust", "Better leads"],
+    title: "Let it run",
+    do: ["Automated lead follow-up", "WhatsApp flows that feel human", "Booking confirmations"],
+    get: ["No enquiry goes cold", "Replies even when you're busy", "A predictable pipeline"],
   },
 ];
 
@@ -52,7 +52,7 @@ export default function HomeWhatWeDo() {
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           {services.map((service, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
-              <div className="bg-background p-10 rounded-2xl border border-border-subtle h-full">
+              <div className="card-lift bg-background p-10 rounded-2xl border border-border-subtle h-full cursor-default">
                 <h3 className="text-2xl font-bold mb-8 text-primary">
                   {service.title}
                 </h3>
@@ -118,7 +118,7 @@ export default function HomeWhatWeDo() {
                 <div>
                   <p className="label-eyebrow mb-6">The 6 stages</p>
                   <ol className="flex flex-col gap-3">
-                    {["Problem Framing", "Assumption Mapping", "Research and Validation", "Business Model Structuring", "Small Test", "Decision Gate"].map((stage, i) => (
+                    {["Map the assumptions", "Talk to real customers", "Check the market reality", "Test willingness to pay", "Run the smallest possible test", "Make the call"].map((stage, i) => (
                       <li key={stage} className="flex items-center gap-3 text-sm font-medium text-body">
                         <span className="text-muted text-xs font-bold w-6 shrink-0">0{i + 1}</span>
                         {stage}
