@@ -278,11 +278,11 @@ export const JOBS: Job[] = [
     type: "Full-Time / Contract",
     location: "Mumbai",
     teaser:
-      "Work directly from the founder's table. Execute the things that keep this startup moving so founders can focus on what only they can do.",
+      "Work directly from the founder's table — strategy one day, ground-level execution the next. Own projects from first brief to final delivery.",
     highlights: [
       "Direct-to-Interview process",
       "Real responsibility from week one",
-      "Startup + consulting background preferred",
+      "Strategy + on-ground execution, both",
     ],
     googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLScVm0490Kg66yFm69QK7Sm6Os53BHbzsyzp3Akh-9jD7r77og/viewform",
     pipeline: "Direct-to-Interview",
@@ -296,23 +296,25 @@ export const JOBS: Job[] = [
       ],
       whyExists: {
         problem: [
-          "At this stage, founder bandwidth is the single biggest bottleneck to growth. Outreach, research, decks, follow-ups, lead generation, documentation, coordination — all of it competes for the same 24 hours.",
-          "This role is a direct extension of the founding team. You execute the things that keep the engine running so founders can stay focused on what only they can do. You sit close to decisions. You see how a startup actually operates. In exchange, we need you to be completely reliable.",
+          "At this stage, founder bandwidth is the single biggest bottleneck to growth. Outreach, research, decks, follow-ups, coordination, client meetings, shoots — all of it competes for the same 24 hours.",
+          "This role is a direct extension of the founding team — at the desk and on the ground. You take complete ownership of projects from initiation to completion: research and decks one day, a client meeting or market visit the next. You sit close to decisions. You see how a startup actually operates. In exchange, we need you to be completely reliable.",
         ],
         bandwidthFreed: [
-          "Outreach, ideation, discovery call prep, research, deck creation — you handle all of it end-to-end.",
+          "Outreach, research, decks, discovery-call prep, coordination, and on-ground support — you own it end to end, so founders stay focused on what only they can do.",
         ],
         weeklyOutcome: [
-          "Lead generation activity with clear targets. Operational systems maintained. Research and decks delivered without follow-up. Measurable output, not just effort.",
+          "Lead generation activity with clear targets. Trackers and systems current without prompting. Research and decks delivered meeting-ready. Every open thread followed up until it closes.",
         ],
       },
       whatYouOwn: {
         items: [
           "Lead generation and outreach — LinkedIn, cold email, DMs — with clear targets and cadences",
           "Sales pitches and follow-up sequences that you manage end-to-end",
-          "Market research, competitor mapping, and company-specific research on demand",
-          "Deck and presentation creation that founders can walk into meetings with",
-          "Maintaining trackers, workflow documentation, and operational systems",
+          "Market, competitor, and industry research — synthesized and presented, not just collected",
+          "Decks, reports, dashboards, and meeting notes that founders can walk into any room with",
+          "Cross-team coordination — tracking tasks, timelines, dependencies, and follow-ups until they close",
+          "Ground-level execution when the work calls for it — client meetings, market visits, vendor coordination, shoot and event support",
+          "Processes, systems, and workflows — you spot the bottleneck and build the fix",
           "Ideation and strategy support under founder supervision — you contribute ideas, not just execution",
         ],
         notYourJob: [
@@ -328,6 +330,7 @@ export const JOBS: Job[] = [
           "Ability to build clean, structured, visually coherent presentations from a rough brief",
           "Research ability — find things, synthesize them, present clearly without being told where to look",
           "Creative thinking that translates into structured, executable ideas — not just concepts",
+          "Comfort switching between strategic work and hands-on execution within the same day",
         ],
         behaviours: [
           "You follow through. If you say you will do it, it is done — on time, without a reminder.",
@@ -353,6 +356,7 @@ export const JOBS: Job[] = [
           "Startup, consulting, or founder's office experience — even freelance or at a small scale. You've done real outreach — cold email, LinkedIn prospecting — and you understand what works. You've built something independently that other people actually used.",
         standOut: [
           "Startup, consulting, or founder's office experience — even freelance or at a small scale",
+          "Six months to a year in marketing, agency, or business development work — internships and freelance count",
           "You've done real outreach — cold email, LinkedIn prospecting — and you understand what works",
           "You've built something independently: a system, a tracker, a workflow, or a project others actually used",
           "Active involvement in co-curricular activities that required real coordination, not just participation",
@@ -377,7 +381,7 @@ export const JOBS: Job[] = [
       ninetyDays:
         "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team can use. A marketing and lead generation workflow that operates without daily founder involvement. Measurable output, not just effort.",
       worthIt:
-        "You work directly with three founders from day one. You are not making chai or formatting spreadsheets in the corner. You see real decisions being made, real problems being solved, and real things being built. The responsibility is high. So is the learning. There are no corporate layers between you and the work that matters.",
+        "You work directly with three founders from day one — mentorship here is not a programme, it's the seating arrangement. You're involved in strategy, planning, and operations, not just execution. You see real decisions being made, real problems being solved, and real things being built. The responsibility is high, the learning compounds, and growth tracks your output — there are no corporate layers between you and the work that matters.",
     },
   },
 ];
