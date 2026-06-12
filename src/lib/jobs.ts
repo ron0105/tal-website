@@ -272,10 +272,10 @@ export const JOBS: Job[] = [
   // ── Growth Hacker ─────────────────────────────────────────────────────────
   {
     slug: "growth-hacker",
-    title: "Founder's Office Associate",
+    title: "Founder's Office Intern",
     shortTitle: "Founder's Office",
     department: "Founder's Office",
-    type: "Full-Time / Contract",
+    type: "Internship",
     location: "Mumbai",
     teaser:
       "The founders' execution partner — outreach, research, decks, and coordination, owned end to end. A front-row seat to how a company gets built.",
@@ -375,7 +375,7 @@ export const JOBS: Job[] = [
       ninetyDays:
         "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team actually uses. A lead-generation workflow that runs without daily founder involvement.",
       worthIt:
-        "You work directly with three founders from day one — mentorship here is the seating arrangement, not a programme. The role is built to grow: the person who runs the Founder's Office well becomes the obvious choice to lead a function as TAL scales. Compensation is discussed openly at the first conversation — structure, not surprises. There are no corporate layers between you and the work that matters.",
+        "You work directly with three founders from day one — mentorship here is the seating arrangement, not a programme. The internship is built to convert: do it well, and you're the obvious first hire as TAL scales. Stipend and structure are discussed openly at the first conversation — no surprises. There are no corporate layers between you and the work that matters.",
     },
   },
 ];
