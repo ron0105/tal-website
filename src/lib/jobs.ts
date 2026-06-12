@@ -272,13 +272,13 @@ export const JOBS: Job[] = [
   // ── Growth Hacker ─────────────────────────────────────────────────────────
   {
     slug: "growth-hacker",
-    title: "Growth Hacker — Founder's Office",
-    shortTitle: "Growth Hacker",
+    title: "Founder's Office Associate",
+    shortTitle: "Founder's Office",
     department: "Founder's Office",
     type: "Full-Time / Contract",
     location: "Mumbai",
     teaser:
-      "Work directly from the founder's table — strategy one day, ground-level execution the next. Own projects from first brief to final delivery.",
+      "The founders' execution partner — outreach, research, decks, and coordination, owned end to end. A front-row seat to how a company gets built.",
     highlights: [
       "Direct-to-Interview process",
       "Real responsibility from week one",
@@ -292,7 +292,7 @@ export const JOBS: Job[] = [
     content: {
       whoWeAre: [
         "TAL is a three-founder startup. We're young, we move at an uncomfortable pace, and we hold ourselves and our team to a high standard. We are not a company where you come in, do your tasks, and go home. We are building something, and everyone in the room is expected to contribute to that.",
-        "We're young, we move fast, and we hold our work to an uncomfortably high standard.",
+        "This role sits inside the Founder's Office — the seat where strategy, sales, and operations meet. It's a force-multiplier role, not an admin desk.",
       ],
       whyExists: {
         problem: [
@@ -308,14 +308,11 @@ export const JOBS: Job[] = [
       },
       whatYouOwn: {
         items: [
-          "Lead generation and outreach — LinkedIn, cold email, DMs — with clear targets and cadences",
-          "Sales pitches and follow-up sequences that you manage end-to-end",
-          "Market, competitor, and industry research — synthesized and presented, not just collected",
-          "Decks, reports, dashboards, and meeting notes that founders can walk into any room with",
-          "Cross-team coordination — tracking tasks, timelines, dependencies, and follow-ups until they close",
-          "Ground-level execution when the work calls for it — client meetings, market visits, vendor coordination, shoot and event support",
-          "Processes, systems, and workflows — you spot the bottleneck and build the fix",
-          "Ideation and strategy support under founder supervision — you contribute ideas, not just execution",
+          "Outreach and lead generation — LinkedIn, cold email, DMs — with clear targets and cadences, managed end to end",
+          "Research the founders can act on — markets, competitors, prospects — synthesized, not just collected",
+          "Decks, dashboards, and meeting notes that founders walk into any room with",
+          "Coordination across teams — tasks, timelines, and follow-ups tracked until they close",
+          "Ground support when the work calls for it — client meetings, market visits, shoots",
         ],
         notYourJob: [
           "Final business decisions are not yours to make.",
@@ -329,19 +326,17 @@ export const JOBS: Job[] = [
           "Strong written and verbal communication — your emails and messages will represent TAL externally",
           "Ability to build clean, structured, visually coherent presentations from a rough brief",
           "Research ability — find things, synthesize them, present clearly without being told where to look",
-          "Creative thinking that translates into structured, executable ideas — not just concepts",
           "Comfort switching between strategic work and hands-on execution within the same day",
         ],
         behaviours: [
           "You follow through. If you say you will do it, it is done — on time, without a reminder.",
-          "When something goes wrong, you admit it immediately and correct it. You do not explain what you were trying to do. You fix it.",
+          "When something goes wrong, you admit it immediately and correct it first, explain later.",
           "You take initiative. You do not wait to be assigned your next task when you can clearly see what needs doing.",
           "You communicate proactively. Silence is not a status update. If you are blocked, you say so immediately.",
-          "Accountability is not something you perform — it is how you operate by default.",
         ],
         tools: [
           "Google Workspace",
-          "Slack",
+          "Flock",
           "ClickUp",
           "Canva",
           "ChatGPT / Claude",
@@ -359,7 +354,6 @@ export const JOBS: Job[] = [
           "Six months to a year in marketing, agency, or business development work — internships and freelance count",
           "You've done real outreach — cold email, LinkedIn prospecting — and you understand what works",
           "You've built something independently: a system, a tracker, a workflow, or a project others actually used",
-          "Active involvement in co-curricular activities that required real coordination, not just participation",
         ],
       },
       redFlags: {
@@ -379,9 +373,9 @@ export const JOBS: Job[] = [
           "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
       },
       ninetyDays:
-        "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team can use. A marketing and lead generation workflow that operates without daily founder involvement. Measurable output, not just effort.",
+        "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team actually uses. A lead-generation workflow that runs without daily founder involvement.",
       worthIt:
-        "You work directly with three founders from day one — mentorship here is not a programme, it's the seating arrangement. You're involved in strategy, planning, and operations, not just execution. You see real decisions being made, real problems being solved, and real things being built. The responsibility is high, the learning compounds, and growth tracks your output — there are no corporate layers between you and the work that matters.",
+        "You work directly with three founders from day one — mentorship here is the seating arrangement, not a programme. The role is built to grow: the person who runs the Founder's Office well becomes the obvious choice to lead a function as TAL scales. Compensation is discussed openly at the first conversation — structure, not surprises. There are no corporate layers between you and the work that matters.",
     },
   },
 ];

@@ -10,12 +10,12 @@ import Link from "next/link";
 const MARQUEE_TEXT = [
   "We're Hiring",
   "Content Creator",
-  "Growth Hacker",
+  "Founder's Office",
   "Join TAL",
   "Open Roles →",
   "We're Hiring",
   "Content Creator",
-  "Growth Hacker",
+  "Founder's Office",
   "Join TAL",
   "Open Roles →",
 ];
