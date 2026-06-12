@@ -1,10 +1,11 @@
-// Brand book Jun 2026 — Direction B: TAL monogram in gold frame
+// Brand book Jun 2026 — Direction B: TAL monogram breaking out of the gold
+// frame ("out of the box" — keep the overflow, never center TAL inside)
 export default function Logo({ size = 30, dark = false }: { size?: number; dark?: boolean }) {
   return (
     <svg
-      width={size}
+      width={size * 1.25}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox="0 0 50 40"
       fill="none"
       aria-label="TAL — The Adda Labs"
     >
@@ -18,11 +19,10 @@ export default function Logo({ size = 30, dark = false }: { size?: number; dark?
         strokeWidth="2.5"
       />
       <text
-        x="20"
-        y="27"
-        textAnchor="middle"
+        x="8"
+        y="28.5"
         fontFamily="'Plus Jakarta Sans', sans-serif"
-        fontSize="15"
+        fontSize="19.5"
         fontWeight="800"
         fill={dark ? "#FFFFFF" : "var(--text-primary)"}
       >
