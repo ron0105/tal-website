@@ -101,11 +101,11 @@ export const JOBS: Job[] = [
           "Understanding of what makes content perform — reach, retention, engagement — not just what looks good",
         ],
         values: [
-          "You handle feedback without getting defensive about your work",
-          "Deadlines are not suggestions for you",
-          "Revision requests are completed fast — slow turnaround on changes is a dealbreaker",
-          'You communicate proactively. "I\'ll send it soon" is not an update.',
-          "You follow content instructions precisely, even when you disagree",
+          "Feedback is a creative input for you, not a verdict — good work comes from iteration, not ego",
+          "You keep your word. Deadlines and turnarounds aren't chased — they're just done.",
+          "You're fast on revisions because you care about the output, not because someone's watching",
+          "You communicate before someone has to ask — blocked, delayed, or changed direction, you say so",
+          "You execute the brief first and bring your own perspective second — you know the difference",
         ],
         tools: [
           "Premiere Pro",
@@ -208,11 +208,11 @@ export const JOBS: Job[] = [
           "Clear, professional written communication — your messages represent TAL externally",
         ],
         values: [
-          "Rejection does not slow you down. It is data, not failure.",
-          "You do not wait to be told who to reach out to — you find the targets yourself.",
-          "You update the tracker daily. Not weekly. Not when asked. Daily.",
-          "When a lead goes warm, you escalate immediately — you do not sit on it.",
-          "You follow the handoff process exactly. Founders should never have to ask for context on a lead you passed.",
+          "Rejection is useful information — you process it and move forward without losing momentum",
+          "You build your own pipeline. No one hands you a list and you don't need one to start.",
+          "You keep your tracker current because it's your system, not because someone's checking",
+          "A warm lead is time-sensitive and you treat it that way — you escalate the moment it's worth it",
+          "Your handoffs are complete. Founders walk in with full context because you put it there.",
         ],
         tools: [
           "LinkedIn",
@@ -313,10 +313,10 @@ export const JOBS: Job[] = [
           "Comfort switching between strategic work and hands-on execution within the same day",
         ],
         values: [
-          "You follow through. If you say you will do it, it is done — on time, without a reminder.",
-          "When something goes wrong, you admit it immediately and correct it first, explain later.",
-          "You take initiative. You do not wait to be assigned your next task when you can clearly see what needs doing.",
-          "You communicate proactively. Silence is not a status update. If you are blocked, you say so immediately.",
+          "You do what you say you'll do. No follow-up required — it's just how you operate.",
+          "When something breaks, you own it before anyone asks — fix first, explain after",
+          "You see what needs doing and you do it. Initiative isn't something you turn on when prompted.",
+          "You communicate before anyone has to wonder. If you're blocked, stuck, or off-track — you say so.",
         ],
         tools: [
           "Google Workspace",
