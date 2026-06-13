@@ -165,13 +165,7 @@ export default function JDContent({ job }: JDContentProps) {
             {/* What You'll Own */}
             <Section delay={0.05}>
               <SectionLabel>What You'll Own</SectionLabel>
-              <div className="flex flex-col gap-8">
-                <BulletList items={content.whatYouOwn.items} accent />
-                <div>
-                  <SubLabel>What's not your job</SubLabel>
-                  <BulletList items={content.whatYouOwn.notYourJob} />
-                </div>
-              </div>
+              <BulletList items={content.whatYouOwn.items} accent />
             </Section>
 
             {/* Must-Haves */}
@@ -183,8 +177,8 @@ export default function JDContent({ job }: JDContentProps) {
                   <BulletList items={content.mustHaves.skills} accent />
                 </div>
                 <div>
-                  <SubLabel>Behaviours</SubLabel>
-                  <BulletList items={content.mustHaves.behaviours} accent />
+                  <SubLabel>Values</SubLabel>
+                  <BulletList items={content.mustHaves.values} accent />
                 </div>
                 <div>
                   <SubLabel>Tools you should know</SubLabel>

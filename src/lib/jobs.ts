@@ -25,11 +25,11 @@ export interface Job {
     };
     whatYouOwn: {
       items: string[];
-      notYourJob: string[];
+      notYourJob?: string[];
     };
     mustHaves: {
       skills: string[];
-      behaviours: string[];
+      values: string[];
       tools: string[];
     };
     ownershipSignal: string;
@@ -93,10 +93,6 @@ export const JOBS: Job[] = [
           "Trend research and content ideation — you bring ideas, not just execution",
           "Creative support on client marketing deliverables",
         ],
-        notYourJob: [
-          "You do not have autonomous authority over TAL's brand voice or narrative. Strategic creative decisions stay with the founding team.",
-          "Paid advertising is not your domain without explicit approval. Client commitments are never made independently.",
-        ],
       },
       mustHaves: {
         skills: [
@@ -104,7 +100,7 @@ export const JOBS: Job[] = [
           "Design proficiency: Canva, Adobe Illustrator, or Photoshop",
           "Understanding of what makes content perform — reach, retention, engagement — not just what looks good",
         ],
-        behaviours: [
+        values: [
           "You handle feedback without getting defensive about your work",
           "Deadlines are not suggestions for you",
           "Revision requests are completed fast — slow turnaround on changes is a dealbreaker",
@@ -203,12 +199,6 @@ export const JOBS: Job[] = [
           "Handoff — passing warm leads to the founding team via Flock with full context: contact details, interest level, and relevant package",
           "A weekly report every Friday — your pipeline, on record",
         ],
-        notYourJob: [
-          "You do not pitch or quote prices without explicit approval from the founding team.",
-          "You do not make commitments on behalf of TAL — not on timelines, not on deliverables, not on pricing.",
-          "You do not operate in client-facing meetings independently.",
-          "Closing deals is not your job. Getting the right people to the table is.",
-        ],
       },
       mustHaves: {
         skills: [
@@ -217,7 +207,7 @@ export const JOBS: Job[] = [
           "Follow-up discipline — you manage a structured cadence without losing track of where each prospect stands",
           "Clear, professional written communication — your messages represent TAL externally",
         ],
-        behaviours: [
+        values: [
           "Rejection does not slow you down. It is data, not failure.",
           "You do not wait to be told who to reach out to — you find the targets yourself.",
           "You update the tracker daily. Not weekly. Not when asked. Daily.",
@@ -314,12 +304,6 @@ export const JOBS: Job[] = [
           "Coordination across teams — tasks, timelines, and follow-ups tracked until they close",
           "Ground support when the work calls for it — client meetings, market visits, shoots",
         ],
-        notYourJob: [
-          "Final business decisions are not yours to make.",
-          "You do not make commitments to clients without explicit approval.",
-          "You do not operate in client-facing roles independently.",
-          "Decisions that carry business risk are always escalated — never assumed.",
-        ],
       },
       mustHaves: {
         skills: [
@@ -328,7 +312,7 @@ export const JOBS: Job[] = [
           "Research ability — find things, synthesize them, present clearly without being told where to look",
           "Comfort switching between strategic work and hands-on execution within the same day",
         ],
-        behaviours: [
+        values: [
           "You follow through. If you say you will do it, it is done — on time, without a reminder.",
           "When something goes wrong, you admit it immediately and correct it first, explain later.",
           "You take initiative. You do not wait to be assigned your next task when you can clearly see what needs doing.",
