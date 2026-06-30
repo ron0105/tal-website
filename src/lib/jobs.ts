@@ -169,13 +169,13 @@ export const JOBS: Job[] = [
     highlights: [
       "Commission on every client you close",
       "Exclusive territory — you represent TAL in your market",
-      "Full Pipeline hiring process",
+      "Application + Interview hiring process",
     ],
     googleFormUrl: "https://docs.google.com/forms/d/1GOw0DpClRwqnIaOa4W1_m66yN3qmNz3uWnaFwP7LXkA/viewform",
-    pipeline: "Full Pipeline",
-    pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
+    pipeline: "Application + Interview",
+    pipelineSteps: ["Application", "Google Form", "Interview"],
     pipelineNote:
-      "The execution task will test your ability to find real prospects, write outreach that gets responses, and manage a follow-up sequence without hand-holding. Speed, precision, and communication clarity all count.",
+      "The interview covers your outreach experience, how you think about prospecting and follow-up, and whether the commission-based partnership model is the right fit on both sides. From there, we decide together whether to move forward.",
     content: {
       whoWeAre: [
         "We're building a network of Strategic Growth Partners — people who own a territory, represent TAL exclusively in it, and earn on every client they close. TAL is the three-founder startup behind that network: we build brands, run content, and manage marketing for clients across industries, and we need partners who can bring in the work.",
