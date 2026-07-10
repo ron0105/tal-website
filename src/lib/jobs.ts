@@ -262,6 +262,111 @@ export const JOBS: Job[] = [
     },
   },
 
+  // ── Developer Intern ──────────────────────────────────────────────────────
+  {
+    slug: "developer-intern",
+    title: "Developer Intern",
+    shortTitle: "Developer Intern",
+    department: "Engineering",
+    type: "Internship",
+    location: "Hybrid (Remote-first)",
+    teaser:
+      "Frontend, backend, or anywhere in between — if you're curious, you learn fast, and you actually ship things, this is the room to be in. You'll work on real client projects and internal TAL builds from week one.",
+    highlights: [
+      "Client projects + internal TAL builds",
+      "Hybrid, remote-first",
+      "Application + Screening + Interview hiring process",
+    ],
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfzOxpalJGGP-Y9A0-_vMy68pvXope_--kRhy9CsrmaTb4OCQ/viewform",
+    pipeline: "Application + Screening + Interview",
+    pipelineSteps: ["Application", "Screening Round", "Interview"],
+    pipelineNote:
+      "The interview includes a live code walkthrough — you'll be shown a piece of intentionally flawed code and asked to spot and explain the issues. No prep needed beyond knowing how you think.",
+    content: {
+      whoWeAre: [
+        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients — and we build our own tools and website in-house. This role sits across both sides: client development work and internal builds.",
+        "We're not looking for someone who has it all figured out. We're looking for someone who picks things up fast, ships without hand-holding, and uses every tool available — including AI — to get there.",
+      ],
+      whyExists: {
+        problem: [
+          "Development work at TAL spans client websites, internal tooling, and features we're building for our own platform. Right now that work competes for founder time — which means it moves slower than it should. This role takes the execution off our plate.",
+          "You'll work on real briefs with real deadlines. Some of it will be frontend. Some will be backend. Some will be full-stack. The stack varies by project — what stays constant is the expectation that you figure it out and deliver.",
+        ],
+        bandwidthFreed: [
+          "Once you're briefed, you own the build. You come back with questions when you're genuinely stuck — not for reassurance. You ship, get feedback, and iterate.",
+        ],
+        weeklyOutcome: [
+          "Shipped work — features, fixes, or pages — that the team can see and test. No open threads left hanging without a status update.",
+        ],
+      },
+      whatYouOwn: {
+        items: [
+          "Frontend builds — pages, components, and UI features across client and internal projects",
+          "Backend tasks — APIs, integrations, data handling — based on your skill set",
+          "Bug fixes and quality improvements on existing codebases",
+          "Internal tooling that makes the team's work faster or more reliable",
+          "Clear communication on what's built, what's blocked, and what's next",
+        ],
+      },
+      mustHaves: {
+        skills: [
+          "Proficiency in at least one frontend or backend language or framework",
+          "Ability to read an existing codebase and work within its patterns",
+          "Comfort using AI tools — ChatGPT, Claude, Copilot — as part of your development workflow",
+          "Basic understanding of how the web works: requests, responses, APIs, DOM",
+        ],
+        values: [
+          "You read the existing code before writing new code",
+          "When you're stuck, you try three things before you ask — and when you ask, you show your work",
+          "Feedback on your code is useful information, not a verdict on you",
+          "You communicate before anyone has to wonder where something is",
+          "Done means tested, not just written",
+        ],
+        tools: [
+          "Git / GitHub",
+          "VS Code or equivalent",
+          "ChatGPT / Claude / Copilot",
+          "Google Workspace",
+          "Vercel / Netlify (or similar)",
+          "Figma (reading designs, not necessarily creating them)",
+        ],
+      },
+      ownershipSignal:
+        "You've built something — a project, a page, a tool, anything — and you can walk us through what it does, what broke along the way, and what you'd do differently now. The stack doesn't matter. The fact that you shipped it does.",
+      nicesToHave: {
+        signal:
+          "You've worked on something outside of coursework — a personal project, a freelance build, a college club website, an open-source contribution. You've used AI tools not just to get answers but to think through problems. You're comfortable picking up a framework you haven't used before without waiting to be taught it.",
+        standOut: [
+          "You've built and shipped something independently — even if it's small",
+          "You've worked with a client or team on a real brief before",
+          "You're comfortable in both frontend and backend contexts",
+          "You've contributed to or studied an open-source project",
+          "You use AI tools actively and know their limits",
+        ],
+      },
+      redFlags: {
+        trust: [
+          "Being honest about what you know and what you don't — overestimating your stack is how projects break",
+          "Flagging blockers early, not after the deadline has passed",
+          "Testing your own output before calling something done",
+          "Asking questions with context — 'I tried X and Y, here's what happened' beats 'it doesn't work'",
+        ],
+        willFail: [
+          "Waiting to be told what to do next when the brief is already in front of you",
+          "Treating AI-generated code as final output without reading or testing it",
+          "Going quiet when something isn't working instead of flagging it",
+          "Needing the full stack explained before starting anything",
+        ],
+        warningText:
+          "Read these honestly before you apply — it's how we make sure this is genuinely a good fit, for you and for us.",
+      },
+      ninetyDays:
+        "At least two shipped features or builds — on client projects, internal tools, or both — that the team is actively using. A clear track record of flagging blockers fast, iterating on feedback, and delivering on the briefs you're given. By month three, you're picking up tasks with minimal context and running with them.",
+      worthIt:
+        "You work directly with three founders on real products and client builds — not tutorial projects, not practice tasks. The learning here is steep because the work is real. If you're early in your dev career and want to build a track record of shipped work fast, this is the place to do it.",
+    },
+  },
+
   // ── Growth Hacker ─────────────────────────────────────────────────────────
   {
     slug: "growth-hacker",
