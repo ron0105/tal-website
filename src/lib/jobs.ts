@@ -63,7 +63,7 @@ export const JOBS: Job[] = [
       "High output, fast revision cycles",
       "Full Pipeline hiring process",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc7xXmDWvHPweRjLxTPnu6yEh-t9N_gb7O3cq__9nAo_9qDMw/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfdxyrKMcoemZAjeISQZPPaAeETL6RVA1b5dZU3_LxSkUiXWA/viewform",
     pipeline: "Full Pipeline",
     pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
     pipelineNote:
@@ -168,7 +168,7 @@ export const JOBS: Job[] = [
       "Exclusive territory — you represent TAL in your market",
       "Full Pipeline hiring process",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/1GOw0DpClRwqnIaOa4W1_m66yN3qmNz3uWnaFwP7LXkA/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc3A595OYT3az4m9aVmuf_tewNgYMwlu3sZpvPj2enVusA9hQ/viewform",
     pipeline: "Full Pipeline",
     pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
     pipelineNote:
@@ -274,7 +274,7 @@ export const JOBS: Job[] = [
       "Real responsibility from week one",
       "Strategy + on-ground execution, both",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLScVm0490Kg66yFm69QK7Sm6Os53BHbzsyzp3Akh-9jD7r77og/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfKXqj8vRH9l5oOF5qGFvAHT6yC_qstxF0iFpf5Pnoqq8yHAQ/viewform",
     pipeline: "Direct-to-Interview",
     pipelineSteps: ["Application", "Founder Interview", "Live Execution Task"],
     pipelineNote:
