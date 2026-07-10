@@ -171,7 +171,7 @@ export const JOBS: Job[] = [
       "Exclusive territory — you represent TAL in your market",
       "Application + Interview hiring process",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc3A595OYT3az4m9aVmuf_tewNgYMwlu3sZpvPj2enVusA9hQ/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfKXqj8vRH9l5oOF5qGFvAHT6yC_qstxF0iFpf5Pnoqq8yHAQ/viewform",
     pipeline: "Application + Interview",
     pipelineSteps: ["Application", "Google Form", "Interview"],
     pipelineNote:
@@ -277,7 +277,7 @@ export const JOBS: Job[] = [
       "Real responsibility from week one",
       "Strategy + on-ground execution, both",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfKXqj8vRH9l5oOF5qGFvAHT6yC_qstxF0iFpf5Pnoqq8yHAQ/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc3A595OYT3az4m9aVmuf_tewNgYMwlu3sZpvPj2enVusA9hQ/viewform",
     pipeline: "Direct-to-Interview",
     pipelineSteps: ["Application", "Founder Interview", "Live Execution Task"],
     pipelineNote:
