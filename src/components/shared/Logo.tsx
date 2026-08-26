@@ -1,33 +1,15 @@
-// Brand book Jun 2026 — Direction B: TAL monogram breaking out of the gold
-// frame ("out of the box" — keep the overflow, never center TAL inside)
+// Adda mark — two circles meeting. Chosen over Direction B, Aug 25 2026.
 export default function Logo({ size = 30, dark = false }: { size?: number; dark?: boolean }) {
   return (
     <svg
-      width={size * 1.25}
+      width={size}
       height={size}
-      viewBox="0 0 50 40"
+      viewBox="0 0 32 32"
       fill="none"
       aria-label="TAL — The Adda Labs"
     >
-      <rect
-        x="1.5"
-        y="1.5"
-        width="37"
-        height="37"
-        rx="6"
-        stroke="#CA8A04"
-        strokeWidth="2.5"
-      />
-      <text
-        x="8"
-        y="28.5"
-        fontFamily="'Plus Jakarta Sans', sans-serif"
-        fontSize="19.5"
-        fontWeight="800"
-        fill={dark ? "#FFFFFF" : "var(--text-primary)"}
-      >
-        TAL
-      </text>
+      <circle cx="12" cy="16" r="9.5" fill={dark ? "#FFFFFF" : "#0F172A"} />
+      <circle cx="19.5" cy="16" r="9.5" stroke="#CA8A04" strokeWidth="3.2" fill="none" />
     </svg>
   );
 }
