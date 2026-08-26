@@ -63,7 +63,7 @@ export const JOBS: Job[] = [
       "High output, fast revision cycles",
       "Full Pipeline hiring process",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc7xXmDWvHPweRjLxTPnu6yEh-t9N_gb7O3cq__9nAo_9qDMw/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfdxyrKMcoemZAjeISQZPPaAeETL6RVA1b5dZU3_LxSkUiXWA/viewform",
     pipeline: "Full Pipeline",
     pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
     pipelineNote:
@@ -71,15 +71,15 @@ export const JOBS: Job[] = [
     content: {
       whoWeAre: [
         "TAL is a three-founder startup. We're young, we move fast, and we hold our work to an unusually high standard. We build our own brand and execute content and marketing for clients. This role sits at the centre of both.",
-        "We value diligent, quality work above everything else. We're here for creativity with a purpose — content that actually performs.",
+        "We care about diligent, quality work more than anything else — and we're drawn to people who feel that same pull toward making things that actually land, not just things that get praised in a room.",
       ],
       whyExists: {
         problem: [
-          "Our brand needs a consistent, high-quality content presence. Right now, content execution falls on the founders — which means it competes with everything else that matters. This role takes that entirely off our plate.",
-          "You will own content output for TAL and directly support client content deliverables. If you're hired, two founders stop thinking about content execution. That is the job.",
+          "Our brand needs a consistent, high-quality content presence, and right now execution pulls focus from the founders' time on strategy and creative direction. This role takes the execution load off our plate — we'll teach you how we work, and you bring our direction to life.",
+          "You'll own content execution for TAL and support client content deliverables. The creative direction and final calls on what gets posted stay with the founders; turning that direction into finished, high-quality content is the job.",
         ],
         bandwidthFreed: [
-          "You decide what gets posted and when. You execute without being told twice. You improve your output based on feedback without needing motivation to do so.",
+          "Once direction is set, you run with it end-to-end — no chasing, no repeated reminders. You take feedback and use it to make the next round better, because that's just how you work.",
         ],
         weeklyOutcome: [
           "Consistent content output for TAL and clients. Fresh ideas without prompting. Posting schedules that run without a reminder from anyone.",
@@ -96,16 +96,19 @@ export const JOBS: Job[] = [
       },
       mustHaves: {
         skills: [
-          "Proficiency in at least one professional video editing tool: Premiere Pro, DaVinci Resolve, or Final Cut Pro — not just CapCut",
-          "Design proficiency: Canva, Adobe Illustrator, or Photoshop",
+          "Video editing proficiency",
+          "Photo editing proficiency",
+          "Design proficiency",
+          "Motion graphics",
+          "Presentation skills",
           "Understanding of what makes content perform — reach, retention, engagement — not just what looks good",
         ],
         values: [
-          "Feedback is a creative input for you, not a verdict — good work comes from iteration, not ego",
-          "You keep your word. Deadlines and turnarounds aren't chased — they're just done.",
-          "You're fast on revisions because you care about the output, not because someone's watching",
-          "You communicate before someone has to ask — blocked, delayed, or changed direction, you say so",
-          "You execute the brief first and bring your own perspective second — you know the difference",
+          "You take feedback as fuel for the next version, not as a knock on the last one",
+          "You hit your deadlines — that's just how you operate",
+          "Revisions turn around fast, because you care about getting it right",
+          "You keep people in the loop — a quick \"still on it, here's where I'm at\" beats silence",
+          "You follow the brief precisely, even when you'd take it a different way",
         ],
         tools: [
           "Premiere Pro",
@@ -132,19 +135,19 @@ export const JOBS: Job[] = [
       },
       redFlags: {
         trust: [
-          "Honesty about your skills and portfolio — always",
-          "Fast revision turnaround — changes completed within the day",
-          "Following content direction precisely, even when you'd do it differently",
-          "Flagging blockers immediately — we never go silent on a problem",
+          "Being straight about your skills and your portfolio",
+          "Fast turnarounds on revisions",
+          "Following instructions as given, even when you'd do it differently",
+          "Speaking up the moment something's in your way",
         ],
         willFail: [
-          "You find it hard to start without clear direction",
-          "Feedback on your work feels personal rather than directional",
-          "You work in bursts — sustained, consistent output drains you",
-          "The credential matters more to you than the craft",
+          "Needing a brief spelled out before starting any piece of content",
+          "Getting attached to your creative output and resisting changes from the team",
+          "Struggling to sustain a high-output pace week after week",
+          "Being here mainly for the resume line",
         ],
         warningText:
-          "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
+          "Read these honestly before you apply — it's how we make sure this is genuinely a good fit, for you and for us.",
       },
       ninetyDays:
         "A growing, consistent content portfolio for both TAL and our clients — one that can be used as proof of work. Measurable improvement in engagement metrics across platforms. A content workflow that operates without any founder involvement on a day-to-day basis.",
@@ -162,29 +165,29 @@ export const JOBS: Job[] = [
     type: "Commission-Based",
     location: "Mumbai",
     teaser:
-      "You earn what you close. TAL's services are your product to sell — every client you bring in earns you a direct commission. No ceiling, no fixed salary cap. Build your pipeline. Build your income.",
+      "Most sales roles cap what you can make and own none of what you build. This one doesn't. You get an exclusive territory, a real product to sell, and every client you close pays you directly — no ceiling. If you're good at finding people and getting them to listen, this is the first role where that's worth what it's actually worth.",
     highlights: [
       "Commission on every client you close",
       "Exclusive territory — you represent TAL in your market",
-      "Full Pipeline hiring process",
+      "Application + Interview hiring process",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/1GOw0DpClRwqnIaOa4W1_m66yN3qmNz3uWnaFwP7LXkA/viewform",
-    pipeline: "Full Pipeline",
-    pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfKXqj8vRH9l5oOF5qGFvAHT6yC_qstxF0iFpf5Pnoqq8yHAQ/viewform",
+    pipeline: "Application + Interview",
+    pipelineSteps: ["Application", "Google Form", "Interview"],
     pipelineNote:
-      "The execution task will test your ability to find real prospects, write outreach that gets responses, and manage a follow-up sequence without hand-holding. Speed, precision, and communication clarity all count.",
+      "The interview covers your outreach experience, how you think about prospecting and follow-up, and whether the commission-based partnership model is the right fit on both sides. From there, we decide together whether to move forward.",
     content: {
       whoWeAre: [
-        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients across industries. We're building a network of Strategic Growth Partners — people who represent TAL exclusively in their market, earn on every client they close, and grow as the network grows.",
-        "This is a commission-based partnership. You are not an employee — you are a partner. You own your pipeline, you work exclusively with TAL, and the territory is yours. The commission percentage is discussed at interview.",
+        "We're building a network of Strategic Growth Partners — people who own a territory, represent TAL exclusively in it, and earn on every client they close. TAL is the three-founder startup behind that network: we build brands, run content, and manage marketing for clients across industries, and we need partners who can bring in the work.",
+        "You're not an employee here — you're a partner. The pipeline is yours, the territory is yours, and so is what you earn from it. Commission percentage gets confirmed at interview.",
       ],
       whyExists: {
         problem: [
-          "TAL's services need a dedicated outreach partner in Mumbai. Right now, business development competes with everything else the founders are doing. A Strategic Growth Partner takes that entirely off the founding team's plate — and earns directly from the clients they bring in.",
-          "You identify prospects, reach out, follow up, and hand off warm leads to the founders. Everything before the sales conversation is yours. The quality of your pipeline determines the quality of your earnings.",
+          "This role exists because there's real upside on the table and no one capturing it. TAL's business development competes with everything else the founders are doing — which means qualified prospects aren't getting reached. A Strategic Growth Partner closes that gap, and earns directly from every client they bring in.",
+          "Everything before the sales conversation is yours to build: prospects, outreach, follow-up. The better your pipeline, the better you earn — directly, not eventually.",
         ],
         bandwidthFreed: [
-          "You find the right people, get them interested, and pass them over ready to close. The founders focus on delivery. You focus on growth. Your income scales with your output.",
+          "You focus on growth, founders focus on delivery — and your income scales with your output, not with a fixed budget someone else controls.",
         ],
         weeklyOutcome: [
           "20 qualified contacts reached per week. A live tracker updated daily. At least one warm lead handed off to the founding team every week after the first month.",
@@ -225,7 +228,7 @@ export const JOBS: Job[] = [
         ],
       },
       ownershipSignal:
-        "You have done outreach before — formally or informally. You know what a good opening message looks like and what gets ignored. You have a system for tracking follow-ups and you use it. You do not need someone to build your prospect list for you. You find people.",
+        "You've found people before — formally or informally. You know what a good opening message looks like and what gets ignored. You have a system for tracking follow-ups and you use it. You don't need someone to build your prospect list for you. You find people.",
       nicesToHave: {
         signal:
           "You've done cold outreach in any context — sales, recruitment, partnerships, sponsorships — and you have results to show for it. You understand what SMEs care about and how they make buying decisions. You've worked in a fast-moving environment where targets were real and non-negotiable.",
@@ -241,7 +244,7 @@ export const JOBS: Job[] = [
           "Genuinely personalised outreach — every message written for that specific person",
           "Following up on time, every time — no lead goes cold",
           "Daily tracker updates — not when prompted, just always",
-          "Keeping pricing and commitments within founder approval — always",
+          "You quote within TAL's standard pricing — consistency protects the commission pool for every partner, including you",
         ],
         willFail: [
           "You find it hard to start without a list already in front of you",
@@ -255,7 +258,112 @@ export const JOBS: Job[] = [
       ninetyDays:
         "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
       worthIt:
-        "You earn directly on every client you close — no ceiling, no fixed salary cap. You work exclusively with TAL, which means the territory is yours and there is no internal competition. You have direct access to three founders who are invested in your success. We are building a national network of Strategic Growth Partners — across cities, across sectors. The people who come in now help shape how that network grows.",
+        "Most outreach roles, you build someone else's pipeline and collect a salary regardless of what you close. Here, you build your own — and you keep what it's worth. No ceiling, no fixed cap, no internal competition for your territory. You work directly with three founders who need your pipeline to grow as much as you do, and you're in early enough to shape what TAL's partner network looks like as it scales beyond Mumbai.",
+    },
+  },
+
+  // ── Developer Intern ──────────────────────────────────────────────────────
+  {
+    slug: "developer-intern",
+    title: "Developer Intern",
+    shortTitle: "Developer Intern",
+    department: "Engineering",
+    type: "Internship",
+    location: "Hybrid (Remote-first)",
+    teaser:
+      "Frontend, backend, or anywhere in between — if you're curious, you learn fast, and you actually ship things, this is the room to be in. You'll work on real client projects and internal TAL builds from week one.",
+    highlights: [
+      "Client projects + internal TAL builds",
+      "Hybrid, remote-first",
+      "Application + Screening + Interview hiring process",
+    ],
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfzOxpalJGGP-Y9A0-_vMy68pvXope_--kRhy9CsrmaTb4OCQ/viewform",
+    pipeline: "Application + Screening + Interview",
+    pipelineSteps: ["Application", "Screening Round", "Interview"],
+    pipelineNote:
+      "The interview includes a live code walkthrough — you'll be shown a piece of intentionally flawed code and asked to spot and explain the issues. No prep needed beyond knowing how you think.",
+    content: {
+      whoWeAre: [
+        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients — and we build our own tools and website in-house. This role sits across both sides: client development work and internal builds.",
+        "We're not looking for someone who has it all figured out. We're looking for someone who picks things up fast, ships without hand-holding, and uses every tool available — including AI — to get there.",
+      ],
+      whyExists: {
+        problem: [
+          "Development work at TAL spans client websites, internal tooling, and features we're building for our own platform. Right now that work competes for founder time — which means it moves slower than it should. This role takes the execution off our plate.",
+          "You'll work on real briefs with real deadlines. Some of it will be frontend. Some will be backend. Some will be full-stack. The stack varies by project — what stays constant is the expectation that you figure it out and deliver.",
+        ],
+        bandwidthFreed: [
+          "Once you're briefed, you own the build. You come back with questions when you're genuinely stuck — not for reassurance. You ship, get feedback, and iterate.",
+        ],
+        weeklyOutcome: [
+          "Shipped work — features, fixes, or pages — that the team can see and test. No open threads left hanging without a status update.",
+        ],
+      },
+      whatYouOwn: {
+        items: [
+          "Frontend builds — pages, components, and UI features across client and internal projects",
+          "Backend tasks — APIs, integrations, data handling — based on your skill set",
+          "Bug fixes and quality improvements on existing codebases",
+          "Internal tooling that makes the team's work faster or more reliable",
+          "Clear communication on what's built, what's blocked, and what's next",
+        ],
+      },
+      mustHaves: {
+        skills: [
+          "Proficiency in at least one frontend or backend language or framework",
+          "Ability to read an existing codebase and work within its patterns",
+          "Comfort using AI tools — ChatGPT, Claude, Copilot — as part of your development workflow",
+          "Basic understanding of how the web works: requests, responses, APIs, DOM",
+        ],
+        values: [
+          "You read the existing code before writing new code",
+          "When you're stuck, you try three things before you ask — and when you ask, you show your work",
+          "Feedback on your code is useful information, not a verdict on you",
+          "You communicate before anyone has to wonder where something is",
+          "Done means tested, not just written",
+        ],
+        tools: [
+          "Git / GitHub",
+          "VS Code or equivalent",
+          "ChatGPT / Claude / Copilot",
+          "Google Workspace",
+          "Vercel / Netlify (or similar)",
+          "Figma (reading designs, not necessarily creating them)",
+        ],
+      },
+      ownershipSignal:
+        "You've built something — a project, a page, a tool, anything — and you can walk us through what it does, what broke along the way, and what you'd do differently now. The stack doesn't matter. The fact that you shipped it does.",
+      nicesToHave: {
+        signal:
+          "You've worked on something outside of coursework — a personal project, a freelance build, a college club website, an open-source contribution. You've used AI tools not just to get answers but to think through problems. You're comfortable picking up a framework you haven't used before without waiting to be taught it.",
+        standOut: [
+          "You've built and shipped something independently — even if it's small",
+          "You've worked with a client or team on a real brief before",
+          "You're comfortable in both frontend and backend contexts",
+          "You've contributed to or studied an open-source project",
+          "You use AI tools actively and know their limits",
+        ],
+      },
+      redFlags: {
+        trust: [
+          "Being honest about what you know and what you don't — overestimating your stack is how projects break",
+          "Flagging blockers early, not after the deadline has passed",
+          "Testing your own output before calling something done",
+          "Asking questions with context — 'I tried X and Y, here's what happened' beats 'it doesn't work'",
+        ],
+        willFail: [
+          "Waiting to be told what to do next when the brief is already in front of you",
+          "Treating AI-generated code as final output without reading or testing it",
+          "Going quiet when something isn't working instead of flagging it",
+          "Needing the full stack explained before starting anything",
+        ],
+        warningText:
+          "Read these honestly before you apply — it's how we make sure this is genuinely a good fit, for you and for us.",
+      },
+      ninetyDays:
+        "At least two shipped features or builds — on client projects, internal tools, or both — that the team is actively using. A clear track record of flagging blockers fast, iterating on feedback, and delivering on the briefs you're given. By month three, you're picking up tasks with minimal context and running with them.",
+      worthIt:
+        "You work directly with three founders on real products and client builds — not tutorial projects, not practice tasks. The learning here is steep because the work is real. If you're early in your dev career and want to build a track record of shipped work fast, this is the place to do it.",
     },
   },
 
@@ -274,14 +382,14 @@ export const JOBS: Job[] = [
       "Real responsibility from week one",
       "Strategy + on-ground execution, both",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLScVm0490Kg66yFm69QK7Sm6Os53BHbzsyzp3Akh-9jD7r77og/viewform",
+    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc3A595OYT3az4m9aVmuf_tewNgYMwlu3sZpvPj2enVusA9hQ/viewform",
     pipeline: "Direct-to-Interview",
     pipelineSteps: ["Application", "Founder Interview", "Live Execution Task"],
     pipelineNote:
       "The live task will test communication clarity, your ability to build something coherent under time pressure, research speed, and how you handle ambiguity when there is no clear instruction to follow.",
     content: {
       whoWeAre: [
-        "TAL is a three-founder startup. We're young, we move at an uncomfortable pace, and we hold ourselves and our team to a high standard. We are not a company where you come in, do your tasks, and go home. We are building something, and everyone in the room is expected to contribute to that.",
+        "TAL is a three-founder startup. We're young, we move fast, and we hold ourselves and our team to a high bar. You get real ownership here — not just tasks to check off.",
         "This role sits inside the Founder's Office — the seat where strategy, sales, and operations meet. It's a force-multiplier role, not an admin desk.",
       ],
       whyExists: {
@@ -329,7 +437,7 @@ export const JOBS: Job[] = [
         ],
       },
       ownershipSignal:
-        "You do not need babysitting. When you hit a blocker, you either solve it or flag it immediately — you do not sit on it for two days. When something goes wrong, you own it before anyone asks you to. You have a track record of doing things independently, even if that track record is from college projects, freelance work, or something you built on your own.",
+        "You're self-directed: when you hit a blocker, you solve it or flag it immediately rather than letting it sit. When something goes wrong, you own it before anyone has to ask. You have a track record of doing things independently, even if that track record is from college projects, freelance work, or something you built on your own.",
       nicesToHave: {
         signal:
           "Startup, consulting, or founder's office experience — even freelance or at a small scale. You've done real outreach — cold email, LinkedIn prospecting — and you understand what works. You've built something independently that other people actually used.",
