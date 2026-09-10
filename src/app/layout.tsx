@@ -3,15 +3,14 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
-import { ThemeProvider } from "@/components/shared/ThemeContext";
 
 export const metadata: Metadata = {
   title: {
-    default: "TAL Consulting — We help businesses run better and grow smoothly.",
+    default: "TAL Consulting — We help organisations grow.",
     template: "%s | TAL Consulting",
   },
   description:
-    "We help running businesses improve operations, get more consistent customers, and bring clarity to how the business works. We also help founders test and validate ideas before investing time and money.",
+    "We help organisations grow — using consulting, tech, and marketing as the tools, not the product. Growth is the goal, whether you run a business or are testing a new idea.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
@@ -23,13 +22,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300" suppressHydrationWarning>
-        <ThemeProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </ThemeProvider>
+      <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

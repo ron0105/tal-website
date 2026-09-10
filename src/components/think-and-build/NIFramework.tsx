@@ -13,7 +13,7 @@ const stages = [
 
 export default function NIFramework() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32" style={{ background: "var(--navy)", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+    <section id="how-it-works" className="py-24 md:py-32" style={{ background: "var(--brand)", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="layout-grid px-6 md:px-10">
         <AnimateOnScroll className="mb-16 max-w-2xl">
           <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>The validation framework</span>
@@ -37,8 +37,8 @@ export default function NIFramework() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)" }}>
           {stages.map((s, i) => (
             <AnimateOnScroll key={s.n} delay={i * 0.06}>
-              <div className="card-lift-dark p-8 h-full cursor-default" style={{ background: "var(--navy)" }}>
-                <p className="font-poppins text-3xl mb-4" style={{ color: "var(--accent)", fontWeight: 500 }}>{s.n}</p>
+              <div className="card-lift-dark p-8 h-full cursor-default" style={{ background: "var(--brand)" }}>
+                <p className="font-poppins text-3xl mb-4" style={{ color: "var(--accent-on-brand)", fontWeight: 500 }}>{s.n}</p>
                 <h3 className="font-bold text-lg mb-3" style={{ color: "#FFFFFF" }}>{s.name}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{s.desc}</p>
               </div>

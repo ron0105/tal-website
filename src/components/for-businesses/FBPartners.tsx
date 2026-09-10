@@ -40,7 +40,7 @@ export default function FBPartners() {
         </div>
 
         {/* Navy panel */}
-        <div className="px-8 md:px-16 py-16 md:py-24" style={{ background: "var(--navy)" }}>
+        <div className="px-8 md:px-16 py-16 md:py-24" style={{ background: "var(--brand)" }}>
           <AnimateOnScroll>
             <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>Who you&apos;ll work with</span>
             <h2
@@ -65,7 +65,7 @@ export default function FBPartners() {
                 <li key={pt} className="flex items-start gap-4">
                   <span
                     className="shrink-0 flex items-center justify-center font-bold text-sm mt-0.5"
-                    style={{ width: "24px", height: "24px", borderRadius: "50%", border: "1.5px solid var(--accent)", color: "var(--accent)" }}
+                    style={{ width: "24px", height: "24px", borderRadius: "50%", border: "1.5px solid var(--accent-on-brand)", color: "var(--accent-on-brand)" }}
                   >
                     →
                   </span>
@@ -76,7 +76,7 @@ export default function FBPartners() {
             <a
               href="/about"
               className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest mt-10 transition-opacity hover:opacity-90 cursor-pointer"
-              style={{ padding: "13px 28px", background: "#fff", color: "var(--navy)", borderRadius: "var(--radius-btn)" }}
+              style={{ padding: "13px 28px", background: "#fff", color: "var(--brand)", borderRadius: "var(--radius-btn)" }}
             >
               Meet the team →
             </a>

@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
 const navLinks = [
@@ -89,7 +88,6 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
             <Link
               href="/contact"
               className="btn-primary"
@@ -101,7 +99,6 @@ export default function Navbar() {
 
           {/* Mobile hamburger & controls */}
           <div className="md:hidden flex items-center gap-3">
-            <ThemeToggle />
             <button
               className="flex flex-col gap-1.5 items-center justify-center w-8 h-8 cursor-pointer group"
               onClick={() => setMenuOpen(!menuOpen)}

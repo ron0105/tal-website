@@ -57,7 +57,7 @@ export default function FBPainPoints() {
                   border: "1px solid var(--border-color)",
                   borderLeft: "4px solid var(--accent)",
                   borderRadius: "14px",
-                  boxShadow: "0 2px 10px rgba(15,23,42,0.04)",
+                  boxShadow: "0 2px 10px rgba(20,32,30,0.04)",
                 }}
               >
                 <div className="flex items-center gap-3">
@@ -67,7 +67,7 @@ export default function FBPainPoints() {
                       width: "38px",
                       height: "38px",
                       borderRadius: "10px",
-                      background: "rgba(202,138,4,0.1)",
+                      background: "rgba(192,107,58,0.1)",
                       color: "var(--accent-hover)",
                       fontWeight: 500,
                       fontSize: "0.95rem",
@@ -92,9 +92,9 @@ export default function FBPainPoints() {
           <div
             className="p-6 md:p-8"
             style={{
-              background: "var(--navy)",
+              background: "var(--brand)",
               borderRadius: "14px",
-              borderLeft: "4px solid var(--accent)",
+              borderLeft: "4px solid var(--accent-on-brand)",
             }}
           >
             <p className="text-base leading-relaxed max-w-2xl" style={{ color: "rgba(255,255,255,0.8)" }}>
