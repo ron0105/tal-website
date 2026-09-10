@@ -15,7 +15,7 @@ const cases = [
     statLabel: "return on marketing spend within one quarter",
     quote: "We finally stopped guessing. Every rupee we spend now, we know why.",
     attribution: "Founder, D2C brand",
-    visual: { initial: "01", tone: "rgba(202,138,4,0.16)" },
+    visual: { initial: "01", tone: "rgba(192,107,58,0.16)" },
   },
   {
     client: "A professional services firm",
@@ -26,7 +26,7 @@ const cases = [
     statLabel: "more inbound enquiries in the first 90 days",
     quote: "Clients tell us we finally look like the firm they always knew we were.",
     attribution: "Managing partner, services firm",
-    visual: { initial: "02", tone: "rgba(202,138,4,0.10)" },
+    visual: { initial: "02", tone: "rgba(192,107,58,0.10)" },
   },
   {
     client: "A consumer brand launch",
@@ -37,7 +37,7 @@ const cases = [
     statLabel: "audience growth across the launch quarter",
     quote: "People assumed we were a much bigger company. That film did it.",
     attribution: "Founder, consumer brand",
-    visual: { initial: "03", tone: "rgba(202,138,4,0.13)" },
+    visual: { initial: "03", tone: "rgba(192,107,58,0.13)" },
   },
 ];
 
@@ -75,14 +75,14 @@ export default function FBCaseStudies() {
                   background: "var(--bg)",
                   border: "1px solid var(--border-color)",
                   borderRadius: "14px",
-                  boxShadow: "0 2px 10px rgba(15,23,42,0.04)",
+                  boxShadow: "0 2px 10px rgba(20,32,30,0.04)",
                 }}
               >
                 <div
                   className="relative flex items-end p-6"
                   style={{
                     height: "150px",
-                    background: `linear-gradient(135deg, var(--navy) 0%, #1E293B 100%)`,
+                    background: `linear-gradient(135deg, var(--brand) 0%, #0F7C78 100%)`,
                   }}
                 >
                   <span
@@ -94,7 +94,7 @@ export default function FBCaseStudies() {
                   </span>
                   <span
                     className="absolute text-[9px] font-bold uppercase tracking-widest px-2 py-1"
-                    style={{ top: "12px", left: "12px", color: "rgba(202,138,4,0.9)", border: "1px solid rgba(202,138,4,0.45)", borderRadius: "6px" }}
+                    style={{ top: "12px", left: "12px", color: "rgba(192,107,58,0.9)", border: "1px solid rgba(192,107,58,0.45)", borderRadius: "6px" }}
                   >
                     Protected under NDA
                   </span>

@@ -35,7 +35,7 @@ function FoundVisual() {
           background: "var(--bg)",
           border: "1px solid var(--border-color)",
           borderRadius: "14px",
-          boxShadow: "0 24px 60px rgba(15,23,42,0.10)",
+          boxShadow: "0 24px 60px rgba(20,32,30,0.10)",
         }}
       >
         <div className="flex items-center gap-2 mb-4">
@@ -48,7 +48,7 @@ function FoundVisual() {
         <div className="flex items-start gap-4">
           <div
             className="w-12 h-12 shrink-0 flex items-center justify-center font-black text-lg rounded-lg"
-            style={{ background: "var(--navy)", color: "#fff", border: "2px solid var(--accent)" }}
+            style={{ background: "var(--brand)", color: "#fff", border: "2px solid var(--accent-on-brand)" }}
           >
             B
           </div>
@@ -67,13 +67,13 @@ function FoundVisual() {
           </div>
         </div>
         <div className="flex gap-2 mt-4">
-          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(202,138,4,0.1)", color: "var(--accent-hover)" }}>
+          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(192,107,58,0.1)", color: "var(--accent-hover)" }}>
             Website
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(202,138,4,0.1)", color: "var(--accent-hover)" }}>
+          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(192,107,58,0.1)", color: "var(--accent-hover)" }}>
             Directions
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(202,138,4,0.1)", color: "var(--accent-hover)" }}>
+          <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "rgba(192,107,58,0.1)", color: "var(--accent-hover)" }}>
             Call
           </span>
         </div>
@@ -86,10 +86,10 @@ function FoundVisual() {
         transition={{ duration: 0.6, ease, delay: 1.0 }}
         className="relative z-20 flex items-start gap-3 p-4 -mt-5 ml-8 md:ml-16"
         style={{
-          background: "var(--navy)",
+          background: "var(--brand)",
           borderRadius: "14px",
           borderBottomLeftRadius: "4px",
-          boxShadow: "0 16px 40px rgba(15,23,42,0.18)",
+          boxShadow: "0 16px 40px rgba(20,32,30,0.18)",
           maxWidth: "330px",
         }}
       >
@@ -101,7 +101,7 @@ function FoundVisual() {
           <div className="h-2 w-full rounded-full mb-1.5" style={{ background: "rgba(255,255,255,0.3)" }} />
           <div className="h-2 w-1/2 rounded-full" style={{ background: "rgba(255,255,255,0.3)" }} />
         </div>
-        <span className="text-[10px] font-bold shrink-0 self-end" style={{ color: "var(--accent)" }}>✓✓</span>
+        <span className="text-[10px] font-bold shrink-0 self-end" style={{ color: "var(--accent-on-brand)" }}>✓✓</span>
       </motion.div>
     </motion.div>
   );
@@ -165,7 +165,7 @@ export default function FBHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"
-                style={{ padding: "16px 32px", background: "var(--navy)", color: "#fff", borderRadius: "10px" }}
+                style={{ padding: "16px 32px", background: "var(--brand)", color: "#fff", borderRadius: "10px" }}
               >
                 <WAIcon />
                 Chat on WhatsApp

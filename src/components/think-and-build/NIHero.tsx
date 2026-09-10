@@ -68,7 +68,7 @@ export default function NIHero() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"
-              style={{ padding: "15px 34px", background: "var(--navy)", color: "#fff", borderRadius: "var(--radius-btn)", borderBottom: "3px solid var(--accent)" }}
+              style={{ padding: "15px 34px", background: "var(--brand)", color: "#fff", borderRadius: "var(--radius-btn)", borderBottom: "3px solid var(--accent-on-brand)" }}
             >
               Talk through your idea
             </a>

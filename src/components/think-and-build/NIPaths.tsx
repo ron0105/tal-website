@@ -97,7 +97,7 @@ export default function NIPaths() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest w-fit transition-opacity hover:opacity-90 cursor-pointer"
-                  style={{ padding: "13px 28px", background: "var(--navy)", color: "#fff", borderRadius: "var(--radius-btn)", borderBottom: "3px solid var(--accent)" }}
+                  style={{ padding: "13px 28px", background: "var(--brand)", color: "#fff", borderRadius: "var(--radius-btn)", borderBottom: "3px solid var(--accent-on-brand)" }}
                 >
                   {p.cta} →
                 </a>

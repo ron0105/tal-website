@@ -114,7 +114,7 @@ export default function FBWhoThisIsFor() {
                   background: "var(--bg)",
                   border: "1px solid var(--border-color)",
                   borderRadius: "14px",
-                  boxShadow: "0 2px 10px rgba(15,23,42,0.04)",
+                  boxShadow: "0 2px 10px rgba(20,32,30,0.04)",
                 }}
               >
                 <span
@@ -123,7 +123,7 @@ export default function FBWhoThisIsFor() {
                     width: "46px",
                     height: "46px",
                     borderRadius: "12px",
-                    background: "rgba(202,138,4,0.1)",
+                    background: "rgba(192,107,58,0.1)",
                     color: "var(--accent-hover)",
                   }}
                 >

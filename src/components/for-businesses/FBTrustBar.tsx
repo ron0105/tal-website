@@ -20,7 +20,7 @@ const items = [...industries, ...industries];
 
 export default function FBTrustBar() {
   return (
-    <section className="py-5 overflow-hidden" style={{ background: "var(--navy)", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+    <section className="py-5 overflow-hidden" style={{ background: "var(--brand)", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="flex items-center gap-8">
         <div
           className="shrink-0 px-8 text-[10px] font-black uppercase tracking-widest whitespace-nowrap hidden md:block"

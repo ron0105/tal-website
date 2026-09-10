@@ -14,7 +14,6 @@
   
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --color-accent-indigo: var(--accent-indigo);
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-poppins: 'Fraunces', serif;
@@ -26,27 +25,29 @@
 @layer base {
   :root {
     /* One theme only — no dark mode (Rohan, Aug 26 2026).
-       Soft paper, warm off-white sections, navy ink — easy on the eyes,
-       still unique because of the warm and cool tint underneath. */
-    --bg: #FAFBFC;
-    --bg-secondary: #FBF6EC;
-    --bg-lift: #EEF3F8;
+       Palette "Peacock" (Rohan, Sep 11 2026): deep peacock-teal brand,
+       copper accent, warm-cool neutral paper. Moves TAL off navy. */
+    --bg: #F2F4F2;
+    --bg-secondary: #F6F2EA;
+    --bg-lift: #E7EEEC;
 
-    --border-color: #DFE6ED;
-    --border-subtle: #EDF1F5;
+    --border-color: #D6E0DD;
+    --border-subtle: #E6EDEB;
 
-    --text-primary: #0F172A;
-    --text-body: #2B3A4E;
-    --text-muted: #4D5D72;
+    --text-primary: #14201E;
+    --text-body: #33423E;
+    --text-muted: #5A6A66;
 
-    /* TAL Brand — Authority Navy + Brass Gold (brand book Aug 2026) */
-    --navy: #0F172A;
-    --accent: #CA8A04;
-    --accent-hover: #A16207;
-    --accent-indigo: #0F172A;
+    /* TAL Brand — Peacock teal + Copper (Sep 2026) */
+    --brand: #0E6B68;
+    --brand-hover: #0A5150;
+    --accent: #C06B3A;
+    --accent-hover: #A5572C;
+    /* Copper is mid-tone; on peacock bands use this lighter copper for legible text */
+    --accent-on-brand: #E9B48D;
 
     /* Navbar background */
-    --navbar-bg: rgba(250, 251, 252, 0.90);
+    --navbar-bg: rgba(242, 244, 242, 0.90);
   }
 }
 
@@ -85,7 +86,7 @@ body {
 }
 
 ::selection {
-  background: var(--navy);
+  background: var(--brand);
   color: #fff;
 }
 
@@ -162,29 +163,29 @@ body {
   background: var(--border-color);
 }
 
-/* ─── Buttons — Editorial Navy / White ─── */
+/* ─── Buttons — Peacock / White ─── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
-  background: var(--navy);
+  background: var(--brand);
   color: #FFFFFF;
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius-btn);
-  border: 1px solid var(--navy);
+  border: 1px solid var(--brand);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
   letter-spacing: 0.01em;
 }
 .btn-primary:hover {
-  background: #1E293B;
-  border-color: #1E293B;
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.35);
+  box-shadow: 0 8px 24px -4px rgba(20, 32, 30, 0.35);
 }
 .btn-primary:active {
   transform: translateY(0px) scale(0.98);
@@ -235,29 +236,29 @@ body {
 }
 .card-interactive:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(202, 138, 4, 0.2);
-  border-color: rgba(202, 138, 4, 0.3) !important;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(192, 107, 58, 0.2);
+  border-color: rgba(192, 107, 58, 0.3) !important;
 }
 
-/* Lift + soft golden glow — leaves borders untouched (for cards with accent spines) */
+/* Lift + soft copper glow — leaves borders untouched (for cards with accent spines) */
 .card-lift {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
 }
 .card-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px -14px rgba(15, 23, 42, 0.14), 0 0 24px -8px rgba(202, 138, 4, 0.22);
+  box-shadow: 0 18px 40px -14px rgba(20, 32, 30, 0.14), 0 0 24px -8px rgba(192, 107, 58, 0.22);
 }
 
-/* Tiles on navy bands — subtle lift, lighter navy, restrained gold inset ring */
+/* Tiles on peacock bands — subtle lift, lighter peacock, restrained copper inset ring */
 .card-lift-dark {
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
 }
 .card-lift-dark:hover {
   transform: translateY(-3px);
-  background: #16213D !important;
-  box-shadow: inset 0 0 0 1px rgba(202, 138, 4, 0.28);
+  background: #0F7C78 !important;
+  box-shadow: inset 0 0 0 1px rgba(233, 180, 141, 0.32);
 }
 
 /* Quiet rows — surface brightens on hover, no movement */

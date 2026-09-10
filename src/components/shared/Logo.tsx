@@ -8,8 +8,8 @@ export default function Logo({ size = 30, dark = false }: { size?: number; dark?
       fill="none"
       aria-label="TAL — The Adda Labs"
     >
-      <circle cx="12" cy="16" r="9.5" fill={dark ? "#FFFFFF" : "#0F172A"} />
-      <circle cx="19.5" cy="16" r="9.5" stroke="#CA8A04" strokeWidth="3.2" fill="none" />
+      <circle cx="12" cy="16" r="9.5" fill={dark ? "#FFFFFF" : "#0E6B68"} />
+      <circle cx="19.5" cy="16" r="9.5" stroke="#C06B3A" strokeWidth="3.2" fill="none" />
     </svg>
   );
 }

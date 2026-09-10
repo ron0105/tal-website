@@ -113,8 +113,8 @@ export default function FBServices() {
                     className="card-lift p-8 md:p-10 flex flex-col gap-5 h-full"
                     style={
                       featured
-                        ? { background: "var(--navy)", borderBottom: "4px solid var(--accent)", borderRadius: "14px", boxShadow: "0 12px 36px rgba(15,23,42,0.16)" }
-                        : { background: "var(--bg)", border: "1px solid var(--border-color)", borderRadius: "14px", boxShadow: "0 2px 10px rgba(15,23,42,0.04)" }
+                        ? { background: "var(--brand)", borderBottom: "4px solid var(--accent-on-brand)", borderRadius: "14px", boxShadow: "0 12px 36px rgba(20,32,30,0.16)" }
+                        : { background: "var(--bg)", border: "1px solid var(--border-color)", borderRadius: "14px", boxShadow: "0 2px 10px rgba(20,32,30,0.04)" }
                     }
                   >
                     <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "rgba(255,255,255,0.55)" : "var(--accent)" }}>
@@ -278,7 +278,7 @@ export default function FBServices() {
       </section>
 
       {/* Flagship */}
-      <section className="py-20 border-t border-border-subtle" style={{ background: "var(--navy)" }}>
+      <section className="py-20 border-t border-border-subtle" style={{ background: "var(--brand)" }}>
         <div className="layout-grid px-6 md:px-10">
           <AnimateOnScroll>
             <div className="max-w-2xl">
@@ -307,7 +307,7 @@ export default function FBServices() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest px-8 py-4 transition-opacity hover:opacity-90"
-                style={{ background: "#fff", color: "var(--navy)" }}
+                style={{ background: "#fff", color: "var(--brand)" }}
               >
                 Ask us about this →
               </a>
