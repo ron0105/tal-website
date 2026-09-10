@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "280px" }}>
-              We help businesses run better and grow smoothly. We set up simple systems so you can focus on growth.
+              We help organisations grow, using consulting, tech, and marketing as the tools to get there.
             </p>
           </div>
 

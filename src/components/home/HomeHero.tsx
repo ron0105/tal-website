@@ -61,7 +61,7 @@ export default function HomeHero() {
 
         {/* Headline — line reveal */}
         <LineReveal
-          lines={["We help you build", "something that", "actually works."]}
+          lines={["We help", "you grow."]}
           delay={0.1}
           stagger={0.12}
           className="font-poppins mb-10"
@@ -93,7 +93,7 @@ export default function HomeHero() {
         >
           <div>
             <p className="text-xl md:text-2xl leading-relaxed font-medium text-body mb-4" style={{ maxWidth: "520px" }}>
-              Whether you run a growing business or have an idea ready to test, we bring structure and clarity so you can move with confidence.
+              Consulting, tech, and marketing — whatever moves the needle. They're tools we use to grow, scale, and optimize. The goal is always growth.
             </p>
             <p className="text-base text-muted" style={{ maxWidth: "440px" }}>
               Built from years of working with real businesses and founders. No guesswork.
