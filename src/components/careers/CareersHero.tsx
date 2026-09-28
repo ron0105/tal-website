@@ -70,7 +70,7 @@ export default function CareersHero() {
               className="body-copy mb-4"
               style={{ maxWidth: "540px" }}
             >
-              TAL is a three-founder startup. We move fast, hold our work to a
+              TAL is a two-founder startup. We move fast, hold our work to a
               high standard, and bring in people who take both seriously. If you
               want a comfortable job, this is not the place. If you want real
               work from day one, keep reading.

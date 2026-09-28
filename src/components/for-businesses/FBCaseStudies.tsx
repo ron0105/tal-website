@@ -28,17 +28,6 @@ const cases = [
     attribution: "Managing partner, services firm",
     visual: { initial: "02", tone: "rgba(192,107,58,0.10)" },
   },
-  {
-    client: "A consumer brand launch",
-    craft: "Brand Film & Storytelling",
-    led: "Led by Abhishek",
-    work: "A launch with a story worth telling. We found the narrative, shot the brand film, and built the content engine around it — cinematography, edits, and a launch sequence that punched far above its budget.",
-    stat: "3x",
-    statLabel: "audience growth across the launch quarter",
-    quote: "People assumed we were a much bigger company. That film did it.",
-    attribution: "Founder, consumer brand",
-    visual: { initial: "03", tone: "rgba(192,107,58,0.13)" },
-  },
 ];
 
 export default function FBCaseStudies() {
@@ -66,7 +55,7 @@ export default function FBCaseStudies() {
           </p>
         </AnimateOnScroll>
 
-        <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
           {cases.map((c, i) => (
             <AnimateOnScroll key={c.client} delay={i * 0.08}>
               <div
