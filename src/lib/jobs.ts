@@ -70,7 +70,7 @@ export const JOBS: Job[] = [
       "The execution task will test your technical output quality, your creative thinking under a brief, and how you respond to feedback in real time. Your reaction to feedback matters as much as the work itself.",
     content: {
       whoWeAre: [
-        "TAL is a three-founder startup. We're young, we move fast, and we hold our work to an unusually high standard. We build our own brand and execute content and marketing for clients. This role sits at the centre of both.",
+        "TAL is a two-founder startup. We're young, we move fast, and we hold our work to an unusually high standard. We build our own brand and execute content and marketing for clients. This role sits at the centre of both.",
         "We care about diligent, quality work more than anything else — and we're drawn to people who feel that same pull toward making things that actually land, not just things that get praised in a room.",
       ],
       whyExists: {
@@ -152,7 +152,7 @@ export const JOBS: Job[] = [
       ninetyDays:
         "A growing, consistent content portfolio for both TAL and our clients — one that can be used as proof of work. Measurable improvement in engagement metrics across platforms. A content workflow that operates without any founder involvement on a day-to-day basis.",
       worthIt:
-        "You work directly with three founders. You have real creative ownership over a brand that is actively being built. You see your work move actual numbers. There are no corporate layers, no approval chains that take two weeks, and no busywork disguised as a learning opportunity.",
+        "You work directly with both founders. You have real creative ownership over a brand that is actively being built. You see your work move actual numbers. There are no corporate layers, no approval chains that take two weeks, and no busywork disguised as a learning opportunity.",
     },
   },
 
@@ -178,7 +178,7 @@ export const JOBS: Job[] = [
       "The interview covers your outreach experience, how you think about prospecting and follow-up, and whether the commission-based partnership model is the right fit on both sides. From there, we decide together whether to move forward.",
     content: {
       whoWeAre: [
-        "We're building a network of Strategic Growth Partners — people who own a territory, represent TAL exclusively in it, and earn on every client they close. TAL is the three-founder startup behind that network: we build brands, run content, and manage marketing for clients across industries, and we need partners who can bring in the work.",
+        "We're building a network of Strategic Growth Partners — people who own a territory, represent TAL exclusively in it, and earn on every client they close. TAL is the two-founder startup behind that network: we build brands, run content, and manage marketing for clients across industries, and we need partners who can bring in the work.",
         "You're not an employee here — you're a partner. The pipeline is yours, the territory is yours, and so is what you earn from it. Commission percentage gets confirmed at interview.",
       ],
       whyExists: {
@@ -258,7 +258,7 @@ export const JOBS: Job[] = [
       ninetyDays:
         "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
       worthIt:
-        "Most outreach roles, you build someone else's pipeline and collect a salary regardless of what you close. Here, you build your own — and you keep what it's worth. No ceiling, no fixed cap, no internal competition for your territory. You work directly with three founders who need your pipeline to grow as much as you do, and you're in early enough to shape what TAL's partner network looks like as it scales beyond Mumbai.",
+        "Most outreach roles, you build someone else's pipeline and collect a salary regardless of what you close. Here, you build your own — and you keep what it's worth. No ceiling, no fixed cap, no internal competition for your territory. You work directly with both founders who need your pipeline to grow as much as you do, and you're in early enough to shape what TAL's partner network looks like as it scales beyond Mumbai.",
     },
   },
 
@@ -284,7 +284,7 @@ export const JOBS: Job[] = [
       "The interview includes a live code walkthrough — you'll be shown a piece of intentionally flawed code and asked to spot and explain the issues. No prep needed beyond knowing how you think.",
     content: {
       whoWeAre: [
-        "TAL is a three-founder startup. We build brands, run content, and manage marketing for clients — and we build our own tools and website in-house. This role sits across both sides: client development work and internal builds.",
+        "TAL is a two-founder startup. We build brands, run content, and manage marketing for clients — and we build our own tools and website in-house. This role sits across both sides: client development work and internal builds.",
         "We're not looking for someone who has it all figured out. We're looking for someone who picks things up fast, ships without hand-holding, and uses every tool available — including AI — to get there.",
       ],
       whyExists: {
@@ -363,7 +363,7 @@ export const JOBS: Job[] = [
       ninetyDays:
         "At least two shipped features or builds — on client projects, internal tools, or both — that the team is actively using. A clear track record of flagging blockers fast, iterating on feedback, and delivering on the briefs you're given. By month three, you're picking up tasks with minimal context and running with them.",
       worthIt:
-        "You work directly with three founders on real products and client builds — not tutorial projects, not practice tasks. The learning here is steep because the work is real. If you're early in your dev career and want to build a track record of shipped work fast, this is the place to do it.",
+        "You work directly with both founders on real products and client builds — not tutorial projects, not practice tasks. The learning here is steep because the work is real. If you're early in your dev career and want to build a track record of shipped work fast, this is the place to do it.",
     },
   },
 
@@ -389,7 +389,7 @@ export const JOBS: Job[] = [
       "The live task will test communication clarity, your ability to build something coherent under time pressure, research speed, and how you handle ambiguity when there is no clear instruction to follow.",
     content: {
       whoWeAre: [
-        "TAL is a three-founder startup. We're young, we move fast, and we hold ourselves and our team to a high bar. You get real ownership here — not just tasks to check off.",
+        "TAL is a two-founder startup. We're young, we move fast, and we hold ourselves and our team to a high bar. You get real ownership here — not just tasks to check off.",
         "This role sits inside the Founder's Office — the seat where strategy, sales, and operations meet. It's a force-multiplier role, not an admin desk.",
       ],
       whyExists: {
@@ -467,7 +467,7 @@ export const JOBS: Job[] = [
       ninetyDays:
         "TAL's first set of clients actively in the pipeline — with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team actually uses. A lead-generation workflow that runs without daily founder involvement.",
       worthIt:
-        "You work directly with three founders from day one — mentorship here is the seating arrangement, not a programme. The internship is built to convert: do it well, and you're the obvious first hire as TAL scales. Stipend and structure are discussed openly at the first conversation — no surprises. There are no corporate layers between you and the work that matters.",
+        "You work directly with both founders from day one — mentorship here is the seating arrangement, not a programme. The internship is built to convert: do it well, and you're the obvious first hire as TAL scales. Stipend and structure are discussed openly at the first conversation — no surprises. There are no corporate layers between you and the work that matters.",
     },
   },
 ];

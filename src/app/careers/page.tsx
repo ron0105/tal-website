@@ -6,7 +6,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Careers — TAL Consulting",
   description:
-    "We're hiring. TAL is a three-founder startup building something real. If you want ownership from day one, read on.",
+    "We're hiring. TAL is a two-founder startup building something real. If you want ownership from day one, read on.",
 };
 
 export default function CareersPage() {

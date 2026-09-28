@@ -18,13 +18,6 @@ const founders = [
     bio: "Multidisciplinary visual artist, designer, and video editor with over three years of experience. Translates strategy into visual identity and communication that actually lands. Brings the brand to life across every touchpoint.",
     quote: "Design is not how something looks. It is how quickly someone understands what you are offering.",
   },
-  {
-    name: "Abhishek",
-    role: "Brand and Storytelling",
-    photo: "/founders/abhishek.png",
-    bio: "Runs his own production house. Brand consultant and cinematographer with four years of experience. Helps businesses find and communicate the narrative that connects them to the right customers.",
-    quote: "You already have a story worth telling. Most businesses just have not found the version that makes the right person stop and pay attention.",
-  },
 ];
 
 export default function AboutTeam() {
@@ -44,14 +37,14 @@ export default function AboutTeam() {
               color: "var(--text-primary)",
             }}
           >
-            Strategy, design, and storytelling. Together.
+            Strategy and design. Together.
           </h2>
           <p className="text-lg leading-relaxed text-muted">
-            We started TAL because we saw too many good businesses struggle alone. We brought together three disciplines most firms keep separate, because the best work happens when strategy, visual communication, and brand narrative are built in the same room.
+            We started TAL because we saw too many good businesses struggle alone. We brought together two disciplines most firms keep separate, because the best work happens when strategy and visual communication are built in the same room.
           </p>
         </AnimateOnScroll>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
           {founders.map((f, i) => (
             <AnimateOnScroll key={f.name} delay={i * 0.12}>
               <div className="h-full rounded-2xl border border-border-subtle overflow-hidden flex flex-col card-interactive" style={{ background: "var(--bg-secondary)" }}>
@@ -63,7 +56,7 @@ export default function AboutTeam() {
                     alt={f.name}
                     fill
                     className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
 
