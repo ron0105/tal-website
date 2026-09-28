@@ -26,12 +26,7 @@ export default function ContactPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               marginBottom: "2.5rem",
               color: "var(--text-primary)",
             }}
@@ -42,7 +37,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-body max-w-2xl mb-16"
+            className="text-lg text-body max-w-2xl mb-16"
           >
             Whether you are running a business or testing a new idea, the first conversation is the same: we listen, then tell you honestly what we see.
           </motion.p>
@@ -54,7 +49,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
               className="bg-bg-secondary p-10 md:p-14 rounded-2xl border border-border-subtle flex flex-col h-full"
             >
-              <h3 className="text-2xl font-bold font-poppins mb-6 text-primary">Book a Call</h3>
+              <h3 className="mb-6 text-primary">Book a Call</h3>
               <p className="text-lg text-muted mb-10 flex-1">
                 Schedule a 20-minute call. Tell us what you are working on, and we will tell you honestly how we can help.
               </p>
@@ -73,7 +68,7 @@ export default function ContactPage() {
               transition={{ delay: 0.3 }}
               className="bg-background p-10 md:p-14 rounded-2xl border border-border-subtle flex flex-col h-full"
             >
-              <h3 className="text-2xl font-bold font-poppins mb-6 text-primary">Chat on WhatsApp</h3>
+              <h3 className="mb-6 text-primary">Chat on WhatsApp</h3>
               <p className="text-lg text-muted mb-10 flex-1">
                 Prefer to type first? Send us a message directly. We respond personally, not with a bot.
               </p>

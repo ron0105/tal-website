@@ -57,7 +57,7 @@ function BulletList({ items, accent = false }: { items: string[]; accent?: boole
 function SubLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="text-[10px] font-black uppercase tracking-widest mb-3"
+      className="text-[10px] font-bold uppercase tracking-widest mb-3"
       style={{ color: "var(--text-muted)" }}
     >
       {children}
@@ -272,7 +272,7 @@ export default function JDContent({ job }: JDContentProps) {
               {/* Quick facts */}
               <div className="flex flex-col gap-4">
                 <p
-                  className="text-[10px] font-black uppercase tracking-widest"
+                  className="text-[10px] font-bold uppercase tracking-widest"
                   style={{ color: "var(--text-muted)" }}
                 >
                   Quick Facts
@@ -305,7 +305,7 @@ export default function JDContent({ job }: JDContentProps) {
               {/* Hiring pipeline */}
               <div className="flex flex-col gap-3">
                 <p
-                  className="text-[10px] font-black uppercase tracking-widest"
+                  className="text-[10px] font-bold uppercase tracking-widest"
                   style={{ color: "var(--text-muted)" }}
                 >
                   Hiring Process
@@ -360,7 +360,7 @@ export default function JDContent({ job }: JDContentProps) {
           <div className="flex flex-col gap-4">
             <div>
               <p
-                className="text-[10px] font-black uppercase tracking-widest mb-3"
+                className="text-[10px] font-bold uppercase tracking-widest mb-3"
                 style={{ color: "var(--text-muted)" }}
               >
                 Hiring Process

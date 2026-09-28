@@ -40,12 +40,8 @@ export default function FNIOfferings() {
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-4 block text-accent">Two ways we work with founders</span>
           <h2
-            className="font-poppins mb-3"
+            className="mb-3"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -60,16 +56,15 @@ export default function FNIOfferings() {
           {offerings.map((o, i) => (
             <AnimateOnScroll key={o.tag} delay={i * 0.1}>
               <div className="bg-background p-8 md:p-12 flex flex-col gap-5 h-full">
-                <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--accent)" }}>
+                <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>
                   {o.tag}
                 </p>
                 <h3
-                  className="font-poppins"
-                  style={{ fontSize: "1.6rem", fontWeight: 500, letterSpacing: "-0.02em", color: "var(--text-primary)" }}
+                  style={{ color: "var(--text-primary)" }}
                 >
                   {o.title}
                 </h3>
-                <p className="text-base font-medium leading-relaxed" style={{ color: "var(--text-body)" }}>
+                <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
                   {o.headline}
                 </p>
                 <p className="text-sm leading-relaxed text-muted flex-1">{o.body}</p>

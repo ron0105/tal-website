@@ -65,7 +65,7 @@ export default function WWUModels() {
         <div className="grid md:grid-cols-2 gap-12 mb-24 items-start">
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-8">Engagement Architectures</span>
-            <h2 className="text-section-title">
+            <h2>
               Choose what fits
               <br />
               <span className="text-muted">where you are.</span>
@@ -97,7 +97,7 @@ export default function WWUModels() {
             >
               {/* Header */}
               <div className="flex items-start justify-between gap-6 mb-12">
-                <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-4">
+                <h3 className="italic uppercase mb-4">
                   {m.name}
                 </h3>
                 {m.tag && (

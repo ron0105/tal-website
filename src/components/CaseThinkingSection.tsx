@@ -100,8 +100,7 @@ export default function CaseThinkingSection() {
               </span>
             </div>
             <h2
-              className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
+              style={{ color: "#F0F0F0",}}
             >
               How decisions
               <br />
@@ -196,7 +195,7 @@ export default function CaseThinkingSection() {
               Hypothesis
             </p>
             <p
-              className="text-base leading-relaxed mb-8 font-medium"
+              className="text-base leading-relaxed mb-8"
               style={{ color: "#C0C0C0" }}
             >
               &ldquo;{current.hypothesis}&rdquo;

@@ -20,12 +20,8 @@ export default function CareersCTA() {
         >
           <span className="label-eyebrow block mb-6">Don't see the right role?</span>
           <h2
-            className="font-poppins mb-6"
+            className="mb-6"
             style={{
-              fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.2,
               color: "var(--text-primary)",
             }}
           >

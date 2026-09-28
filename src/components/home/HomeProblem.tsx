@@ -25,18 +25,14 @@ export default function HomeProblem() {
         <AnimateOnScroll className="mb-16 max-w-3xl">
           <span className="label-eyebrow mb-6 block text-accent">The problem</span>
           <h2
-            className="font-poppins mb-6"
+            className="mb-6"
             style={{
-              fontSize: "clamp(2.25rem, 6vw, 4rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: 1.05,
               color: "var(--text-primary)",
             }}
           >
             Most businesses and most ideas hit the same wall.
           </h2>
-          <p className="text-xl leading-relaxed text-body mb-4">
+          <p className="text-lg leading-relaxed text-body mb-4">
             Not from lack of effort. From lack of the right foundation at the right time.
           </p>
           <p className="text-lg leading-relaxed text-muted">
@@ -61,7 +57,7 @@ export default function HomeProblem() {
                 {businessReady.map((item, i) => (
                   <div key={i} className="bg-background px-8 py-5 flex items-start gap-4">
                     <span className="text-accent font-bold text-sm shrink-0 mt-0.5">✓</span>
-                    <p className="text-base font-medium text-body">{item}</p>
+                    <p className="text-base text-body">{item}</p>
                   </div>
                 ))}
               </div>
@@ -77,7 +73,7 @@ export default function HomeProblem() {
                 {ideaReady.map((item, i) => (
                   <div key={i} className="bg-background px-8 py-5 flex items-start gap-4">
                     <span className="text-accent font-bold text-sm shrink-0 mt-0.5">✓</span>
-                    <p className="text-base font-medium text-body">{item}</p>
+                    <p className="text-base text-body">{item}</p>
                   </div>
                 ))}
               </div>

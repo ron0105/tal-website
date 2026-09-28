@@ -47,12 +47,7 @@ export default function NIPaths() {
         <AnimateOnScroll className="mb-16 max-w-2xl">
           <span className="label-eyebrow mb-5 block" style={{ color: "var(--accent)" }}>Two ways in</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(1.9rem, 4vw, 2.9rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
               color: "var(--text-primary)",
             }}
           >
@@ -67,13 +62,13 @@ export default function NIPaths() {
                 className="card-lift flex flex-col h-full p-8 md:p-10"
                 style={{ border: "1px solid var(--border-color)", borderTop: "3px solid var(--accent)", borderRadius: "var(--radius-card)", background: "var(--bg)" }}
               >
-                <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--text-muted)" }}>
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "var(--text-muted)" }}>
                   {p.eyebrow}
                 </p>
-                <p className="text-xl md:text-2xl mb-8" style={{ fontWeight: 500, fontStyle: "italic", color: "var(--text-primary)", lineHeight: 1.35 }}>
+                <p className="text-lg mb-8" style={{ fontStyle: "italic", color: "var(--text-primary)", lineHeight: 1.35 }}>
                   {p.situation}
                 </p>
-                <p className="text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--accent)" }}>
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: "var(--accent)" }}>
                   {p.name}
                 </p>
                 <p className="text-base leading-relaxed mb-5" style={{ color: "var(--text-body)" }}>

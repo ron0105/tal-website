@@ -16,7 +16,7 @@ export default function HomeProofLog() {
       <div className="layout-grid">
         <AnimateOnScroll>
           <span className="label-eyebrow mb-12 block">Venture Log</span>
-          <h2 className="text-section-title mb-24">
+          <h2 className="mb-24">
             Quantitative Proof.
             <br />
             <span className="text-muted">High-signal output only.</span>

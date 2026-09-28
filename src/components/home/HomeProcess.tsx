@@ -46,12 +46,7 @@ export default function HomeProcess() {
         >
           <span className="label-eyebrow mb-6 block text-accent">How We Work</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -119,10 +114,9 @@ export default function HomeProcess() {
 
               {/* Text */}
               <h3
-                className="text-lg font-bold mb-3"
+                className="mb-3"
                 style={{
                   color: i === steps.length - 1 ? "var(--accent)" : "var(--text-primary)",
-                  lineHeight: 1.2,
                 }}
               >
                 {step.title}

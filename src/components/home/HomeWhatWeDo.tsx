@@ -2,6 +2,7 @@
 
 import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 import Link from "next/link";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 
 const services = [
   {
@@ -21,6 +22,8 @@ const services = [
   },
 ];
 
+const kinds = ["found", "show", "run"] as const;
+
 export default function HomeWhatWeDo() {
   return (
     <section className="bg-bg-secondary py-16 md:py-20">
@@ -28,12 +31,7 @@ export default function HomeWhatWeDo() {
         <AnimateOnScroll>
           <span className="label-eyebrow mb-6 block text-accent">What We Do</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(1.75rem, 8vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               marginBottom: "1rem",
               color: "var(--text-primary)",
             }}
@@ -53,12 +51,13 @@ export default function HomeWhatWeDo() {
           {services.map((service, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
               <div className="card-lift bg-background p-10 rounded-2xl border border-border-subtle h-full cursor-default">
-                <h3 className="text-2xl font-bold mb-8 text-primary">
+                <ServiceIllustration kind={kinds[i]} className="mb-6" />
+                <h3 className="mb-8 text-primary">
                   {service.title}
                 </h3>
 
                 <div className="mb-8">
-                  <p className="text-[10px] font-black uppercase tracking-widest mb-4 text-muted">We do:</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-muted">We do:</p>
                   <ul className="flex flex-col gap-2">
                     {service.do.map((item) => (
                       <li key={item} className="text-base font-semibold text-body flex items-center gap-2">
@@ -70,7 +69,7 @@ export default function HomeWhatWeDo() {
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest mb-4 text-accent">You get:</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-accent">You get:</p>
                   <ul className="flex flex-col gap-2">
                     {service.get.map((item) => (
                       <li key={item} className="text-base font-semibold text-primary flex items-center gap-2">
@@ -95,7 +94,7 @@ export default function HomeWhatWeDo() {
           <div className="bg-background rounded-2xl border border-border-subtle overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="p-10 md:p-14 md:border-r border-b md:border-b-0 border-border-subtle">
-                <h3 className="text-2xl font-bold mb-4 text-primary">Idea Validation</h3>
+                <h3 className="mb-4 text-primary">Idea Validation</h3>
                 <p className="text-base text-body mb-6">
                   You have an idea but are not sure if it is worth building. We run it through a structured 6-stage process to find out before you spend real money.
                 </p>
@@ -119,7 +118,7 @@ export default function HomeWhatWeDo() {
                   <p className="label-eyebrow mb-6">The 6 stages</p>
                   <ol className="flex flex-col gap-3">
                     {["Map the assumptions", "Talk to real customers", "Check the market reality", "Test willingness to pay", "Run the smallest possible test", "Make the call"].map((stage, i) => (
-                      <li key={stage} className="flex items-center gap-3 text-sm font-medium text-body">
+                      <li key={stage} className="flex items-center gap-3 text-sm text-body">
                         <span className="text-muted text-xs font-bold w-6 shrink-0">0{i + 1}</span>
                         {stage}
                       </li>

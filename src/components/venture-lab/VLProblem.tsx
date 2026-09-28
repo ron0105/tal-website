@@ -15,7 +15,7 @@ export default function VLProblem() {
           <div className="lg:col-span-6">
             <AnimateOnScroll>
               <span className="label-eyebrow block mb-8">System Rationale</span>
-              <h2 className="text-section-title mb-12">
+              <h2 className="mb-12">
                 Failed ideas
                 <br />
                 <span className="text-muted">started too early.</span>
@@ -37,7 +37,7 @@ export default function VLProblem() {
               </div>
 
               <div className="bg-bg-secondary p-8 border border-border-subtle italic">
-                <p className="text-xl font-black tracking-tight leading-relaxed">
+                <p className="text-lg font-bold tracking-tight leading-relaxed">
                   &ldquo;The real risk is not that the market rejects you. 
                   It&apos;s that you never found out what they actually wanted.&rdquo;
                 </p>

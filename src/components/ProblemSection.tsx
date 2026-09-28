@@ -47,8 +47,8 @@ export default function ProblemSection() {
             </div>
 
             <h2
-              className="text-3xl md:text-4xl font-bold tracking-tight leading-snug mb-8"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
+              className="mb-8"
+              style={{ color: "#F0F0F0",}}
             >
               Most ideas don&apos;t fail
               <br />
@@ -75,7 +75,7 @@ export default function ProblemSection() {
               style={{ borderLeft: "2px solid #2563EB" }}
             >
               <p
-                className="text-lg md:text-xl font-medium leading-snug"
+                className="text-lg leading-snug"
                 style={{ color: "#C0C0C0", letterSpacing: "-0.01em" }}
               >
                 &ldquo;The most valuable thing you can protect isn&apos;t money.

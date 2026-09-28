@@ -44,12 +44,8 @@ export default function CareersHero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.1, ease: EASE }}
-          className="font-poppins mb-8"
+          className="mb-8"
           style={{
-            fontSize: "clamp(3rem, 8vw, 6rem)",
-            fontWeight: 500,
-            letterSpacing: "-0.04em",
-            lineHeight: 1.05,
             color: "var(--text-primary)",
             maxWidth: "800px",
           }}

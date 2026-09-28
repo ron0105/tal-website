@@ -1,14 +1,15 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { DotPath } from "@/components/shared/DotPath";
 
 const stages = [
-  { n: "01", name: "Map the assumptions", desc: "Every idea rests on 3–4 beliefs that have to be true. We write them down. Most founders never do — and it shows later." },
-  { n: "02", name: "Talk to real customers", desc: "Not friends. Not family. The people who'd actually pay — asked the right way, so they tell you the truth instead of being polite." },
-  { n: "03", name: "Check the market reality", desc: "Who else is doing this, what they charge, where they're weak. If the gap you see doesn't exist, better to know now." },
-  { n: "04", name: "Test willingness to pay", desc: "“Would you use it?” means nothing. “Will you pay ₹X for it?” means everything. We find the difference." },
-  { n: "05", name: "Run the smallest possible test", desc: "A pilot, a pre-sale, a landing page with a price on it — the cheapest experiment that produces a real signal." },
-  { n: "06", name: "Make the call", desc: "Go, don't go, or pivot — backed by what we found, not how the idea feels. Either way, you move forward with certainty." },
+  { n: "01", short: "Assumptions", name: "Map the assumptions", desc: "Every idea rests on 3–4 beliefs that have to be true. We write them down. Most founders never do — and it shows later." },
+  { n: "02", short: "Customers", name: "Talk to real customers", desc: "Not friends. Not family. The people who'd actually pay — asked the right way, so they tell you the truth instead of being polite." },
+  { n: "03", short: "Market", name: "Check the market reality", desc: "Who else is doing this, what they charge, where they're weak. If the gap you see doesn't exist, better to know now." },
+  { n: "04", short: "Willingness to pay", name: "Test willingness to pay", desc: "“Would you use it?” means nothing. “Will you pay ₹X for it?” means everything. We find the difference." },
+  { n: "05", short: "Smallest test", name: "Run the smallest possible test", desc: "A pilot, a pre-sale, a landing page with a price on it — the cheapest experiment that produces a real signal." },
+  { n: "06", short: "The call", name: "Make the call", desc: "Go, don't go, or pivot — backed by what we found, not how the idea feels. Either way, you move forward with certainty." },
 ];
 
 export default function NIFramework() {
@@ -18,12 +19,8 @@ export default function NIFramework() {
         <AnimateOnScroll className="mb-16 max-w-2xl">
           <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>The validation framework</span>
           <h2
-            className="font-poppins mb-4"
+            className="mb-4"
             style={{
-              fontSize: "clamp(1.9rem, 4vw, 2.9rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
               color: "#FFFFFF",
             }}
           >
@@ -34,12 +31,26 @@ export default function NIFramework() {
           </p>
         </AnimateOnScroll>
 
+        {/* The six stages as one path: each step narrows the question until the call */}
+        <div className="hidden lg:block mb-12 max-w-5xl">
+          <DotPath
+            nodes={stages.map((s, i) => ({ x: 70 + i * 192, y: 150 - i * 20 + (i % 2 ? 22 : 0), label: s.short }))}
+            ghost=""
+            width={1100}
+            height={210}
+            startLabel="Idea"
+            endLabel="Decision"
+            emphasiseLast
+            onDark
+          />
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)" }}>
           {stages.map((s, i) => (
             <AnimateOnScroll key={s.n} delay={i * 0.06}>
               <div className="card-lift-dark p-8 h-full cursor-default" style={{ background: "var(--brand)" }}>
                 <p className="font-poppins text-3xl mb-4" style={{ color: "var(--accent-on-brand)", fontWeight: 500 }}>{s.n}</p>
-                <h3 className="font-bold text-lg mb-3" style={{ color: "#FFFFFF" }}>{s.name}</h3>
+                <h3 className="mb-3" style={{ color: "#FFFFFF" }}>{s.name}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{s.desc}</p>
               </div>
             </AnimateOnScroll>

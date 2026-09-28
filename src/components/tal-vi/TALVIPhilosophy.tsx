@@ -79,7 +79,7 @@ export default function TALVIPhilosophy() {
                   }}
                   style={{ willChange: "transform" }}
                 >
-                  <h3 className="text-display !text-3xl md:!text-5xl uppercase italic italic-accent tracking-tighter">
+                  <h3 className="!text-3xl md:!text-5xl uppercase italic italic-accent">
                     {b.statement}
                   </h3>
                   <p className="body-copy">
@@ -97,7 +97,7 @@ export default function TALVIPhilosophy() {
         <div className="layout-grid">
           <AnimateOnScroll className="mb-24">
             <span className="label-eyebrow block mb-8">System Compatibility</span>
-            <h2 className="text-section-title max-w-[560px]">
+            <h2 className="max-w-[560px]">
               This is not for
               <br />
               <span className="text-muted">everyone.</span>

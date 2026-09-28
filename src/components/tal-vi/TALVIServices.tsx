@@ -37,7 +37,7 @@ export default function TALVIServices() {
         <div className="grid md:grid-cols-2 gap-16 items-start mb-16">
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-5">What we work on</span>
-            <h2 className="text-section-title text-foreground">
+            <h2 className="text-foreground">
               Three service lines.
               <br />
               <span className="text-muted">Targeted execution.</span>
@@ -72,10 +72,10 @@ export default function TALVIServices() {
                   {s.n}
                 </div>
                 <div>
-                  <h3 className="text-subsection mb-1.5 tracking-tight text-foreground">
+                  <h3 className="mb-1.5 text-foreground">
                     {s.title}
                   </h3>
-                  <p className="text-sm font-medium mb-3 text-muted">
+                  <p className="text-sm mb-3 text-muted">
                     {s.tagline}
                   </p>
                   <p className="text-sm leading-relaxed text-body">

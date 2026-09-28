@@ -35,7 +35,7 @@ export default function Footer() {
 
           {/* Index */}
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
+            <p className="text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
               Navigation
             </p>
             <nav className="flex flex-col gap-4">
@@ -54,11 +54,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
+            <p className="text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
               Get in touch
             </p>
             <a href="mailto:founder@theaddalabs.com" className="text-sm font-semibold tracking-tight mb-2 block hover:text-accent transition-colors" style={{ color: "var(--text-body)" }}>founder@theaddalabs.com</a>
-            <p className="text-sm font-medium tracking-tight mb-8" style={{ color: "var(--text-muted)" }}>Mumbai · Global</p>
+            <p className="text-sm tracking-tight mb-8" style={{ color: "var(--text-muted)" }}>Mumbai · Global</p>
             <Link
               href="/contact"
               className="btn-primary"
@@ -72,7 +72,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8"
           style={{ borderTop: "1px solid var(--border-subtle)" }}
         >
-          <p className="text-xs font-medium uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+          <p className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
             &copy; {year} TAL Consulting / The Adda Labs
           </p>
           <div className="flex gap-6">

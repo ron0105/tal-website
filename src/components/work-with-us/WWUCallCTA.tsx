@@ -24,10 +24,6 @@ export default function WWUCallCTA() {
           <span className="label-eyebrow block mb-6">Prefer to talk first?</span>
           <h2
             style={{
-              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
               marginBottom: "1.25rem",
             }}

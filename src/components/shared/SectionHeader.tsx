@@ -31,8 +31,8 @@ export function SectionHeader({
       </AnimateOnScroll>
       <AnimateOnScroll delay={0.08}>
         <h2
-          className="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-5"
-          style={{ color: "var(--text-primary)", letterSpacing: "-0.03em", maxWidth: centered ? "700px" : undefined }}
+          className="mb-5"
+          style={{ color: "var(--text-primary)", maxWidth: centered ? "700px" : undefined }}
         >
           {title}
         </h2>

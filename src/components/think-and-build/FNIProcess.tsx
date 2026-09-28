@@ -48,13 +48,8 @@ export default function FNIProcess() {
         <div className="layout-grid">
           <AnimateOnScroll className="mb-16">
             <span className="label-eyebrow mb-8 block">How it works</span>
-            <h2 
-              className="font-poppins"
+            <h2
               style={{
-                fontSize: "clamp(1.75rem, 8vw, 3.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >
@@ -73,7 +68,7 @@ export default function FNIProcess() {
                 whileHover={{ backgroundColor: "var(--bg-lift)", transition: { duration: 0.2, ease: "easeOut" } }}
               >
                 <span className="section-num">{step.n}</span>
-                <h3 className="text-xl font-black tracking-tight" style={{ color: "var(--text-primary)" }}>
+                <h3 style={{ color: "var(--text-primary)" }}>
                   {step.title}
                 </h3>
                 <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
@@ -89,13 +84,8 @@ export default function FNIProcess() {
         <div className="layout-grid">
           <AnimateOnScroll className="mb-16">
             <span className="label-eyebrow mb-8 block">Why validate first?</span>
-            <h2 
-              className="font-poppins"
+            <h2
               style={{
-                fontSize: "clamp(1.75rem, 8vw, 3.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >

@@ -33,12 +33,7 @@ export default function FBPainPoints() {
         <AnimateOnScroll className="mb-14">
           <span className="label-eyebrow mb-6 block" style={{ color: "var(--accent)" }}>Sound familiar?</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.12,
               color: "var(--text-primary)",
               maxWidth: "720px",
             }}
@@ -76,8 +71,7 @@ export default function FBPainPoints() {
                     {pain.number}
                   </span>
                   <h3
-                    className="font-bold leading-snug"
-                    style={{ fontSize: "1.1rem", color: "var(--text-primary)" }}
+                    style={{ color: "var(--text-primary)" }}
                   >
                     {pain.heading}
                   </h3>

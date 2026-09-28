@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 
 const phases = [
   {
@@ -49,6 +50,8 @@ const faqs = [
   },
 ];
 
+const kinds = ["found", "show", "run"] as const;
+
 export default function HWWSteps() {
   return (
     <>
@@ -56,12 +59,12 @@ export default function HWWSteps() {
         <div className="layout-grid">
           <AnimateOnScroll className="mb-16">
             <span className="label-eyebrow mb-8 block text-accent">For Businesses</span>
-            <h2 className="text-section-title">
+            <h2>
               Three phases.
               <br />
               <span className="text-muted">One clear outcome.</span>
             </h2>
-            <p className="text-xl text-body mt-6 max-w-2xl">
+            <p className="text-lg text-body mt-6 max-w-2xl">
               Your business is real. The internet just doesn&apos;t reflect that yet. Three services fix that — <strong>each one stands alone</strong>. Start with the one that hurts most, add the others when you&apos;re ready, or take all three together.
             </p>
           </AnimateOnScroll>
@@ -71,8 +74,9 @@ export default function HWWSteps() {
               <AnimateOnScroll key={phase.n} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-12 grid md:grid-cols-[200px_1fr_1fr] gap-8">
                   <div>
+                    <ServiceIllustration kind={kinds[i]} className="mb-5" />
                     <span className="section-num block mb-2">{phase.n}</span>
-                    <h3 className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="mb-1" style={{ color: "var(--text-primary)" }}>
                       {phase.title}
                     </h3>
                     <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
@@ -122,7 +126,7 @@ export default function HWWSteps() {
         <div className="layout-grid">
           <AnimateOnScroll className="mb-16">
             <span className="label-eyebrow mb-8 block">Common questions</span>
-            <h2 className="text-section-title">
+            <h2>
               Good to know
               <br />
               <span className="text-muted">before we start.</span>
@@ -133,7 +137,7 @@ export default function HWWSteps() {
             {faqs.map((faq, i) => (
               <AnimateOnScroll key={i} delay={i * 0.05}>
                 <div className="bg-background p-8 md:p-10 grid md:grid-cols-2 gap-6">
-                  <p className="text-lg font-black tracking-tight" style={{ color: "var(--text-primary)" }}>
+                  <p className="text-lg font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>
                     {faq.q}
                   </p>
                   <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>

@@ -28,12 +28,8 @@ export default function AboutTeam() {
         <AnimateOnScroll className="mb-16 max-w-2xl">
           <span className="label-eyebrow mb-6 block text-accent">The team</span>
           <h2
-            className="font-poppins mb-5"
+            className="mb-5"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -63,7 +59,7 @@ export default function AboutTeam() {
                 {/* Text */}
                 <div className="p-8 flex flex-col gap-4 flex-1">
                   <div>
-                    <p className="font-bold text-xl leading-none mb-1" style={{ color: "var(--text-primary)" }}>
+                    <p className="font-bold text-lg leading-none mb-1" style={{ color: "var(--text-primary)" }}>
                       {f.name}
                     </p>
                     <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>

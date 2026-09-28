@@ -25,12 +25,7 @@ export default function NITruth() {
           <AnimateOnScroll>
             <span className="label-eyebrow mb-5 block" style={{ color: "var(--accent)" }}>The honest bit</span>
             <h2
-              className="font-poppins"
               style={{
-                fontSize: "clamp(1.9rem, 4vw, 2.9rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.2,
                 color: "var(--text-primary)",
               }}
             >
@@ -45,7 +40,7 @@ export default function NITruth() {
             {truths.map((t, i) => (
               <AnimateOnScroll key={t.title} delay={i * 0.08}>
                 <div className="row-hover py-8 px-2 md:px-6" style={{ background: "var(--bg-secondary)" }}>
-                  <h3 className="font-bold text-lg mb-2" style={{ color: "var(--text-primary)" }}>
+                  <h3 className="mb-2" style={{ color: "var(--text-primary)" }}>
                     {t.title}
                   </h3>
                   <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>

@@ -16,12 +16,7 @@ export default function FNIOutcomes() {
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-6 block text-accent">Outcomes</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -38,7 +33,7 @@ export default function FNIOutcomes() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <p className="text-xl md:text-2xl font-bold text-primary">
+                <p className="text-lg font-bold text-primary">
                   {item}
                 </p>
               </div>

@@ -10,12 +10,7 @@ export default function HomePricing() {
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-6 block text-accent">Pricing</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -26,16 +21,16 @@ export default function HomePricing() {
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
           <AnimateOnScroll>
             <div className="p-10 md:p-14 bg-bg-secondary rounded-2xl border border-border-subtle h-full flex flex-col">
-              <h3 className="text-2xl font-bold mb-10 text-primary">India</h3>
+              <h3 className="mb-10 text-primary">India</h3>
               
               <div className="mb-10">
-                <p className="text-[10px] font-black uppercase tracking-widest mb-4 text-muted">One-time setup:</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-muted">One-time setup:</p>
                 <p className="text-3xl font-poppins text-primary">₹25,000 – ₹1,00,000</p>
                 <p className="text-sm text-muted mt-2">Depends on business size and complexity</p>
               </div>
 
               <div className="mb-12">
-                <p className="text-[10px] font-black uppercase tracking-widest mb-4 text-muted">Ongoing support:</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-4 text-muted">Ongoing support:</p>
                 <p className="text-3xl font-poppins text-primary">₹15,000 – ₹50,000 / mo</p>
                 <p className="text-sm text-muted mt-2">Optional monthly guide and maintenance</p>
               </div>
@@ -50,10 +45,10 @@ export default function HomePricing() {
 
           <AnimateOnScroll delay={0.1}>
             <div className="p-10 md:p-14 bg-background rounded-2xl border border-border-subtle h-full flex flex-col">
-              <h3 className="text-2xl font-bold mb-10 text-primary">International</h3>
+              <h3 className="mb-10 text-primary">International</h3>
               
               <div className="mb-12 flex-1">
-                <p className="text-xl font-medium leading-relaxed text-body mb-8">
+                <p className="text-lg leading-relaxed text-body mb-8">
                   We work with businesses globally. Because every market and scale is different, we share pricing after understanding your business goals and current setup.
                 </p>
                 <ul className="flex flex-col gap-4">

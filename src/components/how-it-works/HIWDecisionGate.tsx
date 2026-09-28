@@ -39,10 +39,6 @@ export default function HIWDecisionGate() {
             <p className="label-eyebrow mb-8">Stage 6: Decision Gate</p>
             <h2
               style={{
-                fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                fontWeight: 900,
-                letterSpacing: "-0.035em",
-                lineHeight: 1.0,
                 color: "var(--text-primary)",
                 marginBottom: "1.25rem",
               }}
@@ -84,10 +80,6 @@ export default function HIWDecisionGate() {
                 <AnimatedLine className="mb-12" />
                 <h3
                   style={{
-                    fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                    fontWeight: 900,
-                    letterSpacing: "-0.035em",
-                    lineHeight: 1.0,
                     color: "var(--text-primary)",
                     marginBottom: "1.5rem",
                   }}

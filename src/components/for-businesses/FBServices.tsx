@@ -1,6 +1,8 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { DotPath } from "@/components/shared/DotPath";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 
 const outcomes = [
   {
@@ -78,6 +80,8 @@ const quickCards = [
   },
 ];
 
+const kinds = ["found", "show", "run"] as const;
+
 export default function FBServices() {
   return (
     <>
@@ -88,12 +92,8 @@ export default function FBServices() {
           <AnimateOnScroll className="mb-14">
             <span className="label-eyebrow mb-4 block text-accent">What we do</span>
             <h2
-              className="font-poppins mb-3"
+              className="mb-3"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.25rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >
@@ -117,12 +117,12 @@ export default function FBServices() {
                         : { background: "var(--bg)", border: "1px solid var(--border-color)", borderRadius: "14px", boxShadow: "0 2px 10px rgba(20,32,30,0.04)" }
                     }
                   >
-                    <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "rgba(255,255,255,0.55)" : "var(--accent)" }}>
+                    <ServiceIllustration kind={kinds[i]} onDark={featured} />
+                    <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: featured ? "rgba(255,255,255,0.55)" : "var(--accent)" }}>
                       {card.step}
                     </p>
                     <h3
-                      className="font-bold leading-snug"
-                      style={{ fontSize: "1.25rem", color: featured ? "#FFFFFF" : "var(--text-primary)" }}
+                      style={{ color: featured ? "#FFFFFF" : "var(--text-primary)" }}
                     >
                       {card.benefit}
                     </h3>
@@ -155,12 +155,8 @@ export default function FBServices() {
           <AnimateOnScroll className="max-w-2xl">
             <span className="label-eyebrow mb-6 block">The honest truth</span>
             <h2
-              className="font-poppins mb-6"
+              className="mb-6"
               style={{
-                fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.25,
                 color: "var(--text-primary)",
               }}
             >
@@ -180,14 +176,14 @@ export default function FBServices() {
       <section className="border-t border-border-subtle bg-background">
         <div className="layout-grid px-6 md:px-10 py-6">
           <AnimateOnScroll>
-            <p className="text-[11px] font-black uppercase tracking-widest text-muted">What shifts</p>
+            <p className="text-[11px] font-bold uppercase tracking-widest text-muted">What shifts</p>
           </AnimateOnScroll>
         </div>
         <AnimateOnScroll delay={0.05}>
           <div className="grid grid-cols-2 gap-px bg-border-subtle border-y border-border-subtle">
             {/* Before */}
             <div className="bg-bg-secondary px-8 md:px-16 py-14 md:py-20">
-              <p className="text-[11px] font-black uppercase tracking-widest text-muted mb-10 pb-5 border-b border-border-subtle">Before</p>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-muted mb-10 pb-5 border-b border-border-subtle">Before</p>
               <ul className="flex flex-col gap-6">
                 {beforeItems.map((item) => (
                   <li key={item} className="flex gap-4 items-start">
@@ -199,7 +195,7 @@ export default function FBServices() {
             </div>
             {/* After */}
             <div className="bg-background px-8 md:px-16 py-14 md:py-20">
-              <p className="text-[11px] font-black uppercase tracking-widest mb-10 pb-5 border-b border-border-subtle" style={{ color: "var(--accent)" }}>After</p>
+              <p className="text-[11px] font-bold uppercase tracking-widest mb-10 pb-5 border-b border-border-subtle" style={{ color: "var(--accent)" }}>After</p>
               <ul className="flex flex-col gap-6">
                 {afterItems.map((item) => (
                   <li key={item} className="flex gap-4 items-start">
@@ -217,15 +213,12 @@ export default function FBServices() {
       <section className="py-24 md:py-32 bg-background border-t border-border-subtle">
         <div className="layout-grid px-6 md:px-10">
 
-          <AnimateOnScroll className="mb-16">
+          <div className="mb-16 grid lg:grid-cols-[1fr_minmax(0,440px)] gap-10 items-center">
+          <AnimateOnScroll>
             <span className="label-eyebrow mb-4 block text-accent">What we actually do</span>
             <h2
-              className="font-poppins mb-3"
+              className="mb-3"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.25rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >
@@ -234,21 +227,30 @@ export default function FBServices() {
             <p className="text-lg text-muted max-w-lg">We don&apos;t spread thin. We go deep in three areas that compound.</p>
           </AnimateOnScroll>
 
+          {/* Each step builds on the last: found, then consistent, then automatic */}
+          <AnimateOnScroll delay={0.15} className="hidden lg:block">
+            <DotPath
+              nodes={outcomes.map((o, i) => ({ x: 80 + i * 180, y: 230 - i * 70, label: o.title.split(".")[0] }))}
+              ghost=""
+              width={520}
+              height={300}
+              startLabel="Step one"
+              endLabel="Compounds"
+              emphasiseLast
+            />
+          </AnimateOnScroll>
+          </div>
+
           <div className="flex flex-col divide-y divide-border-subtle border-y border-border-subtle">
             {outcomes.map((o, i) => (
               <AnimateOnScroll key={o.tag} delay={i * 0.08}>
                 <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 py-12">
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--accent)" }}>
+                    <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "var(--accent)" }}>
                       {o.tag}
                     </p>
                     <h3
-                      className="font-poppins"
                       style={{
-                        fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                        fontWeight: 500,
-                        letterSpacing: "-0.03em",
-                        lineHeight: 1.2,
                         color: "var(--text-primary)",
                       }}
                     >
@@ -256,7 +258,7 @@ export default function FBServices() {
                     </h3>
                   </div>
                   <div>
-                    <p className="text-lg font-medium leading-relaxed mb-4" style={{ color: "var(--text-body)" }}>
+                    <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--text-body)" }}>
                       {o.headline}
                     </p>
                     <p className="text-base leading-relaxed text-muted mb-6">{o.body}</p>
@@ -282,16 +284,12 @@ export default function FBServices() {
         <div className="layout-grid px-6 md:px-10">
           <AnimateOnScroll>
             <div className="max-w-2xl">
-              <p className="text-[11px] font-black uppercase tracking-widest mb-5" style={{ color: "rgba(255,255,255,0.55)" }}>
+              <p className="text-[11px] font-bold uppercase tracking-widest mb-5" style={{ color: "rgba(255,255,255,0.55)" }}>
                 The Complete Story
               </p>
               <h2
-                className="font-poppins mb-5"
+                className="mb-5"
                 style={{
-                  fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                  fontWeight: 500,
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1.2,
                   color: "#fff",
                 }}
               >

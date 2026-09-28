@@ -95,12 +95,7 @@ export default function HomeCTA() {
 
           <div className="overflow-hidden mb-4">
             <motion.h2
-              className="font-poppins"
               style={{
-                fontSize: "clamp(2.75rem, 7vw, 5.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.05,
                 color: "var(--text-primary)",
               }}
               initial={{ y: "110%", opacity: 0 }}
@@ -112,7 +107,7 @@ export default function HomeCTA() {
           </div>
 
           <motion.p
-            className="text-xl text-muted mx-auto"
+            className="text-lg text-muted mx-auto"
             style={{ maxWidth: "520px" }}
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

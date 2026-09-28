@@ -2,30 +2,26 @@
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 
-/* NOTE — stats and quotes below are illustrative drafts. Confirm real
-   figures and client-approved wording with Rohan before merging to main. */
+/* Scenarios, not case studies: typical situations and what we would do.
+   No client results or quotes here until they are real and approved. */
 
 const cases = [
   {
-    client: "A D2C consumer brand",
+    client: "A D2C brand with steady orders",
     craft: "Strategy & Operations",
     led: "Led by Rohan",
-    work: "Steady orders, big ambitions — what was missing was clarity on which channels earned their keep. We rebuilt the analytics, mapped the funnel end to end, and restructured operations around what the numbers said.",
-    stat: "2.3x",
-    statLabel: "return on marketing spend within one quarter",
-    quote: "We finally stopped guessing. Every rupee we spend now, we know why.",
-    attribution: "Founder, D2C brand",
+    problem: "Orders are coming in, but nobody is sure which channels actually pay for themselves. Spend goes up. Clarity doesn't.",
+    work: "We rebuild the analytics, map the funnel end to end, and restructure operations around what the numbers say.",
+    aim: "Every rupee of marketing spend tied to a channel you can defend.",
     visual: { initial: "01", tone: "rgba(192,107,58,0.16)" },
   },
   {
-    client: "A professional services firm",
+    client: "A services firm that outgrew its look",
     craft: "Brand & Visual Identity",
     led: "Led by Soniya",
-    work: "Years of credible work, ready for a brand to match. We built the visual identity from scratch — logo, brand language, social presence — and turned deep expertise into content people stop for.",
-    stat: "+60%",
-    statLabel: "more inbound enquiries in the first 90 days",
-    quote: "Clients tell us we finally look like the firm they always knew we were.",
-    attribution: "Managing partner, services firm",
+    problem: "Years of credible work, but the brand still looks like day one. Prospects judge the firm before the first call.",
+    work: "We build the visual identity from scratch: logo, brand language, social presence. Then we turn deep expertise into content people stop for.",
+    aim: "A brand that looks as credible as the work behind it.",
     visual: { initial: "02", tone: "rgba(192,107,58,0.10)" },
   },
 ];
@@ -36,22 +32,18 @@ export default function FBCaseStudies() {
       <div className="layout-grid px-6 md:px-10">
 
         <AnimateOnScroll className="mb-14">
-          <span className="label-eyebrow mb-6 block" style={{ color: "var(--accent)" }}>Proof of work</span>
+          <span className="label-eyebrow mb-6 block" style={{ color: "var(--accent)" }}>In practice</span>
           <h2
-            className="font-poppins mb-4"
+            className="mb-4"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.12,
               color: "var(--text-primary)",
               maxWidth: "680px",
             }}
           >
-            Work that speaks before we do.
+            What this looks like in practice.
           </h2>
           <p className="text-lg leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
-            Some of our favourite work lives under NDAs — so the names stay protected, and everything else is real. Here&apos;s what we did, what changed, and what they said.
+            Two situations we step into often: the problem, what we do about it, and what we aim for. Every business is different, so the first conversation is about yours.
           </p>
         </AnimateOnScroll>
 
@@ -85,42 +77,30 @@ export default function FBCaseStudies() {
                     className="absolute text-[9px] font-bold uppercase tracking-widest px-2 py-1"
                     style={{ top: "12px", left: "12px", color: "rgba(192,107,58,0.9)", border: "1px solid rgba(192,107,58,0.45)", borderRadius: "6px" }}
                   >
-                    Protected under NDA
+                    Scenario
                   </span>
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    <p className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)" }}>
                       {c.craft}
                     </p>
-                    <h3 className="font-bold leading-snug" style={{ fontSize: "1.15rem", color: "#FFFFFF" }}>
+                    <h3 style={{ color: "#FFFFFF" }}>
                       {c.client}
                     </h3>
                   </div>
                 </div>
 
                 <div className="p-7 flex flex-col gap-4 flex-1">
+                  <p className="text-sm leading-relaxed font-semibold" style={{ color: "var(--text-primary)" }}>{c.problem}</p>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>{c.work}</p>
 
-                  {/* Quantified outcome */}
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-poppins" style={{ fontSize: "2rem", lineHeight: 1, color: "var(--accent-hover)", fontWeight: 500 }}>
-                      {c.stat}
-                    </span>
-                    <span className="text-xs leading-snug font-semibold" style={{ color: "var(--text-muted)" }}>
-                      {c.statLabel}
-                    </span>
+                  <div className="mt-auto pt-4" style={{ borderTop: "1px solid var(--border-subtle)" }}>
+                    <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--accent-hover)" }}>
+                      What we aim for
+                    </p>
+                    <p className="text-lg font-bold leading-snug" style={{ color: "var(--text-primary)" }}>
+                      {c.aim}
+                    </p>
                   </div>
-
-                  <figure className="mt-auto pt-4" style={{ borderTop: "1px solid var(--border-subtle)" }}>
-                    <blockquote
-                      className="text-sm leading-relaxed pl-4"
-                      style={{ fontStyle: "italic", color: "var(--text-muted)", borderLeft: "3px solid var(--accent)" }}
-                    >
-                      &ldquo;{c.quote}&rdquo;
-                    </blockquote>
-                    <figcaption className="text-xs font-bold uppercase tracking-widest mt-3 pl-4" style={{ color: "var(--text-muted)" }}>
-                      {c.attribution} · name withheld
-                    </figcaption>
-                  </figure>
 
                   <p
                     className="text-xs font-bold uppercase tracking-widest pt-4"
@@ -136,9 +116,9 @@ export default function FBCaseStudies() {
 
         <AnimateOnScroll delay={0.1} className="mt-10">
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            Happy to walk you through any of these in detail — names and all, once we&apos;re talking.{" "}
+            Sound like where you are? Tell us what you&apos;re dealing with.{" "}
             <a
-              href="https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20hear%20more%20about%20your%20past%20work."
+              href="https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold cursor-pointer"

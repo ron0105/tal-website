@@ -32,7 +32,7 @@ export default function TALVIHero() {
               initial={{ filter: "blur(20px)", y: "40%", opacity: 0 }}
               animate={{ filter: "blur(0px)", y: 0, opacity: 1 }}
               transition={{ duration: 1, ease, delay: 0.08 }}
-              className="text-display text-foreground block"
+              className="text-foreground block"
             >
               Structure
             </motion.h1>
@@ -42,7 +42,7 @@ export default function TALVIHero() {
               initial={{ filter: "blur(20px)", y: "40%", opacity: 0 }}
               animate={{ filter: "blur(0px)", y: 0, opacity: 1 }}
               transition={{ duration: 1, ease, delay: 0.16 }}
-              className="text-display block text-muted"
+              className="block text-muted"
             >
               before scale.
             </motion.h1>

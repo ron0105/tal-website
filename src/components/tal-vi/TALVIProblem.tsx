@@ -38,7 +38,7 @@ export default function TALVIProblem() {
           <div className="lg:col-span-6">
             <AnimateOnScroll>
               <span className="label-eyebrow block mb-8">Infrastructure Rationale</span>
-              <h2 className="text-section-title mb-12">
+              <h2 className="mb-12">
                 Growing before
                 <br />
                 <span className="text-muted">the foundation is ready.</span>
@@ -73,11 +73,11 @@ export default function TALVIProblem() {
                     className="grid grid-cols-12 border-b border-border-subtle last:border-0"
                   >
                     <div className="col-span-5 p-6 border-r border-border-subtle bg-bg-lift/10">
-                      <p className="text-xs font-black uppercase text-text-primary tracking-widest leading-none mb-1">WHAT OFTEN HAPPENS</p>
+                      <p className="text-xs font-bold uppercase text-text-primary tracking-widest leading-none mb-1">WHAT OFTEN HAPPENS</p>
                       <p className="text-sm font-bold text-body">{m.action} {m.before}</p>
                     </div>
                     <div className="col-span-7 p-6 italic">
-                      <p className="text-xs font-black uppercase text-muted tracking-widest leading-none mb-1">WHAT IT CREATES</p>
+                      <p className="text-xs font-bold uppercase text-muted tracking-widest leading-none mb-1">WHAT IT CREATES</p>
                       <p className="text-sm font-bold text-muted">{m.result}</p>
                     </div>
                   </div>

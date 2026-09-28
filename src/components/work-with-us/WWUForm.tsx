@@ -22,7 +22,7 @@ export default function WWUForm() {
       <div className="layout-grid">
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow block mb-8">The form</span>
-          <h2 className="text-section-title">
+          <h2>
             Tell us about
             <br />
             <span className="text-muted">your situation.</span>
@@ -39,7 +39,6 @@ export default function WWUForm() {
           >
             <h3
               className="mb-6"
-              style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em" }}
             >
               Received.
             </h3>

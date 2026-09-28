@@ -96,8 +96,7 @@ export default function EngagementSection() {
               </span>
             </div>
             <h2
-              className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
+              style={{ color: "#F0F0F0",}}
             >
               An engagement that fits
               <br />
@@ -155,8 +154,7 @@ export default function EngagementSection() {
               <div>
                 <div className="flex items-center justify-between gap-4 mb-3">
                   <h3
-                    className="text-lg font-semibold tracking-tight"
-                    style={{ color: "#E0E0E0", letterSpacing: "-0.01em" }}
+                    style={{ color: "#E0E0E0",}}
                   >
                     {model.name}
                   </h3>

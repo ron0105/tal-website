@@ -76,7 +76,7 @@ export default function TALVIPillars() {
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-6">02 | What We Build</span>
-            <h2 className="text-section-title text-foreground">
+            <h2 className="text-foreground">
               Three pillars.
               <br />
               <span className="text-muted">All load-bearing.</span>
@@ -141,10 +141,10 @@ export default function TALVIPillars() {
                 <div className="label-eyebrow !text-primary bg-bg-lift px-3 py-1 mb-10 inline-block">
                   {current.purpose}
                 </div>
-                <h3 className="text-display !text-4xl md:!text-6xl mb-8 uppercase italic tracking-tighter">
+                <h3 className="!text-4xl md:!text-6xl mb-8 uppercase italic">
                   {current.title}
                 </h3>
-                <p className="text-xl md:text-2xl font-black italic mb-6 text-body">
+                <p className="text-lg font-bold italic mb-6 text-body">
                   {current.tagline}
                 </p>
                 <p className="body-copy mb-8">

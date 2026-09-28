@@ -33,7 +33,7 @@ export default function HomeManifestoBlocks() {
       <div className="layout-grid">
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-8 block">Pricing</span>
-          <h2 className="text-section-title">
+          <h2>
             Simple, clear pricing.
             <br />
             <span className="text-muted">No surprises.</span>
