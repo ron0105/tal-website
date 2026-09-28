@@ -47,10 +47,6 @@ export default function HIWHero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease, delay }}
                 style={{
-                  fontSize: "clamp(3rem, 9.5vw, 7rem)",
-                  fontWeight: 900,
-                  letterSpacing: "-0.04em",
-                  lineHeight: 1.0,
                   color: muted ? "var(--text-muted)" : "var(--text-primary)",
                   display: "block",
                 }}
@@ -87,7 +83,7 @@ export default function HIWHero() {
 
           {/* Right: raw stage list — no box, no borders */}
           <div>
-            <h2 className="text-section-title mb-8">
+            <h2 className="mb-8">
               The 6-stage framework.
             </h2>
             <motion.ol

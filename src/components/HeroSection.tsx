@@ -45,12 +45,9 @@ export default function HeroSection() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="font-bold leading-none tracking-tight mb-8"
+          className="mb-8"
           style={{
-            fontSize: "clamp(3.5rem, 9vw, 8rem)",
             color: "#F0F0F0",
-            letterSpacing: "-0.03em",
-            lineHeight: "0.95",
           }}
         >
           Experiment.

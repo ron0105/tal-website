@@ -23,12 +23,8 @@ export default function NIHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.1 }}
-            className="font-poppins mb-8"
+            className="mb-8"
             style={{
-              fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -41,7 +37,7 @@ export default function NIHero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease, delay: 0.2 }}
-            className="text-lg md:text-xl mb-4 leading-relaxed"
+            className="text-lg mb-4 leading-relaxed"
             style={{ color: "var(--text-body)", maxWidth: "580px" }}
           >
             There&apos;s one way to find out, and it isn&apos;t quitting your job or spending your savings on an app.

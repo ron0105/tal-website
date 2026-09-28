@@ -163,10 +163,6 @@ export default function HWWHero() {
     >
       <style>{`
         .hww-hero h1 span.block > span.block {
-          font-size: clamp(2.5rem, 6vw, 5rem);
-          font-weight: 800;
-          letter-spacing: -0.04em;
-          line-height: 1.05;
           color: var(--text-primary);
         }
         .hww-hero h1 span.block:last-child > span.block {
@@ -218,7 +214,7 @@ export default function HWWHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.55 }}
             >
-              <p className="text-xl leading-relaxed font-medium text-body mb-8" style={{ maxWidth: "480px" }}>
+              <p className="text-lg leading-relaxed text-body mb-8" style={{ maxWidth: "480px" }}>
                 Whether you run a business or are testing a new idea, the thinking behind our work is the same: understand first, structure clearly, validate before acting.
               </p>
 

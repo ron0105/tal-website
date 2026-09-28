@@ -17,12 +17,7 @@ export default function FNIFeatures() {
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-6 block text-accent">Clarity</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -34,7 +29,7 @@ export default function FNIFeatures() {
           {questions.map((q, i) => (
             <AnimateOnScroll key={i} delay={i * 0.07}>
               <div className="relative p-8 pb-14 rounded-2xl border border-border-subtle bg-bg-secondary overflow-hidden card-interactive" style={{ minHeight: "180px" }}>
-                <p className="relative text-xl md:text-2xl font-bold leading-tight text-primary">
+                <p className="relative text-lg font-bold leading-tight text-primary">
                   {q}
                 </p>
 

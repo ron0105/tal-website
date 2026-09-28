@@ -34,7 +34,7 @@ export default function VLOutcomes() {
         <div className="grid md:grid-cols-2 gap-12 items-start mb-24">
           <AnimateOnScroll>
             <span className="label-eyebrow block mb-8">System Output</span>
-            <h2 className="text-section-title">
+            <h2>
               Three possible
               <br />
               <span className="text-muted">outcomes.</span>
@@ -63,7 +63,7 @@ export default function VLOutcomes() {
               <span className="label-eyebrow !text-primary bg-bg-lift/30 px-3 py-1 self-start">
                 [{o.decision}]
               </span>
-              <h3 className="text-2xl font-black italic uppercase italic-accent leading-none mb-2">
+              <h3 className="italic uppercase italic-accent mb-2">
                 {o.title}
               </h3>
               <p className="text-sm font-bold text-muted uppercase tracking-tight leading-relaxed">

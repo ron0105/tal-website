@@ -16,7 +16,7 @@ export default function HomeSystem() {
       <div className="layout-grid">
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-8 block">Sound familiar?</span>
-          <h2 className="text-section-title">
+          <h2>
             Does this feel familiar?
           </h2>
         </AnimateOnScroll>
@@ -30,7 +30,7 @@ export default function HomeSystem() {
               whileHover={{ backgroundColor: "var(--bg-lift)", transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <div className="w-1.5 h-1.5 mt-[10px] flex-shrink-0" style={{ background: "var(--text-primary)" }} />
-              <p className="text-lg md:text-xl font-semibold leading-snug" style={{ color: "var(--text-body)" }}>
+              <p className="text-lg font-semibold leading-snug" style={{ color: "var(--text-body)" }}>
                 {p}
               </p>
             </motion.div>

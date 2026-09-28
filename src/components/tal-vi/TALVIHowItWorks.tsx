@@ -31,7 +31,7 @@ export default function TALVIHowItWorks() {
       <div className="layout-grid">
         <AnimateOnScroll>
           <span className="label-eyebrow block mb-6">How it works</span>
-          <h2 className="text-section-title text-foreground mb-4">
+          <h2 className="text-foreground mb-4">
             Three steps.
             <br />
             <span className="text-muted">No complexity.</span>
@@ -51,7 +51,7 @@ export default function TALVIHowItWorks() {
                   {step.n}
                 </span>
                 <div>
-                  <h3 className="text-2xl font-black uppercase italic tracking-tight mb-4 text-foreground">
+                  <h3 className="uppercase italic mb-4 text-foreground">
                     {step.title}
                   </h3>
                   <p className="body-copy max-w-[560px]">{step.body}</p>

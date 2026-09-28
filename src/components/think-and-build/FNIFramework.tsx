@@ -71,19 +71,14 @@ export default function FNIFramework() {
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-6 block text-accent">The Framework</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
               marginBottom: "1rem",
             }}
           >
             Six stages. One clear answer.
           </h2>
-          <p className="text-xl text-muted max-w-2xl font-medium">
+          <p className="text-lg text-muted max-w-2xl">
             Every idea goes through the same process. No shortcuts, no guessing.
           </p>
         </AnimateOnScroll>
@@ -106,18 +101,13 @@ export default function FNIFramework() {
               >
                 <span className="label-eyebrow text-muted">{stage.n}</span>
                 <h3
-                  className="font-poppins"
                   style={{
-                    fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)",
-                    fontWeight: 500,
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1.2,
                     color: "var(--text-primary)",
                   }}
                 >
                   {stage.title}
                 </h3>
-                <p className="text-base leading-relaxed font-medium" style={{ color: "var(--text-muted)" }}>
+                <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
                   {stage.desc}
                 </p>
               </motion.div>
@@ -133,21 +123,18 @@ export default function FNIFramework() {
             viewport={{ once: true, margin: "-40px" }}
           >
             <motion.h3
-              className="font-poppins mb-3"
+              className="mb-3"
               initial={{ opacity: 0, letterSpacing: "0.08em" }}
               whileInView={{ opacity: 1, letterSpacing: "-0.01em" }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
               style={{
-                fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-                fontWeight: 500,
                 color: "var(--text-primary)",
-                lineHeight: 1.1,
               }}
             >
               [ BUILD / PIVOT / KILL ]
             </motion.h3>
-            <p className="text-base font-medium" style={{ color: "var(--text-muted)" }}>
+            <p className="text-base" style={{ color: "var(--text-muted)" }}>
               Our output: build, pivot, or kill. Every engagement ends with a clear direction.
             </p>
           </motion.div>

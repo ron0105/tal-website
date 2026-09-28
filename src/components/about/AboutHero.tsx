@@ -150,10 +150,6 @@ export default function AboutHero() {
     >
       <style>{`
         .about-hero h1 span.block > span.block {
-          font-size: clamp(2.5rem, 6vw, 5rem);
-          font-weight: 800;
-          letter-spacing: -0.04em;
-          line-height: 1.05;
           color: var(--text-primary);
         }
         .about-hero h1 span.block:last-child > span.block {
@@ -205,7 +201,7 @@ export default function AboutHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.55 }}
             >
-              <p className="text-xl md:text-2xl leading-relaxed font-medium text-body mb-5" style={{ maxWidth: "520px" }}>
+              <p className="text-lg leading-relaxed text-body mb-5" style={{ maxWidth: "520px" }}>
                 TAL was built on one discipline: understand before acting.
               </p>
               <p className="text-base text-muted leading-relaxed" style={{ maxWidth: "480px" }}>

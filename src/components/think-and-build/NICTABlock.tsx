@@ -9,12 +9,8 @@ export default function NICTABlock() {
         <AnimateOnScroll>
           <div className="max-w-2xl">
             <h2
-              className="font-poppins mb-5"
+              className="mb-5"
               style={{
-                fontSize: "clamp(1.9rem, 4vw, 2.9rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.2,
                 color: "var(--text-primary)",
               }}
             >

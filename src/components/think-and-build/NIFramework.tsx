@@ -19,12 +19,8 @@ export default function NIFramework() {
         <AnimateOnScroll className="mb-16 max-w-2xl">
           <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>The validation framework</span>
           <h2
-            className="font-poppins mb-4"
+            className="mb-4"
             style={{
-              fontSize: "clamp(1.9rem, 4vw, 2.9rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
               color: "#FFFFFF",
             }}
           >
@@ -54,7 +50,7 @@ export default function NIFramework() {
             <AnimateOnScroll key={s.n} delay={i * 0.06}>
               <div className="card-lift-dark p-8 h-full cursor-default" style={{ background: "var(--brand)" }}>
                 <p className="font-poppins text-3xl mb-4" style={{ color: "var(--accent-on-brand)", fontWeight: 500 }}>{s.n}</p>
-                <h3 className="font-bold text-lg mb-3" style={{ color: "#FFFFFF" }}>{s.name}</h3>
+                <h3 className="mb-3" style={{ color: "#FFFFFF" }}>{s.name}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{s.desc}</p>
               </div>
             </AnimateOnScroll>

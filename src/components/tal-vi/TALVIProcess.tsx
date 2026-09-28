@@ -54,7 +54,7 @@ export default function TALVIProcess() {
           <div className="md:sticky md:top-24">
             <AnimateOnScroll>
               <span className="label-eyebrow block mb-6">03: How We Work</span>
-              <h2 className="text-section-title text-foreground mb-6">
+              <h2 className="text-foreground mb-6">
                 Five phases.
                 <br />
                 <span className="text-muted">No ad-hoc work.</span>
@@ -103,7 +103,7 @@ export default function TALVIProcess() {
                   <div className="pb-1">
                     <div className="flex items-baseline gap-3 mb-2">
                       <h3
-                        className="text-subsection text-foreground"
+                        className="text-foreground"
                       >
                         {step.title}
                       </h3>

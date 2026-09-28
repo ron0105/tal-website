@@ -105,7 +105,7 @@ export default function HIWFramework() {
         {/* Section header — left-aligned, no symmetry */}
         <AnimateOnScroll>
           <span className="label-eyebrow mb-8 block">Process Specification</span>
-          <h2 className="text-section-title mb-24">
+          <h2 className="mb-24">
             Six stages.
             <br />
             <span className="text-muted">One definitive answer.</span>
@@ -128,7 +128,7 @@ export default function HIWFramework() {
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-8 mb-10">
                   <span className="section-num text-lg">{step.n}</span>
                   <motion.h3 
-                    className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter"
+                    className="italic uppercase"
                     whileHover={{ x: 4, transition: { duration: 0.2 } }}
                   >
                     {step.title}
@@ -139,7 +139,7 @@ export default function HIWFramework() {
                 </div>
 
                 {/* The key question — italicised, prominent */}
-                <p className="text-xl md:text-2xl font-black italic mb-8 max-w-[640px] text-body">
+                <p className="text-lg font-bold italic mb-8 max-w-[640px] text-body">
                   &ldquo;{step.question}&rdquo;
                 </p>
 
@@ -174,7 +174,7 @@ export default function HIWFramework() {
           <div className="pt-24">
             <AnimatedLine className="mb-16" />
             <AnimateOnScroll>
-              <h2 className="text-section-title max-w-[600px]">
+              <h2 className="max-w-[600px]">
                 Every sprint ends with one answer:
                 <br />
                 <span className="text-muted">Build. Pivot. Or Kill.</span>

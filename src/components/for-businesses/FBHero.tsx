@@ -129,12 +129,8 @@ export default function FBHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.1 }}
-              className="font-poppins mb-6"
+              className="mb-6"
               style={{
-                fontSize: "clamp(2.4rem, 4.8vw, 4rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.08,
                 color: "var(--text-primary)",
               }}
             >

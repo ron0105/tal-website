@@ -17,12 +17,8 @@ export default function FNIReframe() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimateOnScroll>
             <h2
-              className="font-poppins mb-8"
+              className="mb-8"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >
@@ -38,13 +34,13 @@ export default function FNIReframe() {
                   <div className="w-10 h-10 rounded-lg bg-white border border-border-subtle flex items-center justify-center flex-shrink-0 group-hover:border-accent transition-colors">
                     <span className="text-red-500 font-bold">✕</span>
                   </div>
-                  <p className="text-lg md:text-xl font-semibold text-body">
+                  <p className="text-lg font-semibold text-body">
                     {point}
                   </p>
                 </div>
               ))}
               <div className="mt-8 pt-8 border-t border-border-subtle">
-                <p className="text-2xl font-bold text-primary">
+                <p className="text-lg font-bold text-primary">
                   We bring <span className="text-accent underline decoration-2 underline-offset-4">structure before execution.</span>
                 </p>
               </div>

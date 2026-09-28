@@ -59,8 +59,8 @@ export default function ContactSection() {
             </div>
 
             <h2
-              className="text-3xl md:text-5xl font-bold tracking-tight leading-snug mb-8"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
+              className="mb-8"
+              style={{ color: "#F0F0F0",}}
             >
               Bring us a problem
               <br />
@@ -159,8 +159,8 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <h3
-                  className="text-2xl font-bold tracking-tight mb-3"
-                  style={{ color: "#F0F0F0", letterSpacing: "-0.02em" }}
+                  className="mb-3"
+                  style={{ color: "#F0F0F0",}}
                 >
                   Received.
                 </h3>

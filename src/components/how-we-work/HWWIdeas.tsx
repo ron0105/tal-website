@@ -18,12 +18,12 @@ export default function HWWIdeas() {
       <div className="layout-grid">
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-8 block text-accent">Think & Build</span>
-          <h2 className="text-section-title">
+          <h2>
             Six stages.
             <br />
             <span className="text-muted">One clear answer.</span>
           </h2>
-          <p className="text-xl text-body mt-6 max-w-2xl">
+          <p className="text-lg text-body mt-6 max-w-2xl">
             When you have an idea but are not sure if it will work, we run it through a structured validation process. The output is always one of three things: build, pivot, or kill.
           </p>
         </AnimateOnScroll>

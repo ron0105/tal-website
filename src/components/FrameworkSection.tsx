@@ -83,8 +83,7 @@ export default function FrameworkSection() {
               </span>
             </div>
             <h2
-              className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
+              style={{ color: "#F0F0F0",}}
             >
               Six stages.
               <br />
@@ -136,10 +135,9 @@ export default function FrameworkSection() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-4">
                     <h3
-                      className="text-base md:text-lg font-semibold tracking-tight transition-colors duration-200"
+                      className="transition-colors duration-200"
                       style={{
                         color: active === i ? "#F0F0F0" : "#999",
-                        letterSpacing: "-0.01em",
                       }}
                     >
                       {step.title}

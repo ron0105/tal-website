@@ -31,7 +31,7 @@ export default function HomeTimeline() {
       <div className="layout-grid">
         <AnimateOnScroll>
           <span className="label-eyebrow mb-8 block">How we work</span>
-          <h2 className="text-section-title mb-16">
+          <h2 className="mb-16">
             Simple steps.
             <br />
             <span className="text-muted">Real results.</span>
@@ -62,7 +62,7 @@ export default function HomeTimeline() {
                     {step.n}
                   </span>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-black mb-2 tracking-tight" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="mb-2" style={{ color: "var(--text-primary)" }}>
                       {step.title}
                     </h3>
                     <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>

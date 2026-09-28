@@ -16,12 +16,8 @@ export default function FNIDifferentiation() {
           <AnimateOnScroll className="mb-12">
             <span className="label-eyebrow mb-6 block text-accent">Differentiation</span>
             <h2
-              className="font-poppins mb-10"
+              className="mb-10"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >
@@ -34,7 +30,7 @@ export default function FNIDifferentiation() {
               <AnimateOnScroll key={i} delay={i * 0.1}>
                 <div className="flex items-center gap-6">
                   <div className="w-2 h-2 rounded-full bg-accent" />
-                  <p className="text-2xl md:text-3xl font-bold text-primary italic">
+                  <p className="text-lg md:text-3xl font-bold text-primary italic">
                     {point}
                   </p>
                 </div>
@@ -43,7 +39,7 @@ export default function FNIDifferentiation() {
           </div>
 
           <AnimateOnScroll delay={0.4} className="mt-16 pt-12 border-t border-border-subtle">
-            <p className="text-2xl md:text-3xl font-bold text-primary leading-tight">
+            <p className="text-lg md:text-3xl font-bold text-primary leading-tight">
               We bring <span className="text-accent underline decoration-2 underline-offset-4">structured thinking before action.</span>
             </p>
             <p className="mt-8 text-sm font-bold uppercase tracking-widest text-muted italic">

@@ -28,12 +28,8 @@ export default function FNIWhoThisIsFor() {
           <AnimateOnScroll>
             <span className="label-eyebrow mb-6 block text-accent">Who this is for</span>
             <h2
-              className="font-poppins mb-5"
+              className="mb-5"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.25rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >

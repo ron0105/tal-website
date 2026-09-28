@@ -49,13 +49,13 @@ export default function FNIStatBar() {
             transition={{ duration: 0.7, ease, delay: 0.15 }}
           >
             <p
-              className="text-xl md:text-2xl font-semibold leading-snug mb-3"
+              className="text-lg font-semibold leading-snug mb-3"
               style={{ color: "var(--bg)" }}
             >
               fail because there was no market need — not because the idea was bad.
             </p>
             <p
-              className="text-sm font-medium"
+              className="text-sm"
               style={{ color: "var(--bg)", opacity: 0.55 }}
             >
               Source: CB Insights, &ldquo;The Top 12 Reasons Startups Fail&rdquo;: analysis of 101 startup post-mortems. No market need is the single largest cause of startup failure.

@@ -47,12 +47,11 @@ export default function JobCard({ job, index }: JobCardProps) {
       </div>
 
       {/* Title */}
-      <h2
-        className="text-xl font-bold tracking-tight leading-snug"
+      <h3
         style={{ color: "var(--text-primary)" }}
       >
         {job.title}
-      </h2>
+      </h3>
 
       {/* Teaser */}
       <p
@@ -67,7 +66,7 @@ export default function JobCard({ job, index }: JobCardProps) {
         {job.highlights.map((h, i) => (
           <li
             key={i}
-            className="flex items-center gap-2 text-xs font-medium"
+            className="flex items-center gap-2 text-xs"
             style={{ color: "var(--text-muted)" }}
           >
             <span

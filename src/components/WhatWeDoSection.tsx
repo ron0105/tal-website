@@ -62,8 +62,7 @@ export default function WhatWeDoSection() {
               </span>
             </div>
             <h2
-              className="text-3xl md:text-5xl font-bold tracking-tight leading-tight"
-              style={{ color: "#F0F0F0", letterSpacing: "-0.025em" }}
+              style={{ color: "#F0F0F0",}}
             >
               A lab built to turn
               <br />
@@ -110,8 +109,8 @@ export default function WhatWeDoSection() {
                 {service.index}
               </div>
               <h3
-                className="text-lg font-semibold mb-4 tracking-tight"
-                style={{ color: "#E0E0E0", letterSpacing: "-0.01em" }}
+                className="mb-4"
+                style={{ color: "#E0E0E0",}}
               >
                 {service.title}
               </h3>

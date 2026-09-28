@@ -213,10 +213,6 @@ export default function FNIHero() {
             />
             <style>{`
               .fni-hero h1 span.block > span.block {
-                font-size: clamp(2.5rem, 6vw, 5rem);
-                font-weight: 800;
-                letter-spacing: -0.04em;
-                line-height: 1.05;
                 color: var(--text-primary);
               }
               .fni-hero h1 span.block:last-child > span.block {
@@ -230,7 +226,7 @@ export default function FNIHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.55 }}
             >
-              <p className="text-xl leading-relaxed font-medium text-body mb-4" style={{ maxWidth: "480px" }}>
+              <p className="text-lg leading-relaxed text-body mb-4" style={{ maxWidth: "480px" }}>
                 Before you build, spend, or commit, we help you pressure-test the idea with structured thinking and real market insight.
               </p>
               <p className="text-base text-muted mb-10" style={{ maxWidth: "420px" }}>

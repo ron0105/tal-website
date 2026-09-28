@@ -12,19 +12,15 @@ export default function FNICTA() {
         <div className="max-w-3xl">
           <AnimateOnScroll>
             <h2
-              className="font-poppins mb-8"
+              className="mb-8"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
             >
               Start with clarity <br />
               <span className="text-muted">before you build.</span>
             </h2>
-            <p className="text-xl md:text-2xl text-body font-medium leading-relaxed mb-12">
+            <p className="text-lg text-body leading-relaxed mb-12">
               Every great venture starts with a clear foundation. We help you find it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

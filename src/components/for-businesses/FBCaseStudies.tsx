@@ -34,12 +34,8 @@ export default function FBCaseStudies() {
         <AnimateOnScroll className="mb-14">
           <span className="label-eyebrow mb-6 block" style={{ color: "var(--accent)" }}>In practice</span>
           <h2
-            className="font-poppins mb-4"
+            className="mb-4"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.12,
               color: "var(--text-primary)",
               maxWidth: "680px",
             }}
@@ -84,10 +80,10 @@ export default function FBCaseStudies() {
                     Scenario
                   </span>
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    <p className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)" }}>
                       {c.craft}
                     </p>
-                    <h3 className="font-bold leading-snug" style={{ fontSize: "1.15rem", color: "#FFFFFF" }}>
+                    <h3 style={{ color: "#FFFFFF" }}>
                       {c.client}
                     </h3>
                   </div>
@@ -101,7 +97,7 @@ export default function FBCaseStudies() {
                     <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--accent-hover)" }}>
                       What we aim for
                     </p>
-                    <p className="font-poppins leading-snug" style={{ fontSize: "1.15rem", color: "var(--text-primary)", fontWeight: 500 }}>
+                    <p className="text-lg font-bold leading-snug" style={{ color: "var(--text-primary)" }}>
                       {c.aim}
                     </p>
                   </div>

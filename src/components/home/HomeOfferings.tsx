@@ -19,10 +19,6 @@ export default function HomeOfferings() {
           <p className="label-eyebrow mb-8">Two sides. One system.</p>
           <h2
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.035em",
-              lineHeight: 1.0,
               color: "var(--text-primary)",
               marginBottom: "clamp(3.5rem, 8vh, 6rem)",
             }}
@@ -60,10 +56,6 @@ export default function HomeOfferings() {
 
               <h3
                 style={{
-                  fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                  fontWeight: 900,
-                  letterSpacing: "-0.035em",
-                  lineHeight: 1.0,
                   color: "var(--text-primary)",
                   marginBottom: "1.5rem",
                 }}
@@ -131,10 +123,6 @@ export default function HomeOfferings() {
 
               <h3
                 style={{
-                  fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                  fontWeight: 900,
-                  letterSpacing: "-0.035em",
-                  lineHeight: 1.0,
                   color: "var(--text-primary)",
                   marginBottom: "1.5rem",
                 }}

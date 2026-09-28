@@ -43,12 +43,7 @@ export default function PricingPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.1 }}
-          className="font-poppins"
           style={{
-            fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-            fontWeight: 800,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
             marginBottom: "1.5rem",
             color: "var(--text-primary)",
           }}
@@ -61,7 +56,7 @@ export default function PricingPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.2 }}
-          className="text-xl text-body max-w-2xl mb-20"
+          className="text-lg text-body max-w-2xl mb-20"
         >
           We do not have fixed packages. Every engagement is scoped after a conversation, based on what you actually need.
         </motion.p>
@@ -72,7 +67,7 @@ export default function PricingPage() {
               <div className="bg-background p-8 md:p-12 grid md:grid-cols-[200px_1fr_1fr] gap-8 items-start">
                 <div>
                   <span className="label-eyebrow text-accent block mb-3">{m.label}</span>
-                  <h3 className="text-xl font-bold font-poppins text-primary">{m.title}</h3>
+                  <h3 className="text-primary">{m.title}</h3>
                 </div>
                 <p className="text-base leading-relaxed text-body">{m.desc}</p>
                 <ul className="flex flex-col gap-3">
@@ -91,7 +86,7 @@ export default function PricingPage() {
         <AnimateOnScroll>
           <div className="border border-border-subtle bg-bg-secondary p-10 md:p-14 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div>
-              <h2 className="text-2xl font-bold font-poppins text-primary mb-2">
+              <h2 className="text-primary mb-2">
                 Want to know what it would cost for you?
               </h2>
               <p className="text-base text-muted max-w-lg">

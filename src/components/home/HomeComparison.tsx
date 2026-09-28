@@ -9,12 +9,7 @@ export default function HomeComparison() {
         <AnimateOnScroll className="mb-16">
           <span className="label-eyebrow mb-6 block text-accent">Why it matters</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -31,7 +26,7 @@ export default function HomeComparison() {
                 "Roles and responsibilities are informal",
                 "Customer follow-ups depend on memory",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-4 text-lg font-medium text-muted">
+                <li key={item} className="flex items-start gap-4 text-lg text-muted">
                   <span className="mt-1.5 w-4 h-px bg-border-subtle block shrink-0" style={{ background: "var(--border-subtle)" }} />
                   {item}
                 </li>

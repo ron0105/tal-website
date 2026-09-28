@@ -18,19 +18,14 @@ export default function FBCTA() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <AnimateOnScroll>
             <h2
-              className="font-poppins"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.12,
                 marginBottom: "1.5rem",
                 color: "#FFFFFF",
               }}
             >
               Ready to stop being invisible?
             </h2>
-            <p className="text-xl max-w-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+            <p className="text-lg max-w-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
               You don&apos;t need a pitch deck or a brief. Just tell us what your business does and where you feel stuck. We&apos;ll take it from there.
             </p>
           </AnimateOnScroll>

@@ -91,10 +91,6 @@ export default function HomeHero() {
         />
         <style>{`
           h1 span.block > span.block {
-            font-size: clamp(3rem, 8vw, 6.5rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
             color: var(--text-primary);
           }
           h1 span.block:last-child > span.block {
@@ -113,7 +109,7 @@ export default function HomeHero() {
           className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-20 items-end max-w-4xl"
         >
           <div>
-            <p className="text-xl md:text-2xl leading-relaxed font-medium text-body mb-4" style={{ maxWidth: "520px" }}>
+            <p className="text-lg leading-relaxed text-body mb-4" style={{ maxWidth: "520px" }}>
               Consulting, tech, and marketing — whatever moves the needle. They're tools we use to grow, scale, and optimize. The goal is always growth.
             </p>
             <p className="text-base text-muted" style={{ maxWidth: "440px" }}>

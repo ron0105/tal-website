@@ -43,12 +43,8 @@ export default function FBPartners() {
           <AnimateOnScroll>
             <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>Who you&apos;ll work with</span>
             <h2
-              className="font-poppins mb-6"
+              className="mb-6"
               style={{
-                fontSize: "clamp(1.75rem, 3.5vw, 2.6rem)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.2,
                 color: "#FFFFFF",
               }}
             >

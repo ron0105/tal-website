@@ -42,12 +42,7 @@ export default function FBPhilosophy() {
         <AnimateOnScroll className="mb-14">
           <span className="label-eyebrow block mb-6 text-accent">Our Philosophy</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -61,10 +56,10 @@ export default function FBPhilosophy() {
               <div
                 className="grid md:grid-cols-2 gap-8 py-10 items-center border-b border-border-subtle last:border-0"
               >
-                <h3 className="text-3xl md:text-4xl font-poppins tracking-tighter text-primary italic">
+                <h3 className="text-primary italic">
                   {b.statement}
                 </h3>
-                <p className="text-lg md:text-xl text-body font-medium leading-relaxed">
+                <p className="text-lg text-body leading-relaxed">
                   {b.detail}
                 </p>
               </div>

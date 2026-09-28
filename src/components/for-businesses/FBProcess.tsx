@@ -33,12 +33,8 @@ export default function FBProcess() {
         <AnimateOnScroll className="mb-14">
           <span className="label-eyebrow mb-4 block text-accent">How We Work</span>
           <h2
-            className="font-poppins mb-3"
+            className="mb-3"
             style={{
-              fontSize: "clamp(1.75rem, 5vw, 3rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -99,7 +95,7 @@ export default function FBProcess() {
                 </div>
 
                 <h3
-                  className="text-lg font-bold mb-2"
+                  className="mb-2"
                   style={{ color: i === steps.length - 1 ? "var(--accent)" : "var(--text-primary)" }}
                 >
                   {step.title}

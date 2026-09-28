@@ -41,12 +41,7 @@ export default function HomeOfferingsGrid() {
         <AnimateOnScroll className="mb-20">
           <span className="label-eyebrow mb-6 block text-accent">Engagement Models</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
             }}
           >
@@ -76,7 +71,7 @@ export default function HomeOfferingsGrid() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase italic text-primary">
+                  <h3 className="mb-4 uppercase italic text-primary">
                     {item.title}
                   </h3>
                   <p className="text-lg text-muted mb-8 leading-relaxed">
@@ -85,7 +80,7 @@ export default function HomeOfferingsGrid() {
                 </div>
 
                 <div className="pt-8 border-t border-border-subtle">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-muted mb-2">Primary Output:</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-2">Primary Output:</p>
                   <p className="text-lg font-bold text-primary uppercase tracking-tight">{item.output}</p>
                 </div>
               </motion.div>

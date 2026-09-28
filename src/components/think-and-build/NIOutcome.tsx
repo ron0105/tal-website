@@ -24,12 +24,7 @@ export default function NIOutcome() {
         <AnimateOnScroll className="mb-14 max-w-2xl">
           <span className="label-eyebrow mb-5 block" style={{ color: "var(--accent)" }}>What you walk away with</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(1.9rem, 4vw, 2.9rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
               color: "var(--text-primary)",
             }}
           >
@@ -44,7 +39,7 @@ export default function NIOutcome() {
           {outcomes.map((o, i) => (
             <AnimateOnScroll key={o.title} delay={i * 0.08}>
               <div className="block-lift pt-6 h-full" style={{ borderTop: "3px solid var(--accent)" }}>
-                <h3 className="font-bold text-lg mb-3" style={{ color: "var(--text-primary)" }}>{o.title}</h3>
+                <h3 className="mb-3" style={{ color: "var(--text-primary)" }}>{o.title}</h3>
                 <p className="text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>{o.body}</p>
               </div>
             </AnimateOnScroll>

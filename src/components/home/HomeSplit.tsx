@@ -22,12 +22,7 @@ export default function HomeSplit() {
         >
           <span className="label-eyebrow mb-6 block text-accent">How we work with you</span>
           <h2
-            className="font-poppins"
             style={{
-              fontSize: "clamp(2rem, 4vw, 3.25rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: 1.1,
               color: "var(--text-primary)",
               marginBottom: "1rem",
             }}
@@ -137,12 +132,7 @@ function SplitPanel({
           {eyebrow}
         </span>
         <h3
-          className="font-poppins"
           style={{
-            fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-            fontWeight: 500,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.15,
             marginBottom: "2rem",
             color: "var(--text-primary)",
           }}

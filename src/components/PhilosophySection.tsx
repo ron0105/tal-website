@@ -64,8 +64,7 @@ export default function PhilosophySection() {
             </span>
           </div>
           <h2
-            className="text-3xl md:text-5xl font-bold tracking-tight"
-            style={{ color: "#F0F0F0", letterSpacing: "-0.025em", maxWidth: "600px" }}
+            style={{ color: "#F0F0F0", maxWidth: "600px" }}
           >
             The thinking
             <br />
@@ -95,8 +94,8 @@ export default function PhilosophySection() {
                 style={{ background: "#2563EB" }}
               />
               <h3
-                className="text-base font-semibold leading-snug mb-4"
-                style={{ color: "#D0D0D0", letterSpacing: "-0.01em" }}
+                className="mb-4"
+                style={{ color: "#D0D0D0",}}
               >
                 {p.title}
               </h3>

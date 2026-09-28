@@ -81,12 +81,8 @@ export default function FBWhoThisIsFor() {
         <AnimateOnScroll className="mb-14">
           <span className="label-eyebrow mb-6 block" style={{ color: "var(--accent)" }}>Who we work with</span>
           <h2
-            className="font-poppins mb-4"
+            className="mb-4"
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.25rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.12,
               color: "var(--text-primary)",
             }}
           >
@@ -129,10 +125,10 @@ export default function FBWhoThisIsFor() {
                 >
                   {icons[cat.icon]}
                 </span>
-                <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--accent)" }}>
+                <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>
                   {cat.type}
                 </p>
-                <h3 className="font-bold leading-snug" style={{ fontSize: "1.05rem", color: "var(--text-primary)" }}>
+                <h3 style={{ color: "var(--text-primary)" }}>
                   {cat.heading}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{cat.body}</p>
