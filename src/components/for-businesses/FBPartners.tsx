@@ -9,7 +9,7 @@ const partners = [
 ];
 
 const points = [
-  "You talk to the people doing the work — strategy and design are each led by a partner",
+  "You talk to the people doing the work. Strategy and design are each led by a partner",
   "Two perspectives on every engagement, one conversation for you",
   "Senior attention by default. It's not a tier, it's how we're built",
 ];
@@ -53,7 +53,7 @@ export default function FBPartners() {
               No account managers.
             </h2>
             <p className="text-base leading-relaxed mb-9" style={{ color: "rgba(255,255,255,0.65)", maxWidth: "440px" }}>
-              When you work with TAL, you work with the people whose names are on it. Strategy and design — each led by the partner who owns that craft.
+              When you work with TAL, you work with the people whose names are on it. Strategy and design, each led by the partner who owns that craft.
             </p>
             <ul className="flex flex-col gap-5">
               {points.map((pt) => (

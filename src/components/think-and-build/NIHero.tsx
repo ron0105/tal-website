@@ -50,7 +50,7 @@ export default function NIHero() {
             className="text-base mb-10 leading-relaxed"
             style={{ color: "var(--text-muted)", maxWidth: "560px" }}
           >
-            We pressure-test ideas with real customer conversations, real numbers, and zero sugarcoating — in weeks, not years. If it holds up, you build with proof. If it doesn&apos;t, we just saved you a very expensive lesson.
+            We pressure-test ideas with real customer conversations, real numbers, and zero sugarcoating, in weeks, not years. If it holds up, you build with proof. If it doesn&apos;t, we just saved you a very expensive lesson.
           </motion.p>
 
           <motion.div

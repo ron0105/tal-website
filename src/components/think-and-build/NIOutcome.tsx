@@ -5,7 +5,7 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 const outcomes = [
   {
     title: "A decision you can stand behind",
-    body: "Go, don't go, or pivot — with the reasoning written down. No more lying awake re-arguing both sides at 2am.",
+    body: "Go, don't go, or pivot, with the reasoning written down. No more lying awake re-arguing both sides at 2am.",
   },
   {
     title: "Evidence, not enthusiasm",

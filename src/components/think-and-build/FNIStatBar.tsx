@@ -52,7 +52,7 @@ export default function FNIStatBar() {
               className="text-lg font-semibold leading-snug mb-3"
               style={{ color: "var(--bg)" }}
             >
-              fail because there was no market need — not because the idea was bad.
+              fail because there was no market need, not because the idea was bad.
             </p>
             <p
               className="text-sm"

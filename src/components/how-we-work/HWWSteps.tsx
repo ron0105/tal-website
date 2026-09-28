@@ -10,7 +10,7 @@ const phases = [
     title: "Get found",
     duration: "One-time build",
     description:
-      "Your digital foundation — a website that converts, your Google Business Profile set up properly, and SEO so you show up when people search for what you do.",
+      "Your digital foundation: a website that converts, your Google Business Profile set up properly, and SEO so you show up when people search for what you do.",
     outputs: ["A website that works like a 24/7 salesperson", "Found on Google when it matters", "Analytics so you know what's working"],
   },
   {
@@ -18,7 +18,7 @@ const phases = [
     title: "Show up",
     duration: "Monthly",
     description:
-      "We become your brand's voice online. Posts, stories, reels, captions — written, designed, and published every month. You just approve.",
+      "We become your brand's voice online. Posts, stories, reels, captions: written, designed, and published every month. You just approve.",
     outputs: ["12–20 posts a month across your platforms", "A brand that looks active and credible", "Monthly review call so we stay aligned"],
   },
   {
@@ -26,7 +26,7 @@ const phases = [
     title: "Let it run",
     duration: "Setup, then ongoing",
     description:
-      "We wire up the follow-through — lead capture, WhatsApp sequences, booking confirmations — so every enquiry gets a response, even when you're heads-down.",
+      "We wire up the follow-through (lead capture, WhatsApp sequences, booking confirmations) so every enquiry gets a response, even when you're heads-down.",
     outputs: ["Every lead followed up automatically", "WhatsApp flows that feel human", "A pipeline that's predictable, not accidental"],
   },
 ];
@@ -65,7 +65,7 @@ export default function HWWSteps() {
               <span className="text-muted">One clear outcome.</span>
             </h2>
             <p className="text-lg text-body mt-6 max-w-2xl">
-              Your business is real. The internet just doesn&apos;t reflect that yet. Three services fix that — <strong>each one stands alone</strong>. Start with the one that hurts most, add the others when you&apos;re ready, or take all three together.
+              Your business is real. The internet just doesn&apos;t reflect that yet. Three services fix that, and <strong>each one stands alone</strong>. Start with the one that hurts most, add the others when you&apos;re ready, or take all three together.
             </p>
           </AnimateOnScroll>
 
@@ -115,7 +115,7 @@ export default function HWWSteps() {
                 <span>Let it run</span>
               </div>
               <p className="text-sm leading-relaxed flex-1" style={{ color: "rgba(255,255,255,0.7)" }}>
-                Together, your website, your content, and your follow-up tell <strong style={{ color: "#FFFFFF" }}>one story</strong> — and that&apos;s when it compounds. Most clients start with one, see results, and add the rest. Whatever you start with credits toward the full build.
+                Together, your website, your content, and your follow-up tell <strong style={{ color: "#FFFFFF" }}>one story</strong>, and that&apos;s when it compounds. Most clients start with one, see results, and add the rest. Whatever you start with credits toward the full build.
               </p>
             </div>
           </AnimateOnScroll>

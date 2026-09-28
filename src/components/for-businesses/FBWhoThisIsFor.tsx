@@ -63,13 +63,13 @@ const categories = [
     icon: "scales",
     type: "Professionals & Consultants",
     heading: "You're the product. Your credibility is the brand.",
-    body: "CA firms, coaches, lawyers — people search you before they trust you. Let's make what they find count.",
+    body: "CA firms, coaches, lawyers: people search you before they trust you. Let's make what they find count.",
   },
   {
     icon: "globe",
     type: "Businesses Everywhere",
     heading: "Wherever you are, your customers are online.",
-    body: "We work with businesses across markets — remote, async, and built around your timezone. Same standard, every time.",
+    body: "We work with businesses across markets. Remote, async, and built around your timezone. Same standard, every time.",
   },
 ];
 

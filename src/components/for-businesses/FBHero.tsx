@@ -147,7 +147,7 @@ export default function FBHero() {
               className="text-lg mb-9 max-w-lg leading-relaxed"
               style={{ color: "var(--text-body)" }}
             >
-              You&apos;re not here for more posts. You&apos;re here because you want customers, trust, and growth — without spending half your week figuring out the internet. That&apos;s exactly what we do.
+              You&apos;re not here for more posts. You&apos;re here because you want customers, trust, and growth, without spending half your week figuring out the internet. That&apos;s exactly what we do.
             </motion.p>
 
             <motion.div

@@ -45,7 +45,7 @@ export default function FBProcess() {
         {/* Trust signals */}
         <div className="grid md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle mb-16">
           {[
-            { stat: "50%", label: "upfront, always. We don't bill by the hour — you pay for outcomes, not effort." },
+            { stat: "50%", label: "upfront, always. We don't bill by the hour. You pay for outcomes, not effort." },
             { stat: "30 days", label: "credit-back window. Start with any entry service and it counts toward the full build." },
             { stat: "Zero", label: "discounts. We price what it's worth. What you get in return is our full attention." },
           ].map((item) => (
