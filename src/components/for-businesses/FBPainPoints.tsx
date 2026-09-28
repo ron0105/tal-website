@@ -5,13 +5,13 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 const pains = [
   {
     number: "01",
-    heading: "People look you up — and find almost nothing.",
+    heading: "People look you up and find almost nothing.",
     body: "A weak website, no Google listing, and a feed that hasn't moved in months. That's your first impression. And it's costing you.",
   },
   {
     number: "02",
     heading: "You know you should post. But you never get round to it.",
-    body: "It's not laziness — you're running a business. But silence online reads as irrelevance, even when you're busier than ever.",
+    body: "It's not laziness. You're running a business. But silence online reads as irrelevance, even when you're busier than ever.",
   },
   {
     number: "03",
@@ -21,7 +21,7 @@ const pains = [
   {
     number: "04",
     heading: "Your competitor shows up everywhere. You're not sure why.",
-    body: "It's not that they're better. They've just invested in being visible. That's a solvable problem — and it's exactly what we fix.",
+    body: "It's not that they're better. They've just invested in being visible. That's a solvable problem, and it's exactly what we fix.",
   },
 ];
 

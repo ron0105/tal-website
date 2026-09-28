@@ -9,7 +9,7 @@ import NICTABlock from "@/components/think-and-build/NICTABlock";
 export const metadata: Metadata = {
   title: "Think & Build",
   description:
-    "Idea validation and founder consulting. Pressure-test your idea with real customers and real numbers before you spend your savings — then build it right.",
+    "Idea validation and founder consulting. Pressure-test your idea with real customers and real numbers before you spend your savings. Then build it right.",
 };
 
 export default function ForNewIdeas() {

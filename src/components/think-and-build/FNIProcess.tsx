@@ -17,12 +17,12 @@ const steps = [
   {
     n: "03",
     title: "Find out if people will pay",
-    body: "We run the smallest possible test to find real demand signal. Not surveys, not guesses — actual evidence from real people.",
+    body: "We run the smallest possible test to find real demand signal. Not surveys, not guesses. Actual evidence from real people.",
   },
   {
     n: "04",
     title: "Give you a clear decision",
-    body: "At the end, you know whether to move forward, change direction, or stop. No vague next steps — just clarity.",
+    body: "At the end, you know whether to move forward, change direction, or stop. No vague next steps, just clarity.",
   },
 ];
 

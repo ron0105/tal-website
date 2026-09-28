@@ -4,7 +4,7 @@ import CareersCTA from "@/components/careers/CareersCTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers — TAL Consulting",
+  title: "Careers | TAL Consulting",
   description:
     "We're hiring. TAL is a two-founder startup building something real. If you want ownership from day one, read on.",
 };

@@ -5,7 +5,7 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 const truths = [
   {
     title: "Friends are terrible judges of ideas.",
-    body: "They say “great idea!” because they like you — not because they'd pay for it. The only opinion that counts comes with a wallet attached.",
+    body: "They say “great idea!” because they like you, not because they'd pay for it. The only opinion that counts comes with a wallet attached.",
   },
   {
     title: "Building first feels productive. It isn't.",
@@ -13,7 +13,7 @@ const truths = [
   },
   {
     title: "A “no” early is a gift.",
-    body: "Finding out your idea doesn't hold — before the resignation letter, before the loan — isn't failure. It's the cheapest education you'll ever get.",
+    body: "Finding out your idea doesn't hold before the resignation letter, before the loan, isn't failure. It's the cheapest education you'll ever get.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function NITruth() {
                 color: "var(--text-primary)",
               }}
             >
-              Most ideas don&apos;t fail in the market. They fail months earlier — in the founder&apos;s head.
+              Most ideas don&apos;t fail in the market. They fail months earlier, in the founder&apos;s head.
             </h2>
             <p className="text-base leading-relaxed mt-6" style={{ color: "var(--text-muted)", maxWidth: "420px" }}>
               An assumption goes unquestioned. A price never gets tested. A customer never gets asked. By launch day, the outcome was already decided.

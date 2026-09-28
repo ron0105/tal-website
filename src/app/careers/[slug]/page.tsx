@@ -19,10 +19,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const job = getJob(slug);
-  if (!job) return { title: "Role Not Found — TAL Consulting" };
+  if (!job) return { title: "Role Not Found | TAL Consulting" };
 
   return {
-    title: `${job.title} — TAL Consulting`,
+    title: `${job.title} | TAL Consulting`,
     description: job.teaser,
   };
 }

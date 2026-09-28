@@ -51,7 +51,7 @@ export default function HomeOfferings() {
                   gap: "1rem",
                 }}
               >
-                <p className="label-eyebrow">Stage 01 — Validate</p>
+                <p className="label-eyebrow">Stage 01 · Validate</p>
               </div>
 
               <h3
@@ -118,7 +118,7 @@ export default function HomeOfferings() {
                   gap: "1rem",
                 }}
               >
-                <p className="label-eyebrow">Stage 02 — Execute</p>
+                <p className="label-eyebrow">Stage 02 · Execute</p>
               </div>
 
               <h3

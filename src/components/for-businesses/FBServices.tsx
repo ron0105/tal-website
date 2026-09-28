@@ -8,24 +8,24 @@ const outcomes = [
   {
     tag: "Step One",
     title: "Get found. Get trusted.",
-    headline: "When someone searches your business at 11pm, what do they find? If the answer is \"not much\" — this is where we start.",
+    headline: "When someone searches your business at 11pm, what do they find? If the answer is \"not much,\" this is where we start.",
     body: "We build you a website that works like a 24/7 salesperson. It loads fast, looks sharp on every phone, and says exactly what it needs to so a stranger becomes a customer. Then we make sure you show up right where your customers are looking.",
     bullets: [
       "A website that converts visitors, not just impresses them",
       "Your Google Business Profile set up and optimised",
       "SEO so you rank when it matters",
-      "You get all of this — and it credits back if you continue with us",
+      "You get all of this, and it credits back if you continue with us",
     ],
   },
   {
     tag: "Step Two",
     title: "Show up. Consistently.",
-    headline: "Consistency is the thing most businesses can't pull off. Not because they don't want to — because they're busy running a business.",
-    body: "We become your brand's voice online. Every month, fresh content goes out — posts, stories, reels, captions — that sound like you, represent you well, and quietly build an audience that trusts you before they've even met you.",
+    headline: "Consistency is the thing most businesses can't pull off. Not because they don't want to, but because they're busy running a business.",
+    body: "We become your brand's voice online. Every month, fresh content goes out (posts, stories, reels, captions) that sounds like you, represent you well, and quietly build an audience that trusts you before they've even met you.",
     bullets: [
-      "12–20 posts a month, written and designed — you just approve",
+      "12–20 posts a month, written and designed. You just approve",
       "Content that tells your story, not just sells your product",
-      "Facebook, Instagram, LinkedIn — wherever your customers are",
+      "Facebook, Instagram, LinkedIn: wherever your customers are",
       "Monthly check-in so we stay aligned with your world",
     ],
   },
@@ -33,7 +33,7 @@ const outcomes = [
     tag: "Step Three",
     title: "Let it run itself.",
     headline: "What if every new enquiry got followed up automatically, even while you were asleep?",
-    body: "We wire your business for automation. Lead capture, follow-up messages, WhatsApp replies, booking confirmations — all of it runs in the background so nothing falls through the cracks. You focus on delivery. The system handles the follow-through.",
+    body: "We wire your business for automation. Lead capture, follow-up messages, WhatsApp replies, booking confirmations. All of it runs in the background so nothing falls through the cracks. You focus on delivery. The system handles the follow-through.",
     bullets: [
       "Automated lead capture and follow-up",
       "WhatsApp sequences that feel human, not robotic",
@@ -44,7 +44,7 @@ const outcomes = [
 ];
 
 const beforeItems = [
-  "People search you — can't find you",
+  "People search for you and can't find you",
   "Your feed looks like it hasn't been touched in months",
   "New customers don't know you exist",
   "You're doing this yourself at midnight",
@@ -67,14 +67,14 @@ const quickCards = [
     step: "Step 1",
   },
   {
-    benefit: "Your brand stays active — without you touching it.",
+    benefit: "Your brand stays active without you touching it.",
     plain: "We write, design, and post content for you every month. You stay consistent online without spending your evenings on it.",
     features: ["12–20 posts/month across your platforms", "Captions, creatives, stories", "Monthly review call"],
     step: "Step 2",
   },
   {
     benefit: "Every lead gets followed up. Automatically.",
-    plain: "We set up a system so every enquiry — WhatsApp, form, DM — gets a response and a follow-up. Even when you're heads-down.",
+    plain: "We set up a system so every enquiry (WhatsApp, form, DM) gets a response and a follow-up. Even when you're heads-down.",
     features: ["Automated WhatsApp sequences", "Lead capture & follow-up flows", "CRM setup"],
     step: "Step 3",
   },
@@ -160,13 +160,13 @@ export default function FBServices() {
                 color: "var(--text-primary)",
               }}
             >
-              Most businesses are invisible online. Not because they&apos;re bad — because no one told them what to fix.
+              Most businesses are invisible online. Not because they&apos;re bad, but because no one told them what to fix.
             </h2>
             <p className="text-base leading-relaxed text-muted mb-4">
-              You could have the best product in your category, the warmest service, the most loyal customers — and still be losing to someone half as good, simply because they show up everywhere and you don&apos;t.
+              You could have the best product in your category, the warmest service, the most loyal customers, and still be losing to someone half as good, simply because they show up everywhere and you don&apos;t.
             </p>
             <p className="text-base leading-relaxed text-muted">
-              We fix that. Quietly, professionally, and without making you feel like you&apos;re behind. Because you&apos;re not behind — you just haven&apos;t had the right team yet.
+              We fix that. Quietly, professionally, and without making you feel like you&apos;re behind. Because you&apos;re not behind. You just haven&apos;t had the right team yet.
             </p>
           </AnimateOnScroll>
         </div>
@@ -298,7 +298,7 @@ export default function FBServices() {
                 One team. One direction.
               </h2>
               <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.75)", maxWidth: "520px" }}>
-                The best results come when your website, your content, and your follow-up system all tell the same story. That&apos;s what The Complete Story engagement does — it builds your digital presence as a single, joined-up system. One conversation with us, and everything moves.
+                The best results come when your website, your content, and your follow-up system all tell the same story. That&apos;s what The Complete Story engagement does. It builds your digital presence as a single, joined-up system. One conversation with us, and everything moves.
               </p>
               <a
                 href="https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20The%20Complete%20Story%20engagement."

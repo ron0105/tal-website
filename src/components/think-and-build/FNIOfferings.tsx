@@ -7,7 +7,7 @@ const offerings = [
     tag: "Offering 01",
     title: "Idea Validation",
     headline: "Test the idea before you spend a rupee building it.",
-    body: "Our 6-stage validation framework pressure-tests your idea against real market signals — customer conversations, competitor gaps, pricing reality — so you get a clear go/no-go before committing time and money.",
+    body: "Our 6-stage validation framework pressure-tests your idea against real market signals (customer conversations, competitor gaps, pricing reality) so you get a clear go/no-go before committing time and money.",
     bullets: [
       "Structured 6-stage validation framework",
       "Voice-of-customer research, not guesswork",
@@ -21,7 +21,7 @@ const offerings = [
     tag: "Offering 02",
     title: "Founder Consulting",
     headline: "Your idea passed the test. Now build it right.",
-    body: "Once an idea is validated — or if you're already building — we work with you on structure: business model, pricing, positioning, go-to-market, and the first operating systems. Honest feedback, no dependency model.",
+    body: "Once an idea is validated, or if you're already building, we work with you on structure: business model, pricing, positioning, go-to-market, and the first operating systems. Honest feedback, no dependency model.",
     bullets: [
       "Business model and pricing strategy",
       "Positioning and go-to-market plan",

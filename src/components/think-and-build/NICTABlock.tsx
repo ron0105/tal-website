@@ -17,7 +17,7 @@ export default function NICTABlock() {
               No pitch deck. No prep. Just tell us the idea.
             </h2>
             <p className="text-base leading-relaxed mb-9" style={{ color: "var(--text-muted)", maxWidth: "500px" }}>
-              In your own words — a paragraph, a voice note, a rant. The first conversation is free, and we&apos;ll tell you honestly whether validation is worth your money. Sometimes it isn&apos;t, and we&apos;ll say so.
+              In your own words: a paragraph, a voice note, a rant. The first conversation is free, and we&apos;ll tell you honestly whether validation is worth your money. Sometimes it isn&apos;t, and we&apos;ll say so.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
