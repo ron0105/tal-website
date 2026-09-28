@@ -2,6 +2,7 @@
 
 import { AnimateOnScroll } from "../shared/AnimateOnScroll";
 import Link from "next/link";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 
 const services = [
   {
@@ -20,6 +21,8 @@ const services = [
     get: ["No enquiry goes cold", "Replies even when you're busy", "A predictable pipeline"],
   },
 ];
+
+const kinds = ["found", "show", "run"] as const;
 
 export default function HomeWhatWeDo() {
   return (
@@ -53,6 +56,7 @@ export default function HomeWhatWeDo() {
           {services.map((service, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
               <div className="card-lift bg-background p-10 rounded-2xl border border-border-subtle h-full cursor-default">
+                <ServiceIllustration kind={kinds[i]} className="mb-6" />
                 <h3 className="text-2xl font-bold mb-8 text-primary">
                   {service.title}
                 </h3>

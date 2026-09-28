@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { LineReveal } from "@/components/shared/LineReveal";
+import { DotPath } from "@/components/shared/DotPath";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -45,6 +46,26 @@ export default function HomeHero() {
       {/* Decorative corner grid lines */}
       <div className="absolute top-28 right-0 w-px h-40 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, var(--border-subtle), transparent)" }} aria-hidden="true" />
       <div className="absolute top-28 right-16 w-px h-28 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, var(--border-subtle), transparent)", opacity: 0.5 }} aria-hidden="true" />
+
+      {/* Growth path: the three levers from the subtext, rising to growth */}
+      <motion.div
+        initial={{ opacity: 0, x: 28 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease, delay: 0.3 }}
+        className="hidden xl:block absolute pointer-events-none"
+        style={{ right: "4vw", top: "clamp(7rem, 14vh, 11rem)", width: "min(460px, 34vw)" }}
+      >
+        <DotPath
+          nodes={[
+            { x: 70, y: 330, label: "Consulting" },
+            { x: 190, y: 255, label: "Tech" },
+            { x: 310, y: 185, label: "Marketing" },
+            { x: 440, y: 95, label: "Growth" },
+          ]}
+          startLabel="You"
+          emphasiseLast
+        />
+      </motion.div>
 
       <motion.div style={{ y: textY }} className="layout-grid px-6 md:px-10 relative z-10">
 

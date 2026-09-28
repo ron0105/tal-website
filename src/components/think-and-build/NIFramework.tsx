@@ -1,14 +1,15 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { DotPath } from "@/components/shared/DotPath";
 
 const stages = [
-  { n: "01", name: "Map the assumptions", desc: "Every idea rests on 3–4 beliefs that have to be true. We write them down. Most founders never do — and it shows later." },
-  { n: "02", name: "Talk to real customers", desc: "Not friends. Not family. The people who'd actually pay — asked the right way, so they tell you the truth instead of being polite." },
-  { n: "03", name: "Check the market reality", desc: "Who else is doing this, what they charge, where they're weak. If the gap you see doesn't exist, better to know now." },
-  { n: "04", name: "Test willingness to pay", desc: "“Would you use it?” means nothing. “Will you pay ₹X for it?” means everything. We find the difference." },
-  { n: "05", name: "Run the smallest possible test", desc: "A pilot, a pre-sale, a landing page with a price on it — the cheapest experiment that produces a real signal." },
-  { n: "06", name: "Make the call", desc: "Go, don't go, or pivot — backed by what we found, not how the idea feels. Either way, you move forward with certainty." },
+  { n: "01", short: "Assumptions", name: "Map the assumptions", desc: "Every idea rests on 3–4 beliefs that have to be true. We write them down. Most founders never do — and it shows later." },
+  { n: "02", short: "Customers", name: "Talk to real customers", desc: "Not friends. Not family. The people who'd actually pay — asked the right way, so they tell you the truth instead of being polite." },
+  { n: "03", short: "Market", name: "Check the market reality", desc: "Who else is doing this, what they charge, where they're weak. If the gap you see doesn't exist, better to know now." },
+  { n: "04", short: "Willingness to pay", name: "Test willingness to pay", desc: "“Would you use it?” means nothing. “Will you pay ₹X for it?” means everything. We find the difference." },
+  { n: "05", short: "Smallest test", name: "Run the smallest possible test", desc: "A pilot, a pre-sale, a landing page with a price on it — the cheapest experiment that produces a real signal." },
+  { n: "06", short: "The call", name: "Make the call", desc: "Go, don't go, or pivot — backed by what we found, not how the idea feels. Either way, you move forward with certainty." },
 ];
 
 export default function NIFramework() {
@@ -33,6 +34,20 @@ export default function NIFramework() {
             This is how Idea Validation works — the same sequence for every idea, structured enough to trust, fast enough that you don&apos;t lose momentum. (Consulting engagements are shaped around your business instead.)
           </p>
         </AnimateOnScroll>
+
+        {/* The six stages as one path: each step narrows the question until the call */}
+        <div className="hidden lg:block mb-12 max-w-5xl">
+          <DotPath
+            nodes={stages.map((s, i) => ({ x: 70 + i * 192, y: 150 - i * 20 + (i % 2 ? 22 : 0), label: s.short }))}
+            ghost=""
+            width={1100}
+            height={210}
+            startLabel="Idea"
+            endLabel="Decision"
+            emphasiseLast
+            onDark
+          />
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)" }}>
           {stages.map((s, i) => (

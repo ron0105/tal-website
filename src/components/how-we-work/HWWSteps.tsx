@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 
 const phases = [
   {
@@ -49,6 +50,8 @@ const faqs = [
   },
 ];
 
+const kinds = ["found", "show", "run"] as const;
+
 export default function HWWSteps() {
   return (
     <>
@@ -71,6 +74,7 @@ export default function HWWSteps() {
               <AnimateOnScroll key={phase.n} delay={i * 0.08}>
                 <div className="bg-background p-8 md:p-12 grid md:grid-cols-[200px_1fr_1fr] gap-8">
                   <div>
+                    <ServiceIllustration kind={kinds[i]} className="mb-5" />
                     <span className="section-num block mb-2">{phase.n}</span>
                     <h3 className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
                       {phase.title}

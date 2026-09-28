@@ -1,6 +1,8 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
+import { DotPath } from "@/components/shared/DotPath";
+import { ServiceIllustration } from "@/components/shared/ServiceIllustration";
 
 const outcomes = [
   {
@@ -78,6 +80,8 @@ const quickCards = [
   },
 ];
 
+const kinds = ["found", "show", "run"] as const;
+
 export default function FBServices() {
   return (
     <>
@@ -117,6 +121,7 @@ export default function FBServices() {
                         : { background: "var(--bg)", border: "1px solid var(--border-color)", borderRadius: "14px", boxShadow: "0 2px 10px rgba(20,32,30,0.04)" }
                     }
                   >
+                    <ServiceIllustration kind={kinds[i]} onDark={featured} />
                     <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: featured ? "rgba(255,255,255,0.55)" : "var(--accent)" }}>
                       {card.step}
                     </p>
@@ -217,7 +222,8 @@ export default function FBServices() {
       <section className="py-24 md:py-32 bg-background border-t border-border-subtle">
         <div className="layout-grid px-6 md:px-10">
 
-          <AnimateOnScroll className="mb-16">
+          <div className="mb-16 grid lg:grid-cols-[1fr_minmax(0,440px)] gap-10 items-center">
+          <AnimateOnScroll>
             <span className="label-eyebrow mb-4 block text-accent">What we actually do</span>
             <h2
               className="font-poppins mb-3"
@@ -233,6 +239,20 @@ export default function FBServices() {
             </h2>
             <p className="text-lg text-muted max-w-lg">We don&apos;t spread thin. We go deep in three areas that compound.</p>
           </AnimateOnScroll>
+
+          {/* Each step builds on the last: found, then consistent, then automatic */}
+          <AnimateOnScroll delay={0.15} className="hidden lg:block">
+            <DotPath
+              nodes={outcomes.map((o, i) => ({ x: 80 + i * 180, y: 230 - i * 70, label: o.title.split(".")[0] }))}
+              ghost=""
+              width={520}
+              height={300}
+              startLabel="Step one"
+              endLabel="Compounds"
+              emphasiseLast
+            />
+          </AnimateOnScroll>
+          </div>
 
           <div className="flex flex-col divide-y divide-border-subtle border-y border-border-subtle">
             {outcomes.map((o, i) => (
