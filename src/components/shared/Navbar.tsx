@@ -59,7 +59,7 @@ export default function Navbar() {
                 className="text-[9px] font-medium uppercase"
                 style={{ color: "var(--text-muted)", letterSpacing: "0.22em", marginTop: "3px" }}
               >
-                Consulting · Execution
+                Consulting · Design Thinking
               </span>
             </span>
           </Link>
