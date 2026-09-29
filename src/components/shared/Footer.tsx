@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "280px" }}>
-              More bookings for local service businesses: a website people can find, regular posts, and AI follow-ups that reply for you.
+              Growth systems for businesses that run on enquiries: found, seen, and answered.
             </p>
           </div>
 

@@ -6,11 +6,11 @@ import WhatsAppButton from "@/components/shared/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: {
-    default: "TAL Consulting | More bookings for local service businesses",
+    default: "TAL Consulting | More customers, not more busywork",
     template: "%s | TAL Consulting",
   },
   description:
-    "We help local service businesses like clinics, salons and cafés get more bookings, using a website people can find, regular posts, and AI follow-ups that reply for you.",
+    "We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
