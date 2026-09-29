@@ -15,7 +15,7 @@ const offerings = [
       "A validation report you can show co-founders and investors",
     ],
     cta: "Validate my idea",
-    href: "https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20validate%20a%20business%20idea%20with%20TAL.",
+    href: "https://wa.me/917830603010?text=Hi%2C%20I%27d%20like%20to%20validate%20a%20business%20idea%20with%20TAL.",
   },
   {
     tag: "Offering 02",
@@ -29,7 +29,7 @@ const offerings = [
       "Direct access to senior thinking, not a junior team",
     ],
     cta: "Talk to us",
-    href: "https://wa.me/918169315080?text=Hi%2C%20I%27m%20building%20something%20and%20would%20like%20consulting%20support%20from%20TAL.",
+    href: "https://wa.me/917830603010?text=Hi%2C%20I%27m%20building%20something%20and%20would%20like%20consulting%20support%20from%20TAL.",
   },
 ];
 
