@@ -11,6 +11,39 @@ function WAIcon() {
   );
 }
 
+function IGIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function LIIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </svg>
+  );
+}
+
+const socials = [
+  { label: "Instagram", handle: "@theaddalabs", href: "https://www.instagram.com/theaddalabs/", Icon: IGIcon },
+  { label: "LinkedIn", handle: "TAL Consulting", href: "https://www.linkedin.com/company/the-adda-labs", Icon: LIIcon },
+  { label: "Email", handle: "founder@theaddalabs.com", href: "mailto:founder@theaddalabs.com", Icon: MailIcon },
+];
+
 export default function ContactPage() {
   return (
     <main className="bg-background min-h-screen pt-32 pb-24">
@@ -84,6 +117,31 @@ export default function ContactPage() {
               </a>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-16"
+          >
+            <span className="label-eyebrow mb-6 block text-muted">Find us elsewhere</span>
+            <ul className="flex flex-wrap gap-4">
+              {socials.map(({ label, handle, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target={href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    aria-label={`${label}: ${handle}`}
+                    className="flex items-center gap-3 px-5 py-3 rounded-full border border-border-subtle text-body transition-colors hover:text-accent hover:border-accent"
+                  >
+                    <Icon />
+                    <span className="text-base">{handle}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </div>
     </main>
