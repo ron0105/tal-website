@@ -110,7 +110,7 @@ export default function HomeHero() {
         >
           <div>
             <p className="text-lg leading-relaxed text-body mb-4" style={{ maxWidth: "520px" }}>
-              We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.
+              Consulting, tech, and marketing: whatever moves the needle. They're tools we use to grow, scale, and optimize. The goal is always growth.
             </p>
             <p className="text-base text-muted" style={{ maxWidth: "440px" }}>
               Built from years of working with real businesses and founders. No guesswork.

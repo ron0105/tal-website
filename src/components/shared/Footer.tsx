@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "280px" }}>
-              Growth systems for businesses that run on enquiries: found, seen, and answered.
+              We help organisations grow, using consulting, tech, and marketing as the tools to get there.
             </p>
           </div>
 
