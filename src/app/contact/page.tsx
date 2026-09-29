@@ -51,10 +51,10 @@ export default function ContactPage() {
             >
               <h3 className="mb-6 text-primary">Book a Call</h3>
               <p className="text-lg text-muted mb-10 flex-1">
-                Schedule a 20-minute call. Tell us what you are working on, and we will tell you honestly how we can help.
+                Schedule a 30-minute call. Tell us what you are working on, and we will tell you honestly how we can help.
               </p>
               <Link 
-                href="https://calendly.com/adda-labs/intro" 
+                href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3okiZKwS5MI-SGYHVL0fpRS8dWUbUyADRsClVEFszNKx23S8HO997mRxqTxuA6rxkon4mifbaV" 
                 target="_blank"
                 className="btn-primary w-full text-center py-5 text-lg"
               >
