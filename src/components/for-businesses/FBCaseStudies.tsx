@@ -118,7 +118,7 @@ export default function FBCaseStudies() {
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
             Sound like where you are? Tell us what you&apos;re dealing with.{" "}
             <a
-              href="https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20my%20business."
+              href="https://wa.me/917830603010?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold cursor-pointer"
