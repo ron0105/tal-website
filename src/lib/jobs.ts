@@ -1,473 +1,417 @@
 // ─── Job Data ────────────────────────────────────────────────────────────────
-// Single source of truth for all open roles.
-// Add a new role by adding an object to the JOBS array.
-// Swap PLACEHOLDER_GOOGLE_FORM_URL with the real Google Form link per role.
+// Single source of truth for every role on /careers.
+// Add a role by adding an object to JOBS. Applications go through
+// /careers/[slug]/apply → /api/apply → the hiring sheet, so there is no form URL here.
+//
+// Every role is paid for results or per project, never a fixed salary: people join
+// the bench now and get paid when real client work exists. That's what lets TAL
+// recruit ahead of demand without adding monthly cost.
+
+export type RoleGroup = "grow" | "build";
+export type RoleStatus = "open" | "bench";
 
 export interface Job {
   slug: string;
   title: string;
   shortTitle: string;
-  department: string;
+  group: RoleGroup;
+  status: RoleStatus;
+  /** One line on when paid work starts. Shown next to the status pill. */
+  statusNote: string;
   type: string;
   location: string;
   teaser: string;
   highlights: string[];
-  googleFormUrl: string;
-  pipeline: string;
-  pipelineSteps: string[];
-  pipelineNote: string;
+  pay: {
+    headline: string;
+    detail: string[];
+  };
   content: {
-    whoWeAre: string[];
-    whyExists: {
-      problem: string[];
-      bandwidthFreed: string[];
-      weeklyOutcome: string[];
-    };
-    whatYouOwn: {
-      items: string[];
-      notYourJob?: string[];
-    };
-    mustHaves: {
-      skills: string[];
-      values: string[];
-      tools: string[];
-    };
-    ownershipSignal: string;
-    nicesToHave: {
-      signal: string;
-      standOut: string[];
-    };
-    redFlags: {
-      trust: string[];
-      willFail: string[];
-      warningText: string;
-    };
-    ninetyDays: string;
-    worthIt: string;
+    whyExists: string[];
+    whatYouDo: string[];
+    goodLooksLike: string[];
+    youllFit: string[];
+    /** Honest notes on how the role works, framed positively (hiring email rule 6). */
+    worthKnowing: string[];
+    tools?: string[];
+  };
+  workSample: {
+    prompt: string;
+    hint: string;
+    /** "links" adds a required links field above the written answer. */
+    answerType: "text" | "links";
   };
 }
 
+export const GROUPS: Record<RoleGroup, { label: string; line: string }> = {
+  grow: {
+    label: "Grow with us",
+    line: "Bring in clients. You earn on what you bring in, with no cap.",
+  },
+  build: {
+    label: "Build with us",
+    line: "Deliver client work. Paid per project, scored on quality.",
+  },
+};
+
+export const STATUS_LABEL: Record<RoleStatus, string> = {
+  open: "Open now",
+  bench: "Joining the bench",
+};
+
+// Same five steps for every role. Kept here so the careers page, every role page
+// and the apply flow describe the process identically.
+export const HIRING_STEPS = [
+  { name: "Apply", detail: "Basics plus one short work sample. About 30 minutes." },
+  { name: "Shortlist", detail: "Rohan reads every application on Fridays and picks the top 5 per role." },
+  { name: "Call", detail: "20 minutes. What you've done, what you want, how you work." },
+  { name: "Paid trial", detail: "One small real project, paid at the role's rate and scored." },
+  { name: "Join the bench", detail: "You get work as clients come in. Good work gets more of it." },
+];
+
+export const REPLY_PROMISE_DAYS = 7;
+
 export const JOBS: Job[] = [
-  // ── Content Creator ──────────────────────────────────────────────────────
+  // ── Grow ──────────────────────────────────────────────────────────────────
   {
-    slug: "content-creator",
-    title: "Content Creator (In House)",
-    shortTitle: "Content Creator",
-    department: "Creative",
-    type: "Full-Time",
-    location: "Mumbai",
+    slug: "referral-partner",
+    title: "Referral Partner",
+    shortTitle: "Referral Partner",
+    group: "grow",
+    status: "open",
+    statusNote: "Paid on every client you send who signs",
+    type: "Commission",
+    location: "Anywhere in India",
     teaser:
-      "Own our brand's content output end-to-end: video, design, social. We're here for creativity with a purpose: content that actually performs.",
+      "You already know business owners who lose customers because nobody replies to their enquiries fast enough. Introduce them to us, and earn on every one who signs.",
     highlights: [
-      "Premiere Pro / DaVinci / FCPX required",
-      "High output, fast revision cycles",
-      "Full Pipeline hiring process",
+      "10% of the client's first payment",
+      "No targets, no hours",
+      "Made for CAs, agencies and tool sellers",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfdxyrKMcoemZAjeISQZPPaAeETL6RVA1b5dZU3_LxSkUiXWA/viewform",
-    pipeline: "Full Pipeline",
-    pipelineSteps: ["Application", "Screening Round", "Execution Task", "Final Interview"],
-    pipelineNote:
-      "The execution task will test your technical output quality, your creative thinking under a brief, and how you respond to feedback in real time. Your reaction to feedback matters as much as the work itself.",
-    content: {
-      whoWeAre: [
-        "TAL is a two-founder startup. We're young, we move fast, and we hold our work to an unusually high standard. We build our own brand and execute content and marketing for clients. This role sits at the centre of both.",
-        "We care about diligent, quality work more than anything else, and we're drawn to people who feel that same pull toward making things that actually land, not just things that get praised in a room.",
+    pay: {
+      headline: "10% of the client's first payment",
+      detail: [
+        "On a typical Build, that's a five-figure payout for one introduction.",
+        "Paid within 7 days of the client's payment reaching us.",
+        "No cap on how many clients you send.",
       ],
-      whyExists: {
-        problem: [
-          "Our brand needs a consistent, high-quality content presence, and right now execution pulls focus from the founders' time on strategy and creative direction. This role takes the execution load off our plate. We'll teach you how we work, and you bring our direction to life.",
-          "You'll own content execution for TAL and support client content deliverables. The creative direction and final calls on what gets posted stay with the founders; turning that direction into finished, high-quality content is the job.",
-        ],
-        bandwidthFreed: [
-          "Once direction is set, you run with it end-to-end. No chasing, no repeated reminders. You take feedback and use it to make the next round better, because that's just how you work.",
-        ],
-        weeklyOutcome: [
-          "Consistent content output for TAL and clients. Fresh ideas without prompting. Posting schedules that run without a reminder from anyone.",
-        ],
-      },
-      whatYouOwn: {
-        items: [
-          "Short-form video creation and editing: Reels, YouTube Shorts, client videos",
-          "Static content: graphics, carousels, posts across formats",
-          "Posting schedules maintained consistently without reminders",
-          "Trend research and content ideation. You bring ideas, not just execution",
-          "Creative support on client marketing deliverables",
-        ],
-      },
-      mustHaves: {
-        skills: [
-          "Video editing proficiency",
-          "Photo editing proficiency",
-          "Design proficiency",
-          "Motion graphics",
-          "Presentation skills",
-          "Understanding of what makes content perform (reach, retention, engagement), not just what looks good",
-        ],
-        values: [
-          "You take feedback as fuel for the next version, not as a knock on the last one",
-          "You hit your deadlines. That's just how you operate",
-          "Revisions turn around fast, because you care about getting it right",
-          "You keep people in the loop. A quick \"still on it, here's where I'm at\" beats silence",
-          "You follow the brief precisely, even when you'd take it a different way",
-        ],
-        tools: [
-          "Premiere Pro",
-          "DaVinci Resolve",
-          "Final Cut Pro",
-          "Canva",
-          "Illustrator",
-          "Photoshop",
-          "Instagram",
-          "ChatGPT / Claude",
-          "Google Workspace",
-        ],
-      },
-      ownershipSignal:
-        "You have a portfolio. It is dense, spans multiple formats and genres, and shows real output, not just one or two projects. When asked to change something, you change it, then improve it. You do not send 'noted' and deliver the same thing again two days later.",
-      nicesToHave: {
-        signal:
-          "You've created content for creators, brands, or startups with a real audience. You have measurable results: account growth, views, engagement numbers you can point to. You've worked in a fast-paced environment where priorities shift without warning and you still delivered.",
-        standOut: [
-          "You've created content for creators, brands, or startups with a real audience",
-          "You have measurable results: account growth, views, engagement numbers you can point to",
-          "You've worked in a fast-paced environment where priorities shift without warning and you still delivered",
-        ],
-      },
-      redFlags: {
-        trust: [
-          "Being straight about your skills and your portfolio",
-          "Fast turnarounds on revisions",
-          "Following instructions as given, even when you'd do it differently",
-          "Speaking up the moment something's in your way",
-        ],
-        willFail: [
-          "Needing a brief spelled out before starting any piece of content",
-          "Getting attached to your creative output and resisting changes from the team",
-          "Struggling to sustain a high-output pace week after week",
-          "Being here mainly for the resume line",
-        ],
-        warningText:
-          "Read these honestly before you apply. It's how we make sure this is genuinely a good fit, for you and for us.",
-      },
-      ninetyDays:
-        "A growing, consistent content portfolio for both TAL and our clients, one that can be used as proof of work. Measurable improvement in engagement metrics across platforms. A content workflow that operates without any founder involvement on a day-to-day basis.",
-      worthIt:
-        "You work directly with both founders. You have real creative ownership over a brand that is actively being built. You see your work move actual numbers. There are no corporate layers, no approval chains that take two weeks, and no busywork disguised as a learning opportunity.",
+    },
+    content: {
+      whyExists: [
+        "We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.",
+        "The best clients come through people they already trust. If you advise, supply or work alongside business owners, you're that person. This role pays you for the trust you've built.",
+      ],
+      whatYouDo: [
+        "Spot owners who are losing enquiries: slow WhatsApp replies, missed calls, forms nobody answers",
+        "Make a warm introduction by message or email. We take it from there",
+        "Stay in the loop if you want to. We keep you posted on every introduction",
+      ],
+      goodLooksLike: [
+        "One or two warm introductions a month",
+        "Owners who already know they have a follow-up problem",
+        "Your clients thank you for the introduction",
+      ],
+      youllFit: [
+        "You're a CA, ad or design agency, WhatsApp tool seller, equipment dealer or consultant",
+        "You speak to business owners every week",
+        "You only recommend people you'd put your name behind",
+      ],
+      worthKnowing: [
+        "This is commission only, so it suits people who already meet owners as part of their work",
+        "Warm introductions to people you know work far better than cold lists",
+      ],
+    },
+    workSample: {
+      prompt:
+        "Tell us the type of business you know best, and how you'd introduce TAL to one owner you have in mind (no names needed).",
+      hint: "3 to 5 sentences is plenty.",
+      answerType: "text",
     },
   },
-
-  // ── Strategic Growth Partner — Sales Outreach ─────────────────────────────────────────
   {
     slug: "strategic-growth-partner",
-    title: "Strategic Growth Partner (Sales Outreach)",
-    shortTitle: "Strategic Growth Partner",
-    department: "Sales",
-    type: "Commission-Based",
-    location: "Mumbai",
+    title: "Strategic Growth Partner",
+    shortTitle: "Growth Partner",
+    group: "grow",
+    status: "open",
+    statusNote: "Paid from your first booked call",
+    type: "Commission + per call",
+    location: "Mumbai / Navi Mumbai, or remote",
     teaser:
-      "Most sales roles cap what you can make and own none of what you build. This one doesn't. You get an exclusive territory, a real product to sell, and every client you close pays you directly. No ceiling. If you're good at finding people and getting them to listen, this is the first role where that's worth what it's actually worth.",
+      "Find clinics, real estate firms and B2B businesses that are losing enquiries, start the conversation, and book them onto a 15-minute check-up call with us. You earn when you book, and again when they buy.",
     highlights: [
-      "Commission on every client you close",
-      "Exclusive territory: you represent TAL in your market",
-      "Application + Interview hiring process",
+      "A fixed fee for every qualified call you book",
+      "Commission on every client who pays",
+      "Scripts, lead lists and a proven offer from day one",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfKXqj8vRH9l5oOF5qGFvAHT6yC_qstxF0iFpf5Pnoqq8yHAQ/viewform",
-    pipeline: "Application + Interview",
-    pipelineSteps: ["Application", "Google Form", "Interview"],
-    pipelineNote:
-      "The interview covers your outreach experience, how you think about prospecting and follow-up, and whether the commission-based partnership model is the right fit on both sides. From there, we decide together whether to move forward.",
-    content: {
-      whoWeAre: [
-        "We're building a network of Strategic Growth Partners: people who own a territory, represent TAL exclusively in it, and earn on every client they close. TAL is the two-founder startup behind that network: we build brands, run content, and manage marketing for clients across industries, and we need partners who can bring in the work.",
-        "You're not an employee here. You're a partner. The pipeline is yours, the territory is yours, and so is what you earn from it. Commission percentage gets confirmed at interview.",
+    pay: {
+      headline: "A fee per qualified call, plus commission on every sale",
+      detail: [
+        "You're paid for each qualified call you book, whether or not it closes.",
+        "On top of that, commission on the first payment of every client you bring in.",
+        "Exact rates are shared on the shortlist call and written into your agreement.",
       ],
-      whyExists: {
-        problem: [
-          "This role exists because there's real upside on the table and no one capturing it. TAL's business development competes with everything else the founders are doing, which means qualified prospects aren't getting reached. A Strategic Growth Partner closes that gap, and earns directly from every client they bring in.",
-          "Everything before the sales conversation is yours to build: prospects, outreach, follow-up. The better your pipeline, the better you earn. Directly, not eventually.",
-        ],
-        bandwidthFreed: [
-          "You focus on growth, founders focus on delivery, and your income scales with your output, not with a fixed budget someone else controls.",
-        ],
-        weeklyOutcome: [
-          "20 qualified contacts reached per week. A live tracker updated daily. At least one warm lead handed off to the founding team every week after the first month.",
-        ],
-      },
-      whatYouOwn: {
-        items: [
-          "Prospecting: identifying SMEs in target sectors using LinkedIn, Google Maps, industry directories, and social platforms",
-          "Cold outreach: personalised messages across LinkedIn DMs, email, and other relevant channels",
-          "Follow-up sequences: structured follow-ups at Day 3, Day 7, Day 14, and Day 16 with a 4-touch maximum",
-          "Lead qualification: identifying warm leads and understanding their needs before handoff",
-          "Handoff: passing warm leads to the founding team via Flock with full context: contact details, interest level, and relevant package",
-          "A weekly report every Friday: your pipeline, on record",
-        ],
-      },
-      mustHaves: {
-        skills: [
-          "Ability to write outreach messages that sound human, not templated. Every message must be personalised",
-          "Research ability: you can find decision-makers at any business using publicly available information",
-          "Follow-up discipline: you manage a structured cadence without losing track of where each prospect stands",
-          "Clear, professional written communication. Your messages represent TAL externally",
-        ],
-        values: [
-          "Rejection is useful information. You process it and move forward without losing momentum",
-          "You build your own pipeline. No one hands you a list and you don't need one to start.",
-          "You keep your tracker current because it's your system, not because someone's checking",
-          "A warm lead is time-sensitive and you treat it that way. You escalate the moment it's worth it",
-          "Your handoffs are complete. Founders walk in with full context because you put it there.",
-        ],
-        tools: [
-          "LinkedIn",
-          "Google Maps",
-          "Google Workspace",
-          "Flock",
-          "ChatGPT / Claude",
-          "Google Sheets",
-          "Email",
-        ],
-      },
-      ownershipSignal:
-        "You've found people before, formally or informally. You know what a good opening message looks like and what gets ignored. You have a system for tracking follow-ups and you use it. You don't need someone to build your prospect list for you. You find people.",
-      nicesToHave: {
-        signal:
-          "You've done cold outreach in any context (sales, recruitment, partnerships, sponsorships) and you have results to show for it. You understand what SMEs care about and how they make buying decisions. You've worked in a fast-moving environment where targets were real and non-negotiable.",
-        standOut: [
-          "Prior experience in sales outreach, business development, or lead generation, even in a freelance or college context",
-          "You have a response rate or conversion metric you can point to from previous outreach work",
-          "You understand the service sector (gyms, salons, restaurants, creators, brands) and how they think about marketing spend",
-          "You've used LinkedIn Sales Navigator, Apollo, or similar tools",
-        ],
-      },
-      redFlags: {
-        trust: [
-          "Genuinely personalised outreach. Every message written for that specific person",
-          "Following up on time, every time. No lead goes cold",
-          "Daily tracker updates. Not when prompted, just always",
-          "You quote within TAL's standard pricing. Consistency protects the commission pool for every partner, including you",
-        ],
-        willFail: [
-          "You find it hard to start without a list already in front of you",
-          "Rejection tends to slow your momentum",
-          "Cold outreach feels unnatural. You work best through warm introductions",
-          "Weekly targets and pipeline reporting feel restrictive rather than motivating",
-        ],
-        warningText:
-          "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
-      },
-      ninetyDays:
-        "A live, active outreach pipeline with documented contacts, response rates, and at least three warm leads handed off to the founding team. A follow-up system that runs without founder involvement. A weekly report cadence that operates on time, every time.",
-      worthIt:
-        "Most outreach roles, you build someone else's pipeline and collect a salary regardless of what you close. Here, you build your own, and you keep what it's worth. No ceiling, no fixed cap, no internal competition for your territory. You work directly with both founders who need your pipeline to grow as much as you do, and you're in early enough to shape what TAL's partner network looks like as it scales beyond Mumbai.",
+    },
+    content: {
+      whyExists: [
+        "TAL sells three things: an Enquiry Leak Audit, an Enquiry Engine Build, and a monthly Growth Partner plan. The offer is clear and easy to show in a 15-minute check-up. What we need is more people starting those conversations.",
+        "You do the outreach and booking. Rohan runs the call and the delivery. You get paid at both ends.",
+      ],
+      whatYouDo: [
+        "Work through lead lists of clinics, real estate firms and B2B businesses",
+        "Send short, personal WhatsApp and LinkedIn messages using our tested openers",
+        "Book interested owners onto a 15-minute check-up call",
+        "Log every conversation so nothing slips",
+      ],
+      goodLooksLike: [
+        "20 or more personal messages on a working day",
+        "Replies that turn into booked calls within the week",
+        "Owners who arrive on the call already knowing why they're there",
+      ],
+      youllFit: [
+        "You can start a conversation with a stranger without sounding like a script",
+        "You follow up without being pushy",
+        "You like being paid on output, not hours",
+      ],
+      worthKnowing: [
+        "There is no fixed salary. Your income grows with the calls you book and the clients who buy",
+        "Twenty thoughtful messages beat five hundred copied ones, and that's how we measure it",
+      ],
+      tools: ["WhatsApp", "LinkedIn", "Google Sheets"],
+    },
+    workSample: {
+      prompt:
+        "Pick any clinic or real estate business in Mumbai. Write the first WhatsApp message you'd send the owner to get a 15-minute call. Then tell us in one line why it would work.",
+      hint: "Keep the message under 60 words. Name the business so we can see your research.",
+      answerType: "text",
     },
   },
 
-  // ── Developer Intern ──────────────────────────────────────────────────────
+  // ── Build ─────────────────────────────────────────────────────────────────
   {
-    slug: "developer-intern",
-    title: "Developer Intern",
-    shortTitle: "Developer Intern",
-    department: "Engineering",
-    type: "Internship",
-    location: "Hybrid (Remote-first)",
+    slug: "researcher",
+    title: "Researcher",
+    shortTitle: "Researcher",
+    group: "build",
+    status: "open",
+    statusNote: "Paid per list and per audit, starting this month",
+    type: "Per project",
+    location: "Remote",
     teaser:
-      "Frontend, backend, or anywhere in between: if you're curious, you learn fast, and you actually ship things, this is the room to be in. You'll work on real client projects and internal TAL builds from week one.",
+      "Build lead lists that are actually worth messaging, and act as a mystery customer: call, WhatsApp and fill in forms to measure how fast a business replies.",
     highlights: [
-      "Client projects + internal TAL builds",
-      "Hybrid, remote-first",
-      "Application + Screening + Interview hiring process",
+      "₹6,000 per Enquiry Leak Audit",
+      "Paid per verified lead list",
+      "Remote, flexible hours",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfzOxpalJGGP-Y9A0-_vMy68pvXope_--kRhy9CsrmaTb4OCQ/viewform",
-    pipeline: "Application + Screening + Interview",
-    pipelineSteps: ["Application", "Screening Round", "Interview"],
-    pipelineNote:
-      "The interview includes a live code walkthrough. You'll be shown a piece of intentionally flawed code and asked to spot and explain the issues. No prep needed beyond knowing how you think.",
-    content: {
-      whoWeAre: [
-        "TAL is a two-founder startup. We build brands, run content, and manage marketing for clients, and we build our own tools and website in-house. This role sits across both sides: client development work and internal builds.",
-        "We're not looking for someone who has it all figured out. We're looking for someone who picks things up fast, ships without hand-holding, and uses every tool available, including AI, to get there.",
+    pay: {
+      headline: "₹6,000 per audit, plus a fee per verified lead list",
+      detail: [
+        "An audit is about 6 to 8 hours of work spread across two weeks.",
+        "Lead lists are paid per verified list, agreed before you start.",
+        "Paid within 7 days of the work being accepted.",
       ],
-      whyExists: {
-        problem: [
-          "Development work at TAL spans client websites, internal tooling, and features we're building for our own platform. Right now that work competes for founder time, which means it moves slower than it should. This role takes the execution off our plate.",
-          "You'll work on real briefs with real deadlines. Some of it will be frontend. Some will be backend. Some will be full-stack. The stack varies by project. What stays constant is the expectation that you figure it out and deliver.",
-        ],
-        bandwidthFreed: [
-          "Once you're briefed, you own the build. You come back with questions when you're genuinely stuck, not for reassurance. You ship, get feedback, and iterate.",
-        ],
-        weeklyOutcome: [
-          "Shipped work (features, fixes, or pages) that the team can see and test. No open threads left hanging without a status update.",
-        ],
-      },
-      whatYouOwn: {
-        items: [
-          "Frontend builds: pages, components, and UI features across client and internal projects",
-          "Backend tasks (APIs, integrations, data handling) based on your skill set",
-          "Bug fixes and quality improvements on existing codebases",
-          "Internal tooling that makes the team's work faster or more reliable",
-          "Clear communication on what's built, what's blocked, and what's next",
-        ],
-      },
-      mustHaves: {
-        skills: [
-          "Proficiency in at least one frontend or backend language or framework",
-          "Ability to read an existing codebase and work within its patterns",
-          "Comfort using AI tools (ChatGPT, Claude, Copilot) as part of your development workflow",
-          "Basic understanding of how the web works: requests, responses, APIs, DOM",
-        ],
-        values: [
-          "You read the existing code before writing new code",
-          "When you're stuck, you try three things before you ask, and when you ask, you show your work",
-          "Feedback on your code is useful information, not a verdict on you",
-          "You communicate before anyone has to wonder where something is",
-          "Done means tested, not just written",
-        ],
-        tools: [
-          "Git / GitHub",
-          "VS Code or equivalent",
-          "ChatGPT / Claude / Copilot",
-          "Google Workspace",
-          "Vercel / Netlify (or similar)",
-          "Figma (reading designs, not necessarily creating them)",
-        ],
-      },
-      ownershipSignal:
-        "You've built something (a project, a page, a tool, anything) and you can walk us through what it does, what broke along the way, and what you'd do differently now. The stack doesn't matter. The fact that you shipped it does.",
-      nicesToHave: {
-        signal:
-          "You've worked on something outside of coursework: a personal project, a freelance build, a college club website, an open-source contribution. You've used AI tools not just to get answers but to think through problems. You're comfortable picking up a framework you haven't used before without waiting to be taught it.",
-        standOut: [
-          "You've built and shipped something independently, even if it's small",
-          "You've worked with a client or team on a real brief before",
-          "You're comfortable in both frontend and backend contexts",
-          "You've contributed to or studied an open-source project",
-          "You use AI tools actively and know their limits",
-        ],
-      },
-      redFlags: {
-        trust: [
-          "Being honest about what you know and what you don't. Overestimating your stack is how projects break",
-          "Flagging blockers early, not after the deadline has passed",
-          "Testing your own output before calling something done",
-          "Asking questions with context. 'I tried X and Y, here's what happened' beats 'it doesn't work'",
-        ],
-        willFail: [
-          "Waiting to be told what to do next when the brief is already in front of you",
-          "Treating AI-generated code as final output without reading or testing it",
-          "Going quiet when something isn't working instead of flagging it",
-          "Needing the full stack explained before starting anything",
-        ],
-        warningText:
-          "Read these honestly before you apply. It's how we make sure this is genuinely a good fit, for you and for us.",
-      },
-      ninetyDays:
-        "At least two shipped features or builds (on client projects, internal tools, or both) that the team is actively using. A clear track record of flagging blockers fast, iterating on feedback, and delivering on the briefs you're given. By month three, you're picking up tasks with minimal context and running with them.",
-      worthIt:
-        "You work directly with both founders on real products and client builds, not tutorial projects or practice tasks. The learning here is steep because the work is real. If you're early in your dev career and want to build a track record of shipped work fast, this is the place to do it.",
+    },
+    content: {
+      whyExists: [
+        "Our Enquiry Leak Audit shows a business exactly how many customers it loses through slow or missed replies. That only works if someone tests it like a real customer would, at different times, on every channel.",
+        "The same eye for detail makes great lead lists: real businesses with a real gap, not scraped names.",
+      ],
+      whatYouDo: [
+        "Contact a business as a customer by call, WhatsApp, form and Instagram at 5 different times",
+        "Record reply times and follow-ups in our audit sheet",
+        "Build lead lists from Google Maps and websites, checking each business for a real enquiry gap",
+      ],
+      goodLooksLike: [
+        "Every test logged with time, channel and exact reply",
+        "Lists where every row is worth a personal message",
+        "Notes that point to the one thing costing the business customers",
+      ],
+      youllFit: [
+        "You notice small things other people miss",
+        "You're comfortable calling a business and playing a customer",
+        "You hand in work on the day you said you would",
+      ],
+      worthKnowing: [
+        "Every list gets checked row by row, because each row becomes a personal message",
+        "You get a clear checklist for the first audit, then room to work your own way",
+      ],
+      tools: ["Google Sheets", "Google Maps", "WhatsApp"],
+    },
+    workSample: {
+      prompt:
+        "Pick a clinic near you. Find its website, Google rating and every way it takes enquiries. If you like, send it an enquiry and time the reply. Tell us what you found, and the one thing that's probably losing it patients.",
+      hint: "Bullet points are fine. Include the clinic's name and area.",
+      answerType: "text",
     },
   },
-
-  // ── Growth Hacker ─────────────────────────────────────────────────────────
   {
-    slug: "growth-hacker",
-    title: "Founder's Office Intern",
-    shortTitle: "Founder's Office",
-    department: "Founder's Office",
-    type: "Internship",
-    location: "Mumbai",
+    slug: "video-and-post-editor",
+    title: "Video & Post Editor",
+    shortTitle: "Editor",
+    group: "build",
+    status: "open",
+    statusNote: "Paid per client, monthly, as clients join",
+    type: "Per client, monthly",
+    location: "Remote",
     teaser:
-      "The founders' execution partner: outreach, research, decks, and coordination, owned end to end. A front-row seat to how a company gets built.",
+      "Turn raw phone footage and photos from clinics, real estate firms and local brands into posts and short videos that make people enquire.",
     highlights: [
-      "Direct-to-Interview process",
-      "Real responsibility from week one",
-      "Strategy + on-ground execution, both",
+      "₹12,000 to ₹15,000 per client, per month",
+      "Clear briefs and hooks from us",
+      "Remote, work your own hours",
     ],
-    googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc3A595OYT3az4m9aVmuf_tewNgYMwlu3sZpvPj2enVusA9hQ/viewform",
-    pipeline: "Direct-to-Interview",
-    pipelineSteps: ["Application", "Founder Interview", "Live Execution Task"],
-    pipelineNote:
-      "The live task will test communication clarity, your ability to build something coherent under time pressure, research speed, and how you handle ambiguity when there is no clear instruction to follow.",
-    content: {
-      whoWeAre: [
-        "TAL is a two-founder startup. We're young, we move fast, and we hold ourselves and our team to a high bar. You get real ownership here, not just tasks to check off.",
-        "This role sits inside the Founder's Office, the seat where strategy, sales, and operations meet. It's a force-multiplier role, not an admin desk.",
+    pay: {
+      headline: "₹12,000 to ₹15,000 per client, per month",
+      detail: [
+        "Each client is about 8 posts and 4 short videos a month.",
+        "Take on as many clients as you can deliver well.",
+        "Paid monthly, within 7 days of the month's work being approved.",
       ],
-      whyExists: {
-        problem: [
-          "At this stage, founder bandwidth is the single biggest bottleneck to growth. Outreach, research, decks, follow-ups, coordination, client meetings, shoots. All of it competes for the same 24 hours.",
-          "This role is a direct extension of the founding team, at the desk and on the ground. You take complete ownership of projects from initiation to completion: research and decks one day, a client meeting or market visit the next. You sit close to decisions. You see how a startup actually operates. In exchange, we need you to be completely reliable.",
-        ],
-        bandwidthFreed: [
-          "Outreach, research, decks, discovery-call prep, coordination, and on-ground support. You own it end to end, so founders stay focused on what only they can do.",
-        ],
-        weeklyOutcome: [
-          "Lead generation activity with clear targets. Trackers and systems current without prompting. Research and decks delivered meeting-ready. Every open thread followed up until it closes.",
-        ],
-      },
-      whatYouOwn: {
-        items: [
-          "Outreach and lead generation (LinkedIn, cold email, DMs) with clear targets and cadences, managed end to end",
-          "Research the founders can act on (markets, competitors, prospects), synthesized, not just collected",
-          "Decks, dashboards, and meeting notes that founders walk into any room with",
-          "Coordination across teams: tasks, timelines, and follow-ups tracked until they close",
-          "Ground support when the work calls for it: client meetings, market visits, shoots",
-        ],
-      },
-      mustHaves: {
-        skills: [
-          "Strong written and verbal communication. Your emails and messages will represent TAL externally",
-          "Ability to build clean, structured, visually coherent presentations from a rough brief",
-          "Research ability: find things, synthesize them, present clearly without being told where to look",
-          "Comfort switching between strategic work and hands-on execution within the same day",
-        ],
-        values: [
-          "You do what you say you'll do. No follow-up required. It's just how you operate.",
-          "When something breaks, you own it before anyone asks. Fix first, explain after",
-          "You see what needs doing and you do it. Initiative isn't something you turn on when prompted.",
-          "You communicate before anyone has to wonder. If you're blocked, stuck, or off-track, you say so.",
-        ],
-        tools: [
-          "Google Workspace",
-          "Flock",
-          "ClickUp",
-          "Canva",
-          "ChatGPT / Claude",
-          "Google Sheets",
-          "PowerPoint / Slides",
-        ],
-      },
-      ownershipSignal:
-        "You're self-directed: when you hit a blocker, you solve it or flag it immediately rather than letting it sit. When something goes wrong, you own it before anyone has to ask. You have a track record of doing things independently, even if that track record is from college projects, freelance work, or something you built on your own.",
-      nicesToHave: {
-        signal:
-          "Startup, consulting, or founder's office experience, even freelance or at a small scale. You've done real outreach (cold email, LinkedIn prospecting) and you understand what works. You've built something independently that other people actually used.",
-        standOut: [
-          "Startup, consulting, or founder's office experience, even freelance or at a small scale",
-          "Six months to a year in marketing, agency, or business development work. Internships and freelance count",
-          "You've done real outreach (cold email, LinkedIn prospecting) and you understand what works",
-          "You've built something independently: a system, a tracker, a workflow, or a project others actually used",
-        ],
-      },
-      redFlags: {
-        trust: [
-          "Owning mistakes immediately. No denial, no deflection",
-          "Correcting first, explaining later. The fix comes before the justification",
-          "Due diligence on everything before it leaves your hands",
-          "Immediate communication when something breaks. No disappearing",
-        ],
-        willFail: [
-          "You do your best work with clear task lists and defined hours",
-          "Self-directing when the next step isn't specified doesn't come naturally to you",
-          "Taking ownership when things break isn't your default",
-          "The credential matters more to you than the contribution",
-        ],
-        warningText:
-          "If the reflection points above feel familiar, take a moment before applying. We'd rather you self-select than both of us find out the hard way.",
-      },
-      ninetyDays:
-        "TAL's first set of clients actively in the pipeline, with your outreach contributing directly. A documented knowledge base of ideas, systems, and research the team actually uses. A lead-generation workflow that runs without daily founder involvement.",
-      worthIt:
-        "You work directly with both founders from day one. Mentorship here is the seating arrangement, not a programme. The internship is built to convert: do it well, and you're the obvious first hire as TAL scales. Stipend and structure are discussed openly at the first conversation. No surprises. There are no corporate layers between you and the work that matters.",
+    },
+    content: {
+      whyExists: [
+        "Our content plans give businesses regular posts built around what their customers actually ask. We write the plan and the hooks. You make it look and feel worth stopping for.",
+      ],
+      whatYouDo: [
+        "Edit short videos from raw client footage, with captions and a strong first 3 seconds",
+        "Design static posts and carousels from our briefs and the client's brand",
+        "Turn feedback around within a day",
+      ],
+      goodLooksLike: [
+        "Every video earns the next 3 seconds",
+        "Posts that look like the client, not like a template",
+        "No missed delivery dates",
+      ],
+      youllFit: [
+        "You've edited short-form video that's been posted, not just practised",
+        "You care about the hook more than the transitions",
+        "You take feedback without taking it personally",
+      ],
+      worthKnowing: [
+        "We set the plan and the hooks, and you bring the craft that makes them land",
+        "The work is steady and short-form, across several clients at once",
+      ],
+      tools: ["Premiere Pro, DaVinci or CapCut", "Canva or Figma"],
+    },
+    workSample: {
+      prompt:
+        "Share 2 or 3 short videos or posts you've made. For one of them, tell us the hook in the first 3 seconds and why you chose it.",
+      hint: "Instagram, YouTube or Drive links all work. Make sure they're viewable.",
+      answerType: "links",
+    },
+  },
+  {
+    slug: "web-developer",
+    title: "Web Developer",
+    shortTitle: "Web Developer",
+    group: "build",
+    status: "bench",
+    statusNote: "Paid work starts with our first Build",
+    type: "Per project",
+    location: "Remote",
+    teaser:
+      "Build fast, clear websites and landing pages for businesses that run on enquiries. Every page has one job: make it easy for a customer to get in touch.",
+    highlights: [
+      "₹30,000 per site",
+      "Real client sites, not practice projects",
+      "Remote, project by project",
+    ],
+    pay: {
+      headline: "₹30,000 per site",
+      detail: [
+        "A typical site is 4 to 6 pages, built from our structure and copy.",
+        "Half when you start, half when the site goes live.",
+        "Bench members are booked first when a Build is signed.",
+      ],
+    },
+    content: {
+      whyExists: [
+        "Our Enquiry Engine Build gives a business a website people can find and a way to reply to every enquiry fast. The website is where that starts, and it has to load fast, read clearly and convert.",
+      ],
+      whatYouDo: [
+        "Build sites and landing pages in WordPress, Webflow or Next.js from our structure and copy",
+        "Set up enquiry forms, WhatsApp buttons and basic tracking",
+        "Hand over a site the owner can update without calling you",
+      ],
+      goodLooksLike: [
+        "Pages that load in under 2 seconds on a phone",
+        "Every form and button tested before handover",
+        "Live on the date we agreed",
+      ],
+      youllFit: [
+        "You have at least 3 live business sites you can show",
+        "You think about the person using the site, not just the code",
+        "You flag problems early instead of the day before launch",
+      ],
+      worthKnowing: [
+        "We look for sites that real businesses use today, so live work matters more than practice projects",
+        "Short daily updates keep the client calm, so we ask for them on every Build",
+      ],
+      tools: ["WordPress or Webflow", "Next.js (a plus)", "Google Analytics"],
+    },
+    workSample: {
+      prompt:
+        "Share 1 to 3 live sites you built. Pick one and tell us what you'd change to get the owner more enquiries.",
+      hint: "Tell us which parts you built yourself.",
+      answerType: "links",
+    },
+  },
+  {
+    slug: "automation-builder",
+    title: "Automation Builder",
+    shortTitle: "Automation Builder",
+    group: "build",
+    status: "bench",
+    statusNote: "Paid work starts with our first Build",
+    type: "Per project",
+    location: "Remote",
+    teaser:
+      "Set up the WhatsApp auto-replies, follow-ups and reminders that make sure no enquiry goes unanswered, and one sheet where every enquiry lands.",
+    highlights: [
+      "₹20,000 per setup",
+      "WhatsApp tools + make.com",
+      "Remote, project by project",
+    ],
+    pay: {
+      headline: "₹20,000 per setup",
+      detail: [
+        "A setup covers the auto-reply, 3 follow-ups, reminders and the lead sheet.",
+        "Half when you start, half when it's live and tested.",
+        "Bench members are booked first when a Build is signed.",
+      ],
+    },
+    content: {
+      whyExists: [
+        "Most businesses lose customers in the gap between an enquiry and a reply. Our Build closes that gap with automations that answer in seconds and follow up until the customer books.",
+      ],
+      whatYouDo: [
+        "Set up WhatsApp auto-replies and follow-up sequences in WATI, Interakt or AiSensy",
+        "Connect forms, WhatsApp and calls into one lead sheet with make.com",
+        "Test every path end to end and document it for the owner",
+      ],
+      goodLooksLike: [
+        "A test enquiry gets a reply in under a minute, on every channel",
+        "Every enquiry lands in the sheet, with nothing lost",
+        "A one-page guide the owner can actually follow",
+      ],
+      youllFit: [
+        "You've built automations that run for a real business today",
+        "You test the edge cases nobody asked about",
+        "You can explain what you built in plain words",
+      ],
+      worthKnowing: [
+        "Automations you've run for a real business count for far more than tutorials",
+        "Reliable beats clever here: the owner has to trust it on a busy Saturday",
+      ],
+      tools: ["WATI, Interakt or AiSensy", "make.com", "Google Sheets"],
+    },
+    workSample: {
+      prompt:
+        "Describe one automation you've built: what triggers it, the steps, and what it saved the business. Link a Loom or screenshots if you have them.",
+      hint: "If you don't have a link, write \"none\" in the links box and describe it in detail.",
+      answerType: "links",
     },
   },
 ];
@@ -478,4 +422,8 @@ export function getJob(slug: string): Job | undefined {
 
 export function getAllSlugs(): string[] {
   return JOBS.map((j) => j.slug);
+}
+
+export function jobsByGroup(group: RoleGroup): Job[] {
+  return JOBS.filter((j) => j.group === group);
 }

@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
         destination: "/how-we-work",
         permanent: true,
       },
+      // Roles retired in the Oct 2026 careers revamp; old links land on the current roles
+      {
+        source: "/careers/:slug(content-creator|developer-intern|growth-hacker)",
+        destination: "/careers",
+        permanent: true,
+      },
     ];
   },
 };

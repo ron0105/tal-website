@@ -1,12 +1,14 @@
 import CareersHero from "@/components/careers/CareersHero";
+import HowWeHire from "@/components/careers/HowWeHire";
 import JobListings from "@/components/careers/JobListings";
+import CareersFAQ from "@/components/careers/CareersFAQ";
 import CareersCTA from "@/components/careers/CareersCTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Careers | TAL Consulting",
   description:
-    "We're hiring. TAL is a two-founder startup building something real. If you want ownership from day one, read on.",
+    "Help businesses win more customers and get paid for every win. Paid per project or per result, with a paid trial and an answer within 7 days.",
 };
 
 export default function CareersPage() {
@@ -14,6 +16,8 @@ export default function CareersPage() {
     <main>
       <CareersHero />
       <JobListings />
+      <HowWeHire />
+      <CareersFAQ />
       <CareersCTA />
     </main>
   );

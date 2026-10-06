@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Job } from "@/lib/jobs";
+import { GROUPS, Job } from "@/lib/jobs";
+import StatusPill from "./StatusPill";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -16,7 +17,7 @@ export default function JDHero({ job }: JDHeroProps) {
       className="relative bg-background overflow-hidden"
       style={{ padding: "clamp(9rem, 16vh, 13rem) 1.5rem clamp(4rem, 8vh, 6rem)" }}
     >
-      {/* Gradient blob — matches HomeHero / CareersHero */}
+      {/* Gradient blob, matches HomeHero / CareersHero */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
         aria-hidden="true"
@@ -31,7 +32,6 @@ export default function JDHero({ job }: JDHeroProps) {
       </div>
 
       <div className="layout-grid px-6 md:px-10 relative z-10">
-        {/* Breadcrumb */}
         <motion.div
           initial={{ opacity: 0, x: -12 }}
           animate={{ opacity: 1, x: 0 }}
@@ -47,17 +47,19 @@ export default function JDHero({ job }: JDHeroProps) {
             Careers
           </Link>
           <span style={{ color: "var(--border-color)" }}>/</span>
+          <span>{GROUPS[job.group].label}</span>
+          <span style={{ color: "var(--border-color)" }}>/</span>
           <span style={{ color: "var(--accent)" }}>{job.shortTitle}</span>
         </motion.div>
 
-        {/* Tags */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08, ease: EASE }}
           className="flex flex-wrap gap-2 mb-8"
         >
-          {[job.department, job.type, `📍 ${job.location}`].map((tag) => (
+          <StatusPill status={job.status} />
+          {[job.type, job.location].map((tag) => (
             <span
               key={tag}
               className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-sm"
@@ -66,56 +68,48 @@ export default function JDHero({ job }: JDHeroProps) {
               {tag}
             </span>
           ))}
-          <span
-            className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-sm"
-            style={{ background: "var(--accent)", color: "#fff" }}
-          >
-            {job.pipeline}
-          </span>
         </motion.div>
 
-        {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.15, ease: EASE }}
-          className="mb-8"
-          style={{
-            color: "var(--text-primary)",
-            maxWidth: "760px",
-          }}
+          className="mb-6"
+          style={{ color: "var(--text-primary)", maxWidth: "760px" }}
         >
           {job.title}
         </motion.h1>
 
-        {/* Teaser */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.25, ease: EASE }}
+          transition={{ duration: 0.65, delay: 0.22, ease: EASE }}
+          className="text-lg font-semibold mb-6"
+          style={{ color: "var(--accent)" }}
+        >
+          {job.pay.headline}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.28, ease: EASE }}
           className="body-copy mb-10"
-          style={{ maxWidth: "540px" }}
+          style={{ maxWidth: "580px" }}
         >
           {job.teaser}
         </motion.p>
 
-        {/* CTA row */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
+          transition={{ duration: 0.6, delay: 0.36, ease: EASE }}
           className="flex flex-wrap items-center gap-4"
         >
-          <a
-            href={job.googleFormUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            style={{ padding: "12px 28px" }}
-          >
-            Apply Now →
-          </a>
-          <Link href="#role-details" className="btn-ghost" style={{ padding: "12px 28px" }}>
+          <Link href={`/careers/${job.slug}/apply`} className="btn-primary" style={{ padding: "13px 28px" }}>
+            Apply in 30 minutes →
+          </Link>
+          <Link href="#role-details" className="btn-ghost" style={{ padding: "13px 28px" }}>
             Read the full role
           </Link>
         </motion.div>

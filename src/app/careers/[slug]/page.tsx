@@ -11,6 +11,10 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
+// Old role URLs (content-creator, developer-intern, growth-hacker) are gone, so any
+// slug not in JOBS should 404 rather than render on demand.
+export const dynamicParams = false;
+
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export async function generateMetadata({
   params,
@@ -22,8 +26,8 @@ export async function generateMetadata({
   if (!job) return { title: "Role Not Found | TAL Consulting" };
 
   return {
-    title: `${job.title} | TAL Consulting`,
-    description: job.teaser,
+    title: `${job.title} | Careers | TAL Consulting`,
+    description: `${job.pay.headline}. ${job.teaser}`,
   };
 }
 

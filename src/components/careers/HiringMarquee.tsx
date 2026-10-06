@@ -9,14 +9,16 @@ import Link from "next/link";
 
 const MARQUEE_TEXT = [
   "We're Hiring",
-  "Content Creator",
-  "Founder's Office",
-  "Join TAL",
+  "Growth Partners",
+  "Researchers",
+  "Editors",
+  "Paid per result",
   "Open Roles →",
   "We're Hiring",
-  "Content Creator",
-  "Founder's Office",
-  "Join TAL",
+  "Web Developers",
+  "Automation Builders",
+  "Referral Partners",
+  "Paid per result",
   "Open Roles →",
 ];
 
