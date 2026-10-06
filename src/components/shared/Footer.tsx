@@ -72,13 +72,32 @@ export default function Footer() {
           className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8"
           style={{ borderTop: "1px solid var(--border-subtle)" }}
         >
-          <p className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
-            &copy; {year} TAL Consulting / The Adda Labs
-          </p>
-          <div className="flex gap-6">
+          <div className="flex flex-col gap-2">
+            <p className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
+              &copy; {year} TAL Consulting LLP / The Adda Labs
+            </p>
+            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+              LLPIN ACZ-3000 · Mumbai, India · Grievance officer: Rohan Tiwarekar, founder@theaddalabs.com
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-6">
             <p className="text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
               India + International
             </p>
+            {[
+              { label: "Careers", href: "/careers" },
+              { label: "Privacy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-xs font-semibold transition-colors hover:text-accent"
+                style={{ color: "var(--text-muted)" }}
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
