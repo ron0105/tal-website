@@ -61,8 +61,8 @@ export default function Privacy() {
 
       <LegalSection heading="Where it&apos;s kept, and for how long">
         <p>
-          Applications are stored in TAL&apos;s Google Workspace account, and confirmation emails are sent
-          through Resend, our email provider. This website is hosted on Vercel. These providers process the
+          Applications are stored in TAL&apos;s Google Workspace account, and emails about your application
+          are sent from that same account. This website is hosted on Vercel. These providers process the
           information on our behalf and may store it on servers outside India.
         </p>
         <p>
