@@ -18,18 +18,18 @@ export default function CareersCTA() {
           transition={{ duration: 0.7, ease: EASE }}
           className="max-w-xl"
         >
-          <span className="label-eyebrow block mb-6">Don't see the right role?</span>
+          <span className="label-eyebrow block mb-6">Don&apos;t see the right role?</span>
           <h2
             className="mb-6"
             style={{
               color: "var(--text-primary)",
             }}
           >
-            If you're exceptional,{" "}
+            If you&apos;re exceptional,{" "}
             <span style={{ color: "var(--accent)" }}>write to us anyway.</span>
           </h2>
           <p className="body-copy mb-8" style={{ maxWidth: "440px" }}>
-            Tell us what you'd own, what you've built, and why TAL is the right
+            Tell us what you&apos;d own, what you&apos;ve built, and why TAL is the right
             environment for you. We read everything.
           </p>
           <a

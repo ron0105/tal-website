@@ -1,17 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { JOBS } from "@/lib/jobs";
+import { JOBS, REPLY_PROMISE_DAYS } from "@/lib/jobs";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const openCount = JOBS.filter((j) => j.status === "open").length;
+
+const FACTS = [
+  { big: "Per result", small: "Paid per project or per client won. No ceiling." },
+  { big: `${REPLY_PROMISE_DAYS} days`, small: "Everyone who applies hears back within a week." },
+  { big: "Paid trial", small: "Your first project is real work, paid at the full rate." },
+];
 
 export default function CareersHero() {
   return (
     <section
       className="relative bg-background overflow-hidden"
-      style={{ padding: "clamp(10rem, 18vh, 14rem) 1.5rem clamp(5rem, 10vh, 8rem)" }}
+      style={{ padding: "clamp(10rem, 18vh, 14rem) 1.5rem clamp(4rem, 9vh, 7rem)" }}
     >
-      {/* Subtle gradient blob — matches HomeHero */}
+      {/* Gradient blob, matches HomeHero */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         aria-hidden="true"
@@ -26,7 +34,6 @@ export default function CareersHero() {
       </div>
 
       <div className="layout-grid px-6 md:px-10 relative z-10">
-        {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, x: -12 }}
           animate={{ opacity: 1, x: 0 }}
@@ -35,90 +42,69 @@ export default function CareersHero() {
         >
           <div className="w-6 h-px" style={{ background: "var(--accent)" }} />
           <span className="label-eyebrow" style={{ color: "var(--accent)" }}>
-            We're Hiring
+            Careers at TAL · {openCount} roles open now
           </span>
         </motion.div>
 
-        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.1, ease: EASE }}
           className="mb-8"
-          style={{
-            color: "var(--text-primary)",
-            maxWidth: "800px",
-          }}
+          style={{ color: "var(--text-primary)", maxWidth: "860px" }}
         >
-          Build something real.{" "}
-          <span style={{ color: "var(--accent)" }}>Do it with us.</span>
+          Help businesses win more customers.{" "}
+          <span style={{ color: "var(--accent)" }}>Get paid for every win.</span>
         </motion.h1>
 
-        {/* Body */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
-          className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-20 items-end max-w-4xl"
+          className="body-copy mb-12"
+          style={{ maxWidth: "600px" }}
         >
-          <div>
-            <p
-              className="body-copy mb-4"
-              style={{ maxWidth: "540px" }}
-            >
-              TAL is a two-founder startup. We move fast, hold our work to a
-              high standard, and bring in people who take both seriously. If you
-              want a comfortable job, this is not the place. If you want real
-              work from day one, keep reading.
-            </p>
-          </div>
+          TAL helps businesses that grow on enquiries turn more of them into
+          customers. We&apos;re a small, AI-first team led by Rohan, and we grow
+          by building a bench of sharp people who are paid for what they
+          deliver, not the hours they sit. Pick a role, show us your work, and
+          you&apos;ll have an answer within a week.
+        </motion.p>
 
-          {/* Role count pill */}
-          <div
-            className="flex items-center gap-3 px-5 py-3 rounded-sm border self-start md:self-end shrink-0"
-            style={{
-              borderColor: "var(--border-color)",
-              background: "var(--bg-secondary)",
-            }}
-          >
-            <span
-              className="text-2xl font-black"
-              style={{ color: "var(--accent)" }}
-            >
-              {JOBS.length}
-            </span>
-            <span
-              className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Open<br />Roles
-            </span>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.38, ease: EASE }}
+          className="flex flex-wrap items-center gap-4 mb-16"
+        >
+          <a href="#open-roles" className="btn-primary" style={{ padding: "13px 28px" }}>
+            See the roles →
+          </a>
+          <a href="#how-we-hire" className="btn-ghost" style={{ padding: "13px 28px" }}>
+            How we hire
+          </a>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          className="flex items-center gap-3 mt-16"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
+          className="grid sm:grid-cols-3 gap-px max-w-4xl"
+          style={{ background: "var(--border-color)", border: "1px solid var(--border-color)" }}
         >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-10 relative overflow-hidden"
-            style={{ background: "var(--border-subtle)" }}
-          >
-            <motion.div
-              className="absolute top-0 left-0 w-full h-1/2"
-              style={{ background: "var(--accent)" }}
-              animate={{ y: ["0%", "200%"] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-muted">
-            Open Roles
-          </span>
+          {FACTS.map((f) => (
+            <div key={f.big} className="p-6" style={{ background: "var(--bg)" }}>
+              <p
+                className="font-poppins text-2xl mb-2"
+                style={{ color: "var(--brand)", fontWeight: 500 }}
+              >
+                {f.big}
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                {f.small}
+              </p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
