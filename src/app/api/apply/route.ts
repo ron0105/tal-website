@@ -7,8 +7,9 @@ import { scoreQuiz } from "@/lib/quiz-key";
 // the confirmation email. The webhook URL and token stay server-side, so the
 // browser never learns where the sheet lives.
 
-// Room for the Apps Script round trip (POST, then reading its reply)
-export const maxDuration = 30;
+// Room for the Apps Script round trip. From Vercel, Google can take ~20s to answer the
+// POST even though the row is written in ~2s, so give it plenty of time.
+export const maxDuration = 60;
 
 const PAUSED =
   "Applications are paused for a moment. Please email rohan@theaddalabs.com and we'll take it from there.";
@@ -107,7 +108,7 @@ export async function POST(request: Request) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
       redirect: "manual",
-      signal: AbortSignal.timeout(15_000),
+      signal: AbortSignal.timeout(40_000),
     });
   } catch (err) {
     console.error("[apply] webhook unreachable", err);

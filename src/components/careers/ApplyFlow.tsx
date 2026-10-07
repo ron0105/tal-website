@@ -120,6 +120,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const [serverMessage, setServerMessage] = useState("");
   const [restored, setRestored] = useState(false);
+  // Saving can take a while (Google is slow to answer), so reassure after a few seconds
+  const [slow, setSlow] = useState(false);
   const topRef = useRef<HTMLDivElement>(null);
 
   // Option order is shuffled per applicant (seeded by when they started), so answers
@@ -195,6 +197,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
       return;
     }
     setStatus("sending");
+    setSlow(false);
+    const slowTimer = setTimeout(() => setSlow(true), 4000);
     try {
       const res = await fetch("/api/apply", {
         method: "POST",
@@ -211,6 +215,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
     } catch (err) {
       setServerMessage(err instanceof Error ? err.message : "Something went wrong.");
       setStatus("failed");
+    } finally {
+      clearTimeout(slowTimer);
     }
   };
 
@@ -538,6 +544,12 @@ export default function ApplyFlow({ job }: { job: Job }) {
                   )}
                 </div>
 
+                {status === "sending" && slow && (
+                  <p role="status" className="text-sm px-4 py-3 rounded-sm" style={{ background: "var(--bg-lift)", color: "var(--text-body)" }}>
+                    Saving your application. This can take up to half a minute, so please keep this page open.
+                  </p>
+                )}
+
                 {status === "failed" && (
                   <p role="alert" className="text-sm px-4 py-3 rounded-sm" style={{ background: "#F8EBE2", color: "var(--accent-hover)" }}>
                     {serverMessage} Your answers are still here, so you can try again.
@@ -564,7 +576,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
             style={{ padding: "13px 28px", opacity: status === "sending" ? 0.7 : 1 }}
             disabled={status === "sending"}
           >
-            {step < steps.length - 1 ? "Continue →" : status === "sending" ? "Sending…" : "Send my application →"}
+            {step < steps.length - 1 ? "Continue →" : status === "sending" ? (slow ? "Still saving…" : "Sending…") : "Send my application →"}
           </button>
         </div>
       </form>
