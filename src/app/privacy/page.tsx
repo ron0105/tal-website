@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <LegalPage eyebrow="Privacy" title="Privacy notice" updated="6 October 2026">
+    <LegalPage eyebrow="Privacy" title="Privacy notice" updated="7 October 2026">
       <LegalSection heading="Who we are">
         <p>
           This website is run by TAL Consulting LLP (The Adda Labs), LLPIN ACZ-3000, based in Mumbai, India.
@@ -36,6 +36,12 @@ export default function Privacy() {
           phone number, city, the links you share, your written answers, the time you can give, and how you
           found us.
         </p>
+        <p>
+          <strong>If you book a call</strong> through our <Link href="/call">call page</Link>, we receive your
+          name, email, the time you pick, and your three answers (your type of business, roughly how many
+          enquiries you get, and what you&apos;d like to improve). Bookings are made through Cal.com, which runs
+          our calendar. If you send your answers on WhatsApp instead, we receive them through WhatsApp.
+        </p>
       </LegalSection>
 
       <LegalSection heading="Why we use it">
@@ -48,6 +54,9 @@ export default function Privacy() {
         <p>
           We don&apos;t sell it, use it for marketing, or share it with anyone outside the people at TAL who
           review applications.
+        </p>
+        <p>
+          We use call bookings only to prepare for and hold the call you asked for, and to remind you about it.
         </p>
       </LegalSection>
 
@@ -68,6 +77,10 @@ export default function Privacy() {
         <p>
           We keep applications for <strong>6 months</strong> from the date you apply, then delete them,
           unless you join our bench, in which case we keep what we need to work with you.
+        </p>
+        <p>
+          Call bookings are kept in Cal.com and TAL&apos;s Google Workspace calendar for{" "}
+          <strong>12 months</strong> after the call, then deleted, unless we start working together.
         </p>
       </LegalSection>
 
