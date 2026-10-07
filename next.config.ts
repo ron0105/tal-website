@@ -28,12 +28,21 @@ const nextConfig: NextConfig = {
         destination: "/how-we-work",
         permanent: true,
       },
-      // Roles retired in the Oct 2026 careers revamp; old links land on the current roles
-      {
-        source: "/careers/:slug(content-creator|developer-intern|growth-hacker)",
-        destination: "/careers",
-        permanent: true,
-      },
+      // Retired role URLs (Oct 2026) point at the cohort track that replaced them
+      ...[
+        ["growth-hacker", "growth"],
+        ["founders-office", "growth"],
+        ["strategic-growth-partner", "growth"],
+        ["content-creator", "content"],
+        ["video-and-post-editor", "content"],
+        ["researcher", "research"],
+        ["developer-intern", "build"],
+        ["web-developer", "build"],
+        ["automation-builder", "build"],
+      ].flatMap(([from, to]) => [
+        { source: `/careers/${from}`, destination: `/careers/${to}`, permanent: true },
+        { source: `/careers/${from}/apply`, destination: `/careers/${to}/apply`, permanent: true },
+      ]),
     ];
   },
 };

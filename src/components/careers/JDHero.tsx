@@ -47,7 +47,7 @@ export default function JDHero({ job }: JDHeroProps) {
             Careers
           </Link>
           <span style={{ color: "var(--border-color)" }}>/</span>
-          <span>{GROUPS[job.group].label}</span>
+          <span>{GROUPS[job.group].crumb}</span>
           <span style={{ color: "var(--border-color)" }}>/</span>
           <span style={{ color: "var(--accent)" }}>{job.shortTitle}</span>
         </motion.div>
@@ -110,7 +110,7 @@ export default function JDHero({ job }: JDHeroProps) {
             Apply in 30 minutes →
           </Link>
           <Link href="#role-details" className="btn-ghost" style={{ padding: "13px 28px" }}>
-            Read the full role
+            {job.group === "cohort" ? "Read the full track" : "Read the full role"}
           </Link>
         </motion.div>
       </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { HIRING_STEPS, Job, REPLY_PROMISE_DAYS } from "@/lib/jobs";
+import { Job, REPLY_PROMISE_DAYS, stepsFor } from "@/lib/jobs";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -82,9 +82,9 @@ function ApplyPanel({ job }: { job: Job }) {
       <div className="rule" />
 
       <div className="flex flex-col gap-3">
-        <SmallLabel>How we hire</SmallLabel>
+        <SmallLabel>{job.group === "cohort" ? "How the cohort works" : "How it works"}</SmallLabel>
         <ol className="flex flex-col gap-2">
-          {HIRING_STEPS.map((step, i) => (
+          {stepsFor(job).map((step, i) => (
             <li key={step.name} className="flex items-center gap-2.5">
               <span
                 className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black flex-shrink-0"
@@ -133,7 +133,7 @@ export default function JDContent({ job }: JDContentProps) {
         <div className="grid md:grid-cols-[1fr_340px] gap-16 lg:gap-24 items-start">
           <div className="flex flex-col gap-16">
             <Section>
-              <SectionLabel>Why this role exists</SectionLabel>
+              <SectionLabel>{job.group === "cohort" ? "Why this track exists" : "Why this role exists"}</SectionLabel>
               <div className="flex flex-col gap-4">
                 {content.whyExists.map((para) => (
                   <p key={para} className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
@@ -148,10 +148,19 @@ export default function JDContent({ job }: JDContentProps) {
               <BulletList items={content.whatYouDo} />
             </Section>
 
-            <Section>
-              <SectionLabel>What good looks like</SectionLabel>
-              <BulletList items={content.goodLooksLike} />
-            </Section>
+            {content.portfolio && (
+              <Section>
+                <SectionLabel>What goes in your portfolio</SectionLabel>
+                <BulletList items={content.portfolio} />
+              </Section>
+            )}
+
+            {content.goodLooksLike && (
+              <Section>
+                <SectionLabel>What good looks like</SectionLabel>
+                <BulletList items={content.goodLooksLike} />
+              </Section>
+            )}
 
             <Section>
               <SectionLabel>You&apos;ll do well here if</SectionLabel>
