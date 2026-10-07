@@ -7,6 +7,9 @@ import { scoreQuiz } from "@/lib/quiz-key";
 // the confirmation email. The webhook URL and token stay server-side, so the
 // browser never learns where the sheet lives.
 
+// Room for the Apps Script round trip (POST, then reading its reply)
+export const maxDuration = 30;
+
 const PAUSED =
   "Applications are paused for a moment. Please email rohan@theaddalabs.com and we'll take it from there.";
 
@@ -93,22 +96,46 @@ export async function POST(request: Request) {
     replyDays: REPLY_PROMISE_DAYS,
   };
 
+  // Apps Script runs doPost first, then answers with a 302 to a one-time URL holding
+  // its output. We take that hop ourselves: a 302 already means the row was written and
+  // the confirmation sent, so a slow or failed read of the output must not tell the
+  // applicant it failed (they'd apply twice). Only an explicit { ok: false } is a no.
+  let res: Response;
   try {
-    // Apps Script answers a POST with a redirect to its output; fetch follows it.
-    const res = await fetch(url, {
+    res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      redirect: "follow",
-      signal: AbortSignal.timeout(20_000),
+      redirect: "manual",
+      signal: AbortSignal.timeout(15_000),
     });
-    const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
-    if (!res.ok || !data.ok) {
-      console.error("[apply] webhook rejected the application", res.status, data.error);
-      return Response.json({ ok: false, error: PAUSED }, { status: 502 });
-    }
   } catch (err) {
     console.error("[apply] webhook unreachable", err);
+    return Response.json({ ok: false, error: PAUSED }, { status: 502 });
+  }
+
+  if (res.status >= 300 && res.status < 400) {
+    const next = res.headers.get("location");
+    if (next) {
+      try {
+        const out = await fetch(next, { signal: AbortSignal.timeout(8_000) });
+        const data = (await out.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+        if (data && data.ok === false) {
+          console.error("[apply] webhook rejected the application", data.error);
+          return Response.json({ ok: false, error: PAUSED }, { status: 502 });
+        }
+        if (!data) console.warn("[apply] application accepted; couldn't read the script's reply", out.status);
+      } catch (err) {
+        console.warn("[apply] application accepted; reading the script's reply failed", err);
+      }
+    }
+    return Response.json({ ok: true });
+  }
+
+  // No redirect (e.g. a local stand-in webhook): read the answer directly
+  const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+  if (!res.ok || !data.ok) {
+    console.error("[apply] webhook rejected the application", res.status, data.error);
     return Response.json({ ok: false, error: PAUSED }, { status: 502 });
   }
 
