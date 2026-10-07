@@ -57,7 +57,7 @@ export default function Footer() {
             <p className="text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
               Get in touch
             </p>
-            <a href="mailto:founder@theaddalabs.com" className="text-sm font-semibold tracking-tight mb-2 block hover:text-accent transition-colors" style={{ color: "var(--text-body)" }}>founder@theaddalabs.com</a>
+            <a href="mailto:rohan@theaddalabs.com" className="text-sm font-semibold tracking-tight mb-2 block hover:text-accent transition-colors" style={{ color: "var(--text-body)" }}>rohan@theaddalabs.com</a>
             <p className="text-sm tracking-tight mb-8" style={{ color: "var(--text-muted)" }}>Mumbai · Global</p>
             <Link
               href="/contact"
@@ -77,7 +77,7 @@ export default function Footer() {
               &copy; {year} TAL Consulting LLP / The Adda Labs
             </p>
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              LLPIN ACZ-3000 · Mumbai, India · Grievance officer: Rohan Tiwarekar, founder@theaddalabs.com
+              LLPIN ACZ-3000 · Mumbai, India · Grievance officer: Rohan Tiwarekar, rohan@theaddalabs.com
             </p>
           </div>
           <div className="flex flex-wrap gap-6">

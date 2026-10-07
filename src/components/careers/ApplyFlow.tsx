@@ -392,7 +392,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
                     <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                       I agree that TAL Consulting LLP can store my application to assess me for this and similar
                       roles. It&apos;s kept for 6 months, and I can ask for it to be deleted at any time by emailing
-                      founder@theaddalabs.com. See the{" "}
+                      rohan@theaddalabs.com. See the{" "}
                       <Link href="/privacy" target="_blank" className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
                         privacy notice
                       </Link>

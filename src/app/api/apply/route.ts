@@ -7,7 +7,7 @@ import { Application, MIN_FILL_MS, validate } from "@/lib/applications";
 // browser never learns where the sheet lives.
 
 const PAUSED =
-  "Applications are paused for a moment. Please email founder@theaddalabs.com and we'll take it from there.";
+  "Applications are paused for a moment. Please email rohan@theaddalabs.com and we'll take it from there.";
 
 export async function POST(request: Request) {
   let raw: Record<string, unknown>;

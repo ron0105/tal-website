@@ -79,7 +79,7 @@ export default function Privacy() {
           <li>delete it</li>
         </ul>
         <p>
-          Email <a href="mailto:founder@theaddalabs.com">founder@theaddalabs.com</a> and we&apos;ll respond
+          Email <a href="mailto:rohan@theaddalabs.com">rohan@theaddalabs.com</a> and we&apos;ll respond
           within 7 days.
         </p>
       </LegalSection>
@@ -87,7 +87,7 @@ export default function Privacy() {
       <LegalSection heading="Grievance officer">
         <p>
           Rohan Tiwarekar, TAL Consulting LLP, Mumbai.{" "}
-          <a href="mailto:founder@theaddalabs.com">founder@theaddalabs.com</a>
+          <a href="mailto:rohan@theaddalabs.com">rohan@theaddalabs.com</a>
         </p>
         <p>
           If you&apos;re not satisfied with our response, you can also approach the Data Protection Board of
