@@ -13,9 +13,11 @@ import {
   applySteps,
   emptyApplication,
   replyByDate,
+  reviewFriday,
   validate,
 } from "@/lib/applications";
 import { quizFor, shuffled } from "@/lib/quiz";
+import RohanNote from "./RohanNote";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -127,6 +129,9 @@ export default function ApplyFlow({ job }: { job: Job }) {
     [job.slug, app.startedAt],
   );
   const answered = questions.filter((q) => app.quiz?.[q.id]).length;
+  // Their first name, once they've given it, so later steps talk to them directly
+  const first = app.name.trim().split(/\s+/)[0] ?? "";
+  const hi = (text: string) => (first ? `${text}, ${first.charAt(0).toUpperCase()}${first.slice(1)}` : text);
   const pick = (qid: string, oid: string) => {
     setApp((a) => ({ ...a, quiz: { ...a.quiz, [qid]: oid } }));
     if (errors.quiz) setErrors((e) => ({ ...e, quiz: undefined }));
@@ -220,43 +225,42 @@ export default function ApplyFlow({ job }: { job: Job }) {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="p-10 md:p-14 rounded-[4px]"
-          style={{ background: "var(--brand)", color: "#fff" }}
+          className="p-7 md:p-12 rounded-[6px] flex flex-col gap-8"
+          style={{ background: "#fff", border: "1px solid var(--border-color)", boxShadow: "0 18px 40px -24px rgba(20,32,30,0.25)" }}
         >
-          <p className="label-eyebrow mb-6" style={{ color: "var(--accent-on-brand)" }}>
-            Application received
-          </p>
-          <h2 className="mb-6" style={{ color: "#fff" }}>
-            Thank you, {app.name.trim().split(" ")[0]}.
+          <h2 style={{ color: "var(--text-primary)", fontSize: "clamp(2rem, 4vw, 2.75rem)" }}>
+            {hi("Thank you")}.
           </h2>
-          <p className="text-lg leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.8)", maxWidth: "560px" }}>
-            Your application for {job.title} is in. A confirmation is on its way to{" "}
-            <strong style={{ color: "#fff" }}>{app.email}</strong>. You&apos;ll hear from us by{" "}
-            <strong style={{ color: "var(--accent-on-brand)" }}>{replyByDate(REPLY_PROMISE_DAYS)}</strong>, whatever
-            the answer.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-px mb-10" style={{ background: "rgba(255,255,255,0.12)" }}>
+          <RohanNote>
+            <p className="mb-3">
+              I&apos;ve got your application for the {job.title}. I&apos;ll read it myself on{" "}
+              <strong style={{ color: "var(--text-primary)" }}>{reviewFriday()}</strong>, and you&apos;ll hear from me
+              by <strong style={{ color: "var(--text-primary)" }}>{replyByDate(REPLY_PROMISE_DAYS)}</strong>, whatever the
+              answer.
+            </p>
+            <p>
+              A copy is on its way to <strong style={{ color: "var(--text-primary)" }}>{app.email}</strong>. If you think of
+              anything you wish you&apos;d added, just reply to that email.
+            </p>
+          </RohanNote>
+          <div className="grid sm:grid-cols-3 gap-3">
             {[
-              ["Friday", "Rohan reads every application and picks a shortlist."],
-              ["Next week", "Shortlisted people get a 20-minute call."],
+              ["Friday", "I read every application and pick a shortlist."],
+              ["Next week", "Shortlisted people get a 20-minute call with me."],
               ["Then", job.group === "cohort" ? "The 15-day training sprint, paid, with a certificate." : "A short agreement, and you start referring."],
             ].map(([when, what]) => (
-              <div key={when} className="p-5" style={{ background: "var(--brand)" }}>
-                <p className="font-poppins text-lg mb-1" style={{ color: "var(--accent-on-brand)" }}>
+              <div key={when} className="p-5 rounded-[6px]" style={{ background: "var(--bg)" }}>
+                <p className="font-poppins text-lg mb-1" style={{ color: "var(--brand)" }}>
                   {when}
                 </p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                   {what}
                 </p>
               </div>
             ))}
           </div>
-          <Link
-            href="/careers"
-            className="inline-flex items-center text-sm font-bold"
-            style={{ color: "#fff", borderBottom: "1px solid var(--accent-on-brand)", paddingBottom: 2 }}
-          >
-            Back to all roles →
+          <Link href="/careers" className="text-sm font-bold self-start" style={{ color: "var(--brand)" }}>
+            ← Back to careers
           </Link>
         </motion.div>
       </div>
@@ -265,7 +269,11 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
   // ── Form ──────────────────────────────────────────────────────────────────
   return (
-    <div ref={topRef} className="scroll-mt-32">
+    <div
+      ref={topRef}
+      className="scroll-mt-32 p-6 md:p-10 rounded-[6px]"
+      style={{ background: "#fff", border: "1px solid var(--border-color)", boxShadow: "0 18px 40px -24px rgba(20,32,30,0.25)" }}
+    >
       {/* Progress */}
       <ol className={`grid ${steps.length === 4 ? "grid-cols-4" : "grid-cols-3"} gap-2 mb-10`} aria-label="Application progress">
         {steps.map(({ label }, i) => (
@@ -291,7 +299,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
       {restored && step === 0 && (
         <p className="text-sm mb-6 px-4 py-3 rounded-sm" style={{ background: "var(--bg-lift)", color: "var(--text-body)" }}>
-          Welcome back. We kept your answers from last time on this device.
+          Welcome back. Your answers from last time are still here.
         </p>
       )}
 
@@ -327,12 +335,17 @@ export default function ApplyFlow({ job }: { job: Job }) {
           >
             {current === "about" && (
               <>
+                <RohanNote>
+                  Hi, I&apos;m Rohan. I started TAL, and I read every application myself, on Fridays. There are no
+                  trick questions here. Show me how you think, and you&apos;ll hear back from me within a week,
+                  whatever the answer.
+                </RohanNote>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
                     First, a little about you.
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Two minutes. We only ask what we need to reply.
+                    Two minutes. I only ask what I need to reply to you.
                   </p>
                 </div>
                 <Field id="name" label="Full name" error={errors.name}>
@@ -371,8 +384,11 @@ export default function ApplyFlow({ job }: { job: Job }) {
               <>
                 <div>
                   <h2 className="text-section-title mb-4" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
-                    Now, show us your work.
+                    {hi("Thanks")}. Now show me your work.
                   </h2>
+                  <p className="text-base mb-4" style={{ color: "var(--text-muted)" }}>
+                    For the {job.shortTitle} {cohort ? "track" : "role"}, this is what I&apos;d like to see.
+                  </p>
                   <div className="p-6 rounded-sm" style={{ background: "var(--bg-lift)" }}>
                     <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: "var(--brand)" }}>
                       Your work sample
@@ -408,11 +424,11 @@ export default function ApplyFlow({ job }: { job: Job }) {
               <>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
-                    Six quick questions.
+                    {first ? `Six real situations, ${first.charAt(0).toUpperCase()}${first.slice(1)}.` : "Six real situations."}
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Real situations from the work. Pick what you would actually do. There&apos;s no time limit,
-                    and every option is something a sensible person might choose.
+                    Each one is something that actually happens here. Pick what you&apos;d really do, not what
+                    sounds best. There&apos;s no time limit.
                   </p>
                   <p className="text-xs font-semibold mt-3" style={{ color: "var(--brand)" }}>
                     {answered} of {questions.length} answered
@@ -453,7 +469,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
               <>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
-                    Last step. Then it&apos;s with us.
+                    {hi("Nearly there")}.
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
                     {cohort
@@ -465,7 +481,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
                 {cohort && (
                   <CheckBox id="fullTime" checked={app.fullTime} onChange={(v) => set("fullTime", v)}
                     error={errors.fullTime} describedBy={describedBy("fullTime")}>
-                    <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in Mumbai</strong>, Monday
+                    <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in CBD Belapur, Navi Mumbai</strong>, Monday
                     to Friday, for the 15-day training and the internship after it. This cohort isn&apos;t open to
                     part-time applicants.
                   </CheckBox>

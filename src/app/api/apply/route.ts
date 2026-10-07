@@ -85,7 +85,8 @@ export async function POST(request: Request) {
     hours: job.group === "cohort" ? `Full-time, on-site · start ${body.startWhen.toLowerCase()}` : "Not applicable",
     source: body.source,
     talentPool: job.group === "cohort" && body.talentPool,
-    score: quiz ? `${quiz.score}/${quiz.max}` : "",
+    // A plain number, so the sheet can colour-scale and sort it (out of quiz.max = 18)
+    score: quiz ? quiz.score : "",
     qualified: quiz ? quiz.qualified : true,
     breakdown: quiz ? quiz.breakdown : "",
     consent: true,

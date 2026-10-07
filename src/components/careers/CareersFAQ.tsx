@@ -8,7 +8,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Is it full-time?",
-    a: "Yes. The training and the internship are both full-time and on-site in Mumbai, Monday to Friday. This cohort isn't open to part-time applicants.",
+    a: "Yes. The training and the internship are both full-time and on-site at our office in CBD Belapur, Navi Mumbai, Monday to Friday. This cohort isn't open to part-time applicants.",
   },
   {
     q: "What if I'm not picked?",
@@ -28,7 +28,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Is it on-site?",
-    a: `Yes, at our office in ${COHORT.location.replace(", on-site", "")}, Monday to Friday. Working in the same room is how you learn fastest here.`,
+    a: "Yes, at our office in CBD Belapur, Navi Mumbai, Monday to Friday. Working in the same room is how you learn fastest here.",
   },
   {
     q: "I applied through your old form. Should I apply again?",

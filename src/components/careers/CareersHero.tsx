@@ -66,7 +66,7 @@ export default function CareersHero() {
           enquiries into customers. In the Founder&apos;s Office Cohort you work
           directly with Rohan on real projects: outreach, content, research and
           AI-built tools. Fifteen paid days of training, then a paid internship for
-          the people who perform. It&apos;s full-time and on-site in Mumbai. You leave
+          the people who perform. It&apos;s full-time and on-site at our office in Navi Mumbai. You leave
           with work you can show, not just a line on your CV.
         </motion.p>
 

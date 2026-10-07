@@ -60,7 +60,7 @@ export const COHORT = {
   internshipPay: "₹10,000 a month + bonus",
   internshipMonths: 3,
   nextStart: "late October",
-  location: "Mumbai (CBD Belapur), on-site",
+  location: "CBD Belapur, Navi Mumbai · on-site",
 };
 
 export const GROUPS: Record<RoleGroup, { label: string; line: string; crumb: string }> = {
@@ -116,7 +116,7 @@ const COHORT_WHY =
 const COHORT_NOTES = [
   "Your week is shaped by a scorecard, not a fixed job description, so priorities move as the business does",
   "Training assignments are on TAL's own work. Client work starts in the internship, always with Rohan reviewing before anything goes out",
-  "You work in person at the Mumbai office, so feedback comes the same day",
+  "You work in person at our office in CBD Belapur, Navi Mumbai, so feedback comes the same day",
 ];
 
 export const JOBS: Job[] = [

@@ -84,7 +84,7 @@ export function applySteps(withQuiz: boolean): ApplyStep[] {
   return [
     { key: "about" as const, label: "About you", fields: ["name", "email", "phone", "city", "profileLink"] as (keyof Application)[] },
     { key: "work" as const, label: "Your work", fields: ["sampleLinks", "answer"] as (keyof Application)[] },
-    ...(withQuiz ? [{ key: "quiz" as const, label: "Quick questions", fields: ["quiz"] as (keyof Application)[] }] : []),
+    ...(withQuiz ? [{ key: "quiz" as const, label: "How you think", fields: ["quiz"] as (keyof Application)[] }] : []),
     { key: "send" as const, label: "Send it", fields: ["fullTime", "startWhen", "source", "consent"] as (keyof Application)[] },
   ];
 }
@@ -120,6 +120,15 @@ export function validate(a: Application, job: Job, fields?: (keyof Application)[
   if (check("consent") && !a.consent) e.consent = "We need your OK to store your application.";
 
   return e;
+}
+
+/** The Friday Rohan reads this application: the coming Friday, or next week's if it's already Friday or the weekend. */
+export function reviewFriday(from = new Date()): string {
+  const d = new Date(from);
+  const day = d.getDay(); // 0 Sun ... 5 Fri, 6 Sat
+  const add = day <= 4 ? 5 - day : 12 - day;
+  d.setDate(d.getDate() + add);
+  return d.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long" });
 }
 
 /** The date we promise a reply by, as shown to the applicant. */
