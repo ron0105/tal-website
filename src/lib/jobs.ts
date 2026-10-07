@@ -83,7 +83,7 @@ export const STATUS_LABEL: Record<RoleStatus, string> = {
 // The cohort's five steps. Kept here so the careers page, every track page and the
 // apply flow describe the process identically.
 export const HIRING_STEPS: Step[] = [
-  { name: "Apply", detail: "Basics plus one short work sample. About 30 minutes." },
+  { name: "Apply", detail: "Basics, one short work sample and six quick questions. About 30 minutes." },
   { name: "Shortlist", detail: "Rohan reads every application on Fridays and picks the next cohort." },
   { name: "Call", detail: "20 minutes. What you've done, what you want, how you work." },
   { name: "Training sprint", detail: `${COHORT.trainingDays} days of real TAL assignments. ${COHORT.trainingStipend} stipend and a certificate.` },

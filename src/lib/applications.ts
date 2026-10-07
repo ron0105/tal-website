@@ -2,6 +2,7 @@
 // same rules. No server-only imports here.
 
 import type { Job } from "./jobs";
+import { quizFor } from "./quiz";
 
 export interface Application {
   role: string;
@@ -12,6 +13,8 @@ export interface Application {
   profileLink: string;
   sampleLinks: string;
   answer: string;
+  /** Qualifier answers, question id → option id. Scored on the server only. */
+  quiz: Record<string, string>;
   /** Cohort only: confirms full-time, on-site availability. */
   fullTime: boolean;
   startWhen: string;
@@ -54,6 +57,7 @@ export function emptyApplication(role: string): Application {
     profileLink: "",
     sampleLinks: "",
     answer: "",
+    quiz: {},
     fullTime: false,
     startWhen: "",
     source: "",
@@ -67,12 +71,23 @@ export function emptyApplication(role: string): Application {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // Each step only checks its own fields, so the form can stop people at the step
-// where the problem is instead of after the whole thing.
-export const STEP_FIELDS: (keyof Application)[][] = [
-  ["name", "email", "phone", "city", "profileLink"],
-  ["sampleLinks", "answer"],
-  ["fullTime", "startWhen", "source", "consent"],
-];
+// where the problem is instead of after the whole thing. Cohort tracks get the
+// qualifier step; Referral Partner doesn't.
+export type StepKey = "about" | "work" | "quiz" | "send";
+export interface ApplyStep {
+  key: StepKey;
+  label: string;
+  fields: (keyof Application)[];
+}
+
+export function applySteps(withQuiz: boolean): ApplyStep[] {
+  return [
+    { key: "about" as const, label: "About you", fields: ["name", "email", "phone", "city", "profileLink"] as (keyof Application)[] },
+    { key: "work" as const, label: "Your work", fields: ["sampleLinks", "answer"] as (keyof Application)[] },
+    ...(withQuiz ? [{ key: "quiz" as const, label: "Quick questions", fields: ["quiz"] as (keyof Application)[] }] : []),
+    { key: "send" as const, label: "Send it", fields: ["fullTime", "startWhen", "source", "consent"] as (keyof Application)[] },
+  ];
+}
 
 export function validate(a: Application, job: Job, fields?: (keyof Application)[]): FieldErrors {
   const e: FieldErrors = {};
@@ -92,6 +107,10 @@ export function validate(a: Application, job: Job, fields?: (keyof Application)[
   if (check("answer") && a.answer.trim().length < ANSWER_MIN)
     e.answer = `A little more, please. At least ${ANSWER_MIN} characters.`;
   if (check("answer") && a.answer.length > ANSWER_MAX) e.answer = `Please keep it under ${ANSWER_MAX} characters.`;
+
+  const questions = quizFor(job.slug);
+  if (check("quiz") && questions.some((q) => !a.quiz?.[q.id]))
+    e.quiz = `Please answer all ${questions.length} questions. There's no time limit.`;
 
   const cohort = job.group === "cohort";
   if (cohort && check("fullTime") && !a.fullTime)

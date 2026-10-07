@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Job, REPLY_PROMISE_DAYS } from "@/lib/jobs";
@@ -10,14 +10,14 @@ import {
   FieldErrors,
   SOURCE_OPTIONS,
   START_OPTIONS,
-  STEP_FIELDS,
+  applySteps,
   emptyApplication,
   replyByDate,
   validate,
 } from "@/lib/applications";
+import { quizFor, shuffled } from "@/lib/quiz";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const STEPS = ["About you", "Your work", "Send it"];
 
 // ─── Field primitives ────────────────────────────────────────────────────────
 
@@ -112,11 +112,25 @@ export default function ApplyFlow({ job }: { job: Job }) {
   const cohort = job.group === "cohort";
   const [app, setApp] = useState<Application>(() => emptyApplication(job.slug));
   const [step, setStep] = useState(0);
+  const steps = applySteps(cohort);
+  const current = steps[step].key;
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const [serverMessage, setServerMessage] = useState("");
   const [restored, setRestored] = useState(false);
   const topRef = useRef<HTMLDivElement>(null);
+
+  // Option order is shuffled per applicant (seeded by when they started), so answers
+  // can't be passed around as "pick b, b, a".
+  const questions = useMemo(
+    () => quizFor(job.slug).map((q, i) => ({ ...q, options: shuffled(q.options, app.startedAt + i * 7919) })),
+    [job.slug, app.startedAt],
+  );
+  const answered = questions.filter((q) => app.quiz?.[q.id]).length;
+  const pick = (qid: string, oid: string) => {
+    setApp((a) => ({ ...a, quiz: { ...a.quiz, [qid]: oid } }));
+    if (errors.quiz) setErrors((e) => ({ ...e, quiz: undefined }));
+  };
 
   // A per-device draft, so a 30-minute work sample survives a closed tab. Storage
   // can be blocked (private mode), so every access is guarded and optional.
@@ -147,12 +161,12 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
   // Put the cursor in the first field that needs fixing, so nobody hunts for the error
   const focusFirstError = (e: FieldErrors) => {
-    const first = STEP_FIELDS.flat().find((f) => e[f]);
+    const first = steps.flatMap((st) => st.fields).find((f) => e[f]);
     if (first) requestAnimationFrame(() => document.getElementById(first)?.focus());
   };
 
   const next = () => {
-    const e = validate(app, job, STEP_FIELDS[step]);
+    const e = validate(app, job, steps[step].fields);
     setErrors(e);
     if (Object.keys(e).length) return focusFirstError(e);
     setStep((s) => s + 1);
@@ -169,7 +183,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
     setErrors(e);
     if (Object.keys(e).length) {
       // Jump to the first step that still has a problem
-      const firstBad = STEP_FIELDS.findIndex((fields) => fields.some((f) => e[f]));
+      const firstBad = steps.findIndex((st) => st.fields.some((f) => e[f]));
       if (firstBad >= 0) setStep(firstBad);
       // Wait out the step transition before focusing
       setTimeout(() => focusFirstError(e), 400);
@@ -253,8 +267,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
   return (
     <div ref={topRef} className="scroll-mt-32">
       {/* Progress */}
-      <ol className="grid grid-cols-3 gap-2 mb-10" aria-label="Application progress">
-        {STEPS.map((label, i) => (
+      <ol className={`grid ${steps.length === 4 ? "grid-cols-4" : "grid-cols-3"} gap-2 mb-10`} aria-label="Application progress">
+        {steps.map(({ label }, i) => (
           <li key={label} className="flex flex-col gap-2" aria-current={i === step ? "step" : undefined}>
             <div className="h-1 rounded-full overflow-hidden" style={{ background: "var(--border-color)" }}>
               <motion.div
@@ -285,7 +299,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
         noValidate
         onSubmit={(e) => {
           e.preventDefault();
-          if (step < STEPS.length - 1) next();
+          if (step < steps.length - 1) next();
           else submit();
         }}
       >
@@ -311,7 +325,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
             transition={{ duration: 0.35, ease: EASE }}
             className="flex flex-col gap-7"
           >
-            {step === 0 && (
+            {current === "about" && (
               <>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
@@ -353,7 +367,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
               </>
             )}
 
-            {step === 1 && (
+            {current === "work" && (
               <>
                 <div>
                   <h2 className="text-section-title mb-4" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
@@ -390,7 +404,52 @@ export default function ApplyFlow({ job }: { job: Job }) {
               </>
             )}
 
-            {step === 2 && (
+            {current === "quiz" && (
+              <>
+                <div>
+                  <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
+                    Six quick questions.
+                  </h2>
+                  <p className="text-base" style={{ color: "var(--text-muted)" }}>
+                    Real situations from the work. Pick what you would actually do. There&apos;s no time limit,
+                    and every option is something a sensible person might choose.
+                  </p>
+                  <p className="text-xs font-semibold mt-3" style={{ color: "var(--brand)" }}>
+                    {answered} of {questions.length} answered
+                  </p>
+                </div>
+                <div id="quiz" tabIndex={-1} className="flex flex-col gap-8 outline-none">
+                  {questions.map((q, qi) => (
+                    <fieldset key={q.id} className="flex flex-col gap-3">
+                      <legend className="text-base font-semibold leading-relaxed mb-3" style={{ color: "var(--text-primary)" }}>
+                        <span style={{ color: "var(--accent)" }}>{qi + 1}.</span> {q.prompt}
+                      </legend>
+                      {q.options.map((o) => {
+                        const on = app.quiz?.[q.id] === o.id;
+                        return (
+                          <label
+                            key={o.id}
+                            className="flex items-start gap-3 p-4 rounded-sm border cursor-pointer transition-colors"
+                            style={{ background: on ? "var(--bg-lift)" : "#fff", borderColor: on ? "var(--brand)" : "var(--border-color)" }}
+                          >
+                            <input type="radio" name={q.id} value={o.id} checked={on} onChange={() => pick(q.id, o.id)}
+                              className="mt-1 flex-shrink-0 accent-[var(--brand)]" />
+                            <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>{o.text}</span>
+                          </label>
+                        );
+                      })}
+                    </fieldset>
+                  ))}
+                </div>
+                {errors.quiz && (
+                  <p role="alert" className="text-sm font-semibold" style={{ color: "var(--accent-hover)" }}>
+                    {errors.quiz}
+                  </p>
+                )}
+              </>
+            )}
+
+            {current === "send" && (
               <>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
@@ -489,7 +548,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
             style={{ padding: "13px 28px", opacity: status === "sending" ? 0.7 : 1 }}
             disabled={status === "sending"}
           >
-            {step < STEPS.length - 1 ? "Continue →" : status === "sending" ? "Sending…" : "Send my application →"}
+            {step < steps.length - 1 ? "Continue →" : status === "sending" ? "Sending…" : "Send my application →"}
           </button>
         </div>
       </form>
