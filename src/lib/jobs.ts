@@ -3,9 +3,10 @@
 // Add a role by adding an object to JOBS. Applications go through
 // /careers/[slug]/apply → /api/apply → the hiring sheet, so there is no form URL here.
 //
-// Every role is paid for results or per project, never a fixed salary: people join
-// the bench now and get paid when real client work exists. That's what lets TAL
-// recruit ahead of demand without adding monthly cost.
+// Every role except Founder's Office is paid for results or per project, never a fixed
+// salary: people join the bench now and get paid when real client work exists. That's
+// what lets TAL recruit ahead of demand without adding monthly cost. Founder's Office is
+// the one stipend role, kept small and tied to a weekly scorecard (Rohan, Oct 7 2026).
 
 export type RoleGroup = "grow" | "build";
 export type RoleStatus = "open" | "bench";
@@ -73,6 +74,66 @@ export const REPLY_PROMISE_DAYS = 7;
 
 export const JOBS: Job[] = [
   // ── Grow ──────────────────────────────────────────────────────────────────
+  {
+    slug: "founders-office",
+    title: "Founder's Office (Growth)",
+    shortTitle: "Founder's Office",
+    group: "grow",
+    status: "open",
+    statusNote: "Starts late October, paid from week one",
+    type: "Stipend + bonus",
+    location: "Mumbai, on-site",
+    teaser:
+      "Work directly with Rohan on whatever moves TAL forward this week: outreach, research, content and operations. AI does the heavy lifting. You decide what to point it at, and you own the result.",
+    highlights: [
+      "Work side by side with the founder",
+      "AI does the execution, you drive it",
+      "Stipend plus a bonus on calls booked and clients won",
+    ],
+    pay: {
+      headline: "₹10,000 a month, plus a bonus for every call booked and client won",
+      detail: [
+        "The stipend is paid monthly. Bonus rates are written into your offer letter.",
+        "A 3-month engagement to start, reviewed together at day 45.",
+        "Strong work here is the first route into a permanent role at TAL.",
+      ],
+    },
+    content: {
+      whyExists: [
+        "TAL helps businesses that grow on enquiries turn more of them into customers. It's run by Rohan, with AI doing most of the execution.",
+        "This role is his right hand. One person who can research, write, reach out and keep things moving, with AI as leverage, gets more done than a team of specialists waiting on each other.",
+      ],
+      whatYouDo: [
+        "Build lead lists with AI and check each business for a real enquiry gap",
+        "Send personal WhatsApp and LinkedIn messages and book 15-minute check-up calls",
+        "Turn client work and Rohan's sessions into posts and short videos",
+        "Prepare research and notes before calls, and keep every tracker current",
+      ],
+      goodLooksLike: [
+        "20 or more personal messages on a working day",
+        "Check-up calls booked every week",
+        "Content shipped on the day it was planned",
+        "A Friday scorecard that's up to date without anyone asking",
+      ],
+      youllFit: [
+        "You use ChatGPT or Claude every day and can show something you built with it",
+        "You write clearly and quickly in English; Hindi or Marathi is a plus",
+        "You switch between tasks without dropping quality",
+        "You'd rather own an outcome than wait for instructions",
+      ],
+      worthKnowing: [
+        "Your week is shaped by a scorecard, not a fixed job description, so priorities move as the business does",
+        "You work in person with Rohan at the Mumbai office, so feedback comes the same day",
+      ],
+      tools: ["ChatGPT or Claude", "Google Sheets", "WhatsApp", "Canva"],
+    },
+    workSample: {
+      prompt:
+        "Pick a clinic or real estate business in Mumbai. Using any AI tools you like: find one reason it's probably losing enquiries, write the WhatsApp message you'd send the owner, and draft one Instagram post for them. Share all three, and the tools you used.",
+      hint: "Name the business so we can see your research. Show your own judgement, not just the AI's first draft.",
+      answerType: "text",
+    },
+  },
   {
     slug: "referral-partner",
     title: "Referral Partner",

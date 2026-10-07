@@ -4,7 +4,7 @@ import { REPLY_PROMISE_DAYS } from "@/lib/jobs";
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Is this a full-time job?",
-    a: "No. Every role is paid per project or per result, so you choose how much you take on. Many people on our bench do this alongside studies, a job or their own clients.",
+    a: "Most roles aren't. They're paid per project or per result, so you choose how much you take on, and many people on our bench do this alongside studies, a job or their own clients. Founder's Office is the exception: on-site with Rohan, with a stipend plus a bonus.",
   },
   {
     q: "What does joining the bench mean?",

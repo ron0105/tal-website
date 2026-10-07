@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const MARQUEE_TEXT = [
   "We're Hiring",
+  "Founder's Office",
   "Growth Partners",
   "Researchers",
   "Editors",
