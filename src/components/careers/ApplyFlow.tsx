@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Job, REPLY_PROMISE_DAYS } from "@/lib/jobs";
@@ -8,16 +8,18 @@ import {
   ANSWER_MAX,
   Application,
   FieldErrors,
-  HOURS_OPTIONS,
   SOURCE_OPTIONS,
-  STEP_FIELDS,
+  START_OPTIONS,
+  applySteps,
   emptyApplication,
   replyByDate,
+  reviewFriday,
   validate,
 } from "@/lib/applications";
+import { quizFor, shuffled } from "@/lib/quiz";
+import RohanNote from "./RohanNote";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-const STEPS = ["About you", "Your work", "Send it"];
 
 // ─── Field primitives ────────────────────────────────────────────────────────
 
@@ -68,6 +70,40 @@ function Field({
   );
 }
 
+function CheckBox({
+  id,
+  checked,
+  onChange,
+  error,
+  describedBy,
+  children,
+}: {
+  id: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  error?: string;
+  describedBy?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="p-5 rounded-sm border" style={{ borderColor: error ? "var(--accent)" : "var(--border-color)", background: "#fff" }}>
+      <label htmlFor={id} className="flex items-start gap-3 cursor-pointer">
+        <input id={id} type="checkbox" className="mt-1 w-4 h-4 flex-shrink-0 accent-[var(--brand)]"
+          checked={checked} onChange={(e) => onChange(e.target.checked)}
+          aria-invalid={!!error} aria-describedby={describedBy} />
+        <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+          {children}
+        </span>
+      </label>
+      {error && (
+        <p id={`${id}-error`} role="alert" className="text-xs font-semibold mt-2 ml-7" style={{ color: "var(--accent-hover)" }}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
 const inputClass =
   "w-full px-4 py-3 text-base outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(14,107,104,0.18)]";
 
@@ -75,13 +111,31 @@ const inputClass =
 
 export default function ApplyFlow({ job }: { job: Job }) {
   const draftKey = `tal-apply-${job.slug}`;
+  const cohort = job.group === "cohort";
   const [app, setApp] = useState<Application>(() => emptyApplication(job.slug));
   const [step, setStep] = useState(0);
+  const steps = applySteps(cohort);
+  const current = steps[step].key;
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const [serverMessage, setServerMessage] = useState("");
   const [restored, setRestored] = useState(false);
   const topRef = useRef<HTMLDivElement>(null);
+
+  // Option order is shuffled per applicant (seeded by when they started), so answers
+  // can't be passed around as "pick b, b, a".
+  const questions = useMemo(
+    () => quizFor(job.slug).map((q, i) => ({ ...q, options: shuffled(q.options, app.startedAt + i * 7919) })),
+    [job.slug, app.startedAt],
+  );
+  const answered = questions.filter((q) => app.quiz?.[q.id]).length;
+  // Their first name, once they've given it, so later steps talk to them directly
+  const first = app.name.trim().split(/\s+/)[0] ?? "";
+  const hi = (text: string) => (first ? `${text}, ${first.charAt(0).toUpperCase()}${first.slice(1)}` : text);
+  const pick = (qid: string, oid: string) => {
+    setApp((a) => ({ ...a, quiz: { ...a.quiz, [qid]: oid } }));
+    if (errors.quiz) setErrors((e) => ({ ...e, quiz: undefined }));
+  };
 
   // A per-device draft, so a 30-minute work sample survives a closed tab. Storage
   // can be blocked (private mode), so every access is guarded and optional.
@@ -112,12 +166,12 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
   // Put the cursor in the first field that needs fixing, so nobody hunts for the error
   const focusFirstError = (e: FieldErrors) => {
-    const first = STEP_FIELDS.flat().find((f) => e[f]);
+    const first = steps.flatMap((st) => st.fields).find((f) => e[f]);
     if (first) requestAnimationFrame(() => document.getElementById(first)?.focus());
   };
 
   const next = () => {
-    const e = validate(app, job, STEP_FIELDS[step]);
+    const e = validate(app, job, steps[step].fields);
     setErrors(e);
     if (Object.keys(e).length) return focusFirstError(e);
     setStep((s) => s + 1);
@@ -134,7 +188,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
     setErrors(e);
     if (Object.keys(e).length) {
       // Jump to the first step that still has a problem
-      const firstBad = STEP_FIELDS.findIndex((fields) => fields.some((f) => e[f]));
+      const firstBad = steps.findIndex((st) => st.fields.some((f) => e[f]));
       if (firstBad >= 0) setStep(firstBad);
       // Wait out the step transition before focusing
       setTimeout(() => focusFirstError(e), 400);
@@ -171,43 +225,42 @@ export default function ApplyFlow({ job }: { job: Job }) {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="p-10 md:p-14 rounded-[4px]"
-          style={{ background: "var(--brand)", color: "#fff" }}
+          className="p-7 md:p-12 rounded-[6px] flex flex-col gap-8"
+          style={{ background: "#fff", border: "1px solid var(--border-color)", boxShadow: "0 18px 40px -24px rgba(20,32,30,0.25)" }}
         >
-          <p className="label-eyebrow mb-6" style={{ color: "var(--accent-on-brand)" }}>
-            Application received
-          </p>
-          <h2 className="mb-6" style={{ color: "#fff" }}>
-            Thank you, {app.name.trim().split(" ")[0]}.
+          <h2 style={{ color: "var(--text-primary)", fontSize: "clamp(2rem, 4vw, 2.75rem)" }}>
+            {hi("Thank you")}.
           </h2>
-          <p className="text-lg leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.8)", maxWidth: "560px" }}>
-            Your application for {job.title} is in. A confirmation is on its way to{" "}
-            <strong style={{ color: "#fff" }}>{app.email}</strong>. You&apos;ll hear from us by{" "}
-            <strong style={{ color: "var(--accent-on-brand)" }}>{replyByDate(REPLY_PROMISE_DAYS)}</strong>, whatever
-            the answer.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-px mb-10" style={{ background: "rgba(255,255,255,0.12)" }}>
+          <RohanNote>
+            <p className="mb-3">
+              I&apos;ve got your application for the {job.title}. I&apos;ll read it myself on{" "}
+              <strong style={{ color: "var(--text-primary)" }}>{reviewFriday()}</strong>, and you&apos;ll hear from me
+              by <strong style={{ color: "var(--text-primary)" }}>{replyByDate(REPLY_PROMISE_DAYS)}</strong>, whatever the
+              answer.
+            </p>
+            <p>
+              A copy is on its way to <strong style={{ color: "var(--text-primary)" }}>{app.email}</strong>. If you think of
+              anything you wish you&apos;d added, just reply to that email.
+            </p>
+          </RohanNote>
+          <div className="grid sm:grid-cols-3 gap-3">
             {[
-              ["Friday", "Rohan reads every application and picks a shortlist."],
-              ["Next week", "Shortlisted people get a 20-minute call."],
+              ["Friday", "I read every application and pick a shortlist."],
+              ["Next week", "Shortlisted people get a 20-minute call with me."],
               ["Then", job.group === "cohort" ? "The 15-day training sprint, paid, with a certificate." : "A short agreement, and you start referring."],
             ].map(([when, what]) => (
-              <div key={when} className="p-5" style={{ background: "var(--brand)" }}>
-                <p className="font-poppins text-lg mb-1" style={{ color: "var(--accent-on-brand)" }}>
+              <div key={when} className="p-5 rounded-[6px]" style={{ background: "var(--bg)" }}>
+                <p className="font-poppins text-lg mb-1" style={{ color: "var(--brand)" }}>
                   {when}
                 </p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                   {what}
                 </p>
               </div>
             ))}
           </div>
-          <Link
-            href="/careers"
-            className="inline-flex items-center text-sm font-bold"
-            style={{ color: "#fff", borderBottom: "1px solid var(--accent-on-brand)", paddingBottom: 2 }}
-          >
-            Back to all roles →
+          <Link href="/careers" className="text-sm font-bold self-start" style={{ color: "var(--brand)" }}>
+            ← Back to careers
           </Link>
         </motion.div>
       </div>
@@ -216,10 +269,14 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
   // ── Form ──────────────────────────────────────────────────────────────────
   return (
-    <div ref={topRef} className="scroll-mt-32">
+    <div
+      ref={topRef}
+      className="scroll-mt-32 p-6 md:p-10 rounded-[6px]"
+      style={{ background: "#fff", border: "1px solid var(--border-color)", boxShadow: "0 18px 40px -24px rgba(20,32,30,0.25)" }}
+    >
       {/* Progress */}
-      <ol className="grid grid-cols-3 gap-2 mb-10" aria-label="Application progress">
-        {STEPS.map((label, i) => (
+      <ol className={`grid ${steps.length === 4 ? "grid-cols-4" : "grid-cols-3"} gap-2 mb-10`} aria-label="Application progress">
+        {steps.map(({ label }, i) => (
           <li key={label} className="flex flex-col gap-2" aria-current={i === step ? "step" : undefined}>
             <div className="h-1 rounded-full overflow-hidden" style={{ background: "var(--border-color)" }}>
               <motion.div
@@ -242,7 +299,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
       {restored && step === 0 && (
         <p className="text-sm mb-6 px-4 py-3 rounded-sm" style={{ background: "var(--bg-lift)", color: "var(--text-body)" }}>
-          Welcome back. We kept your answers from last time on this device.
+          Welcome back. Your answers from last time are still here.
         </p>
       )}
 
@@ -250,7 +307,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
         noValidate
         onSubmit={(e) => {
           e.preventDefault();
-          if (step < STEPS.length - 1) next();
+          if (step < steps.length - 1) next();
           else submit();
         }}
       >
@@ -276,14 +333,19 @@ export default function ApplyFlow({ job }: { job: Job }) {
             transition={{ duration: 0.35, ease: EASE }}
             className="flex flex-col gap-7"
           >
-            {step === 0 && (
+            {current === "about" && (
               <>
+                <RohanNote>
+                  Hi, I&apos;m Rohan. I started TAL, and I read every application myself, on Fridays. There are no
+                  trick questions here. Show me how you think, and you&apos;ll hear back from me within a week,
+                  whatever the answer.
+                </RohanNote>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
                     First, a little about you.
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Two minutes. We only ask what we need to reply.
+                    Two minutes. I only ask what I need to reply to you.
                   </p>
                 </div>
                 <Field id="name" label="Full name" error={errors.name}>
@@ -318,12 +380,15 @@ export default function ApplyFlow({ job }: { job: Job }) {
               </>
             )}
 
-            {step === 1 && (
+            {current === "work" && (
               <>
                 <div>
                   <h2 className="text-section-title mb-4" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
-                    Now, show us your work.
+                    {hi("Thanks")}. Now show me your work.
                   </h2>
+                  <p className="text-base mb-4" style={{ color: "var(--text-muted)" }}>
+                    For the {job.shortTitle} {cohort ? "track" : "role"}, this is what I&apos;d like to see.
+                  </p>
                   <div className="p-6 rounded-sm" style={{ background: "var(--bg-lift)" }}>
                     <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: "var(--brand)" }}>
                       Your work sample
@@ -355,25 +420,84 @@ export default function ApplyFlow({ job }: { job: Job }) {
               </>
             )}
 
-            {step === 2 && (
+            {current === "quiz" && (
               <>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
-                    Last step. Then it&apos;s with us.
+                    {first ? `Six real situations, ${first.charAt(0).toUpperCase()}${first.slice(1)}.` : "Six real situations."}
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Two quick questions, and your OK to keep your application on file.
+                    Each one is something that actually happens here. Pick what you&apos;d really do, not what
+                    sounds best. There&apos;s no time limit.
+                  </p>
+                  <p className="text-xs font-semibold mt-3" style={{ color: "var(--brand)" }}>
+                    {answered} of {questions.length} answered
                   </p>
                 </div>
+                <div id="quiz" tabIndex={-1} className="flex flex-col gap-8 outline-none">
+                  {questions.map((q, qi) => (
+                    <fieldset key={q.id} className="flex flex-col gap-3">
+                      <legend className="text-base font-semibold leading-relaxed mb-3" style={{ color: "var(--text-primary)" }}>
+                        <span style={{ color: "var(--accent)" }}>{qi + 1}.</span> {q.prompt}
+                      </legend>
+                      {q.options.map((o) => {
+                        const on = app.quiz?.[q.id] === o.id;
+                        return (
+                          <label
+                            key={o.id}
+                            className="flex items-start gap-3 p-4 rounded-sm border cursor-pointer transition-colors"
+                            style={{ background: on ? "var(--bg-lift)" : "#fff", borderColor: on ? "var(--brand)" : "var(--border-color)" }}
+                          >
+                            <input type="radio" name={q.id} value={o.id} checked={on} onChange={() => pick(q.id, o.id)}
+                              className="mt-1 flex-shrink-0 accent-[var(--brand)]" />
+                            <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>{o.text}</span>
+                          </label>
+                        );
+                      })}
+                    </fieldset>
+                  ))}
+                </div>
+                {errors.quiz && (
+                  <p role="alert" className="text-sm font-semibold" style={{ color: "var(--accent-hover)" }}>
+                    {errors.quiz}
+                  </p>
+                )}
+              </>
+            )}
+
+            {current === "send" && (
+              <>
+                <div>
+                  <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
+                    {hi("Nearly there")}.
+                  </h2>
+                  <p className="text-base" style={{ color: "var(--text-muted)" }}>
+                    {cohort
+                      ? "Confirm you can do it full-time, then your OK to keep your application on file."
+                      : "One quick question, and your OK to keep your application on file."}
+                  </p>
+                </div>
+
+                {cohort && (
+                  <CheckBox id="fullTime" checked={app.fullTime} onChange={(v) => set("fullTime", v)}
+                    error={errors.fullTime} describedBy={describedBy("fullTime")}>
+                    <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in CBD Belapur, Navi Mumbai</strong>, Monday
+                    to Friday, for the 15-day training and the internship after it. This cohort isn&apos;t open to
+                    part-time applicants.
+                  </CheckBox>
+                )}
+
                 <div className="grid sm:grid-cols-2 gap-7">
-                  <Field id="hours" label="Time you can give" error={errors.hours}>
-                    <select id="hours" className={inputClass} style={inputStyle}
-                      value={app.hours} onChange={(e) => set("hours", e.target.value)}
-                      aria-invalid={!!errors.hours} aria-describedby={describedBy("hours")}>
-                      <option value="">Choose one</option>
-                      {HOURS_OPTIONS.map((o) => <option key={o}>{o}</option>)}
-                    </select>
-                  </Field>
+                  {cohort && (
+                    <Field id="startWhen" label="When can you start?" error={errors.startWhen}>
+                      <select id="startWhen" className={inputClass} style={inputStyle}
+                        value={app.startWhen} onChange={(e) => set("startWhen", e.target.value)}
+                        aria-invalid={!!errors.startWhen} aria-describedby={describedBy("startWhen")}>
+                        <option value="">Choose one</option>
+                        {START_OPTIONS.map((o) => <option key={o}>{o}</option>)}
+                      </select>
+                    </Field>
+                  )}
                   <Field id="source" label="How did you find us?" error={errors.source}>
                     <select id="source" className={inputClass} style={inputStyle}
                       value={app.source} onChange={(e) => set("source", e.target.value)}
@@ -384,6 +508,14 @@ export default function ApplyFlow({ job }: { job: Job }) {
                   </Field>
                 </div>
 
+                {cohort && (
+                  <CheckBox id="talentPool" checked={app.talentPool} onChange={(v) => set("talentPool", v)}>
+                    <strong style={{ color: "var(--text-primary)" }}>Keep me in TAL&apos;s talent pool.</strong> If I&apos;m
+                    not picked for this cohort, contact me about future cohorts and paid work that fits me.
+                    <span style={{ color: "var(--text-muted)" }}> Optional.</span>
+                  </CheckBox>
+                )}
+
                 <div className="p-5 rounded-sm border" style={{ borderColor: errors.consent ? "var(--accent)" : "var(--border-color)", background: "#fff" }}>
                   <label htmlFor="consent" className="flex items-start gap-3 cursor-pointer">
                     <input id="consent" type="checkbox" className="mt-1 w-4 h-4 flex-shrink-0 accent-[var(--brand)]"
@@ -392,7 +524,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
                     <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                       I agree that TAL Consulting LLP can store my application to assess me for this and similar
                       roles. It&apos;s kept for 6 months, and I can ask for it to be deleted at any time by emailing
-                      founder@theaddalabs.com. See the{" "}
+                      rohan@theaddalabs.com. See the{" "}
                       <Link href="/privacy" target="_blank" className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
                         privacy notice
                       </Link>
@@ -432,7 +564,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
             style={{ padding: "13px 28px", opacity: status === "sending" ? 0.7 : 1 }}
             disabled={status === "sending"}
           >
-            {step < STEPS.length - 1 ? "Continue →" : status === "sending" ? "Sending…" : "Send my application →"}
+            {step < steps.length - 1 ? "Continue →" : status === "sending" ? "Sending…" : "Send my application →"}
           </button>
         </div>
       </form>

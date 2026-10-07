@@ -33,7 +33,7 @@ export default function CareersCTA() {
             environment for you. We read everything.
           </p>
           <a
-            href="mailto:founder@theaddalabs.com"
+            href="mailto:rohan@theaddalabs.com"
             className="btn-ghost"
             style={{ display: "inline-flex" }}
           >

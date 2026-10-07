@@ -1,5 +1,6 @@
 import { getJob, REPLY_PROMISE_DAYS } from "@/lib/jobs";
 import { Application, MIN_FILL_MS, validate } from "@/lib/applications";
+import { scoreQuiz } from "@/lib/quiz-key";
 
 // Receives an application from /careers/[slug]/apply and forwards it to the
 // careers Apps Script web app, which writes the row to the hiring sheet and sends
@@ -7,7 +8,7 @@ import { Application, MIN_FILL_MS, validate } from "@/lib/applications";
 // browser never learns where the sheet lives.
 
 const PAUSED =
-  "Applications are paused for a moment. Please email founder@theaddalabs.com and we'll take it from there.";
+  "Applications are paused for a moment. Please email rohan@theaddalabs.com and we'll take it from there.";
 
 export async function POST(request: Request) {
   let raw: Record<string, unknown>;
@@ -27,8 +28,16 @@ export async function POST(request: Request) {
     profileLink: str("profileLink"),
     sampleLinks: str("sampleLinks"),
     answer: str("answer"),
-    hours: str("hours"),
+    // Keep only string → string pairs; anything else is ignored rather than trusted
+    quiz: Object.fromEntries(
+      Object.entries(typeof raw.quiz === "object" && raw.quiz ? (raw.quiz as Record<string, unknown>) : {})
+        .filter(([k, v]) => typeof k === "string" && typeof v === "string")
+        .slice(0, 20),
+    ) as Record<string, string>,
+    fullTime: raw.fullTime === true,
+    startWhen: str("startWhen"),
     source: str("source"),
+    talentPool: raw.talentPool === true,
     consent: raw.consent === true,
     website: str("website"),
     startedAt: Number(raw.startedAt) || 0,
@@ -45,6 +54,12 @@ export async function POST(request: Request) {
   const errors = validate(body, job);
   if (Object.keys(errors).length) {
     return Response.json({ ok: false, error: "A few answers need another look.", errors }, { status: 400 });
+  }
+
+  // Score the qualifier here, on the server, so the answer key never reaches the browser
+  const quiz = job.group === "cohort" ? scoreQuiz(job.slug, body.quiz) : null;
+  if (job.group === "cohort" && !quiz) {
+    return Response.json({ ok: false, error: "Please answer all the quick questions." }, { status: 400 });
   }
 
   const url = process.env.HIRING_WEBHOOK_URL;
@@ -66,8 +81,14 @@ export async function POST(request: Request) {
     sampleLinks: body.sampleLinks.trim(),
     workSamplePrompt: job.workSample.prompt,
     answer: body.answer.trim(),
-    hours: body.hours,
+    // The sheet's "Hours" column now records full-time availability
+    hours: job.group === "cohort" ? `Full-time, on-site · start ${body.startWhen.toLowerCase()}` : "Not applicable",
     source: body.source,
+    talentPool: job.group === "cohort" && body.talentPool,
+    // A plain number, so the sheet can colour-scale and sort it (out of quiz.max = 18)
+    score: quiz ? quiz.score : "",
+    qualified: quiz ? quiz.qualified : true,
+    breakdown: quiz ? quiz.breakdown : "",
     consent: true,
     replyDays: REPLY_PROMISE_DAYS,
   };

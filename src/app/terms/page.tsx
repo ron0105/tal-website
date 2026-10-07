@@ -68,7 +68,7 @@ export default function Terms() {
 
       <LegalSection heading="Contact">
         <p>
-          Questions about these terms: <a href="mailto:founder@theaddalabs.com">founder@theaddalabs.com</a>
+          Questions about these terms: <a href="mailto:rohan@theaddalabs.com">rohan@theaddalabs.com</a>
         </p>
       </LegalSection>
     </LegalPage>

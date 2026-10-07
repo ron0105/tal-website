@@ -60,7 +60,7 @@ export const COHORT = {
   internshipPay: "₹10,000 a month + bonus",
   internshipMonths: 3,
   nextStart: "late October",
-  location: "Mumbai (CBD Belapur), on-site",
+  location: "CBD Belapur, Navi Mumbai · on-site",
 };
 
 export const GROUPS: Record<RoleGroup, { label: string; line: string; crumb: string }> = {
@@ -83,7 +83,7 @@ export const STATUS_LABEL: Record<RoleStatus, string> = {
 // The cohort's five steps. Kept here so the careers page, every track page and the
 // apply flow describe the process identically.
 export const HIRING_STEPS: Step[] = [
-  { name: "Apply", detail: "Basics plus one short work sample. About 30 minutes." },
+  { name: "Apply", detail: "Basics, one short work sample and six quick questions. About 30 minutes." },
   { name: "Shortlist", detail: "Rohan reads every application on Fridays and picks the next cohort." },
   { name: "Call", detail: "20 minutes. What you've done, what you want, how you work." },
   { name: "Training sprint", detail: `${COHORT.trainingDays} days of real TAL assignments. ${COHORT.trainingStipend} stipend and a certificate.` },
@@ -105,7 +105,7 @@ const COHORT_COMMON = {
   group: "cohort" as const,
   status: "open" as const,
   statusNote: `Next cohort starts ${COHORT.nextStart}`,
-  type: "Paid training → internship",
+  type: "Full-time · paid",
   location: COHORT.location,
   pay: COHORT_PAY,
 };
@@ -116,7 +116,7 @@ const COHORT_WHY =
 const COHORT_NOTES = [
   "Your week is shaped by a scorecard, not a fixed job description, so priorities move as the business does",
   "Training assignments are on TAL's own work. Client work starts in the internship, always with Rohan reviewing before anything goes out",
-  "You work in person at the Mumbai office, so feedback comes the same day",
+  "You work in person at our office in CBD Belapur, Navi Mumbai, so feedback comes the same day",
 ];
 
 export const JOBS: Job[] = [

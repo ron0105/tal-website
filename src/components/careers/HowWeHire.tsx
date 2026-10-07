@@ -16,7 +16,7 @@ export default function HowWeHire() {
             How the cohort works
           </span>
           <h2 className="mb-4" style={{ color: "#FFFFFF" }}>
-            Five steps. No quizzes. A real answer in a week.
+            Five steps. Real situations, not trick questions. An answer in a week.
           </h2>
           <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)", maxWidth: "520px" }}>
             We judge real work, not interview polish. Every track follows the same

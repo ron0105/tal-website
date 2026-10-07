@@ -86,7 +86,7 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: "Email",
-                  value: "founder@theaddalabs.com",
+                  value: "rohan@theaddalabs.com",
                 },
                 {
                   icon: (

@@ -2,6 +2,7 @@
 // same rules. No server-only imports here.
 
 import type { Job } from "./jobs";
+import { quizFor } from "./quiz";
 
 export interface Application {
   role: string;
@@ -12,8 +13,14 @@ export interface Application {
   profileLink: string;
   sampleLinks: string;
   answer: string;
-  hours: string;
+  /** Qualifier answers, question id → option id. Scored on the server only. */
+  quiz: Record<string, string>;
+  /** Cohort only: confirms full-time, on-site availability. */
+  fullTime: boolean;
+  startWhen: string;
   source: string;
+  /** Opt-in: keep me for future cohorts and paid work if I'm not picked. */
+  talentPool: boolean;
   consent: boolean;
   /** Honeypot. Real people never see or fill it. */
   website: string;
@@ -23,11 +30,8 @@ export interface Application {
 
 export type FieldErrors = Partial<Record<keyof Application, string>>;
 
-export const HOURS_OPTIONS = [
-  "Under 10 hours a week",
-  "10 to 20 hours a week",
-  "20+ hours a week",
-];
+// Full-time only for the cohort (Rohan, Oct 7 2026), so there's no hours question.
+export const START_OPTIONS = ["Immediately", "Within 2 weeks", "Within a month"];
 
 export const SOURCE_OPTIONS = [
   "Instagram",
@@ -53,8 +57,11 @@ export function emptyApplication(role: string): Application {
     profileLink: "",
     sampleLinks: "",
     answer: "",
-    hours: "",
+    quiz: {},
+    fullTime: false,
+    startWhen: "",
     source: "",
+    talentPool: false,
     consent: false,
     website: "",
     startedAt: Date.now(),
@@ -64,12 +71,23 @@ export function emptyApplication(role: string): Application {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // Each step only checks its own fields, so the form can stop people at the step
-// where the problem is instead of after the whole thing.
-export const STEP_FIELDS: (keyof Application)[][] = [
-  ["name", "email", "phone", "city", "profileLink"],
-  ["sampleLinks", "answer"],
-  ["hours", "source", "consent"],
-];
+// where the problem is instead of after the whole thing. Cohort tracks get the
+// qualifier step; Referral Partner doesn't.
+export type StepKey = "about" | "work" | "quiz" | "send";
+export interface ApplyStep {
+  key: StepKey;
+  label: string;
+  fields: (keyof Application)[];
+}
+
+export function applySteps(withQuiz: boolean): ApplyStep[] {
+  return [
+    { key: "about" as const, label: "About you", fields: ["name", "email", "phone", "city", "profileLink"] as (keyof Application)[] },
+    { key: "work" as const, label: "Your work", fields: ["sampleLinks", "answer"] as (keyof Application)[] },
+    ...(withQuiz ? [{ key: "quiz" as const, label: "How you think", fields: ["quiz"] as (keyof Application)[] }] : []),
+    { key: "send" as const, label: "Send it", fields: ["fullTime", "startWhen", "source", "consent"] as (keyof Application)[] },
+  ];
+}
 
 export function validate(a: Application, job: Job, fields?: (keyof Application)[]): FieldErrors {
   const e: FieldErrors = {};
@@ -90,11 +108,27 @@ export function validate(a: Application, job: Job, fields?: (keyof Application)[
     e.answer = `A little more, please. At least ${ANSWER_MIN} characters.`;
   if (check("answer") && a.answer.length > ANSWER_MAX) e.answer = `Please keep it under ${ANSWER_MAX} characters.`;
 
-  if (check("hours") && !HOURS_OPTIONS.includes(a.hours)) e.hours = "Pick the closest option.";
+  const questions = quizFor(job.slug);
+  if (check("quiz") && questions.some((q) => !a.quiz?.[q.id]))
+    e.quiz = `Please answer all ${questions.length} questions. There's no time limit.`;
+
+  const cohort = job.group === "cohort";
+  if (cohort && check("fullTime") && !a.fullTime)
+    e.fullTime = "This cohort is full-time and on-site only. If that changes for you, we'd love to hear from you then.";
+  if (cohort && check("startWhen") && !START_OPTIONS.includes(a.startWhen)) e.startWhen = "Pick the closest option.";
   if (check("source") && !SOURCE_OPTIONS.includes(a.source)) e.source = "Pick the closest option.";
   if (check("consent") && !a.consent) e.consent = "We need your OK to store your application.";
 
   return e;
+}
+
+/** The Friday Rohan reads this application: the coming Friday, or next week's if it's already Friday or the weekend. */
+export function reviewFriday(from = new Date()): string {
+  const d = new Date(from);
+  const day = d.getDay(); // 0 Sun ... 5 Fri, 6 Sat
+  const add = day <= 4 ? 5 - day : 12 - day;
+  d.setDate(d.getDate() + add);
+  return d.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long" });
 }
 
 /** The date we promise a reply by, as shown to the applicant. */

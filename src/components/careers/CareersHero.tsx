@@ -65,9 +65,9 @@ export default function CareersHero() {
           TAL is a Mumbai consulting firm that helps businesses turn more of their
           enquiries into customers. In the Founder&apos;s Office Cohort you work
           directly with Rohan on real projects: outreach, content, research and
-          AI-built tools. Fifteen paid days of training, then a full-time internship
-          for the people who perform. You leave with work you can show, not just a
-          line on your CV.
+          AI-built tools. Fifteen paid days of training, then a paid internship for
+          the people who perform. It&apos;s full-time and on-site at our office in Navi Mumbai. You leave
+          with work you can show, not just a line on your CV.
         </motion.p>
 
         <motion.div
