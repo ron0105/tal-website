@@ -147,6 +147,8 @@ export default function CallFlow() {
     }
   }, [stage]);
 
+  // The tal-whatsapp-sync skill spots these two messages by their first line to move the lead in the
+  // tracker. If either opening changes, update that skill's "Call page flow" table too.
   const askOnWhatsApp = whatsappLink(
     [`Hi Rohan, I'd like a ${CALL.minutes}-minute call with TAL.`, "", ...lines, "", "What times work for you?"].join("\n"),
   );
