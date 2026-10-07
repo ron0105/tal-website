@@ -12,8 +12,12 @@ export interface Application {
   profileLink: string;
   sampleLinks: string;
   answer: string;
-  hours: string;
+  /** Cohort only: confirms full-time, on-site availability. */
+  fullTime: boolean;
+  startWhen: string;
   source: string;
+  /** Opt-in: keep me for future cohorts and paid work if I'm not picked. */
+  talentPool: boolean;
   consent: boolean;
   /** Honeypot. Real people never see or fill it. */
   website: string;
@@ -23,11 +27,8 @@ export interface Application {
 
 export type FieldErrors = Partial<Record<keyof Application, string>>;
 
-export const HOURS_OPTIONS = [
-  "Under 10 hours a week",
-  "10 to 20 hours a week",
-  "20+ hours a week",
-];
+// Full-time only for the cohort (Rohan, Oct 7 2026), so there's no hours question.
+export const START_OPTIONS = ["Immediately", "Within 2 weeks", "Within a month"];
 
 export const SOURCE_OPTIONS = [
   "Instagram",
@@ -53,8 +54,10 @@ export function emptyApplication(role: string): Application {
     profileLink: "",
     sampleLinks: "",
     answer: "",
-    hours: "",
+    fullTime: false,
+    startWhen: "",
     source: "",
+    talentPool: false,
     consent: false,
     website: "",
     startedAt: Date.now(),
@@ -68,7 +71,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 export const STEP_FIELDS: (keyof Application)[][] = [
   ["name", "email", "phone", "city", "profileLink"],
   ["sampleLinks", "answer"],
-  ["hours", "source", "consent"],
+  ["fullTime", "startWhen", "source", "consent"],
 ];
 
 export function validate(a: Application, job: Job, fields?: (keyof Application)[]): FieldErrors {
@@ -90,7 +93,10 @@ export function validate(a: Application, job: Job, fields?: (keyof Application)[
     e.answer = `A little more, please. At least ${ANSWER_MIN} characters.`;
   if (check("answer") && a.answer.length > ANSWER_MAX) e.answer = `Please keep it under ${ANSWER_MAX} characters.`;
 
-  if (check("hours") && !HOURS_OPTIONS.includes(a.hours)) e.hours = "Pick the closest option.";
+  const cohort = job.group === "cohort";
+  if (cohort && check("fullTime") && !a.fullTime)
+    e.fullTime = "This cohort is full-time and on-site only. If that changes for you, we'd love to hear from you then.";
+  if (cohort && check("startWhen") && !START_OPTIONS.includes(a.startWhen)) e.startWhen = "Pick the closest option.";
   if (check("source") && !SOURCE_OPTIONS.includes(a.source)) e.source = "Pick the closest option.";
   if (check("consent") && !a.consent) e.consent = "We need your OK to store your application.";
 

@@ -7,6 +7,14 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: `Yes. The ${COHORT.trainingDays}-day training pays ${COHORT.trainingStipend}. The full-time internship after it pays ${COHORT.internshipPay} on calls booked and clients won. We don't ask for free work beyond the short sample in your application.`,
   },
   {
+    q: "Is it full-time?",
+    a: "Yes. The training and the internship are both full-time and on-site in Mumbai, Monday to Friday. This cohort isn't open to part-time applicants.",
+  },
+  {
+    q: "What if I'm not picked?",
+    a: "You'll hear back within 7 days either way. If you tick the talent pool box when you apply, you stay on our list for future cohorts and paid work that fits you, and you'll hear from us first when it comes up.",
+  },
+  {
     q: "Do I need experience?",
     a: "No. We look at how you think and what you can make with AI tools. The work sample in your application is the real test, not your CV.",
   },

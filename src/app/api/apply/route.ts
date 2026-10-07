@@ -27,8 +27,10 @@ export async function POST(request: Request) {
     profileLink: str("profileLink"),
     sampleLinks: str("sampleLinks"),
     answer: str("answer"),
-    hours: str("hours"),
+    fullTime: raw.fullTime === true,
+    startWhen: str("startWhen"),
     source: str("source"),
+    talentPool: raw.talentPool === true,
     consent: raw.consent === true,
     website: str("website"),
     startedAt: Number(raw.startedAt) || 0,
@@ -66,8 +68,10 @@ export async function POST(request: Request) {
     sampleLinks: body.sampleLinks.trim(),
     workSamplePrompt: job.workSample.prompt,
     answer: body.answer.trim(),
-    hours: body.hours,
+    // The sheet's "Hours" column now records full-time availability
+    hours: job.group === "cohort" ? `Full-time, on-site · start ${body.startWhen.toLowerCase()}` : "Not applicable",
     source: body.source,
+    talentPool: body.talentPool,
     consent: true,
     replyDays: REPLY_PROMISE_DAYS,
   };

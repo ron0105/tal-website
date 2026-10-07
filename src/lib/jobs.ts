@@ -105,7 +105,7 @@ const COHORT_COMMON = {
   group: "cohort" as const,
   status: "open" as const,
   statusNote: `Next cohort starts ${COHORT.nextStart}`,
-  type: "Paid training → internship",
+  type: "Full-time · paid",
   location: COHORT.location,
   pay: COHORT_PAY,
 };

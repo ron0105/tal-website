@@ -8,8 +8,8 @@ import {
   ANSWER_MAX,
   Application,
   FieldErrors,
-  HOURS_OPTIONS,
   SOURCE_OPTIONS,
+  START_OPTIONS,
   STEP_FIELDS,
   emptyApplication,
   replyByDate,
@@ -68,6 +68,40 @@ function Field({
   );
 }
 
+function CheckBox({
+  id,
+  checked,
+  onChange,
+  error,
+  describedBy,
+  children,
+}: {
+  id: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  error?: string;
+  describedBy?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="p-5 rounded-sm border" style={{ borderColor: error ? "var(--accent)" : "var(--border-color)", background: "#fff" }}>
+      <label htmlFor={id} className="flex items-start gap-3 cursor-pointer">
+        <input id={id} type="checkbox" className="mt-1 w-4 h-4 flex-shrink-0 accent-[var(--brand)]"
+          checked={checked} onChange={(e) => onChange(e.target.checked)}
+          aria-invalid={!!error} aria-describedby={describedBy} />
+        <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+          {children}
+        </span>
+      </label>
+      {error && (
+        <p id={`${id}-error`} role="alert" className="text-xs font-semibold mt-2 ml-7" style={{ color: "var(--accent-hover)" }}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
 const inputClass =
   "w-full px-4 py-3 text-base outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(14,107,104,0.18)]";
 
@@ -75,6 +109,7 @@ const inputClass =
 
 export default function ApplyFlow({ job }: { job: Job }) {
   const draftKey = `tal-apply-${job.slug}`;
+  const cohort = job.group === "cohort";
   const [app, setApp] = useState<Application>(() => emptyApplication(job.slug));
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -362,18 +397,32 @@ export default function ApplyFlow({ job }: { job: Job }) {
                     Last step. Then it&apos;s with us.
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Two quick questions, and your OK to keep your application on file.
+                    {cohort
+                      ? "Confirm you can do it full-time, then your OK to keep your application on file."
+                      : "One quick question, and your OK to keep your application on file."}
                   </p>
                 </div>
+
+                {cohort && (
+                  <CheckBox id="fullTime" checked={app.fullTime} onChange={(v) => set("fullTime", v)}
+                    error={errors.fullTime} describedBy={describedBy("fullTime")}>
+                    <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in Mumbai</strong>, Monday
+                    to Friday, for the 15-day training and the internship after it. This cohort isn&apos;t open to
+                    part-time applicants.
+                  </CheckBox>
+                )}
+
                 <div className="grid sm:grid-cols-2 gap-7">
-                  <Field id="hours" label="Time you can give" error={errors.hours}>
-                    <select id="hours" className={inputClass} style={inputStyle}
-                      value={app.hours} onChange={(e) => set("hours", e.target.value)}
-                      aria-invalid={!!errors.hours} aria-describedby={describedBy("hours")}>
-                      <option value="">Choose one</option>
-                      {HOURS_OPTIONS.map((o) => <option key={o}>{o}</option>)}
-                    </select>
-                  </Field>
+                  {cohort && (
+                    <Field id="startWhen" label="When can you start?" error={errors.startWhen}>
+                      <select id="startWhen" className={inputClass} style={inputStyle}
+                        value={app.startWhen} onChange={(e) => set("startWhen", e.target.value)}
+                        aria-invalid={!!errors.startWhen} aria-describedby={describedBy("startWhen")}>
+                        <option value="">Choose one</option>
+                        {START_OPTIONS.map((o) => <option key={o}>{o}</option>)}
+                      </select>
+                    </Field>
+                  )}
                   <Field id="source" label="How did you find us?" error={errors.source}>
                     <select id="source" className={inputClass} style={inputStyle}
                       value={app.source} onChange={(e) => set("source", e.target.value)}
@@ -383,6 +432,14 @@ export default function ApplyFlow({ job }: { job: Job }) {
                     </select>
                   </Field>
                 </div>
+
+                {cohort && (
+                  <CheckBox id="talentPool" checked={app.talentPool} onChange={(v) => set("talentPool", v)}>
+                    <strong style={{ color: "var(--text-primary)" }}>Keep me in TAL&apos;s talent pool.</strong> If I&apos;m
+                    not picked for this cohort, contact me about future cohorts and paid work that fits me.
+                    <span style={{ color: "var(--text-muted)" }}> Optional.</span>
+                  </CheckBox>
+                )}
 
                 <div className="p-5 rounded-sm border" style={{ borderColor: errors.consent ? "var(--accent)" : "var(--border-color)", background: "#fff" }}>
                   <label htmlFor="consent" className="flex items-start gap-3 cursor-pointer">
