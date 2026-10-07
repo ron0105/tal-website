@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Careers | TAL Consulting",
   description:
-    "Help businesses win more customers and get paid for every win. Paid per project or per result, with a paid trial and an answer within 7 days.",
+    "The TAL Founder's Office Cohort: a paid 15-day training sprint on real consulting work, then a full-time internship for the people who perform. Growth, Content, Research and Build tracks.",
 };
 
 export default function CareersPage() {

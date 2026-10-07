@@ -8,19 +8,13 @@ import Link from "next/link";
 // The entire strip is a clickable link to /careers.
 
 const MARQUEE_TEXT = [
-  "We're Hiring",
-  "Founder's Office",
-  "Growth Partners",
-  "Researchers",
-  "Editors",
-  "Paid per result",
-  "Open Roles →",
-  "We're Hiring",
-  "Web Developers",
-  "Automation Builders",
-  "Referral Partners",
-  "Paid per result",
-  "Open Roles →",
+  "Founder's Office Cohort",
+  "Growth",
+  "Content",
+  "Research",
+  "Build",
+  "Paid training",
+  "Apply now →",
 ];
 
 export default function HiringMarquee() {

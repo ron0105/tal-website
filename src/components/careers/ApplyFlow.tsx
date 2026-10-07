@@ -190,7 +190,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
             {[
               ["Friday", "Rohan reads every application and picks a shortlist."],
               ["Next week", "Shortlisted people get a 20-minute call."],
-              ["Then", "A small paid trial, and a place on the bench."],
+              ["Then", job.group === "cohort" ? "The 15-day training sprint, paid, with a certificate." : "A short agreement, and you start referring."],
             ].map(([when, what]) => (
               <div key={when} className="p-5" style={{ background: "var(--brand)" }}>
                 <p className="font-poppins text-lg mb-1" style={{ color: "var(--accent-on-brand)" }}>

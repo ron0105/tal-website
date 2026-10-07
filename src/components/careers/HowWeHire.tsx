@@ -13,14 +13,14 @@ export default function HowWeHire() {
       <div className="layout-grid px-6 md:px-10">
         <AnimateOnScroll className="mb-14 max-w-2xl">
           <span className="label-eyebrow mb-5 block" style={{ color: "rgba(255,255,255,0.5)" }}>
-            How we hire
+            How the cohort works
           </span>
           <h2 className="mb-4" style={{ color: "#FFFFFF" }}>
             Five steps. No quizzes. A real answer in a week.
           </h2>
           <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)", maxWidth: "520px" }}>
-            We judge real work, not interview polish. The same process applies to
-            every role, so you always know where you stand.
+            We judge real work, not interview polish. Every track follows the same
+            path, so you always know where you stand.
           </p>
         </AnimateOnScroll>
 

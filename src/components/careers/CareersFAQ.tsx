@@ -1,26 +1,30 @@
 import Link from "next/link";
-import { REPLY_PROMISE_DAYS } from "@/lib/jobs";
+import { COHORT } from "@/lib/jobs";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
-    q: "Is this a full-time job?",
-    a: "Most roles aren't. They're paid per project or per result, so you choose how much you take on, and many people on our bench do this alongside studies, a job or their own clients. Founder's Office is the exception: on-site with Rohan, with a stipend plus a bonus.",
+    q: "Is it paid?",
+    a: `Yes. The ${COHORT.trainingDays}-day training pays ${COHORT.trainingStipend}. The full-time internship after it pays ${COHORT.internshipPay} on calls booked and clients won. We don't ask for free work beyond the short sample in your application.`,
   },
   {
-    q: "What does joining the bench mean?",
-    a: "You've done a paid trial with us and you're first in line when client work comes in. Roles marked \"Joining the bench\" start paid work with our first Build, and bench members are booked before anyone new.",
+    q: "Do I need experience?",
+    a: "No. We look at how you think and what you can make with AI tools. The work sample in your application is the real test, not your CV.",
   },
   {
-    q: "Is the trial really paid?",
-    a: "Yes. It's a small piece of real work, paid at the role's normal rate. We don't ask for free work beyond the short sample in your application.",
+    q: "What will I actually work on?",
+    a: "During training, real assignments on TAL's own growth: outreach, content, research and tools. In the internship, client work too, alongside Rohan, who reviews everything before it goes out.",
   },
   {
-    q: "How long does the whole thing take?",
-    a: `You'll hear back within ${REPLY_PROMISE_DAYS} days of applying. Shortlisted people get a call the following week, and most trials take one to two weeks.`,
+    q: "What if I don't continue after the 15 days?",
+    a: "You still get paid for the training and you still get the certificate, free. You leave with portfolio pieces and an honest note on what to work on next.",
+  },
+  {
+    q: "Is it on-site?",
+    a: `Yes, at our office in ${COHORT.location.replace(", on-site", "")}, Monday to Friday. Working in the same room is how you learn fastest here.`,
   },
   {
     q: "I applied through your old form. Should I apply again?",
-    a: "Yes, if one of these roles fits. Our hiring process has changed, and applying here takes about 30 minutes.",
+    a: "Yes, if one of the tracks fits. Our hiring process has changed, and applying here takes about 30 minutes.",
   },
   {
     q: "What happens to the information I send?",

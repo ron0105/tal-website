@@ -1,7 +1,7 @@
 import { GROUPS, RoleGroup, jobsByGroup } from "@/lib/jobs";
 import JobCard from "./JobCard";
 
-const ORDER: RoleGroup[] = ["grow", "build"];
+const ORDER: RoleGroup[] = ["cohort", "partner"];
 
 export default function JobListings() {
   return (
@@ -14,7 +14,7 @@ export default function JobListings() {
               <div className="flex items-center gap-4 mb-4">
                 <span className="label-eyebrow">{GROUPS[group].label}</span>
                 <div className="flex-1 rule" />
-                <span className="label-eyebrow">{jobs.length} roles</span>
+                {group === "cohort" && <span className="label-eyebrow">{jobs.length} tracks</span>}
               </div>
               <p className="text-base mb-10" style={{ color: "var(--text-muted)", maxWidth: "520px" }}>
                 {GROUPS[group].line}

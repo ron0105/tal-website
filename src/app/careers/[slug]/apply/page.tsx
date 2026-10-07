@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
-import { getJob, getAllSlugs, HIRING_STEPS, REPLY_PROMISE_DAYS } from "@/lib/jobs";
+import { getJob, getAllSlugs, REPLY_PROMISE_DAYS, stepsFor } from "@/lib/jobs";
 import ApplyFlow from "@/components/careers/ApplyFlow";
 import StatusPill from "@/components/careers/StatusPill";
 
@@ -63,7 +63,7 @@ export default async function ApplyPage({
             <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
               After you send it
             </p>
-            {HIRING_STEPS.slice(1).map((s, i) => (
+            {stepsFor(job).slice(1).map((s, i) => (
               <div key={s.name} className="flex gap-3">
                 <span
                   className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black flex-shrink-0 mt-0.5"
