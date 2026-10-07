@@ -8,7 +8,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const openCount = JOBS.filter((j) => j.status === "open").length;
 
 const FACTS = [
-  { big: "Per result", small: "Paid per project or per client won. No ceiling." },
+  { big: "Per result", small: "Most roles are paid per project or per client won. No ceiling." },
   { big: `${REPLY_PROMISE_DAYS} days`, small: "Everyone who applies hears back within a week." },
   { big: "Paid trial", small: "Your first project is real work, paid at the full rate." },
 ];
