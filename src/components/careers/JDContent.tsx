@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Job, REPLY_PROMISE_DAYS, stepsFor } from "@/lib/jobs";
+import { Job, stepsFor } from "@/lib/jobs";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -63,7 +63,7 @@ function ApplyPanel({ job }: { job: Job }) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3">
-        <SmallLabel>How you&apos;re paid</SmallLabel>
+        <SmallLabel>{job.group === "cohort" ? "Training and pay" : "How you're paid"}</SmallLabel>
         <p className="font-poppins text-xl leading-snug" style={{ color: "var(--brand)", fontWeight: 500 }}>
           {job.pay.headline}
         </p>
@@ -99,7 +99,7 @@ function ApplyPanel({ job }: { job: Job }) {
           ))}
         </ol>
         <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
-          You&apos;ll hear back within {REPLY_PROMISE_DAYS} days of applying, whatever the answer.
+          You&apos;ll hear back within a week of applying.
         </p>
       </div>
 
@@ -108,7 +108,7 @@ function ApplyPanel({ job }: { job: Job }) {
         className="btn-primary flex items-center justify-center"
         style={{ padding: "13px 20px" }}
       >
-        Apply in 30 minutes →
+        Apply now →
       </Link>
     </div>
   );

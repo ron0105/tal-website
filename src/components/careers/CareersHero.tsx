@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { COHORT, REPLY_PROMISE_DAYS } from "@/lib/jobs";
+import { COHORT } from "@/lib/jobs";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const FACTS = [
-  { big: COHORT.trainingStipend, small: `${COHORT.trainingDays}-day paid training on real assignments, with a certificate.` },
-  { big: "₹10K + bonus", small: `${COHORT.internshipMonths}-month full-time internship for the people who perform.` },
-  { big: `${REPLY_PROMISE_DAYS} days`, small: "Everyone who applies hears back within a week." },
+  { big: "Hands-on training", small: "Real assignments from the start, with a certificate on completion." },
+  { big: "Paid internship", small: "A full-time role with a performance bonus for strong performers." },
+  { big: "A clear answer", small: "Everyone who applies hears back within a week." },
 ];
 
 export default function CareersHero() {
@@ -51,8 +51,8 @@ export default function CareersHero() {
           className="mb-8"
           style={{ color: "var(--text-primary)", maxWidth: "860px" }}
         >
-          Don&apos;t wait years for real work.{" "}
-          <span style={{ color: "var(--accent)" }}>Start in week one.</span>
+          Build your career on real work,{" "}
+          <span style={{ color: "var(--accent)" }}>from your first week.</span>
         </motion.h1>
 
         <motion.p
@@ -62,12 +62,12 @@ export default function CareersHero() {
           className="body-copy mb-12"
           style={{ maxWidth: "620px" }}
         >
-          TAL is a Mumbai consulting firm that helps businesses turn more of their
-          enquiries into customers. In the Founder&apos;s Office Cohort you work
-          directly with Rohan on real projects: outreach, content, research and
-          AI-built tools. Fifteen paid days of training, then a paid internship for
-          the people who perform. It&apos;s full-time and on-site at our office in Navi Mumbai. You leave
-          with work you can show, not just a line on your CV.
+          TAL is a consulting firm that helps businesses turn more of their enquiries
+          into customers. In the Founder&apos;s Office Cohort, you work directly with
+          Rohan on real projects across outreach, content, research and AI-built tools.
+          Hands-on training comes first, followed by a paid full-time internship for
+          strong performers. The cohort is full-time and based at our office in Navi Mumbai.
+          You leave with a portfolio of work you can show.
         </motion.p>
 
         <motion.div
