@@ -107,7 +107,7 @@ export default function JDHero({ job }: JDHeroProps) {
           className="flex flex-wrap items-center gap-4"
         >
           <Link href={`/careers/${job.slug}/apply`} className="btn-primary" style={{ padding: "13px 28px" }}>
-            Apply in 30 minutes →
+            Apply now →
           </Link>
           <Link href="#role-details" className="btn-ghost" style={{ padding: "13px 28px" }}>
             {job.group === "cohort" ? "Read the full track" : "Read the full role"}

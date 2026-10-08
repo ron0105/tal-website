@@ -13,7 +13,7 @@ const MARQUEE_TEXT = [
   "Content",
   "Research",
   "Build",
-  "Paid training",
+  "Paid internship",
   "Apply now →",
 ];
 

@@ -31,7 +31,7 @@ export interface Application {
 export type FieldErrors = Partial<Record<keyof Application, string>>;
 
 // Full-time only for the cohort (Rohan, Oct 7 2026), so there's no hours question.
-export const START_OPTIONS = ["Immediately", "Within 2 weeks", "Within a month"];
+export const START_OPTIONS = ["Immediately", "Later this month", "Next month"];
 
 export const SOURCE_OPTIONS = [
   "Instagram",
@@ -95,29 +95,29 @@ export function validate(a: Application, job: Job, fields?: (keyof Application)[
   const phoneDigits = a.phone.replace(/\D/g, "");
 
   if (check("name") && a.name.trim().length < 2) e.name = "Please add your full name.";
-  if (check("email") && !EMAIL_RE.test(a.email.trim())) e.email = "That email doesn't look right.";
+  if (check("email") && !EMAIL_RE.test(a.email.trim())) e.email = "Please check your email address.";
   if (check("phone") && (phoneDigits.length < 10 || phoneDigits.length > 13))
-    e.phone = "Add a phone number with at least 10 digits.";
-  if (check("city") && a.city.trim().length < 2) e.city = "Which city are you based in?";
-  if (check("profileLink") && a.profileLink.length > 300) e.profileLink = "Keep this to one link.";
+    e.phone = "Please add a valid phone number.";
+  if (check("city") && a.city.trim().length < 2) e.city = "Please add your city.";
+  if (check("profileLink") && a.profileLink.length > 300) e.profileLink = "Please share a single link.";
 
   if (check("sampleLinks") && job.workSample.answerType === "links" && a.sampleLinks.trim().length < 4)
-    e.sampleLinks = "Add at least one link to your work.";
-  if (check("sampleLinks") && a.sampleLinks.length > 1500) e.sampleLinks = "That's a lot of links. Pick your best few.";
+    e.sampleLinks = "Please add a link to your work.";
+  if (check("sampleLinks") && a.sampleLinks.length > 1500) e.sampleLinks = "Please choose your best few links.";
   if (check("answer") && a.answer.trim().length < ANSWER_MIN)
-    e.answer = `A little more, please. At least ${ANSWER_MIN} characters.`;
-  if (check("answer") && a.answer.length > ANSWER_MAX) e.answer = `Please keep it under ${ANSWER_MAX} characters.`;
+    e.answer = "Please add a little more detail to your answer.";
+  if (check("answer") && a.answer.length > ANSWER_MAX) e.answer = "Please shorten your answer slightly.";
 
   const questions = quizFor(job.slug);
   if (check("quiz") && questions.some((q) => !a.quiz?.[q.id]))
-    e.quiz = `Please answer all ${questions.length} questions. There's no time limit.`;
+    e.quiz = "Please answer every question. Take as long as you need.";
 
   const cohort = job.group === "cohort";
   if (cohort && check("fullTime") && !a.fullTime)
-    e.fullTime = "This cohort is full-time and on-site only. If that changes for you, we'd love to hear from you then.";
-  if (cohort && check("startWhen") && !START_OPTIONS.includes(a.startWhen)) e.startWhen = "Pick the closest option.";
-  if (check("source") && !SOURCE_OPTIONS.includes(a.source)) e.source = "Pick the closest option.";
-  if (check("consent") && !a.consent) e.consent = "We need your OK to store your application.";
+    e.fullTime = "Please confirm you can work full-time, on-site.";
+  if (cohort && check("startWhen") && !START_OPTIONS.includes(a.startWhen)) e.startWhen = "Please choose the closest option.";
+  if (check("source") && !SOURCE_OPTIONS.includes(a.source)) e.source = "Please choose the closest option.";
+  if (check("consent") && !a.consent) e.consent = "Please give your consent so we can store your application.";
 
   return e;
 }

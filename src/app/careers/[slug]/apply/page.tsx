@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
-import { getJob, getAllSlugs, REPLY_PROMISE_DAYS, stepsFor } from "@/lib/jobs";
+import { getJob, getAllSlugs, stepsFor } from "@/lib/jobs";
 import ApplyFlow from "@/components/careers/ApplyFlow";
 import StatusPill from "@/components/careers/StatusPill";
 
@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!job) return { title: "Role Not Found | TAL Consulting" };
   return {
     title: `Apply: ${job.title} | TAL Consulting`,
-    description: `Apply for ${job.title} at TAL. About 30 minutes, with an answer within ${REPLY_PROMISE_DAYS} days.`,
+    description: `Apply for ${job.title} at TAL. You hear back within a week.`,
     robots: { index: false },
   };
 }

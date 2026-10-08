@@ -1,44 +1,43 @@
 import Link from "next/link";
-import { COHORT } from "@/lib/jobs";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Is it paid?",
-    a: `Yes. The ${COHORT.trainingDays}-day training pays ${COHORT.trainingStipend}. The full-time internship after it pays ${COHORT.internshipPay} on calls booked and clients won. We don't ask for free work beyond the short sample in your application.`,
+    a: "The training is a learning period with a certificate on completion. The full-time internship that follows is paid, with a bonus for calls booked and clients won.",
   },
   {
     q: "Is it full-time?",
-    a: "Yes. The training and the internship are both full-time and on-site at our office in CBD Belapur, Navi Mumbai, Monday to Friday. This cohort isn't open to part-time applicants.",
+    a: "Yes. Both the training and the internship are full-time, Monday to Friday, at our office in CBD Belapur, Navi Mumbai. This cohort is for full-time applicants.",
   },
   {
-    q: "What if I'm not picked?",
-    a: "You'll hear back within 7 days either way. If you tick the talent pool box when you apply, you stay on our list for future cohorts and paid work that fits you, and you'll hear from us first when it comes up.",
+    q: "What happens after I apply?",
+    a: "You hear back within a week. If you join the talent pool when you apply, we keep you in mind for future cohorts and paid opportunities, and you hear about them first.",
   },
   {
-    q: "Do I need experience?",
-    a: "No. We look at how you think and what you can make with AI tools. The work sample in your application is the real test, not your CV.",
+    q: "What experience do I need?",
+    a: "We focus on how you think and what you can create with AI tools. Your work sample matters more than your CV.",
   },
   {
-    q: "What will I actually work on?",
-    a: "During training, real assignments on TAL's own growth: outreach, content, research and tools. In the internship, client work too, alongside Rohan, who reviews everything before it goes out.",
+    q: "What will I work on?",
+    a: "During training, you work on real assignments for TAL's own growth: outreach, content, research and tools. During the internship, you also work on client projects alongside Rohan, who reviews everything before it is shared.",
   },
   {
-    q: "What if I don't continue after the 15 days?",
-    a: "You still get paid for the training and you still get the certificate, free. You leave with portfolio pieces and an honest note on what to work on next.",
+    q: "What do I gain from the training?",
+    a: "Every participant who completes the training receives a certificate. You also leave with portfolio pieces and clear feedback on your next steps.",
   },
   {
     q: "Is it on-site?",
-    a: "Yes, at our office in CBD Belapur, Navi Mumbai, Monday to Friday. Working in the same room is how you learn fastest here.",
+    a: "Yes, at our office in CBD Belapur, Navi Mumbai, Monday to Friday. Working together in person is the fastest way to learn.",
   },
   {
     q: "I applied through your old form. Should I apply again?",
-    a: "Yes, if one of the tracks fits. Our hiring process has changed, and applying here takes about 30 minutes.",
+    a: "Yes, please apply here if one of the tracks suits you. Our hiring process has been updated, and you can save your progress as you go.",
   },
   {
     q: "What happens to the information I send?",
     a: (
       <>
-        We use it only to assess your application, keep it for 6 months, and delete it sooner if you ask.
+        We use it only to assess your application, keep it for a limited period, and delete it whenever you ask.
         Details are in our{" "}
         <Link href="/privacy" className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
           privacy notice

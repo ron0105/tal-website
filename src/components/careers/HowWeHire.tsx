@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
-import { HIRING_STEPS, REPLY_PROMISE_DAYS } from "@/lib/jobs";
+import { HIRING_STEPS } from "@/lib/jobs";
 
 export default function HowWeHire() {
   return (
@@ -16,10 +16,10 @@ export default function HowWeHire() {
             How the cohort works
           </span>
           <h2 className="mb-4" style={{ color: "#FFFFFF" }}>
-            Five steps. Real situations, not trick questions. An answer in a week.
+            A clear, simple process, with an answer within a week.
           </h2>
           <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.65)", maxWidth: "520px" }}>
-            We judge real work, not interview polish. Every track follows the same
+            We assess real work and real thinking. Every track follows the same
             path, so you always know where you stand.
           </p>
         </AnimateOnScroll>
@@ -54,10 +54,10 @@ export default function HowWeHire() {
             style={{ color: "rgba(255,255,255,0.85)", borderLeft: "2px solid var(--accent-on-brand)" }}
           >
             <strong style={{ color: "var(--accent-on-brand)" }}>
-              Everyone hears back within {REPLY_PROMISE_DAYS} days.
+              Everyone hears back within a week.
             </strong>{" "}
-            If it&apos;s not a fit this time, we tell you plainly and keep your work
-            on file for the next role.
+            You receive a clear answer either way, and we keep your work on file for
+            future roles.
           </p>
         </AnimateOnScroll>
       </div>

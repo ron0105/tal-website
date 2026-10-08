@@ -246,14 +246,14 @@ export default function ApplyFlow({ job }: { job: Job }) {
             </p>
             <p>
               A copy is on its way to <strong style={{ color: "var(--text-primary)" }}>{app.email}</strong>. If you think of
-              anything you wish you&apos;d added, just reply to that email.
+              anything you would like to add, simply reply to that email.
             </p>
           </RohanNote>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
-              ["Friday", "I read every application and pick a shortlist."],
-              ["Next week", "Shortlisted people get a 20-minute call with me."],
-              ["Then", job.group === "cohort" ? "The 15-day training sprint, paid, with a certificate." : "A short agreement, and you start referring."],
+              ["Friday", "I read every application and select a shortlist."],
+              ["Next week", "Shortlisted applicants are invited to a short call with me."],
+              ["Then", job.group === "cohort" ? "Hands-on training on real assignments, with a certificate on completion." : "A short agreement, and you can start referring."],
             ].map(([when, what]) => (
               <div key={when} className="p-5 rounded-[6px]" style={{ background: "var(--bg)" }}>
                 <p className="font-poppins text-lg mb-1" style={{ color: "var(--brand)" }}>
@@ -342,16 +342,15 @@ export default function ApplyFlow({ job }: { job: Job }) {
             {current === "about" && (
               <>
                 <RohanNote>
-                  Hi, I&apos;m Rohan. I started TAL, and I read every application myself, on Fridays. There are no
-                  trick questions here. Show me how you think, and you&apos;ll hear back from me within a week,
-                  whatever the answer.
+                  Hi, I&apos;m Rohan. I founded TAL, and I read every application personally on Fridays. This is
+                  your chance to show me how you think. You&apos;ll hear back from me within a week.
                 </RohanNote>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
                     First, a little about you.
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Two minutes. I only ask what I need to reply to you.
+                    Just the details I need to get back to you.
                   </p>
                 </div>
                 <Field id="name" label="Full name" error={errors.name}>
@@ -430,11 +429,11 @@ export default function ApplyFlow({ job }: { job: Job }) {
               <>
                 <div>
                   <h2 className="text-section-title mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.75rem, 3vw, 2.25rem)" }}>
-                    {first ? `Six real situations, ${first.charAt(0).toUpperCase()}${first.slice(1)}.` : "Six real situations."}
+                    {first ? `A few real situations, ${first.charAt(0).toUpperCase()}${first.slice(1)}.` : "A few real situations."}
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
-                    Each one is something that actually happens here. Pick what you&apos;d really do, not what
-                    sounds best. There&apos;s no time limit.
+                    Each one comes from our day-to-day work. Choose what you would actually do, and take as
+                    long as you need.
                   </p>
                   <p className="text-xs font-semibold mt-3" style={{ color: "var(--brand)" }}>
                     {answered} of {questions.length} answered
@@ -479,8 +478,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
                     {cohort
-                      ? "Confirm you can do it full-time, then your OK to keep your application on file."
-                      : "One quick question, and your OK to keep your application on file."}
+                      ? "Please confirm you are available full-time, and give your consent for us to keep your application on file."
+                      : "One quick question, and your consent for us to keep your application on file."}
                   </p>
                 </div>
 
@@ -488,8 +487,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
                   <CheckBox id="fullTime" checked={app.fullTime} onChange={(v) => set("fullTime", v)}
                     error={errors.fullTime} describedBy={describedBy("fullTime")}>
                     <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in CBD Belapur, Navi Mumbai</strong>, Monday
-                    to Friday, for the 15-day training and the internship after it. This cohort isn&apos;t open to
-                    part-time applicants.
+                    to Friday, for the training and the internship that follows.
                   </CheckBox>
                 )}
 
@@ -516,8 +514,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
                 {cohort && (
                   <CheckBox id="talentPool" checked={app.talentPool} onChange={(v) => set("talentPool", v)}>
-                    <strong style={{ color: "var(--text-primary)" }}>Keep me in TAL&apos;s talent pool.</strong> If I&apos;m
-                    not picked for this cohort, contact me about future cohorts and paid work that fits me.
+                    <strong style={{ color: "var(--text-primary)" }}>Add me to TAL&apos;s talent pool.</strong> Contact me
+                    about future cohorts and paid opportunities that suit me.
                     <span style={{ color: "var(--text-muted)" }}> Optional.</span>
                   </CheckBox>
                 )}
@@ -546,13 +544,13 @@ export default function ApplyFlow({ job }: { job: Job }) {
 
                 {status === "sending" && slow && (
                   <p role="status" className="text-sm px-4 py-3 rounded-sm" style={{ background: "var(--bg-lift)", color: "var(--text-body)" }}>
-                    Saving your application. This can take up to half a minute, so please keep this page open.
+                    Saving your application. This may take a few moments, so please keep this page open.
                   </p>
                 )}
 
                 {status === "failed" && (
                   <p role="alert" className="text-sm px-4 py-3 rounded-sm" style={{ background: "#F8EBE2", color: "var(--accent-hover)" }}>
-                    {serverMessage} Your answers are still here, so you can try again.
+                    {serverMessage} Your answers are saved here, so you can send it again.
                   </p>
                 )}
               </>
