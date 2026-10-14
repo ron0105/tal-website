@@ -1,7 +1,11 @@
-import { book } from "@/lib/cal";
-import { phoneE164, validContact } from "@/lib/call";
+import { book } from "@/lib/booking";
+import { phoneDigits, validContact } from "@/lib/call";
 
-// Books the time a hot lead picked from their 3 offers. Cal.com checks it's still free.
+// Room for the tracker's slow reply (~20s from Vercel)
+export const maxDuration = 60;
+
+// Books the time a hot lead picked from their 3 offers, straight into Rohan's Google Calendar.
+// The tracker script checks it's still free first.
 export async function POST(request: Request) {
   let raw: Record<string, unknown>;
   try {
@@ -18,11 +22,13 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, result: "failed" }, { status: 400 });
   }
 
-  try {
-    const result = await book({ start, name: contact.name, email, phone: phoneE164(contact.phone), notes: str(raw.notes, 1500) });
-    return Response.json({ ok: result === "booked", result });
-  } catch (err) {
-    console.error("[book] Cal.com unreachable", err);
-    return Response.json({ ok: false, result: "failed" });
-  }
+  const result = await book({
+    start: new Date(start).toISOString(),
+    name: contact.name,
+    email,
+    phone: phoneDigits(contact.phone),
+    company: contact.company,
+    notes: str(raw.notes, 1500),
+  });
+  return Response.json({ ok: result === "booked", result });
 }

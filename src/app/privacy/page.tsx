@@ -44,7 +44,7 @@ export default function Privacy() {
           your name, WhatsApp number, business name or website, and your answers to the short questions (your
           type of business, team size, what you&apos;d like help with, when you&apos;d like to start, your
           planned budget, and who decides). If you book a time, we also receive your email and the time you
-          pick, through Cal.com, which runs our calendar. If you send your answers on WhatsApp, we receive them
+          pick, and send you a Google Calendar invite with a Google Meet link. If you send your answers on WhatsApp, we receive them
           through WhatsApp.
         </p>
       </LegalSection>
@@ -86,8 +86,7 @@ export default function Privacy() {
           unless you join our bench, in which case we keep what we need to work with you.
         </p>
         <p>
-          Call page answers are kept in TAL&apos;s Google Workspace account, and bookings in Cal.com and our
-          Google Workspace calendar, for{" "}
+          Call page answers and bookings are kept in TAL&apos;s Google Workspace account and calendar, for{" "}
           <strong>12 months</strong> after you write in, then deleted, unless we start working together.
         </p>
       </LegalSection>

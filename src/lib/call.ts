@@ -1,14 +1,11 @@
 // Settings for /call, the one link Rohan sends to anyone who wants to talk to TAL.
-// Two values are filled in once, by hand, after setup:
-//   videoId  the YouTube ID of Rohan's 2-minute hello (upload as Unlisted)
-//   calLink  the Cal.com booking link, the part after cal.com/ (e.g. "rohan-tal/20min")
-// Until calLink is set, hot leads fall back to WhatsApp too, so the page works from day one.
+//   videoId  the YouTube ID of Rohan's 2-minute hello (upload as Unlisted), filled in by hand
+// Free times and bookings come from Rohan's Google Calendar through the tracker (src/lib/booking.ts).
 // Questions, points and bands all live here so they can be changed in one place.
 // Plan: 01-tal/tal/how-we-work/Client flow and lead scoring - plan (draft).md
 
 export const CALL = {
   videoId: "",
-  calLink: "rohan-tal/20-minute-call-with-tal",
   whatsapp: "918169315080",
   minutes: 20,
 };
@@ -129,12 +126,6 @@ export function phoneDigits(phone: string): string {
   return phone.replace(/\D/g, "");
 }
 
-// Cal.com's phone field wants +countrycode; a bare 10-digit number is taken as Indian
-export function phoneE164(phone: string): string {
-  const d = phoneDigits(phone);
-  return d.length === 10 ? `+91${d}` : `+${d}`;
-}
-
 export function validContact(c: Contact): Partial<Record<keyof Contact, string>> {
   const errors: Partial<Record<keyof Contact, string>> = {};
   if (c.name.trim().length < 2) errors.name = "Please add your name.";
@@ -149,7 +140,7 @@ export const MIN_FILL_MS = 8_000;
 
 // ─── Text helpers ────────────────────────────────────────────────────────────
 
-// One line per answer, used for the Cal.com notes, the WhatsApp message and the tracker
+// One line per answer, used for the calendar invite, the WhatsApp message and the tracker
 export function answerLines(a: Answers): string[] {
   return QUESTIONS.filter((q) => a[q.id]).map((q) => `${q.short}: ${a[q.id]}`);
 }
