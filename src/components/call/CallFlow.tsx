@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Offer } from "@/lib/cal";
+import type { Offer } from "@/lib/booking";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -87,6 +87,17 @@ export default function CallFlow() {
   useEffect(() => {
     startedAt.current = Date.now();
   }, []);
+
+  // Rohan's free times take ~20s to fetch, so start fetching once the lead begins answering.
+  // By the time a hot lead reaches the times, they're ready.
+  const warmed = useRef(false);
+  useEffect(() => {
+    if (step < 1 || warmed.current) return;
+    warmed.current = true;
+    fetch("/api/slots", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ warm: true }) }).catch(
+      () => undefined,
+    );
+  }, [step]);
 
   const q = QUESTIONS[step];
   const firstName = contact.name.trim().split(/\s+/)[0] || "";
@@ -509,9 +520,14 @@ export default function CallFlow() {
                   </label>
                   <div>
                     <button type="submit" disabled={booking === "sending"} className="btn-primary" style={{ padding: "16px 32px", fontSize: "1rem", opacity: booking === "sending" ? 0.7 : 1 }}>
-                      {booking === "sending" ? "Booking…" : `Confirm ${chosen.label}`}
+                      {booking === "sending" ? "Booking your call…" : `Confirm ${chosen.label}`}
                     </button>
                   </div>
+                  {booking === "sending" && (
+                    <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                      Putting it in Rohan&apos;s calendar. This can take up to 20 seconds, please keep this page open.
+                    </p>
+                  )}
                   {booking === "failed" && (
                     <p role="alert" className="text-sm" style={{ color: "var(--accent-hover)" }}>
                       That didn&apos;t go through.{" "}
@@ -581,7 +597,9 @@ export default function CallFlow() {
             {stage === "booked" ? (
               <>
                 <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.82)", maxWidth: 520 }}>
-                  Your confirmation is in your email. One last tap and we&apos;ll remind you on WhatsApp before the call.
+                  A calendar invite with the Google Meet link is on its way to {email.trim() || "your email"}. Tap{" "}
+                  <strong>Yes</strong> in the invite and it&apos;s in your calendar. One last tap here and we&apos;ll remind you
+                  on WhatsApp before the call.
                 </p>
                 <a
                   href={reminderOnWhatsApp}
@@ -661,7 +679,7 @@ export default function CallFlow() {
                 ["Is the call free?", `Yes. It takes ${CALL.minutes} minutes, and the ideas are yours to keep.`],
                 ["Do I need to prepare?", "Nothing to prepare. If you can, have a rough idea of how many enquiries came in last week."],
                 ["Who will I talk to?", "Rohan, who runs TAL. You speak to the person who does the work."],
-                ["Need a different time?", "Use the link in your confirmation email, or just message us on WhatsApp."],
+                ["Need a different time?", "Reply to the calendar invite, or just message us on WhatsApp."],
               ].map(([q, a]) => (
                 <div key={q}>
                   <dt className="font-semibold mb-1" style={{ color: "#fff" }}>
