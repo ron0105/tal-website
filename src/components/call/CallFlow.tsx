@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { Offer } from "@/lib/cal";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,58 +21,6 @@ import {
 } from "@/lib/call";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-// ─── Cal.com embed ───────────────────────────────────────────────────────────
-
-type CalFn = ((...args: unknown[]) => void) & { ns: Record<string, (...args: unknown[]) => void> };
-
-declare global {
-  interface Window {
-    Cal?: CalFn;
-  }
-}
-
-// Cal.com's official loader snippet, kept as published so it matches their docs
-function installCal() {
-  if (window.Cal) return;
-  /* eslint-disable */
-  (function (C: any, A: string, L: string) { let p = function (a: any, ar: any) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api: any = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  /* eslint-enable */
-}
-
-function Calendar({ notes, name, onBooked }: { notes: string; name: string; onBooked: () => void }) {
-  const started = useRef(false);
-  const booked = useRef(onBooked);
-  useEffect(() => {
-    booked.current = onBooked;
-  }, [onBooked]);
-
-  useEffect(() => {
-    // Strict mode runs effects twice in dev; one calendar is enough
-    if (started.current) return;
-    started.current = true;
-    installCal();
-    const Cal = window.Cal!;
-    Cal("init", "tal-call", { origin: "https://app.cal.com" });
-    const cal = Cal.ns["tal-call"];
-    cal("inline", {
-      elementOrSelector: "#tal-call-calendar",
-      calLink: CALL.calLink,
-      config: { layout: "month_view", theme: "light", notes, name },
-    });
-    cal("ui", {
-      theme: "light",
-      layout: "month_view",
-      hideEventTypeDetails: false,
-      cssVarsPerTheme: { light: { "cal-brand": "#0E6B68" } },
-    });
-    // Cal.com renamed this event; listen for both so an upgrade on their side doesn't break the hand-off
-    cal("on", { action: "bookingSuccessfulV2", callback: () => booked.current() });
-    cal("on", { action: "bookingSuccessful", callback: () => booked.current() });
-  }, [notes, name]);
-
-  return <div id="tal-call-calendar" className="w-full overflow-auto" style={{ minHeight: 600 }} />;
-}
 
 // ─── Small pieces ────────────────────────────────────────────────────────────
 
@@ -126,6 +75,10 @@ export default function CallFlow() {
   const [stage, setStage] = useState<Stage>("questions");
   const [band, setBand] = useState<Band>("Warm");
   const [saved, setSaved] = useState<boolean | null>(null);
+  const [offers, setOffers] = useState<Offer[] | null>(null);
+  const [chosen, setChosen] = useState<Offer | null>(null);
+  const [email, setEmail] = useState("");
+  const [booking, setBooking] = useState<"idle" | "sending" | "taken" | "failed" | "badEmail">("idle");
   const [nudge, setNudge] = useState(false);
   const startedAt = useRef(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -208,6 +161,45 @@ export default function CallFlow() {
     setNudge(false);
   };
 
+  const loadOffers = () => {
+    setOffers(null);
+    setChosen(null);
+    fetch("/api/slots", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone: contact.phone }),
+    })
+      .then((r) => r.json())
+      .then((d: { offers?: Offer[] }) => setOffers(d.offers ?? []))
+      .catch(() => setOffers([]));
+  };
+
+  const confirm = () => {
+    if (!chosen) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setBooking("badEmail");
+      return;
+    }
+    setBooking("sending");
+    fetch("/api/book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...contact, email: email.trim(), start: chosen.start, notes: lines.join("\n") }),
+    })
+      .then((r) => r.json())
+      .then((d: { result?: string }) => {
+        if (d.result === "booked") {
+          setBooking("idle");
+          setStage("booked");
+        } else if (d.result === "taken") {
+          // Someone got there first: offer a fresh set, quietly
+          setBooking("taken");
+          loadOffers();
+        } else setBooking("failed");
+      })
+      .catch(() => setBooking("failed"));
+  };
+
   const submit = () => {
     const errs = validContact(contact);
     setErrors(errs);
@@ -217,6 +209,7 @@ export default function CallFlow() {
     setBand(result.band);
     setSaved(null);
     setStage(result.band === "Hot" ? "times" : "waiting");
+    if (result.band === "Hot") loadOffers();
 
     // Saved in the background: Google can take ~20s to answer, and nobody should wait for it.
     // If it doesn't save, the ending swaps to a WhatsApp button so the lead still reaches Rohan.
@@ -440,28 +433,108 @@ export default function CallFlow() {
         </section>
       )}
 
-      {/* Hot: book straight into Rohan's free slots */}
+      {/* Hot: we suggest 3 times; the open calendar is never shown (Rohan, Oct 14) */}
       {stage === "times" && (
         <section ref={cardRef} className="scroll-mt-32">
           <p className="label-eyebrow mb-3" style={{ color: "var(--accent)" }}>
             Good news{firstName ? `, ${firstName}` : ""}
           </p>
           <h2 className="mb-3" style={{ color: "var(--text-primary)", fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)" }}>
-            Pick a time with Rohan.
+            Rohan can meet you at one of these times.
           </h2>
           <p className="text-base mb-6" style={{ color: "var(--text-body)" }}>
-            From what you shared, a {CALL.minutes}-minute call is the right next step. These are the times Rohan is free.
+            From what you shared, a {CALL.minutes}-minute video call is the right next step. Pick the one that suits you.
           </p>
-          {CALL.calLink ? (
-            <div className="flex flex-col gap-4">
-              <div className="rounded-[4px] border overflow-hidden" style={{ borderColor: "var(--border-color)", background: "#fff" }}>
-                <Calendar notes={lines.join("\n")} name={contact.name.trim()} onBooked={() => setStage("booked")} />
+
+          {offers === null && (
+            <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+              Checking Rohan&apos;s diary…
+            </p>
+          )}
+
+          {offers && offers.length > 0 && (
+            <div className="flex flex-col gap-6">
+              {booking === "taken" && (
+                <p role="alert" className="text-sm font-semibold" style={{ color: "var(--accent-hover)" }}>
+                  That time was just taken. Here are a few more.
+                </p>
+              )}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                {offers.map((o) => (
+                  <Chip
+                    key={o.start}
+                    label={o.label}
+                    on={chosen?.start === o.start}
+                    onClick={() => {
+                      setChosen(o);
+                      if (booking !== "sending") setBooking("idle");
+                    }}
+                  />
+                ))}
               </div>
-              <button type="button" onClick={() => setStage("booked")} className="self-start text-sm font-semibold underline underline-offset-4" style={{ color: "var(--brand)" }}>
-                Booked? Get your WhatsApp reminder
-              </button>
+
+              {chosen && (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    confirm();
+                  }}
+                  className="flex flex-col gap-3"
+                  style={{ maxWidth: 440 }}
+                  noValidate
+                >
+                  <label className="flex flex-col gap-1.5">
+                    <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                      Your email, for the invite and video link
+                    </span>
+                    <input
+                      type="email"
+                      autoComplete="email"
+                      inputMode="email"
+                      maxLength={120}
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (booking === "badEmail") setBooking("idle");
+                      }}
+                      aria-invalid={booking === "badEmail"}
+                      className={inputClass}
+                      style={{ ...inputStyle, borderColor: booking === "badEmail" ? "var(--accent-hover)" : "var(--border-color)" }}
+                    />
+                    {booking === "badEmail" && (
+                      <span role="alert" className="text-sm" style={{ color: "var(--accent-hover)" }}>
+                        Please check your email address.
+                      </span>
+                    )}
+                  </label>
+                  <div>
+                    <button type="submit" disabled={booking === "sending"} className="btn-primary" style={{ padding: "16px 32px", fontSize: "1rem", opacity: booking === "sending" ? 0.7 : 1 }}>
+                      {booking === "sending" ? "Booking…" : `Confirm ${chosen.label}`}
+                    </button>
+                  </div>
+                  {booking === "failed" && (
+                    <p role="alert" className="text-sm" style={{ color: "var(--accent-hover)" }}>
+                      That didn&apos;t go through.{" "}
+                      <a href={askOnWhatsApp} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+                        Send your answers on WhatsApp
+                      </a>{" "}
+                      and Rohan will lock in the time with you.
+                    </p>
+                  )}
+                </form>
+              )}
+
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                None of these work?{" "}
+                <a href={askOnWhatsApp} target="_blank" rel="noopener noreferrer" onClick={() => setStage("asked")} className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
+                  Message us on WhatsApp
+                </a>{" "}
+                and we&apos;ll find another time.
+              </p>
             </div>
-          ) : (
+          )}
+
+          {offers && offers.length === 0 && (
             <a
               href={askOnWhatsApp}
               target="_blank"
@@ -493,7 +566,9 @@ export default function CallFlow() {
             </p>
             <h2 className="mb-5" style={{ color: "#fff", fontSize: "clamp(1.9rem, 4vw, 2.6rem)" }}>
               {stage === "booked"
-                ? "See you soon."
+                ? chosen
+                  ? `See you ${chosen.label.replace(" · ", " at ")}.`
+                  : "See you soon."
                 : stage === "asked"
                   ? "We'll reply with a few times."
                   : saved === false

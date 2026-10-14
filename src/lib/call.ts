@@ -8,7 +8,7 @@
 
 export const CALL = {
   videoId: "",
-  calLink: "",
+  calLink: "rohan-tal/20-minute-call-with-tal",
   whatsapp: "918169315080",
   minutes: 20,
 };
@@ -127,6 +127,12 @@ export const EMPTY_CONTACT: Contact = { name: "", phone: "", company: "" };
 
 export function phoneDigits(phone: string): string {
   return phone.replace(/\D/g, "");
+}
+
+// Cal.com's phone field wants +countrycode; a bare 10-digit number is taken as Indian
+export function phoneE164(phone: string): string {
+  const d = phoneDigits(phone);
+  return d.length === 10 ? `+91${d}` : `+${d}`;
 }
 
 export function validContact(c: Contact): Partial<Record<keyof Contact, string>> {
