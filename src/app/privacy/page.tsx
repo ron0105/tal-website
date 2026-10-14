@@ -40,10 +40,12 @@ export default function Privacy() {
           your application.
         </p>
         <p>
-          <strong>If you book a call</strong> through our <Link href="/call">call page</Link>, we receive your
-          name, email, the time you pick, and your three answers (your type of business, roughly how many
-          enquiries you get, and what you&apos;d like to improve). Bookings are made through Cal.com, which runs
-          our calendar. If you send your answers on WhatsApp instead, we receive them through WhatsApp.
+          <strong>If you use our call page</strong> (<Link href="/call">theaddalabs.com/call</Link>), we receive
+          your name, WhatsApp number, business name or website, and your answers to the short questions (your
+          type of business, team size, what you&apos;d like help with, when you&apos;d like to start, your
+          planned budget, and who decides). If you book a time, we also receive your email and the time you
+          pick, through Cal.com, which runs our calendar. If you send your answers on WhatsApp, we receive them
+          through WhatsApp.
         </p>
       </LegalSection>
 
@@ -59,7 +61,9 @@ export default function Privacy() {
           review applications.
         </p>
         <p>
-          We use call bookings only to prepare for and hold the call you asked for, and to remind you about it.
+          We use call page answers and bookings only to prepare for and hold the call you asked for, to remind
+          you about it, and to reply to you on WhatsApp. Your answers give us a simple priority score, which
+          helps us decide how quickly to offer a call. Everyone who writes in hears back from us.
         </p>
       </LegalSection>
 
@@ -82,8 +86,9 @@ export default function Privacy() {
           unless you join our bench, in which case we keep what we need to work with you.
         </p>
         <p>
-          Call bookings are kept in Cal.com and TAL&apos;s Google Workspace calendar for{" "}
-          <strong>12 months</strong> after the call, then deleted, unless we start working together.
+          Call page answers are kept in TAL&apos;s Google Workspace account, and bookings in Cal.com and our
+          Google Workspace calendar, for{" "}
+          <strong>12 months</strong> after you write in, then deleted, unless we start working together.
         </p>
       </LegalSection>
 
