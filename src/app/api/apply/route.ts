@@ -1,11 +1,15 @@
 import { getJob, REPLY_PROMISE_DAYS } from "@/lib/jobs";
-import { Application, MIN_FILL_MS, validate } from "@/lib/applications";
+import { Application, MIN_FILL_MS, formatPhone, validate } from "@/lib/applications";
 import { scoreQuiz } from "@/lib/quiz-key";
 
 // Receives an application from /careers/[slug]/apply and forwards it to the
 // careers Apps Script web app, which writes the row to the hiring sheet and sends
 // the confirmation email. The webhook URL and token stay server-side, so the
 // browser never learns where the sheet lives.
+//
+// Two kinds of request (Oct 14, 2026): stage "started" arrives when someone finishes
+// step 1 and has ticked consent, so their contact details are saved even if they never
+// finish; the full application then fills in that same row.
 
 // Room for the Apps Script round trip. From Vercel, Google can take ~20s to answer the
 // POST even though the row is written in ~2s, so give it plenty of time.
@@ -46,14 +50,43 @@ export async function POST(request: Request) {
     website: str("website"),
     startedAt: Number(raw.startedAt) || 0,
   };
+  const started = raw.stage === "started";
 
-  // Bots get a quiet success so they don't learn what tripped them.
-  if (body.website || !body.startedAt || Date.now() - body.startedAt < MIN_FILL_MS) {
+  // Bots get a quiet success so they don't learn what tripped them. Step 1 comes too
+  // early for the fill-time check, so a "started" save only checks the honeypot.
+  if (body.website || !body.startedAt || (!started && Date.now() - body.startedAt < MIN_FILL_MS)) {
     return Response.json({ ok: true });
   }
 
   const job = getJob(String(body.role));
   if (!job) return Response.json({ ok: false, error: "That role isn't open." }, { status: 400 });
+
+  const url = process.env.HIRING_WEBHOOK_URL;
+  const token = process.env.HIRING_WEBHOOK_TOKEN;
+  if (!url || !token) {
+    console.error("[apply] HIRING_WEBHOOK_URL or HIRING_WEBHOOK_TOKEN is not set");
+    return Response.json({ ok: false, error: PAUSED }, { status: 503 });
+  }
+
+  const contact = {
+    token,
+    role: job.slug,
+    roleTitle: job.title,
+    name: body.name.trim(),
+    email: body.email.trim().toLowerCase(),
+    phone: formatPhone(body.phone),
+    city: body.city.trim(),
+    profileLink: body.profileLink.trim(),
+    consent: true,
+  };
+
+  if (started) {
+    const errors = validate(body, job, ["name", "email", "phone", "city", "profileLink", "consent"]);
+    if (Object.keys(errors).length) {
+      return Response.json({ ok: false, error: "A few answers need another look.", errors }, { status: 400 });
+    }
+    return forward(url, { ...contact, stage: "started" });
+  }
 
   const errors = validate(body, job);
   if (Object.keys(errors).length) {
@@ -66,22 +99,8 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Please answer all the quick questions." }, { status: 400 });
   }
 
-  const url = process.env.HIRING_WEBHOOK_URL;
-  const token = process.env.HIRING_WEBHOOK_TOKEN;
-  if (!url || !token) {
-    console.error("[apply] HIRING_WEBHOOK_URL or HIRING_WEBHOOK_TOKEN is not set");
-    return Response.json({ ok: false, error: PAUSED }, { status: 503 });
-  }
-
-  const payload = {
-    token,
-    role: job.slug,
-    roleTitle: job.title,
-    name: body.name.trim(),
-    email: body.email.trim().toLowerCase(),
-    phone: body.phone.trim(),
-    city: body.city.trim(),
-    profileLink: body.profileLink.trim(),
+  return forward(url, {
+    ...contact,
     sampleLinks: body.sampleLinks.trim(),
     workSamplePrompt: job.workSample.prompt,
     answer: body.answer.trim(),
@@ -93,14 +112,15 @@ export async function POST(request: Request) {
     score: quiz ? quiz.score : "",
     qualified: quiz ? quiz.qualified : true,
     breakdown: quiz ? quiz.breakdown : "",
-    consent: true,
     replyDays: REPLY_PROMISE_DAYS,
-  };
+  });
+}
 
-  // Apps Script runs doPost first, then answers with a 302 to a one-time URL holding
-  // its output. We take that hop ourselves: a 302 already means the row was written and
-  // the confirmation sent, so a slow or failed read of the output must not tell the
-  // applicant it failed (they'd apply twice). Only an explicit { ok: false } is a no.
+// Apps Script runs doPost first, then answers with a 302 to a one-time URL holding
+// its output. We take that hop ourselves: a 302 already means the row was written and
+// the confirmation sent, so a slow or failed read of the output must not tell the
+// applicant it failed (they'd apply twice). Only an explicit { ok: false } is a no.
+async function forward(url: string, payload: Record<string, unknown>): Promise<Response> {
   let res: Response;
   try {
     res = await fetch(url, {

@@ -82,11 +82,26 @@ export interface ApplyStep {
 
 export function applySteps(withQuiz: boolean): ApplyStep[] {
   return [
-    { key: "about" as const, label: "About you", fields: ["name", "email", "phone", "city", "profileLink"] as (keyof Application)[] },
+    { key: "about" as const, label: "About you", fields: ["name", "email", "phone", "city", "profileLink", "consent"] as (keyof Application)[] },
     { key: "work" as const, label: "Your work", fields: ["sampleLinks", "answer"] as (keyof Application)[] },
     ...(withQuiz ? [{ key: "quiz" as const, label: "How you think", fields: ["quiz"] as (keyof Application)[] }] : []),
-    { key: "send" as const, label: "Send it", fields: ["fullTime", "startWhen", "source", "consent"] as (keyof Application)[] },
+    { key: "send" as const, label: "Send it", fields: ["fullTime", "startWhen", "source"] as (keyof Application)[] },
   ];
+}
+
+/**
+ * One readable format for every phone number in the sheet: "+91 98765 43210" for Indian
+ * mobiles (typed as 10 digits, with a leading 0, or with 91), "+<digits>" for anything
+ * international. Anything we can't read is kept as typed.
+ */
+export function formatPhone(raw: string): string {
+  const typed = raw.trim();
+  const d = typed.replace(/\D/g, "");
+  const indian =
+    d.length === 10 ? d : d.length === 11 && d.startsWith("0") ? d.slice(1) : d.length === 12 && d.startsWith("91") ? d.slice(2) : "";
+  if (indian && /^[6-9]/.test(indian)) return `+91 ${indian.slice(0, 5)} ${indian.slice(5)}`;
+  if (typed.startsWith("+") && d.length >= 8) return `+${d}`;
+  return typed;
 }
 
 export function validate(a: Application, job: Job, fields?: (keyof Application)[]): FieldErrors {

@@ -24,7 +24,8 @@ export default function Privacy() {
         <p>
           <strong>If you just browse the site,</strong> we don&apos;t ask for or store any personal information.
           Our hosting provider keeps standard technical logs (such as IP address and browser type) for security
-          and reliability. We don&apos;t use advertising or tracking cookies.
+          and reliability, and counts page visits anonymously (Vercel Web Analytics), without cookies and
+          without identifying you. We don&apos;t use advertising or tracking cookies.
         </p>
         <p>
           <strong>If you message us</strong> on WhatsApp or by email using the links on this site, we receive
@@ -34,7 +35,9 @@ export default function Privacy() {
           <strong>If you apply for a role</strong> through our{" "}
           <Link href="/careers">careers page</Link>, we collect what you enter in the form: your name, email,
           phone number, city, the links you share, your written answers, the time you can give, and how you
-          found us.
+          found us. Once you finish the first step and tick the consent box, we save your name, email, phone
+          number, city and profile link, even if you don&apos;t complete the rest, so we can follow up about
+          your application.
         </p>
         <p>
           <strong>If you book a call</strong> through our <Link href="/call">call page</Link>, we receive your
@@ -62,7 +65,7 @@ export default function Privacy() {
 
       <LegalSection heading="Your consent">
         <p>
-          We store your application only after you tick the consent box on the form. You can withdraw that
+          We store your details only after you tick the consent box on the first step of the form. You can withdraw that
           consent at any time by emailing us, and we&apos;ll delete your application. Withdrawing consent
           doesn&apos;t affect anything we did with it before you asked.
         </p>
