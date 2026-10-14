@@ -172,10 +172,28 @@ export default function ApplyFlow({ job }: { job: Job }) {
     if (first) requestAnimationFrame(() => document.getElementById(first)?.focus());
   };
 
+  // Once step 1 is done (with consent), save the contact details, so someone who stops
+  // halfway can still be reached. Once per email per track; a failed save never blocks them.
+  const saveStarted = () => {
+    const key = `tal-started-${job.slug}`;
+    const email = app.email.trim().toLowerCase();
+    try {
+      if (localStorage.getItem(key) === email) return;
+      localStorage.setItem(key, email);
+    } catch {}
+    fetch("/api/apply", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...app, stage: "started" }),
+      keepalive: true,
+    }).catch(() => {});
+  };
+
   const next = () => {
     const e = validate(app, job, steps[step].fields);
     setErrors(e);
     if (Object.keys(e).length) return focusFirstError(e);
+    if (steps[step].key === "about") saveStarted();
     setStep((s) => s + 1);
     scrollTop();
   };
@@ -382,6 +400,29 @@ export default function ApplyFlow({ job }: { job: Job }) {
                     value={app.profileLink} onChange={(e) => set("profileLink", e.target.value)}
                     aria-invalid={!!errors.profileLink} aria-describedby={describedBy("profileLink", true)} />
                 </Field>
+                <div className="p-5 rounded-sm border" style={{ borderColor: errors.consent ? "var(--accent)" : "var(--border-color)", background: "#fff" }}>
+                  <label htmlFor="consent" className="flex items-start gap-3 cursor-pointer">
+                    <input id="consent" type="checkbox" className="mt-1 w-4 h-4 flex-shrink-0 accent-[var(--brand)]"
+                      checked={app.consent} onChange={(e) => set("consent", e.target.checked)}
+                      aria-invalid={!!errors.consent} aria-describedby={describedBy("consent")} />
+                    <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                      I agree that TAL Consulting LLP can store the details I share here, from this step on, to
+                      contact me about my application and assess me for this and similar roles. They&apos;re kept for
+                      6 months, and I can ask for them to be deleted at any time by emailing rohan@theaddalabs.com.
+                      See the{" "}
+                      <Link href="/privacy" target="_blank" className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
+                        privacy notice
+                      </Link>
+                      .
+                    </span>
+                  </label>
+                  {errors.consent && (
+                    <p id="consent-error" role="alert" className="text-xs font-semibold mt-2 ml-7" style={{ color: "var(--accent-hover)" }}>
+                      {errors.consent}
+                    </p>
+                  )}
+                </div>
+
               </>
             )}
 
@@ -478,8 +519,8 @@ export default function ApplyFlow({ job }: { job: Job }) {
                   </h2>
                   <p className="text-base" style={{ color: "var(--text-muted)" }}>
                     {cohort
-                      ? "Please confirm you are available full-time, and give your consent for us to keep your application on file."
-                      : "One quick question, and your consent for us to keep your application on file."}
+                      ? "Please confirm you are available full-time, and tell us when you can start."
+                      : "One quick question, and it's ready to send."}
                   </p>
                 </div>
 
@@ -519,28 +560,6 @@ export default function ApplyFlow({ job }: { job: Job }) {
                     <span style={{ color: "var(--text-muted)" }}> Optional.</span>
                   </CheckBox>
                 )}
-
-                <div className="p-5 rounded-sm border" style={{ borderColor: errors.consent ? "var(--accent)" : "var(--border-color)", background: "#fff" }}>
-                  <label htmlFor="consent" className="flex items-start gap-3 cursor-pointer">
-                    <input id="consent" type="checkbox" className="mt-1 w-4 h-4 flex-shrink-0 accent-[var(--brand)]"
-                      checked={app.consent} onChange={(e) => set("consent", e.target.checked)}
-                      aria-invalid={!!errors.consent} aria-describedby={describedBy("consent")} />
-                    <span className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                      I agree that TAL Consulting LLP can store my application to assess me for this and similar
-                      roles. It&apos;s kept for 6 months, and I can ask for it to be deleted at any time by emailing
-                      rohan@theaddalabs.com. See the{" "}
-                      <Link href="/privacy" target="_blank" className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
-                        privacy notice
-                      </Link>
-                      .
-                    </span>
-                  </label>
-                  {errors.consent && (
-                    <p id="consent-error" role="alert" className="text-xs font-semibold mt-2 ml-7" style={{ color: "var(--accent-hover)" }}>
-                      {errors.consent}
-                    </p>
-                  )}
-                </div>
 
                 {status === "sending" && slow && (
                   <p role="status" className="text-sm px-4 py-3 rounded-sm" style={{ background: "var(--bg-lift)", color: "var(--text-body)" }}>
