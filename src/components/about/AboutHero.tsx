@@ -202,10 +202,10 @@ export default function AboutHero() {
               transition={{ duration: 0.7, ease, delay: 0.55 }}
             >
               <p className="text-lg leading-relaxed text-body mb-5" style={{ maxWidth: "520px" }}>
-                The Adda Labs is a design-thinking lab.
+                TAL, short for The Adda Labs, is a design-thinking lab.
               </p>
               <p className="text-base text-muted leading-relaxed" style={{ maxWidth: "480px" }}>
-                We take real problems, test fixes cheaply, and build what works, for businesses, for public causes, and for our own ventures.
+                We take time to understand a problem before we try to solve it, test small, and build what holds up. The work spans businesses, public causes, and ventures of our own, across sectors.
               </p>
             </motion.div>
           </div>
