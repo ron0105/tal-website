@@ -6,7 +6,7 @@ import AboutTeam from "@/components/about/AboutTeam";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The Adda Labs is a design-thinking lab. We take real problems, test fixes cheaply, and build what works, for businesses, for public causes, and for our own ventures.",
+    "TAL, short for The Adda Labs, is a design-thinking lab. We take time to understand a problem before we try to solve it, test small, and build what holds up.",
 };
 
 export default function About() {
