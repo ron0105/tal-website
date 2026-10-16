@@ -125,7 +125,7 @@ export default function HomeHero() {
               I have a new idea →
             </Link>
             <a
-              href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
+              href="https://wa.me/917830603010?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 text-sm text-muted hover:text-accent transition-colors"

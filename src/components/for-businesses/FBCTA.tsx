@@ -33,7 +33,7 @@ export default function FBCTA() {
           <AnimateOnScroll delay={0.15}>
             <div className="flex flex-col gap-4">
               <a
-                href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
+                href="https://wa.me/917830603010?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center py-5 text-base font-bold uppercase tracking-widest flex items-center justify-center gap-3 transition-opacity hover:opacity-90 cursor-pointer"

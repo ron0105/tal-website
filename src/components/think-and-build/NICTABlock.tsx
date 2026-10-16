@@ -21,7 +21,7 @@ export default function NICTABlock() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/918169315080?text=Hi%2C%20here%27s%20my%20idea%3A%20"
+                href="https://wa.me/917830603010?text=Hi%2C%20here%27s%20my%20idea%3A%20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-90 cursor-pointer"

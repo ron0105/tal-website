@@ -42,7 +42,7 @@ export default function WWUCallCTA() {
             If you would rather start with a quick message than a form, that works too. Send us a note and we will understand your situation first. No preparation needed.
           </p>
           <a
-            href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
+            href="https://wa.me/917830603010?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
