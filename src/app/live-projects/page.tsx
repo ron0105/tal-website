@@ -3,7 +3,7 @@ import Link from "next/link";
 import TrackFinder from "@/components/live-projects/TrackFinder";
 import HeroAsk from "@/components/live-projects/HeroAsk";
 import { ByVariant, VariantProvider } from "@/components/live-projects/VariantContext";
-import { SEATS_PER_ROUND, SEATS_PER_TRACK, balanceLabel, depositLabel, feeLabel } from "@/lib/live-projects";
+import { SEATS_PER_ROUND, SEATS_PER_TRACK, depositLabel } from "@/lib/live-projects";
 
 export const metadata: Metadata = {
   title: "Live Projects for students",
@@ -57,14 +57,14 @@ const FAQS = [
   },
   {
     q: "What does the refund guarantee cover?",
-    a: `You receive 3 founder reviews, 2 live projects and 1 certificate. Attend the 11 days and hand in your work, and TAL delivers all three, or your full ${feeLabel()} comes back. Interview invitations for a paid internship go to the top performers and sit alongside the guarantee.`,
+    a: `You receive 3 founder reviews, 2 live projects and 1 certificate. Attend the 11 days and hand in your work, and TAL delivers all three, or your full fee comes back. Interview invitations for a paid internship go to the top performers and sit alongside the guarantee.`,
   },
   {
     q: "How and when do I pay?",
     a: (
       <ByVariant
-        a={`Payment is by UPI. Booking your seat takes ${depositLabel()}. If you are shortlisted, you pay the other ${balanceLabel()} then, and the ${depositLabel()} counts toward the ${feeLabel()}. Everyone else gets their ${depositLabel()} back in full.`}
-        b={`Payment is by UPI. Applying is free. Once you are shortlisted, you pay ${feeLabel()}, covered by the guarantee above.`}
+        a={`Payment is by UPI. You will see the fee and how to pay once you qualify for a track. Booking your seat takes ${depositLabel()}, and everyone who is not shortlisted gets that ${depositLabel()} back in full.`}
+        b="Payment is by UPI. Applying is free. You will see the fee and how to pay once you qualify for a track, covered by the guarantee above."
       />
     ),
   },
@@ -107,7 +107,7 @@ export default function LiveProjectsPage() {
               You receive 3 founder reviews, 2 live projects and 1 certificate.
             </p>
             <p className="text-sm md:text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
-              TAL delivers all three, or your full {feeLabel()} comes back.
+              TAL delivers all three, or your full fee comes back.
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-px max-w-4xl" style={{ background: "var(--border-color)", border: "1px solid var(--border-color)" }}>
@@ -141,7 +141,7 @@ export default function LiveProjectsPage() {
             <span className="label-eyebrow flex-shrink-0" style={{ color: "var(--brand)" }}>Refund guarantee</span>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
               Do the work and you leave with all three. TAL delivers the 3 reviews, the 2 projects and the
-              certificate, or your full {feeLabel()} comes back.
+              certificate, or your full fee comes back.
             </p>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function LiveProjectsPage() {
           <div>
             <span className="label-eyebrow block mb-6">Find your track</span>
             <h2 className="mb-6" style={{ color: "var(--text-primary)" }}>
-              6 quick questions, <span style={{ color: "var(--accent)" }}>then your track.</span>
+              A few quick questions, <span style={{ color: "var(--accent)" }}>then your track.</span>
             </h2>
             <p className="body-copy mb-6">
               Research, Build, Content or Outreach. Answer a few questions and we&apos;ll suggest where you&apos;d do your
@@ -167,7 +167,7 @@ export default function LiveProjectsPage() {
         </div>
       </section>
 
-      {/* How it works + price */}
+      {/* How it works */}
       <section id="how-it-works" className="padding-section" style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg-secondary)" }}>
         <div className="layout-grid px-6 md:px-10 grid md:grid-cols-[1.4fr_1fr] gap-12 md:gap-20">
           <div>
@@ -185,8 +185,7 @@ export default function LiveProjectsPage() {
             </ol>
           </div>
           <div className="self-start p-8" style={{ background: "#fff", border: "1px solid var(--border-color)", borderRadius: "var(--radius-card)" }}>
-            <p className="label-eyebrow mb-4">The fee</p>
-            <p className="font-poppins text-4xl mb-6" style={{ color: "var(--text-primary)", fontWeight: 500 }}>{feeLabel()}</p>
+            <p className="label-eyebrow mb-4">What you keep</p>
             <ul className="flex flex-col gap-3 mb-6">
               {["3 one-on-one founder reviews to learn from", "2 real projects to show in interviews", "1 certificate with proof an employer can read"].map((x) => (
                 <li key={x} className="flex gap-3 text-sm" style={{ color: "var(--text-body)" }}>
@@ -200,8 +199,8 @@ export default function LiveProjectsPage() {
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
               <ByVariant
-                a={`Pay by UPI. ${depositLabel()} books your seat. If you are shortlisted, you pay the other ${balanceLabel()} then. Everyone else gets their ${depositLabel()} back in full.`}
-                b="Pay by UPI. Applying is free, and the fee is due once you are shortlisted."
+                a={`Pay by UPI. ${depositLabel()} books your seat, and it is refunded in full to anyone who is not shortlisted. You will see the full fee once you qualify for a track.`}
+                b="Pay by UPI. Applying is free. You will see the fee and how to pay once you qualify for a track."
               />
             </p>
           </div>

@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
   const answers: Answers = emptyAnswers();
   for (const k of Object.keys(answers) as (keyof Answers)[]) answers[k] = str(sent[k], k === "note" ? NOTE_MAX : 200);
-  if (!validAnswers(answers)) return Response.json({ ok: false, error: "A few answers need another look." }, { status: 400 });
+  if (!validAnswers(answers, raw.stage === "answers")) return Response.json({ ok: false, error: "A few answers need another look." }, { status: 400 });
 
   const url = process.env.HIRING_WEBHOOK_URL;
   const token = process.env.HIRING_WEBHOOK_TOKEN;

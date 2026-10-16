@@ -189,8 +189,9 @@ export const QUESTIONS: Question[] = [
 
 export const isAsked = (q: Question, a: Answers) => !q.showIf || q.showIf(a);
 
-// Screens: format and timing share one screen, and so do the fee and the fair price
-export const SCREENS: QuestionId[][] = [["course"], ["goal"], ["style"], ["format", "when"], ["price", "fairPrice"], ["note"]];
+// Screens: format and timing share one screen
+// The fee question is not a screen: it is asked on the result step, after the track is shown.
+export const SCREENS: QuestionId[][] = [["course"], ["goal"], ["style"], ["format", "when"], ["note"]];
 
 export type Answers = Record<QuestionId, string>;
 export const emptyAnswers = (): Answers => ({
@@ -206,8 +207,12 @@ export function recommendTrack(a: Answers): TrackId {
 
 // Every asked question needs one of its options; a skipped one must be blank. The note is
 // free text and optional.
-export function validAnswers(a: Answers): boolean {
+// feePending: the track has been shown but the fee question not yet answered, so price and
+// fairPrice may both be blank (the answers are sent again once it is answered).
+export function validAnswers(a: Answers, feePending = false): boolean {
+  const skipFee = feePending && a.price === "" && a.fairPrice === "";
   return QUESTIONS.every((q) => {
+    if (skipFee && (q.id === "price" || q.id === "fairPrice")) return true;
     if (!q.options) return a[q.id].length <= NOTE_MAX;
     return isAsked(q, a) ? q.options.includes(a[q.id]) : a[q.id] === "";
   });

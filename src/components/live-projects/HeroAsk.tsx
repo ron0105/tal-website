@@ -1,6 +1,6 @@
 "use client";
 
-import { CLOSE_DATE, SEATS_PER_ROUND, SEATS_PER_TRACK, SEATS_TAKEN, balanceLabel, depositLabel, feeLabel, seatsLeft } from "@/lib/live-projects";
+import { CLOSE_DATE, SEATS_PER_ROUND, SEATS_PER_TRACK, SEATS_TAKEN, depositLabel, seatsLeft } from "@/lib/live-projects";
 import { useVariant } from "./VariantContext";
 
 // The one part of the hero that changes with ?v=. Stays invisible (but keeps its space) until
@@ -27,8 +27,8 @@ export default function HeroAsk() {
       </div>
       <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "560px" }}>
         {book
-          ? `${depositLabel()} books your seat. If you are shortlisted, you pay the other ${balanceLabel()} then. Everyone else gets their ${depositLabel()} back in full.`
-          : `Applying is free. Once you are shortlisted, the fee is ${feeLabel()}, covered by the full refund guarantee below.`}
+          ? `${depositLabel()} books your seat, and it is refunded in full to anyone who is not shortlisted. You will see the full fee at the last step.`
+          : "Applying is free. You will see the fee at the last step, covered by the full refund guarantee below."}
       </p>
     </div>
   );

@@ -18,6 +18,7 @@ import {
   TRACKS,
   TrackId,
   emptyAnswers,
+  balanceLabel,
   depositLabel,
   emptyContact,
   feeLabel,
@@ -98,6 +99,7 @@ export default function TrackFinder() {
   const [done, setDone] = useState(false);
   const [failure, setFailure] = useState("");
   const top = useRef<HTMLDivElement>(null);
+  const answersSent = useRef(false);
 
   const total = SCREENS.length;
   const onResult = step === total;
@@ -120,14 +122,24 @@ export default function TrackFinder() {
   const finish = (a: Answers) => {
     setTrack(recommendTrack(a));
     go(total);
-    // Fire and forget: the answers are the demand data, whether or not they reserve
-    post({ stage: "answers" }).catch(() => {});
+    // Sent now with the fee question still blank, so drop-off at the result is not lost. The
+    // same session id is sent again once the fee is answered, and the sheet row is updated.
+    post({ stage: "answers", answers: a }).catch(() => {});
   };
+
+  // The fee question comes after the track is shown. Once it is answered, the full answers go
+  // again under the same session. Fire and forget: they are the demand data, whether or not
+  // the student goes on to reserve.
+  const feeAnswered = (a: Answers) => !!a.price && (a.price !== PRICE_LOWER || !!a.fairPrice);
 
   const pick = (id: QuestionId, v: string) => {
     const next = { ...answers, [id]: v };
     if (id === "price" && v !== PRICE_LOWER) next.fairPrice = "";
     setAnswers(next);
+    if (onResult && feeAnswered(next) && !answersSent.current) {
+      answersSent.current = true;
+      post({ stage: "answers", answers: next }).catch(() => {});
+    }
     // Screens with one question move on by themselves
     if (shown(next).length === 1) setTimeout(() => go(step + 1), 220);
   };
@@ -139,6 +151,10 @@ export default function TrackFinder() {
     const e = validateContact(contact);
     setErrors(e);
     if (Object.keys(e).length) return;
+    if (!feeAnswered(answers)) {
+      setFailure("Please answer the fee question above first.");
+      return;
+    }
     setSending(true);
     setFailure("");
     try {
@@ -234,7 +250,7 @@ export default function TrackFinder() {
             <div className="flex flex-col gap-8">
               <div>
                 <h3 className="mb-3" style={{ color: "var(--text-primary)" }}>
-                  Your track: <span style={{ color: "var(--accent)" }}>{t.name}.</span>
+                  You fit the <span style={{ color: "var(--accent)" }}>{t.name}</span> track.
                 </h3>
                 <p className="body-copy mb-5">{t.line}</p>
                 <p className="label-eyebrow mb-3">You leave with</p>
@@ -260,6 +276,30 @@ export default function TrackFinder() {
                 </div>
               </div>
 
+              {/* Final step: the fee is shown here, for the first time, with the guarantee beside it */}
+              <div className="flex flex-col gap-6 pt-8" style={{ borderTop: "1px solid var(--border-color)" }}>
+                <div className="p-6" style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)", borderRadius: "var(--radius-card)" }}>
+                  <p className="label-eyebrow mb-3">The fee</p>
+                  <p className="font-poppins text-4xl mb-4" style={{ color: "var(--text-primary)", fontWeight: 500 }}>{feeLabel()}</p>
+                  <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--text-body)" }}>
+                    <strong style={{ color: "var(--text-primary)" }}>Covered by the full refund guarantee:</strong> 3 founder
+                    reviews, 2 live projects and 1 certificate, or your full fee comes back.
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                    {book
+                      ? `Pay by UPI. ${depositLabel()} now books your seat, and the other ${balanceLabel()} is paid once you are shortlisted. Everyone who is not shortlisted gets their ${depositLabel()} back in full.`
+                      : `Applying is free. The ${feeLabel()} is paid once you are shortlisted.`}
+                  </p>
+                </div>
+                {(["price", "fairPrice"] as QuestionId[]).filter((id) => isAsked(question(id), answers)).map((id) => (
+                  <div key={id}>
+                    <h3 className={question(id).lead ? "mb-2" : "mb-5"} style={{ color: "var(--text-primary)" }}>{question(id).title}</h3>
+                    {question(id).lead && <p className="body-copy mb-5">{question(id).lead}</p>}
+                    <Options id={id} value={answers[id]} onPick={(v) => pick(id, v)} />
+                  </div>
+                ))}
+              </div>
+
               <form onSubmit={reserve} noValidate className="flex flex-col gap-6 pt-8" style={{ borderTop: "1px solid var(--border-color)" }}>
                 <div>
                   <p className="font-semibold mb-1" style={{ color: "var(--text-primary)" }}>
@@ -270,9 +310,7 @@ export default function TrackFinder() {
                   </p>
                   <p className="text-sm" style={{ color: "var(--text-muted)" }}>
                     {SEATS_PER_ROUND} seats a round.{" "}
-                    {book
-                      ? `Next you pay ${depositLabel()} by UPI. Everyone who is not shortlisted gets it back in full.`
-                      : `Applying is free. If you are shortlisted, the fee is ${feeLabel()}, covered by the guarantee.`}
+                    {book ? `Next you pay ${depositLabel()} by UPI.` : "Applying is free."}
                   </p>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
