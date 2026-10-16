@@ -5,11 +5,13 @@ import {
   Contact,
   DEPOSIT_INR,
   FEE_INR,
+  DEFAULT_VARIANT,
   MIN_FILL_MS,
   NOTE_MAX,
   TRACKS,
   TrackId,
   emptyAnswers,
+  parseVariant,
   recommendTrack,
   validAnswers,
   validateContact,
@@ -20,6 +22,10 @@ import {
 //   answers  the 7 answers, no name, sent when the recommended track is shown (drop-off data)
 //   reserve  name, email, WhatsApp, college + consent, filling in that same row
 // Same webhook and token as /api/apply, so nothing new to configure in Vercel.
+// Variant (a, b or c, from ?v= on the page): the session id already starts with it ("b-<uuid>")
+// and the sheet stores the session id, so no new column is needed. It is also sent as a
+// `variant` field on every payload for any script that wants it.
+// Stages a variant uses: A = answers, reserve, deposit, paid. B and C = answers, reserve.
 
 // Same slow-Google allowance as /api/apply (LESSONS L68)
 export const maxDuration = 60;
@@ -43,6 +49,9 @@ export async function POST(request: Request) {
   if (!/^[a-zA-Z0-9-]{8,64}$/.test(session)) return Response.json({ ok: false }, { status: 400 });
 
   const sent = (typeof raw.answers === "object" && raw.answers ? raw.answers : {}) as Record<string, unknown>;
+  // The prefix of the session id wins, so a row's variant always matches its Session cell
+  const variant = (session[1] === "-" ? parseVariant(session[0]) : null) ?? parseVariant(raw.variant) ?? DEFAULT_VARIANT;
+
   const answers: Answers = emptyAnswers();
   for (const k of Object.keys(answers) as (keyof Answers)[]) answers[k] = str(sent[k], k === "note" ? NOTE_MAX : 200);
   if (!validAnswers(answers)) return Response.json({ ok: false, error: "A few answers need another look." }, { status: 400 });
@@ -56,7 +65,7 @@ export async function POST(request: Request) {
 
   if (raw.stage === "answers") {
     const recommended = TRACKS[recommendTrack(answers)].name;
-    return forward(url, { token, stage: "lp-answers", session, ...answers, recommended, fee: FEE_INR });
+    return forward(url, { token, stage: "lp-answers", session, variant, ...answers, recommended, fee: FEE_INR });
   }
 
   if (!["reserve", "deposit", "paid"].includes(String(raw.stage))) return Response.json({ ok: false }, { status: 400 });
@@ -85,15 +94,15 @@ export async function POST(request: Request) {
     // Also a row in the Revenue tracker's Payments tab, amount blank until Rohan checks GPay.
     // Both run together and are awaited, so a serverless shutdown can't drop the tracker row.
     const [row, res] = await Promise.all([
-      callTracker({ action: "lp-payment", name: contact.name, ref, utr, amount: DEPOSIT_INR }),
-      forward(url, { token, stage: "lp-paid", consent: true, session, utr, ref, email: contact.email, deposit: DEPOSIT_INR }),
+      callTracker({ action: "lp-payment", name: contact.name, ref, utr, amount: DEPOSIT_INR, variant }),
+      forward(url, { token, stage: "lp-paid", consent: true, session, variant, utr, ref, email: contact.email, deposit: DEPOSIT_INR }),
     ]);
     if (row === null || (row !== "sent" && row.ok === false)) console.error("[waitlist] tracker payment row not added", row);
     return res;
   }
 
   if (raw.stage === "deposit") {
-    return forward(url, { token, stage: "lp-deposit", consent: true, session, track, email: contact.email, deposit: DEPOSIT_INR });
+    return forward(url, { token, stage: "lp-deposit", consent: true, session, variant, track, email: contact.email, deposit: DEPOSIT_INR });
   }
 
   return forward(url, {
@@ -101,6 +110,7 @@ export async function POST(request: Request) {
     stage: "lp-reserve",
     consent: true,
     session,
+    variant,
     track,
     name: contact.name,
     email: contact.email,

@@ -50,9 +50,16 @@ export default function Privacy() {
         <p>
           <strong>If you use our Live Projects page</strong> (<Link href="/live-projects">theaddalabs.com/live-projects</Link>),
           we save your answers to its questions (where you are in your studies, what you want, on-site or remote, your timing, your
-          view on the fee and the programme name, and any note you write) without your name. If you then reserve
-          a seat and tick the consent box, we add your name, email, WhatsApp number and college to those answers. If you
-          choose to pay the reservation fee, we note that and send you a payment link on WhatsApp.
+          view on the fee and the programme name, and any note you write) under a random session code. If you then apply or
+          book a seat and tick the consent box, we add your name, email, WhatsApp number and college to those answers.
+          We also note which version of the page you saw. If you pay by UPI, we note your payment reference and, if you
+          give it, your UPI transaction ID.
+        </p>
+        <p>
+          <em>Refunds (draft, for legal review):</em> TAL delivers the three things promised on the Live
+          Projects page (3 founder reviews, 2 live projects and 1 certificate), or you receive the full programme fee back. If
+          you paid a booking amount and you are not shortlisted, it is refunded in full. To ask for a refund, email{" "}
+          <a href="mailto:rohan@theaddalabs.com">rohan@theaddalabs.com</a>.
         </p>
       </LegalSection>
 
@@ -74,7 +81,7 @@ export default function Privacy() {
         </p>
         <p>
           We use Live Projects answers to decide whether to run the programme and how to shape it, and
-          reservations only to set its dates and contact you about your seat.
+          applications and bookings only to set its dates, contact you about your seat, and match your payment.
         </p>
       </LegalSection>
 
@@ -102,7 +109,7 @@ export default function Privacy() {
         </p>
         <p>
           Live Projects reservations are kept in TAL&apos;s Google Workspace account for <strong>6 months</strong>,
-          then deleted, unless you join the programme.
+          then deleted. If you join the programme, we keep what we need to run it.
         </p>
       </LegalSection>
 

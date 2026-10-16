@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import ReserveStep from "./ReserveStep";
+import { useVariant } from "./VariantContext";
 import {
   Answers,
   Contact,
@@ -17,7 +18,9 @@ import {
   TRACKS,
   TrackId,
   emptyAnswers,
+  depositLabel,
   emptyContact,
+  feeLabel,
   isAsked,
   recommendTrack,
   validateContact,
@@ -77,7 +80,12 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
 
 export default function TrackFinder() {
   // Neither value is rendered, so creating them on first render is safe for hydration
-  const [session] = useState(() => (typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2, 14) + "-lp"));
+  const [sessionId] = useState(() => (typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2, 14) + "-lp"));
+  const { variant } = useVariant();
+  const book = variant === "a";
+  // The sheet already stores the session id on every row, so the variant rides in its first
+  // letter ("a-", "b-", "c-"). Filter the Session column by that prefix to split the variants.
+  const session = `${variant}-${sessionId}`;
   const [startedAt] = useState(() => Date.now());
 
   const [step, setStep] = useState(0); // 0..SCREENS.length-1 = questions, SCREENS.length = result
@@ -105,7 +113,7 @@ export default function TrackFinder() {
     fetch("/api/waitlist", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ session, startedAt, website, answers, ...body }),
+      body: JSON.stringify({ session, variant, startedAt, website, answers, ...body }),
       keepalive: true,
     });
 
@@ -141,10 +149,10 @@ export default function TrackFinder() {
         top.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
         if (data.errors) setErrors(data.errors);
-        setFailure(data.error || "Something went wrong. Please try again.");
+        setFailure(data.error || "Please try again in a moment.");
       }
     } catch {
-      setFailure("We couldn't reach the server. Please check your connection and try again.");
+      setFailure("Please check your connection and try again.");
     }
     setSending(false);
   }
@@ -238,7 +246,7 @@ export default function TrackFinder() {
                   ))}
                   <li className="flex gap-3 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                     <span style={{ color: "var(--accent)" }} aria-hidden="true">→</span>
-                    Three reviews with the founder, a certificate that names your work, and for the top performers, an invitation to interview for a paid internship
+                    Three founder reviews to learn from, a certificate that names your work, and, for top performers, an invitation to interview for a paid internship
                   </li>
                 </ul>
                 <div className="flex flex-wrap items-center gap-2">
@@ -254,11 +262,18 @@ export default function TrackFinder() {
 
               <form onSubmit={reserve} noValidate className="flex flex-col gap-6 pt-8" style={{ borderTop: "1px solid var(--border-color)" }}>
                 <div>
-                  <p className="font-semibold mb-1" style={{ color: "var(--text-primary)" }}>Request your seat in round 1</p>
+                  <p className="font-semibold mb-1" style={{ color: "var(--text-primary)" }}>
+                    {book ? "Book your seat in round 1" : "Apply for round 1"}
+                  </p>
                   <p className="text-sm mb-2" style={{ color: "var(--text-body)" }}>
                     Built around what you told us: {answers.goal} · {answers.format} · {answers.when}.
                   </p>
-                  <p className="text-sm" style={{ color: "var(--text-muted)" }}>{SEATS_PER_ROUND} seats a round. Requesting a seat is free, and you hear first when dates open.</p>
+                  <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                    {SEATS_PER_ROUND} seats a round.{" "}
+                    {book
+                      ? `Next you pay ${depositLabel()} by UPI. Everyone who is not shortlisted gets it back in full.`
+                      : `Applying is free. If you are shortlisted, the fee is ${feeLabel()}, covered by the guarantee.`}
+                  </p>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <Field id="lp-name" label="Your name" error={errors.name}>
@@ -300,9 +315,9 @@ export default function TrackFinder() {
 
                 <div className="flex flex-wrap items-center gap-4">
                   <button type="submit" className="btn-primary" style={{ padding: "13px 28px" }} disabled={sending}>
-                    {sending ? "Saving…" : "Request my seat →"}
+                    {sending ? "Saving…" : book ? "Book my seat →" : "Submit my application →"}
                   </button>
-                  <span className="text-sm" style={{ color: "var(--text-muted)" }}>Free. No payment at this step.</span>
+                  <span className="text-sm" style={{ color: "var(--text-muted)" }}>This step is free.</span>
                 </div>
               </form>
             </div>
@@ -311,13 +326,15 @@ export default function TrackFinder() {
           {done && (
             <div>
               <h3 className="mb-4" style={{ color: "var(--text-primary)" }}>
-                Your seat request is in, {contact.name.trim().split(/\s+/)[0]}.
+                {book ? "Your details are in" : "Your application is in"}, {contact.name.trim().split(/\s+/)[0]}.
               </h3>
               <p className="body-copy mb-6">
-                Your {t.name} seat request is saved, and a confirmation is on its way to {contact.email.trim()}.
+                {book
+                  ? `Your ${t.name} seat request is saved, and a confirmation is on its way to ${contact.email.trim()}.`
+                  : `Your ${t.name} application is saved, and a confirmation is on its way to ${contact.email.trim()}. We'll be in touch once we've read it. Applying is free. If you're shortlisted, the fee is ${feeLabel()}, covered by the guarantee.`}
               </p>
 
-              <ReserveStep session={session} phone={contact.phone.trim()} post={(body) => post({ track, contact, ...body })} />
+              {book && <ReserveStep session={session} phone={contact.phone.trim()} post={(body) => post({ track, contact, ...body })} />}
 
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
                 Share this page with a friend who wants the same head start.

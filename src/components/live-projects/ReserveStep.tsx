@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import QRCode from "qrcode";
-import { DEPOSIT_URL, UPI_ID, UPI_NUMBER, depositLabel, paymentRef, upiLink } from "@/lib/live-projects";
+import { DEPOSIT_URL, UPI_ID, UPI_NUMBER, balanceLabel, depositLabel, feeLabel, paymentRef, upiLink } from "@/lib/live-projects";
 
-// Step 2 after a seat request: pay the reservation fee by UPI. On a phone, one tap opens the
+// Variant A only. Step 2 after a seat request: pay the booking amount (Rs 999) by UPI. On a phone, one tap opens the
 // student's UPI app with the amount and reference filled in; on a laptop, they scan the QR.
 // There's no gateway, so "I've paid" records the UPI transaction ID for the founder to match.
 // With no UPI ID set, it falls back to a payment link on WhatsApp (or DEPOSIT_URL if set).
@@ -48,7 +48,7 @@ export default function ReserveStep({ session, phone, post }: { session: string;
   async function confirmPaid() {
     const clean = utr.replace(/\s/g, "");
     if (clean && !/^\d{12}$/.test(clean)) {
-      setUtrError("A UPI transaction ID is 12 digits. You can also leave it blank.");
+      setUtrError("A UPI transaction ID has 12 digits. This field is optional.");
       return;
     }
     setUtrError("");
@@ -67,16 +67,16 @@ export default function ReserveStep({ session, phone, post }: { session: string;
 
   return (
     <div className="p-6 mb-6" style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)", borderRadius: "var(--radius-card)" }}>
-      <p className="label-eyebrow mb-3" style={{ color: "var(--accent)" }}>Step 2 · Reserve your seat</p>
+      <p className="label-eyebrow mb-3" style={{ color: "var(--accent)" }}>Step 2 · Book your seat</p>
 
       {stage === "offer" && (
         <>
           <p className="body-copy mb-5">
-            A reservation fee of {depositLabel()} secures your seat in round 1. It is adjusted against your
-            programme fee and is fully refundable until the round begins.
+            {depositLabel()} books your seat in round 1 and counts toward the {feeLabel()} fee. If you are shortlisted,
+            you pay the other {balanceLabel()} then. Everyone else gets their {depositLabel()} back in full.
           </p>
           <button type="button" className="btn-primary" style={{ padding: "13px 28px" }} onClick={start}>
-            Reserve my seat · {depositLabel()} →
+            Book my seat · {depositLabel()} →
           </button>
         </>
       )}
@@ -149,8 +149,8 @@ export default function ReserveStep({ session, phone, post }: { session: string;
 
       {stage === "paid" && (
         <p className="body-copy">
-          Thank you. We match your payment to <strong>{ref}</strong> and confirm your seat on WhatsApp within one
-          working day.
+          Thank you. We match your payment to <strong>{ref}</strong> and confirm on WhatsApp within one working day.
+          We&apos;ll let you know about your shortlist status. Everyone else gets their {depositLabel()} back in full.
         </p>
       )}
 

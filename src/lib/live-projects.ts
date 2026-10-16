@@ -1,18 +1,41 @@
 // TAL Live Projects: a paid 15-day programme for students, being tested for demand (Oct 2026).
 // /live-projects walks students through 7 questions, recommends a track, and offers a seat.
 // Answers are saved without a name; contact details only on a reservation with consent.
+// Model as of Oct 17: 4 tracks, 20 seats a round (5 a track), fee Rs 5,000, UPI only.
+// Three page variants (?v=a, ?v=b, ?v=c) test how we ask; the page body is the same.
 // Brief: 01-tal/tal/how-we-work/Paid live-project programme - brief (draft).md
 
 // The one number the test depends on. Change it here and the page and the questions follow.
-export const FEE_INR = 4999;
-export const SEATS_PER_ROUND = 6;
+export const FEE_INR = 5000;
+export const SEATS_PER_ROUND = 20;
+export const SEATS_PER_TRACK = 5;
 
-// Step 2 after a seat request: a reservation fee that secures the seat, is adjusted against the
-// programme fee, and is refundable until the round begins. Until DEPOSIT_URL holds a Razorpay
-// payment link, the button records the request and the founder sends the link on WhatsApp.
-export const DEPOSIT_INR = 1999;
+// Honest scarcity (variant C): only the real numbers. SEATS_TAKEN counts confirmed seats and is
+// changed by hand. While it is 0 no counter is shown, so the page never claims a number that
+// isn't true. No countdown timers, no fake urgency.
+export const CLOSE_DATE = "31 October 2026";
+export const SEATS_TAKEN = 0;
+export const seatsLeft = () => Math.max(SEATS_PER_ROUND - SEATS_TAKEN, 0);
+
+// The three ways of asking, picked by ?v= on the URL. B is the default.
+// a "Commitment":  Rs 999 booking amount by UPI at the last step
+// b "Lower barrier": a free application, pay only if shortlisted
+// c "Honest scarcity": as B, plus the real seat numbers and close date
+export type Variant = "a" | "b" | "c";
+export const VARIANTS: Variant[] = ["a", "b", "c"];
+export const DEFAULT_VARIANT: Variant = "b";
+export const parseVariant = (v: unknown): Variant | null => {
+  const x = typeof v === "string" ? v.trim().toLowerCase() : "";
+  return (VARIANTS as string[]).includes(x) ? (x as Variant) : null;
+};
+
+// Variant A only: a booking amount that secures the seat and counts toward the fee. It is
+// refunded in full if the student is not shortlisted; the rest is paid only once shortlisted.
+// Payment is by UPI only. DEPOSIT_URL stays empty (no gateway).
+export const DEPOSIT_INR = 999;
 export const DEPOSIT_URL = "";
 export const depositLabel = () => `₹${DEPOSIT_INR.toLocaleString("en-IN")}`;
+export const balanceLabel = () => `₹${(FEE_INR - DEPOSIT_INR).toLocaleString("en-IN")}`;
 
 // UPI, no gateway: the reservation fee is paid straight to this UPI ID. Empty = not set up yet,
 // and the page falls back to sending a payment link on WhatsApp.
@@ -43,12 +66,12 @@ export const MIN_FILL_MS = 6_000;
 // Flat fee: TAL isn't GST-registered yet, so no GST is added (Rohan, Oct 14). Add "+ GST" once it is.
 export const feeLabel = () => `₹${FEE_INR.toLocaleString("en-IN")}`;
 
-export type TrackId = "research" | "build" | "growth" | "content";
+export type TrackId = "research" | "build" | "content" | "outreach";
 
 export const TRACKS: Record<TrackId, { name: string; line: string; projects: string[] }> = {
   research: {
     name: "Research",
-    line: "Find out how real businesses answer a new customer, and where they lose them.",
+    line: "Learn how real businesses welcome a new customer, and where they can win more of them.",
     projects: [
       "A mystery-shopper audit of one real business, with every reply timed",
       "A market scan of 20 businesses, with your top 3 and one clear recommendation",
@@ -62,20 +85,20 @@ export const TRACKS: Record<TrackId, { name: string; line: string; projects: str
       "A WhatsApp reply and follow-up flow, tested end to end",
     ],
   },
-  growth: {
-    name: "Growth",
-    line: "Find businesses that need help, and write the outreach that starts the conversation.",
-    projects: [
-      "A researched list of businesses, each with one clear gap you found",
-      "An outreach sequence for them, reviewed line by line with the founder",
-    ],
-  },
   content: {
     name: "Content",
     line: "Turn the questions customers ask into posts and short videos that bring in enquiries.",
     projects: [
       "A one-month content plan for a real business",
       "Three posts or short videos, with hooks you wrote and tested",
+    ],
+  },
+  outreach: {
+    name: "Outreach",
+    line: "Find businesses that are ready for help and start the conversation.",
+    projects: [
+      "A researched list of businesses, each with one clear gap you found",
+      "An outreach sequence for them, reviewed line by line with the founder",
     ],
   },
 };
@@ -101,7 +124,7 @@ export interface Question {
 export const PRICE_LOWER = "I'd join at a lower fee";
 
 // "style" answers map straight to a track, in this order
-export const STYLE_TRACKS: TrackId[] = ["research", "build", "growth", "content"];
+export const STYLE_TRACKS: TrackId[] = ["research", "build", "outreach", "content"];
 
 export const QUESTIONS: Question[] = [
   {
@@ -134,13 +157,13 @@ export const QUESTIONS: Question[] = [
   {
     id: "when",
     title: "When could you give it 15 days?",
-    options: ["December break", "January", "Summer 2027", "Not sure yet"],
+    options: ["December break", "January", "Summer 2027", "Still deciding"],
     pairedWith: "format",
   },
   {
     id: "price",
-    title: `Your seat: ${feeLabel()}. Ready to reserve yours?`,
-    lead: "Two real projects, three reviews with the founder, a certificate that names your work, and a route to a paid internship.",
+    title: `The fee is ${feeLabel()}. Does that work for you?`,
+    lead: "Two live projects to show, three founder reviews to learn from, and a certificate that names your work. TAL delivers all three, or your full fee comes back.",
     options: ["Yes, I'm in", "Yes, once I see the dates", PRICE_LOWER],
   },
   {
