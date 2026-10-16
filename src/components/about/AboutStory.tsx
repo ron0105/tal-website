@@ -36,7 +36,7 @@ export default function AboutStory() {
                   While doing that work, we consistently found the same pattern: businesses that were running but structurally fragile. Good ideas, paying customers, and a founder who could not step back because everything depended on them.
                 </p>
                 <p className="text-lg leading-relaxed text-body">
-                  The discipline proved identical in both cases: understand the real problem first, then build the right structure around it. That is what TAL does, whether you have an idea or a business.
+                  The discipline proved identical in both cases: understand the real problem first, then build the right structure around it. Today we point it at businesses that run on enquiries, students who need real experience, public problems worth solving, and ideas of our own.
                 </p>
               </div>
             </AnimateOnScroll>

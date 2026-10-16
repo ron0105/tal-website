@@ -202,10 +202,10 @@ export default function AboutHero() {
               transition={{ duration: 0.7, ease, delay: 0.55 }}
             >
               <p className="text-lg leading-relaxed text-body mb-5" style={{ maxWidth: "520px" }}>
-                TAL was built on one discipline: understand before acting.
+                TAL, short for The Adda Labs, is a design-thinking lab.
               </p>
               <p className="text-base text-muted leading-relaxed" style={{ maxWidth: "480px" }}>
-                We applied it to new ideas first, then to running businesses. The problems looked different. The approach never changed.
+                We take time to understand a problem before we try to solve it, test small, and build what holds up. The work spans businesses, public causes, and ventures of our own, across sectors.
               </p>
             </motion.div>
           </div>
