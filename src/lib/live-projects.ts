@@ -151,24 +151,24 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: "format",
-    title: "How would you like to do it?",
+    title: "How will you join?",
     options: ["On-site in Navi Mumbai", "Remote", "Either works"],
   },
   {
     id: "when",
-    title: "When could you give it 15 days?",
+    title: "Which 15 days suit you best?",
     options: ["December break", "January", "Summer 2027", "Still deciding"],
     pairedWith: "format",
   },
   {
     id: "price",
-    title: `The fee is ${feeLabel()}. Does that work for you?`,
+    title: `The fee is ${feeLabel()}. Where do you stand?`,
     lead: "Two live projects to show, three founder reviews to learn from, and a certificate that names your work. TAL delivers all three, or your full fee comes back.",
     options: ["Yes, I'm in", "Yes, once I see the dates", PRICE_LOWER],
   },
   {
     id: "fairPrice",
-    title: "Which fee works for you?",
+    title: "Pick the fee that fits you.",
     options: ["Up to ₹1,999", "₹2,000 to ₹2,999", "₹3,000 to ₹3,999", "₹4,000 to ₹4,999"],
     pairedWith: "price",
     showIf: (a) => a.price === PRICE_LOWER,
@@ -230,10 +230,10 @@ export const emptyContact = (): Contact => ({ name: "", email: "", phone: "", co
 
 export function validateContact(c: Contact): ContactErrors {
   const e: ContactErrors = {};
-  if (c.name.trim().length < 2) e.name = "Please add your name.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email.trim())) e.email = "Please check your email address.";
-  if (c.phone.replace(/\D/g, "").length < 10) e.phone = "Please add a number we can WhatsApp.";
-  if (c.college.trim().length < 2) e.college = "Please add your college.";
-  if (!c.consent) e.consent = "Please tick this so we can save your details.";
+  if (c.name.trim().length < 2) e.name = "Add your name.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email.trim())) e.email = "Check your email address.";
+  if (c.phone.replace(/\D/g, "").length < 10) e.phone = "Add a number we can WhatsApp.";
+  if (c.college.trim().length < 2) e.college = "Add your college.";
+  if (!c.consent) e.consent = "Tick this so we can save your details.";
   return e;
 }

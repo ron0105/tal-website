@@ -149,7 +149,7 @@ export default function ReserveStep({ session, phone, post }: { session: string;
 
       {stage === "paid" && (
         <p className="body-copy">
-          Thank you. We match your payment to <strong>{ref}</strong> and confirm on WhatsApp within one working day.
+          We match your payment to <strong>{ref}</strong> and confirm on WhatsApp within one working day.
           We&apos;ll let you know about your shortlist status. Everyone else gets their {depositLabel()} back in full.
         </p>
       )}
@@ -160,7 +160,7 @@ export default function ReserveStep({ session, phone, post }: { session: string;
         <p className="body-copy">
           {DEPOSIT_URL
             ? "Your secure payment page is open in a new tab. Your seat is reserved once the payment is complete."
-            : `Thank you. Your secure payment link will be sent on WhatsApp to ${phone} within one working day.`}
+            : `Your secure payment link is sent on WhatsApp to ${phone} within one working day.`}
         </p>
       )}
 
