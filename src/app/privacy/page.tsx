@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <LegalPage eyebrow="Privacy" title="Privacy notice" updated="7 October 2026">
+    <LegalPage eyebrow="Privacy" title="Privacy notice" updated="14 October 2026">
       <LegalSection heading="Who we are">
         <p>
           This website is run by TAL Consulting LLP (The Adda Labs), LLPIN ACZ-3000, based in Mumbai, India.
@@ -47,6 +47,20 @@ export default function Privacy() {
           pick, and send you a Google Calendar invite with a Google Meet link. If you send your answers on WhatsApp, we receive them
           through WhatsApp.
         </p>
+        <p>
+          <strong>If you use our Live Projects page</strong> (<Link href="/live-projects">theaddalabs.com/live-projects</Link>),
+          we save your answers to its questions (where you are in your studies, what you want, on-site or remote, your timing, your
+          view on the fee and the programme name, and any note you write) under a random session code. If you then apply or
+          book a seat and tick the consent box, we add your name, email, WhatsApp number and college to those answers.
+          We also note which version of the page you saw. If you pay by UPI, we note your payment reference and, if you
+          give it, your UPI transaction ID.
+        </p>
+        <p>
+          <em>Refunds (draft, for legal review):</em> TAL delivers the three things promised on the Live
+          Projects page (3 founder reviews, 2 live projects and 1 certificate), or you receive the full programme fee back. If
+          you paid a booking amount and you are not shortlisted, it is refunded in full. To ask for a refund, email{" "}
+          <a href="mailto:rohan@theaddalabs.com">rohan@theaddalabs.com</a>.
+        </p>
       </LegalSection>
 
       <LegalSection heading="Why we use it">
@@ -64,6 +78,10 @@ export default function Privacy() {
           We use call page answers and bookings only to prepare for and hold the call you asked for, to remind
           you about it, and to reply to you on WhatsApp. Your answers give us a simple priority score, which
           helps us decide how quickly to offer a call. Everyone who writes in hears back from us.
+        </p>
+        <p>
+          We use Live Projects answers to decide whether to run the programme and how to shape it, and
+          applications and bookings only to set its dates, contact you about your seat, and match your payment.
         </p>
       </LegalSection>
 
@@ -88,6 +106,10 @@ export default function Privacy() {
         <p>
           Call page answers and bookings are kept in TAL&apos;s Google Workspace account and calendar, for{" "}
           <strong>12 months</strong> after you write in, then deleted, unless we start working together.
+        </p>
+        <p>
+          Live Projects reservations are kept in TAL&apos;s Google Workspace account for <strong>6 months</strong>,
+          then deleted. If you join the programme, we keep what we need to run it.
         </p>
       </LegalSection>
 
