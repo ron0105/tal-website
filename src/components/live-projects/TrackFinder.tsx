@@ -152,7 +152,7 @@ export default function TrackFinder() {
     setErrors(e);
     if (Object.keys(e).length) return;
     if (!feeAnswered(answers)) {
-      setFailure("Please answer the fee question above first.");
+      setFailure("Answer the fee question above first.");
       return;
     }
     setSending(true);
@@ -165,10 +165,10 @@ export default function TrackFinder() {
         top.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
         if (data.errors) setErrors(data.errors);
-        setFailure(data.error || "Please try again in a moment.");
+        setFailure(data.error || "Submit again in a moment.");
       }
     } catch {
-      setFailure("Please check your connection and try again.");
+      setFailure("Check your connection, then submit again.");
     }
     setSending(false);
   }
@@ -266,7 +266,7 @@ export default function TrackFinder() {
                   </li>
                 </ul>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm" style={{ color: "var(--text-muted)" }}>Prefer another track?</span>
+                  <span className="text-sm" style={{ color: "var(--text-muted)" }}>Another track suits you better? Pick it here.</span>
                   {(Object.keys(TRACKS) as TrackId[]).filter((id) => id !== track).map((id) => (
                     <button key={id} type="button" onClick={() => setTrack(id)} className="text-sm px-3 py-1.5"
                       style={{ border: "1px solid var(--border-color)", borderRadius: "var(--radius-btn)", color: "var(--brand)" }}>

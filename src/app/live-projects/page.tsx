@@ -45,7 +45,7 @@ const FAQS = [
   },
   {
     q: "Will my college count it?",
-    a: "You receive a certificate and a short letter describing your work, which you can share with your college. Credit is decided by your college, so a quick check with them is a good idea.",
+    a: "You receive a certificate and a short letter describing your work, which you can share with your college. Credit is decided by your college, so confirm it with them early.",
   },
   {
     q: "Can I do it remotely?",
@@ -53,7 +53,7 @@ const FAQS = [
   },
   {
     q: "When are the rounds?",
-    a: "Each round is 11 working days, Monday to Friday. We'll set the dates around college breaks, using what people on the list tell us.",
+    a: "Each round is 11 working days, Monday to Friday. We set the dates around college breaks, using what people on the list tell us.",
   },
   {
     q: "What does the refund guarantee cover?",
@@ -156,7 +156,7 @@ export default function LiveProjectsPage() {
               A few quick questions, <span style={{ color: "var(--accent)" }}>then your track.</span>
             </h2>
             <p className="body-copy mb-6">
-              Research, Build, Content or Outreach. Answer a few questions and we&apos;ll suggest where you&apos;d do your
+              Research, Build, Content or Outreach. Answer a few questions and see where you&apos;ll do your
               best work. Takes about two minutes.
             </p>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
