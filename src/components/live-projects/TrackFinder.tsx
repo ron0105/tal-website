@@ -82,11 +82,11 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
 export default function TrackFinder() {
   // Neither value is rendered, so creating them on first render is safe for hydration
   const [sessionId] = useState(() => (typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2, 14) + "-lp"));
-  const { variant } = useVariant();
+  const { variant, source } = useVariant();
   const book = variant === "a";
   // The sheet already stores the session id on every row, so the variant rides in its first
-  // letter ("a-", "b-", "c-"). Filter the Session column by that prefix to split the variants.
-  const session = `${variant}-${sessionId}`;
+  // letter ("a-", "b-", "c-") and the source in the next word ("a-site-…", "b-link-…").
+  const session = `${variant}-${source}-${sessionId}`;
   const [startedAt] = useState(() => Date.now());
 
   const [step, setStep] = useState(0); // 0..SCREENS.length-1 = questions, SCREENS.length = result

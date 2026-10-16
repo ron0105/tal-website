@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Think & Build", href: "/think-and-build" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "About", href: "/about" },
+  { label: "Live Projects", href: "/live-projects?src=site" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
@@ -65,14 +66,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-5 xl:gap-8">
             {navLinks.map((link) => {
-              const active = pathname === link.href;
+              const active = pathname === link.href.split("?")[0];
               return (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors duration-200 cursor-pointer relative hover:text-accent${active ? " nav-link-active" : ""}`}
+                  className={`text-sm font-medium xl:whitespace-nowrap transition-colors duration-200 cursor-pointer relative hover:text-accent${active ? " nav-link-active" : ""}`}
                   style={{ color: active ? undefined : "var(--text-muted)" }}
                 >
                   {link.label}
@@ -151,11 +152,11 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center justify-between py-4 text-base font-semibold cursor-pointer border-b border-border-subtle transition-colors hover:text-accent${pathname === link.href ? " nav-link-active" : ""}`}
-                  style={{ color: pathname === link.href ? undefined : "var(--text-muted)" }}
+                  className={`flex items-center justify-between py-4 text-base font-semibold cursor-pointer border-b border-border-subtle transition-colors hover:text-accent${pathname === link.href.split("?")[0] ? " nav-link-active" : ""}`}
+                  style={{ color: pathname === link.href.split("?")[0] ? undefined : "var(--text-muted)" }}
                 >
                   {link.label}
-                  {pathname === link.href && (
+                  {pathname === link.href.split("?")[0] && (
                     <div className="nav-indicator w-1.5 h-1.5 flex-shrink-0 rounded-full" />
                   )}
                 </Link>
