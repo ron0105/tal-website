@@ -14,11 +14,11 @@ const fields: { kind: IconKind; label: string; line: string }[] = [
   { kind: "ventures", label: "Ventures", line: "Ideas grown into businesses" },
 ];
 
-function FieldIcon({ kind, size }: { kind: IconKind; size: number }) {
+function FieldIcon({ kind }: { kind: IconKind }) {
   return (
     <svg
-      width={size}
-      height={size}
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
       aria-hidden="true"
       fill="none"
@@ -32,33 +32,24 @@ function FieldIcon({ kind, size }: { kind: IconKind; size: number }) {
   );
 }
 
-function Chevron({ flip = false }: { flip?: boolean }) {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 12 12"
-      aria-hidden="true"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={flip ? "rotate-180" : ""}
-    >
-      <path d="M3 1.5L8 6l-5 4.5" />
-    </svg>
-  );
-}
-
+/*
+ * Layout notes
+ * - Desktop (lg+): the list is a 5-column grid. Each tile uses subgrid rows
+ *   (icon + band slot / title / line), so every title starts on the same line,
+ *   every line starts on the same line, and all tiles are the same height.
+ * - The "Design thinking" band is ONE strip laid over the grid, sitting in the
+ *   empty slot every tile reserves under its icon, so it never covers content.
+ *   Its top is: tile border + top padding + icon + gap above the slot.
+ * - Below lg: a stacked list, with a vertical line running through the icons.
+ */
 export default function DesignThinkingGraphic() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <MotionConfig reducedMotion="user">
-      <div ref={ref} className="relative max-w-5xl mx-auto">
-        {/* Mobile: the label sits above, and a vertical line runs down through every tile */}
+      <div ref={ref} className="relative mx-auto w-full max-w-xl lg:max-w-6xl">
+        {/* Stacked: the label sits above, and a vertical line runs down through every icon */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -69,49 +60,66 @@ export default function DesignThinkingGraphic() {
           Design thinking
         </motion.div>
 
-        <ul className="flex flex-col gap-3 lg:grid lg:grid-cols-5 lg:gap-4">
-          {fields.map((f, i) => (
-            <motion.li
-              key={f.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, ease, delay: i * 0.08 }}
-              className="relative flex items-center gap-4 rounded-2xl border border-border-subtle bg-background-secondary px-4 py-5 lg:flex-col lg:items-stretch lg:gap-0 lg:min-h-[22rem] lg:px-5 lg:py-6"
-            >
-              {/* Mobile thread: one segment per tile, bridging the gaps so it reads as a single line */}
-              <span
-                aria-hidden="true"
-                className="lg:hidden absolute left-[42px] -translate-x-1/2 w-[2px] -top-3"
-                style={{ background: "var(--brand)", opacity: 0.75, bottom: i === fields.length - 1 ? "50%" : "-0.75rem" }}
-              />
-              <span
-                className="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full lg:h-16 lg:w-16 lg:self-start"
-                style={{ background: "var(--bg)", boxShadow: "inset 0 0 0 1.5px var(--brand)" }}
+        <div className="relative">
+          <ul aria-label="Design thinking across five fields" className="flex flex-col gap-3 lg:grid lg:grid-cols-5 lg:gap-x-4 lg:gap-y-0">
+            {fields.map((f, i) => (
+              <motion.li
+                key={f.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, ease, delay: i * 0.08 }}
+                className="relative flex items-center gap-4 rounded-2xl border border-border-subtle bg-background-secondary px-5 py-5 lg:row-span-3 lg:grid lg:grid-rows-subgrid lg:items-stretch lg:gap-0 lg:p-0 lg:text-center"
               >
-                <span className="lg:hidden"><FieldIcon kind={f.kind} size={28} /></span>
-                <span className="hidden lg:block"><FieldIcon kind={f.kind} size={36} /></span>
-              </span>
+                {/* Stacked thread: one segment per tile, bridging the gaps so it reads as a single line */}
+                <span
+                  aria-hidden="true"
+                  className="lg:hidden absolute left-12 -translate-x-1/2 w-[2px] -top-[13px]"
+                  style={{ background: "var(--brand)", opacity: 0.75, bottom: i === fields.length - 1 ? "50%" : "-13px" }}
+                />
 
-              <div className="lg:mt-auto">
-                <p className="text-base font-bold leading-snug text-foreground">{f.label}</p>
-                <p className="text-sm text-muted mt-1 leading-snug">{f.line}</p>
-              </div>
-            </motion.li>
-          ))}
-        </ul>
+                {/* Row 1 (desktop): icon, then an empty slot the band passes through */}
+                <div className="shrink-0 lg:px-4 lg:pt-6 xl:px-5">
+                  <span
+                    className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full lg:mx-auto"
+                    style={{ background: "var(--bg)", boxShadow: "inset 0 0 0 1.5px var(--brand)" }}
+                  >
+                    <FieldIcon kind={f.kind} />
+                  </span>
+                  <span aria-hidden="true" className="hidden lg:block mt-5 h-12" />
+                </div>
 
-        {/* Desktop: ONE horizontal band that crosses all five columns */}
-        <motion.div
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={inView ? { scaleX: 1, opacity: 1 } : {}}
-          transition={{ duration: 1.1, ease, delay: 0.5 }}
-          style={{ originX: 0, background: "var(--brand)" }}
-          className="hidden lg:flex absolute z-20 left-[-1rem] right-[-1rem] top-1/2 -translate-y-1/2 h-14 items-center justify-between rounded-full px-6 text-white pointer-events-none"
-        >
-          <Chevron flip />
-          <span className="text-base font-semibold tracking-wide">Design thinking</span>
-          <Chevron />
-        </motion.div>
+                {/* On desktop this wrapper dissolves so title and line become rows 2 and 3 of the tile */}
+                <div className="min-w-0 lg:contents">
+                  <p className="text-base font-bold leading-snug text-foreground lg:px-4 lg:pt-5 xl:px-5 xl:text-[1.2rem]">{f.label}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted lg:px-4 lg:pb-6 xl:px-5">{f.line}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ul>
+
+          {/* Desktop: ONE continuous band that passes through all five tiles */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute z-20 left-0 right-0 hidden h-12 items-center justify-center lg:flex"
+            style={{ top: "calc(1px + 1.5rem + 3.5rem + 1.25rem)" }}
+          >
+            <motion.span
+              initial={{ scaleX: 0 }}
+              animate={inView ? { scaleX: 1 } : {}}
+              transition={{ duration: 1.1, ease, delay: 0.5 }}
+              style={{ originX: 0, background: "var(--brand)" }}
+              className="absolute inset-0 rounded-full"
+            />
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, ease, delay: 1.1 }}
+              className="relative text-sm font-semibold tracking-wide text-white"
+            >
+              Design thinking
+            </motion.span>
+          </div>
+        </div>
       </div>
     </MotionConfig>
   );

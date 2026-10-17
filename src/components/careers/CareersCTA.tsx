@@ -11,7 +11,7 @@ export default function CareersCTA() {
       className="padding-section"
       style={{ borderTop: "1px solid var(--border-subtle)" }}
     >
-      <div className="layout-grid px-6 md:px-10">
+      <div className="layout-grid">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,14 +31,10 @@ export default function CareersCTA() {
             Tell us what you would like to build with us. We read every message.
           </p>
           <div className="flex flex-wrap items-center gap-6">
-            <a
-              href="mailto:rohan@theaddalabs.com"
-              className="btn-ghost"
-              style={{ display: "inline-flex" }}
-            >
+            <a href="mailto:rohan@theaddalabs.com" className="btn-ghost">
               Write to us →
             </a>
-            <Link href="/privacy" className="text-sm underline underline-offset-4" style={{ color: "var(--text-muted)" }}>
+            <Link href="/privacy" className="inline-flex min-h-[44px] items-center text-sm underline underline-offset-4" style={{ color: "var(--text-muted)" }}>
               How we handle your information
             </Link>
           </div>

@@ -14,6 +14,7 @@
   
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-text);
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-poppins: 'Fraunces', serif;
@@ -45,6 +46,11 @@
     --accent-hover: #A5572C;
     /* Copper is mid-tone; on peacock bands use this lighter copper for legible text */
     --accent-on-brand: #E9B48D;
+    /* Same copper hue, darkened for small text on paper (4.5:1+ on --bg, --bg-secondary, --bg-lift).
+       --accent itself is 3.5:1 on paper, so keep it for lines, borders and large type only. */
+    --accent-text: #9A5026;
+    /* Button/control outline that reaches 3:1 on paper (--border-color is for quiet dividers) */
+    --border-strong: #758783;
 
     /* Navbar background */
     --navbar-bg: rgba(242, 244, 242, 0.90);
@@ -167,23 +173,35 @@ body {
   background: var(--border-color);
 }
 
-/* ─── Buttons — Peacock / White ─── */
-.btn-primary {
+/* ─── Buttons — Peacock / White ───
+   One size, one radius, one weight for both styles. 44px minimum height (Fitts).
+   .btn-lg is the single larger size, for hero and closing CTAs. */
+.btn-primary,
+.btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: 44px;
   padding: 12px 24px;
-  background: var(--brand);
-  color: #FFFFFF;
   font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1.5;
   border-radius: var(--radius-btn);
-  border: 1px solid var(--brand);
   cursor: pointer;
-  transition: all 0.2s ease;
   text-decoration: none;
   letter-spacing: 0.01em;
+}
+.btn-lg {
+  min-height: 52px;
+  padding: 16px 32px;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: var(--brand);
+  color: #FFFFFF;
+  border: 1px solid var(--brand);
+  transition: all 0.2s ease;
 }
 .btn-primary:hover {
   background: var(--brand-hover);
@@ -203,25 +221,14 @@ body {
 }
 
 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
   background: transparent;
   color: var(--text-primary);
-  font-size: 0.875rem;
-  font-weight: 700;
-  border-radius: 0px;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
+  border: 1px solid var(--border-strong);
   transition: all 0.15s ease;
-  text-decoration: none;
-  letter-spacing: 0.01em;
 }
 .btn-ghost:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
   background: transparent;
 }
 .btn-ghost:active {
@@ -232,6 +239,23 @@ body {
 }
 .btn-ghost:hover svg {
   transform: translateX(3px);
+}
+
+/* ─── Keyboard focus ───
+   One visible ring for every link, button and control. Peacock on paper is 6:1. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible {
+  border-radius: var(--radius-btn);
 }
 
 /* ─── Interactive cards ─── */
@@ -299,7 +323,7 @@ body {
 
 /* ─── Nav active state ─── */
 .nav-link-active {
-  color: var(--accent) !important;
+  color: var(--accent-text) !important;
 }
 .nav-indicator {
   background: var(--accent);

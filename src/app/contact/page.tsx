@@ -13,78 +13,71 @@ function WAIcon() {
 
 export default function ContactPage() {
   return (
-    <main className="bg-background min-h-screen pt-32 pb-24">
+    <div className="bg-background" style={{ paddingTop: "clamp(9rem, 16vh, 12rem)", paddingBottom: "clamp(4rem, 9vh, 6rem)" }}>
       <div className="layout-grid px-6 md:px-10">
-        <div className="max-w-4xl">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="label-eyebrow mb-8 block text-accent"
-          >
-            Contact Us
-          </motion.span>
-          <motion.h1
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex items-center gap-4 mb-8"
+        >
+          <div className="w-6 h-px" style={{ background: "var(--accent)" }} aria-hidden="true" />
+          <span className="label-eyebrow">Contact Us</span>
+        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 text-foreground"
+        >
+          Tell us where you are.
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-lg leading-relaxed text-body mb-12"
+          style={{ maxWidth: "34rem" }}
+        >
+          Share your idea or your question, and we will reply personally.
+        </motion.p>
+
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            style={{
-              marginBottom: "2.5rem",
-              color: "var(--text-primary)",
-            }}
+            transition={{ delay: 0.2 }}
+            className="bg-background-secondary p-8 md:p-10 rounded-2xl border border-border-subtle flex flex-col h-full"
           >
-            Tell us where you are.
-          </motion.h1>
-          <motion.p
+            <h2 className="text-subsection text-foreground mb-3">Book a Call</h2>
+            <p className="text-base leading-relaxed text-body mb-8 flex-1">
+              A short call to talk through what you are working on.
+            </p>
+            <Link href="/call" className="btn-primary btn-lg w-full">
+              Find a Time
+            </Link>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-body max-w-2xl mb-16"
+            transition={{ delay: 0.3 }}
+            className="bg-background-secondary p-8 md:p-10 rounded-2xl border border-border-subtle flex flex-col h-full"
           >
-            Share your idea or your question, and we will reply personally.
-          </motion.p>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-bg-secondary p-10 md:p-14 rounded-2xl border border-border-subtle flex flex-col h-full"
+            <h2 className="text-subsection text-foreground mb-3">Chat on WhatsApp</h2>
+            <p className="text-base leading-relaxed text-body mb-8 flex-1">
+              Prefer to type first? Message us directly.
+            </p>
+            <a
+              href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost btn-lg w-full gap-3"
             >
-              <h2 className="mb-6 text-primary" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", lineHeight: 1.3, letterSpacing: "-0.01em" }}>Book a Call</h2>
-              <p className="text-lg text-muted mb-10 flex-1">
-                A short call to talk through what you are working on.
-              </p>
-              <Link
-                href="/call"
-                className="btn-primary w-full text-center py-5 text-lg"
-              >
-                Find a Time
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-background p-10 md:p-14 rounded-2xl border border-border-subtle flex flex-col h-full"
-            >
-              <h2 className="mb-6 text-primary" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", lineHeight: 1.3, letterSpacing: "-0.01em" }}>Chat on WhatsApp</h2>
-              <p className="text-lg text-muted mb-10 flex-1">
-                Prefer to type first? Message us directly.
-              </p>
-              <a
-                href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost w-full text-center py-5 text-lg flex items-center justify-center gap-3"
-                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
-              >
-                <WAIcon />
-                Message Us
-              </a>
-            </motion.div>
-          </div>
+              <WAIcon />
+              Message Us
+            </a>
+          </motion.div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

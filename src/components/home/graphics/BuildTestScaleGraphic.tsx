@@ -55,7 +55,7 @@ export default function BuildTestScaleGraphic() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div ref={ref} className="relative max-w-4xl mx-auto">
+      <div ref={ref} className="relative mx-auto w-full max-w-md md:max-w-4xl">
         <ol className="grid md:grid-cols-3">
           {steps.map((s, i) => (
             <motion.li

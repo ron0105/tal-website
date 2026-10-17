@@ -37,7 +37,7 @@ export default function HowWeWork() {
       >
         <AnimateOnScroll className="layout-grid">
           <HWWLoop />
-          <p className="text-lg text-body text-center mx-auto mt-6" style={{ maxWidth: "36rem" }}>
+          <p className="text-lg text-body text-left sm:text-center sm:mx-auto mt-10 text-pretty" style={{ maxWidth: "36rem" }}>
             Design thinking guides every step, so what we make stays useful to real people.
           </p>
         </AnimateOnScroll>
@@ -49,10 +49,10 @@ export default function HowWeWork() {
             Have an idea to start the loop with?
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact" className="btn-primary" style={{ padding: "18px 44px", fontSize: "1.05rem" }}>
+            <Link href="/contact" className="btn-primary btn-lg">
               Start a conversation
             </Link>
-            <Link href="/work" className="btn-ghost" style={{ padding: "18px 36px", fontSize: "1.05rem" }}>
+            <Link href="/work" className="btn-ghost btn-lg">
               See what we work on
             </Link>
           </div>
