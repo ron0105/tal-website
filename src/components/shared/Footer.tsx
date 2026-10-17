@@ -4,8 +4,7 @@ import Link from "next/link";
 import Logo from "@/components/shared/Logo";
 
 const pages = [
-  { label: "For Businesses", href: "/for-businesses" },
-  { label: "Think & Build", href: "/think-and-build" },
+  { label: "What we work on", href: "/work" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

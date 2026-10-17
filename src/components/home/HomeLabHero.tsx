@@ -65,7 +65,7 @@ export default function HomeLabHero() {
             <Link href="/contact" className="btn-primary" style={{ padding: "16px 32px", fontSize: "1rem" }}>
               Start a conversation
             </Link>
-            <Link href="/think-and-build" className="btn-ghost" style={{ padding: "16px 32px", fontSize: "1rem" }}>
+            <Link href="/work" className="btn-ghost" style={{ padding: "16px 32px", fontSize: "1rem" }}>
               See our work
             </Link>
           </motion.div>

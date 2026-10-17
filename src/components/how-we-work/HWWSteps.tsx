@@ -153,7 +153,7 @@ export default function HWWSteps() {
               <Link href="/work-with-us" className="btn-primary" style={{ padding: "14px 36px" }}>
                 Start the conversation
               </Link>
-              <Link href="/for-businesses" className="btn-ghost" style={{ padding: "14px 36px" }}>
+              <Link href="/work" className="btn-ghost" style={{ padding: "14px 36px" }}>
                 See what we do for businesses
               </Link>
             </div>
