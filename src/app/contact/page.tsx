@@ -39,7 +39,7 @@ export default function ContactPage() {
             transition={{ delay: 0.1 }}
             className="text-lg text-body max-w-2xl mb-16"
           >
-            Whether you are running a business or testing a new idea, the first conversation is the same: we listen, then tell you honestly what we see.
+            Share your idea or your question, and we will reply personally.
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -49,9 +49,9 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
               className="bg-bg-secondary p-10 md:p-14 rounded-2xl border border-border-subtle flex flex-col h-full"
             >
-              <h3 className="mb-6 text-primary">Book a Call</h3>
+              <h2 className="mb-6 text-primary" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", lineHeight: 1.3, letterSpacing: "-0.01em" }}>Book a Call</h2>
               <p className="text-lg text-muted mb-10 flex-1">
-                Schedule a 20-minute call. Tell us what you are working on, and we will tell you honestly how we can help.
+                A short call to talk through what you are working on.
               </p>
               <Link
                 href="/call"
@@ -67,9 +67,9 @@ export default function ContactPage() {
               transition={{ delay: 0.3 }}
               className="bg-background p-10 md:p-14 rounded-2xl border border-border-subtle flex flex-col h-full"
             >
-              <h3 className="mb-6 text-primary">Chat on WhatsApp</h3>
+              <h2 className="mb-6 text-primary" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", lineHeight: 1.3, letterSpacing: "-0.01em" }}>Chat on WhatsApp</h2>
               <p className="text-lg text-muted mb-10 flex-1">
-                Prefer to type first? Send us a message directly. We respond personally, not with a bot.
+                Prefer to type first? Message us directly.
               </p>
               <a
                 href="https://wa.me/918169315080?text=Hi%2C%20I%20found%20TAL%20Consulting%20and%20would%20like%20to%20know%20more."

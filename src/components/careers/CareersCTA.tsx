@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -18,27 +19,29 @@ export default function CareersCTA() {
           transition={{ duration: 0.7, ease: EASE }}
           className="max-w-xl"
         >
-          <span className="label-eyebrow block mb-6">Looking for a different role?</span>
           <h2
             className="mb-6"
             style={{
               color: "var(--text-primary)",
             }}
           >
-            If you have something special to offer,{" "}
-            <span style={{ color: "var(--accent)" }}>we would love to hear from you.</span>
+            Have something else to <span style={{ color: "var(--accent)" }}>offer?</span>
           </h2>
           <p className="body-copy mb-8" style={{ maxWidth: "440px" }}>
-            Tell us what you would take ownership of, what you have built and why TAL
-            suits you. We read every message.
+            Tell us what you would like to build with us. We read every message.
           </p>
-          <a
-            href="mailto:rohan@theaddalabs.com"
-            className="btn-ghost"
-            style={{ display: "inline-flex" }}
-          >
-            Write to us →
-          </a>
+          <div className="flex flex-wrap items-center gap-6">
+            <a
+              href="mailto:rohan@theaddalabs.com"
+              className="btn-ghost"
+              style={{ display: "inline-flex" }}
+            >
+              Write to us →
+            </a>
+            <Link href="/privacy" className="text-sm underline underline-offset-4" style={{ color: "var(--text-muted)" }}>
+              How we handle your information
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
