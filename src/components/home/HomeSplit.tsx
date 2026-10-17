@@ -48,7 +48,7 @@ export default function HomeSplit() {
           ]}
           itemAccent
           cta="Work with us"
-          ctaHref="/for-businesses"
+          ctaHref="/work"
           ctaVariant="primary"
           ghostLabel="01"
           delay={0}
@@ -67,7 +67,7 @@ export default function HomeSplit() {
           ]}
           itemAccent={false}
           cta="Explore idea validation"
-          ctaHref="/think-and-build"
+          ctaHref="/work"
           ctaVariant="ghost"
           ghostLabel="02"
           delay={0.1}

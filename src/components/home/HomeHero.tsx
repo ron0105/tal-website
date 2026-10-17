@@ -118,10 +118,10 @@ export default function HomeHero() {
           </div>
 
           <div className="flex flex-col gap-3 shrink-0">
-            <Link href="/for-businesses" className="btn-primary" style={{ padding: "16px 36px", fontSize: "1rem", whiteSpace: "nowrap" }}>
+            <Link href="/work" className="btn-primary" style={{ padding: "16px 36px", fontSize: "1rem", whiteSpace: "nowrap" }}>
               I run a business →
             </Link>
-            <Link href="/think-and-build" className="btn-ghost" style={{ padding: "16px 36px", fontSize: "1rem", whiteSpace: "nowrap" }}>
+            <Link href="/work" className="btn-ghost" style={{ padding: "16px 36px", fontSize: "1rem", whiteSpace: "nowrap" }}>
               I have a new idea →
             </Link>
             <a

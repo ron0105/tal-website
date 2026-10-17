@@ -7,11 +7,11 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
-    default: "TAL Consulting | More customers, not more busywork",
+    default: "The Adda Labs | A venture lab that builds, tests and scales ideas",
     template: "%s | TAL Consulting",
   },
   description:
-    "We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.",
+    "The Adda Labs is a frugal ideation and venture-building lab working across business, technology, sustainability and public causes. We build, test and scale ideas.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",

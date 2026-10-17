@@ -47,7 +47,7 @@ export default function HomeWhoThisIsFor() {
                 ))}
               </div>
               <div className="p-8 pt-0">
-                <Link href="/for-businesses" className="btn-primary w-full text-center" style={{ display: "block" }}>
+                <Link href="/work" className="btn-primary w-full text-center" style={{ display: "block" }}>
                   For Businesses →
                 </Link>
               </div>
@@ -70,7 +70,7 @@ export default function HomeWhoThisIsFor() {
                 ))}
               </div>
               <div className="p-8 pt-0">
-                <Link href="/think-and-build" className="btn-ghost w-full text-center" style={{ display: "block" }}>
+                <Link href="/work" className="btn-ghost w-full text-center" style={{ display: "block" }}>
                   Think & Build →
                 </Link>
               </div>

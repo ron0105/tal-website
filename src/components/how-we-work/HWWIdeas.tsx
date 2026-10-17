@@ -43,7 +43,7 @@ export default function HWWIdeas() {
         </div>
 
         <AnimateOnScroll className="flex flex-col sm:flex-row gap-4">
-          <Link href="/think-and-build" className="btn-primary" style={{ padding: "14px 36px" }}>
+          <Link href="/work" className="btn-primary" style={{ padding: "14px 36px" }}>
             See the full framework
           </Link>
           <Link href="/contact" className="btn-ghost" style={{ padding: "14px 36px" }}>

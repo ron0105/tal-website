@@ -9,13 +9,11 @@ import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 const navLinks = [
-  { label: "For Businesses", href: "/for-businesses" },
-  { label: "Think & Build", href: "/think-and-build" },
+  { label: "What we work on", href: "/work" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "About", href: "/about" },
   { label: "Live Projects", href: "/live-projects?src=site" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -57,16 +55,16 @@ export default function Navbar() {
                 The Adda Labs
               </span>
               <span
-                className="text-[9px] font-medium uppercase"
+                className="hidden xl:block text-[9px] font-medium uppercase"
                 style={{ color: "var(--text-muted)", letterSpacing: "0.22em", marginTop: "3px" }}
               >
-                Consulting · Design Thinking
+                Ideation · Venture building
               </span>
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-5 xl:gap-8">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
             {navLinks.map((link) => {
               const active = pathname === link.href.split("?")[0];
               return (
@@ -88,18 +86,18 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4 flex-shrink-0 ml-auto mr-4 lg:ml-0 lg:mr-0">
             <Link
               href="/contact"
-              className="btn-primary"
+              className="btn-primary whitespace-nowrap"
               style={{ padding: "10px 20px", fontSize: "0.875rem" }}
             >
-              Start a Conversation
+              Start a conversation
             </Link>
           </div>
 
           {/* Mobile hamburger & controls */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3">
             <button
               className="flex flex-col gap-1.5 items-center justify-center w-8 h-8 cursor-pointer group"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -136,7 +134,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: EASE }}
-            className="fixed inset-x-0 top-16 z-40 md:hidden flex flex-col px-6 py-8 gap-1"
+            className="fixed inset-x-0 top-16 z-40 lg:hidden flex flex-col px-6 py-8 gap-1"
             style={{
               background: "var(--navbar-bg)",
               backdropFilter: "blur(20px)",
@@ -164,9 +162,9 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="btn-primary flex items-center justify-center mt-6"
+              className="btn-primary flex items-center justify-center mt-6 md:hidden"
             >
-              Start a Conversation
+              Start a conversation
             </Link>
           </motion.div>
         )}
