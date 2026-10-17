@@ -8,7 +8,7 @@ import { SEATS_PER_ROUND, SEATS_PER_TRACK, depositLabel } from "@/lib/live-proje
 export const metadata: Metadata = {
   title: "Live Projects for students",
   description:
-    "15 days of real projects at a real firm, with the founder's feedback along the way. Leave with portfolio work to show and a certificate that names it.",
+    "12 days: 3 days of training, then 2 live projects on real businesses, with the founder's feedback along the way. Leave with portfolio work to show and a certificate that names it.",
   // A demand test: shared by link, kept out of search until it's a running programme
   robots: { index: false, follow: false },
 };
@@ -21,23 +21,22 @@ const FACTS = [
 
 // The named mechanism, shown right under the hero
 const THREE_TWO_ONE = [
-  { n: "3", what: "founder reviews", line: "One-on-one on day 4, day 9 and day 11, so you learn what strong work looks like while you build it." },
+  { n: "3", what: "founder reviews", line: "One-on-one on day 3, day 7 and day 12, so you learn what strong work looks like while you build it." },
   { n: "2", what: "real projects", line: "Work on real businesses that you can show and talk about in interviews and placements." },
   { n: "1", what: "certificate", line: "It names the work you did, giving employers proof they can read." },
 ];
 
 const DAYS = [
-  { when: "Day 1", what: "Settle in, meet the founder, get your brief." },
-  { when: "Days 2–4", what: "Project one. Review with the founder on day 4." },
-  { when: "Days 5–9", what: "Project two. Review with the founder on day 9." },
-  { when: "Day 10", what: "Polish both projects and write a short note on each, ready for your portfolio." },
-  { when: "Day 11", what: "Final review, and your certificate." },
+  { when: "Days 1–3", what: "Training in your track. Review with the founder on day 3." },
+  { when: "Days 4–7", what: "Live project one, on a real business. Review with the founder on day 7." },
+  { when: "Days 8–11", what: "Live project two, on a real business." },
+  { when: "Day 12", what: "Final review with the founder, and your certificate." },
 ];
 
 const FAQS = [
   {
     q: "Is this a job or an internship?",
-    a: "It is a paid training programme built around real projects. The top performers in each round are invited to interview for a paid internship at TAL. The invitation is to interview, and the internship decision follows the interview.",
+    a: "It is a training programme built around live projects on real businesses. The top performers in each round are invited to interview for a paid internship at TAL. The invitation is to interview, and the internship decision follows the interview.",
   },
   {
     q: "Can I show the work afterwards?",
@@ -53,11 +52,11 @@ const FAQS = [
   },
   {
     q: "When are the rounds?",
-    a: "Each round is 11 working days, Monday to Friday. We set the dates around college breaks, using what people on the list tell us.",
+    a: "Each round is 12 days. We set the dates around college breaks, using what people on the list tell us.",
   },
   {
     q: "What does the refund guarantee cover?",
-    a: `You receive 3 founder reviews, 2 live projects and 1 certificate. Attend the 11 days and hand in your work, and TAL delivers all three, or your full fee comes back. Interview invitations for a paid internship go to the top performers and sit alongside the guarantee.`,
+    a: `You receive 3 founder reviews, 2 live projects and 1 certificate. Attend the 12 days and hand in your work, and TAL delivers all three, or your full fee comes back. Interview invitations for a paid internship go to the top performers and sit alongside the guarantee.`,
   },
   {
     q: "How and when do I pay?",
@@ -94,8 +93,8 @@ export default function LiveProjectsPage() {
             <span style={{ color: "var(--accent)" }}>and leave with proof.</span>
           </h1>
           <p className="body-copy mb-12" style={{ maxWidth: "620px" }}>
-            Spend 15 days with TAL, on-site in Navi Mumbai or remote. We&apos;re a frugal ideation and venture-building lab,
-            working across business, technology and sustainability. You take on real business projects, learn from the founder&apos;s feedback on every piece, and leave
+            Spend 12 days with TAL, on-site in Navi Mumbai or remote. We&apos;re a frugal ideation and venture-building lab,
+            working across business, technology and sustainability. You train for three days in your track, take on two live projects for real businesses, learn from the founder&apos;s feedback on every piece, and leave
             with two portfolio projects and a certificate that names your work.
           </p>
           <div className="mb-10">
@@ -126,7 +125,7 @@ export default function LiveProjectsPage() {
         <div className="layout-grid px-6 md:px-10">
           <span className="label-eyebrow block mb-6">The 3-2-1</span>
           <h2 className="mb-12" style={{ color: "var(--text-primary)", maxWidth: "760px" }}>
-            Fifteen days, <span style={{ color: "var(--accent)" }}>three things you keep.</span>
+            Twelve days, <span style={{ color: "var(--accent)" }}>three things you keep.</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-px" style={{ background: "var(--border-color)", border: "1px solid var(--border-color)" }}>
             {THREE_TWO_ONE.map((x) => (
@@ -156,7 +155,7 @@ export default function LiveProjectsPage() {
               A few quick questions, <span style={{ color: "var(--accent)" }}>then your track.</span>
             </h2>
             <p className="body-copy mb-6">
-              Research, Build, Content or Outreach. Answer a few questions and see where you&apos;ll do your
+              Research, Build, Content or Growth. Answer a few questions and see where you&apos;ll do your
               best work. Takes about two minutes.
             </p>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -173,7 +172,7 @@ export default function LiveProjectsPage() {
           <div>
             <span className="label-eyebrow block mb-6">How it works</span>
             <h2 className="mb-10" style={{ color: "var(--text-primary)" }}>
-              11 working days, <span style={{ color: "var(--accent)" }}>3 reviews with the founder.</span>
+              12 days, <span style={{ color: "var(--accent)" }}>3 reviews with the founder.</span>
             </h2>
             <ol className="flex flex-col">
               {DAYS.map((d) => (

@@ -1,7 +1,13 @@
-// TAL Live Projects: a paid 15-day programme for students, being tested for demand (Oct 2026).
+// TAL Live Projects: a 12-day programme for students, being tested for demand (Oct 2026).
+// Model as of Oct 17: 3 days of training in your track, then 2 live projects on real businesses.
+// Days 1-3 training (founder review day 3), days 4-7 project one (review day 7), days 8-11
+// project two, day 12 final review and certificate. The Rs 5,000 entry fee is covered by the full
+// refund guarantee (3 founder reviews, 2 live projects, 1 certificate, or the full fee comes back).
+// Top performers are invited to interview for a paid internship. Careers (/careers) is the free
+// 15-day training on TAL's own work; both use the same 4 tracks.
 // /live-projects walks students through 7 questions, recommends a track, and offers a seat.
 // Answers are saved without a name; contact details only on a reservation with consent.
-// Model as of Oct 17: 4 tracks, 20 seats a round (5 a track), fee Rs 5,000, UPI only.
+// Also: 4 tracks (Research, Build, Content, Growth), 20 seats a round (5 a track), UPI only.
 // Three page variants (?v=a, ?v=b, ?v=c) test how we ask; the page body is the same.
 // Brief: 01-tal/tal/how-we-work/Paid live-project programme - brief (draft).md
 
@@ -66,7 +72,7 @@ export const MIN_FILL_MS = 6_000;
 // Flat fee: TAL isn't GST-registered yet, so no GST is added (Rohan, Oct 14). Add "+ GST" once it is.
 export const feeLabel = () => `₹${FEE_INR.toLocaleString("en-IN")}`;
 
-export type TrackId = "research" | "build" | "content" | "outreach";
+export type TrackId = "research" | "build" | "content" | "growth";
 
 export const TRACKS: Record<TrackId, { name: string; line: string; projects: string[] }> = {
   research: {
@@ -93,8 +99,8 @@ export const TRACKS: Record<TrackId, { name: string; line: string; projects: str
       "Three posts or short videos, with hooks you wrote and tested",
     ],
   },
-  outreach: {
-    name: "Outreach",
+  growth: {
+    name: "Growth",
     line: "Find businesses that are ready for help and start the conversation.",
     projects: [
       "A researched list of businesses, each with one clear gap you found",
@@ -124,7 +130,7 @@ export interface Question {
 export const PRICE_LOWER = "I'd join at a lower fee";
 
 // "style" answers map straight to a track, in this order
-export const STYLE_TRACKS: TrackId[] = ["research", "build", "outreach", "content"];
+export const STYLE_TRACKS: TrackId[] = ["research", "build", "growth", "content"];
 
 export const QUESTIONS: Question[] = [
   {
@@ -156,7 +162,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: "when",
-    title: "Which 15 days suit you best?",
+    title: "Which 12 days suit you best?",
     options: ["December break", "January", "Summer 2027", "Still deciding"],
     pairedWith: "format",
   },
@@ -183,7 +189,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: "note",
-    title: "Last one. What do you want to be able to do by day 15?",
+    title: "Last one. What do you want to be able to do by day 12?",
   },
 ];
 

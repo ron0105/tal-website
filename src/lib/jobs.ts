@@ -2,14 +2,15 @@
 // Single source of truth for /careers. Applications go through
 // /careers/[slug]/apply → /api/apply → the careers sheet.
 //
-// TAL Founder's Office Cohort (Rohan, Oct 7 2026): one program, four tracks. Everyone
-// starts with a paid 15-day training sprint on real TAL assignments; the people who
-// perform move into a paid full-time internship. Everyone who completes training gets
-// a certificate, free. No pay-per-project roles on the page; freelancers are brought in
+// TAL Founder's Office Cohort (Rohan, Oct 7 2026; model updated Oct 17): one program, four
+// tracks (Research, Build, Content, Growth). Everyone starts with 15 days of free training on
+// TAL's own work, with no client or live projects; the internship decision follows. Everyone
+// who completes training gets a certificate. Students who want real client work sooner are
+// pointed to Live Projects (/live-projects), the separate 12-day programme with a fee. No pay-per-project roles on the page; freelancers are brought in
 // off-page only when a client Build needs one. Referral Partner stays as a side door.
-// The figures (15 days, ₹3,000 stipend, 3 months at ₹10K + bonus, 10% referral) are
-// shared on the call, not on the page (Rohan, Oct 8 2026). Training is unpaid from Oct 8 2026
-// (Rohan); only the internship is paid.
+// The pay figures (₹3,000 stipend, 3 months at ₹10K + bonus, 10% referral) are shared on the
+// call, not on the page (Rohan, Oct 8 2026). Durations, like pay, are shared on the call (LESSONS #12), not stated on the page
+// (Rohan, Oct 17). Training is unpaid and free for candidates; only the internship is paid.
 
 export type RoleGroup = "cohort" | "partner";
 export type RoleStatus = "open";
@@ -81,22 +82,23 @@ export const STATUS_LABEL: Record<RoleStatus, string> = {
 
 // The cohort's steps. Kept here so the careers page, every track page and the
 // apply flow describe the process identically. Copy rule (Rohan, Oct 8 2026): positive,
-// simple professional English, and no figures (pay, durations, counts) anywhere on the page.
+// simple professional English, and no pay figures or durations anywhere on the page
+// (LESSONS #12); the 15-day length is shared on the call.
 export const HIRING_STEPS: Step[] = [
   { name: "Apply", detail: "Share a few details, a short work sample and your answers to some real work situations." },
   { name: "Shortlist", detail: "Rohan reads every application on Friday and selects the next cohort." },
   { name: "Call", detail: "A short conversation about your work, your goals and how you like to work." },
-  { name: "Training", detail: "Hands-on training on real TAL assignments, with a certificate on completion." },
-  { name: "Internship", detail: "A paid, full-time internship with a performance bonus. Strong performers are offered a permanent role." },
+  { name: "Training", detail: "Free, hands-on training on TAL's own work, with a certificate on completion." },
+  { name: "Internship", detail: "After training comes the internship decision. The internship is paid and full-time, with a performance bonus. Strong performers are offered a permanent role." },
 ];
 
 // Drives the reply-by date shown after applying and written to the sheet. Not shown as a number.
 export const REPLY_PROMISE_DAYS = 7;
 
 const COHORT_PAY = {
-  headline: "Training with a certificate, then a paid full-time internship",
+  headline: "Free training with a certificate, then the internship decision",
   detail: [
-    "Training: real assignments on TAL's own work, with daily feedback and a certificate on completion.",
+    "Training: free, on TAL's own work, with daily feedback and a certificate on completion.",
     "Internship: full-time and paid, with a bonus for calls booked and clients won.",
     "Strong performers are offered a permanent role.",
   ],
@@ -260,7 +262,7 @@ export const JOBS: Job[] = [
     highlights: [
       "Build websites and automations with AI",
       "Tools used by a real business",
-      "A portfolio of live projects",
+      "A portfolio of real work",
     ],
     content: {
       whyExists: [

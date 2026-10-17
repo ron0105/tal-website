@@ -44,7 +44,7 @@ const NODES: Record<NodeId, { text: string; options: Option[] }> = {
     ],
   },
   student: {
-    text: "15 days of real projects at a real firm, with founder feedback. You leave with portfolio work and a certificate that names it.",
+    text: "Short training, then two live projects on real businesses, with founder reviews. You leave with portfolio work and a certificate that names it.",
     options: [{ label: "See Live Projects", href: "/live-projects?src=chat" }],
   },
   job: {
