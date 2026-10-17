@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -52,7 +53,7 @@ export default function CareersHero() {
           className="text-lg leading-relaxed text-body mb-10"
           style={{ maxWidth: "34rem" }}
         >
-          Work on real ideas alongside the founder, with hands-on training, steady feedback and a path to a paid internship.
+          Free training on TAL&apos;s own work, with hands-on guidance and steady feedback. After that comes the internship decision.
         </motion.p>
 
         <motion.div
@@ -63,6 +64,13 @@ export default function CareersHero() {
           <a href="#open-roles" className="btn-primary btn-lg">
             See the tracks →
           </a>
+          <p className="text-sm mt-6" style={{ color: "var(--text-muted)", maxWidth: "34rem" }}>
+            Want real client work sooner? Students can{" "}
+            <Link href="/live-projects?src=site" className="underline underline-offset-4" style={{ color: "var(--brand)" }}>
+              join Live Projects
+            </Link>
+            .
+          </p>
         </motion.div>
       </div>
     </section>
