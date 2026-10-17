@@ -57,7 +57,7 @@ export default function HWWLoop() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div ref={ref} className="relative max-w-5xl mx-auto">
+      <div ref={ref} className="relative mx-auto w-full max-w-md md:max-w-5xl">
         <ol className="grid md:grid-cols-4">
           {steps.map((s, i) => (
             <motion.li

@@ -28,7 +28,9 @@ export default function About() {
       </section>
 
       <section aria-label="Our story, founder and principles" className="bg-background px-6 md:px-10" style={{ paddingBottom: "clamp(3rem, 7vh, 5rem)" }}>
-        <AboutLab />
+        <div className="layout-grid">
+          <AboutLab />
+        </div>
       </section>
 
       <section aria-labelledby="about-cta-heading" className="padding-section text-center" style={{ background: "var(--bg-secondary)" }}>
@@ -36,7 +38,7 @@ export default function About() {
           <h2 id="about-cta-heading" className="mb-10 text-foreground">
             Let us build something together.
           </h2>
-          <Link href="/contact" className="btn-primary" style={{ padding: "18px 44px", fontSize: "1.05rem" }}>
+          <Link href="/contact" className="btn-primary btn-lg">
             Start a conversation
           </Link>
         </AnimateOnScroll>

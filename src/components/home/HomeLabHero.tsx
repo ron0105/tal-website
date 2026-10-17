@@ -62,10 +62,10 @@ export default function HomeLabHero() {
             transition={{ duration: 0.7, ease, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-3"
           >
-            <Link href="/contact" className="btn-primary" style={{ padding: "16px 32px", fontSize: "1rem" }}>
+            <Link href="/contact" className="btn-primary btn-lg">
               Start a conversation
             </Link>
-            <Link href="/work" className="btn-ghost" style={{ padding: "16px 32px", fontSize: "1rem" }}>
+            <Link href="/work" className="btn-ghost btn-lg">
               See our work
             </Link>
           </motion.div>

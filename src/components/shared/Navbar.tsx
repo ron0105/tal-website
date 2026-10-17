@@ -47,7 +47,7 @@ export default function Navbar() {
       >
         <div className="layout-grid flex items-center justify-between h-full px-6 md:px-10">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 cursor-pointer flex-shrink-0 group">
+          <Link href="/" className="flex items-center gap-3 cursor-pointer flex-shrink-0 group min-h-[44px]">
             {/* Logo mark — brand book Direction B */}
             <Logo size={30} />
             <span className="flex flex-col leading-none">
@@ -71,14 +71,14 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium xl:whitespace-nowrap transition-colors duration-200 cursor-pointer relative hover:text-accent${active ? " nav-link-active" : ""}`}
+                  className={`inline-flex min-h-[44px] items-center text-sm font-medium whitespace-nowrap transition-colors duration-200 cursor-pointer relative hover:text-accent-ink${active ? " nav-link-active" : ""}`}
                   style={{ color: active ? undefined : "var(--text-muted)" }}
                 >
                   {link.label}
                   {active && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="nav-indicator absolute -bottom-1.5 left-0 right-0 h-[1.5px]"
+                      className="nav-indicator absolute bottom-1 left-0 right-0 h-[1.5px]"
                     />
                   )}
                 </Link>
@@ -90,7 +90,6 @@ export default function Navbar() {
             <Link
               href="/contact"
               className="btn-primary whitespace-nowrap"
-              style={{ padding: "10px 20px", fontSize: "0.875rem" }}
             >
               Start a conversation
             </Link>
@@ -99,7 +98,7 @@ export default function Navbar() {
           {/* Mobile hamburger & controls */}
           <div className="lg:hidden flex items-center gap-3">
             <button
-              className="flex flex-col gap-1.5 items-center justify-center w-8 h-8 cursor-pointer group"
+              className="flex flex-col gap-1.5 items-center justify-center w-11 h-11 cursor-pointer group"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
@@ -134,7 +133,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: EASE }}
-            className="fixed inset-x-0 top-16 z-40 lg:hidden flex flex-col px-6 py-8 gap-1"
+            className="fixed inset-x-0 top-20 z-40 lg:hidden flex flex-col px-6 py-8 gap-1"
             style={{
               background: "var(--navbar-bg)",
               backdropFilter: "blur(20px)",
@@ -150,7 +149,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center justify-between py-4 text-base font-semibold cursor-pointer border-b border-border-subtle transition-colors hover:text-accent${pathname === link.href.split("?")[0] ? " nav-link-active" : ""}`}
+                  className={`flex items-center justify-between py-4 text-base font-semibold cursor-pointer border-b border-border-subtle transition-colors hover:text-accent-ink${pathname === link.href.split("?")[0] ? " nav-link-active" : ""}`}
                   style={{ color: pathname === link.href.split("?")[0] ? undefined : "var(--text-muted)" }}
                 >
                   {link.label}

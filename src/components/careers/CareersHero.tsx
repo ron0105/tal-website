@@ -8,7 +8,7 @@ export default function CareersHero() {
   return (
     <section
       className="relative bg-background overflow-hidden"
-      style={{ padding: "clamp(10rem, 18vh, 14rem) 1.5rem clamp(2.5rem, 6vh, 4rem)" }}
+      style={{ padding: "clamp(9rem, 18vh, 13rem) 0 clamp(2.5rem, 6vh, 4rem)" }}
     >
       {/* Gradient blob, matches HomeLabHero */}
       <div
@@ -32,9 +32,7 @@ export default function CareersHero() {
           className="flex items-center gap-4 mb-8"
         >
           <div className="w-6 h-px" style={{ background: "var(--accent)" }} aria-hidden="true" />
-          <span className="label-eyebrow" style={{ color: "var(--accent)" }}>
-            The Adda Labs · Navi Mumbai
-          </span>
+          <span className="label-eyebrow">The Adda Labs · Navi Mumbai</span>
         </motion.div>
 
         <motion.h1
@@ -62,7 +60,7 @@ export default function CareersHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.38, ease: EASE }}
         >
-          <a href="#open-roles" className="btn-primary" style={{ padding: "13px 28px" }}>
+          <a href="#open-roles" className="btn-primary btn-lg">
             See the tracks →
           </a>
         </motion.div>

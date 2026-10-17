@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 // HowWeHire and CareersFAQ stay on disk but are no longer imported.
 export default function CareersPage() {
   return (
-    <main>
+    <div>
       <CareersHero />
       <JobListings />
       <CareersCTA />
-    </main>
+    </div>
   );
 }

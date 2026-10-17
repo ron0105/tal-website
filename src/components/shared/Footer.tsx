@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-16">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-3 mb-6 cursor-pointer w-fit group">
+            <Link href="/" className="flex items-center gap-3 mb-6 cursor-pointer w-fit group min-h-[44px]">
               <Logo size={28} />
               <span className="text-lg font-bold tracking-tight text-foreground">
                 The Adda Labs
@@ -34,15 +34,15 @@ export default function Footer() {
 
           {/* Index */}
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "var(--text-muted)" }}>
               Navigation
             </p>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col">
               {pages.map((p) => (
                 <Link
                   key={p.label}
                   href={p.href}
-                  className="text-sm font-medium tracking-tight transition-colors duration-200 cursor-pointer hover:text-accent"
+                  className="inline-flex min-h-[44px] w-fit items-center text-sm font-medium tracking-tight transition-colors duration-200 cursor-pointer hover:text-accent-ink"
                   style={{ color: "var(--text-body)" }}
                 >
                   {p.label}
@@ -53,16 +53,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: "var(--text-muted)" }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "var(--text-muted)" }}>
               Get in touch
             </p>
-            <a href="mailto:rohan@theaddalabs.com" className="text-sm font-semibold tracking-tight mb-2 block hover:text-accent transition-colors" style={{ color: "var(--text-body)" }}>rohan@theaddalabs.com</a>
-            <p className="text-sm tracking-tight mb-8" style={{ color: "var(--text-muted)" }}>Mumbai · Global</p>
+            <a href="mailto:rohan@theaddalabs.com" className="inline-flex min-h-[44px] items-center text-sm font-semibold tracking-tight hover:text-accent-ink transition-colors" style={{ color: "var(--text-body)" }}>rohan@theaddalabs.com</a>
+            <p className="text-sm tracking-tight mb-6" style={{ color: "var(--text-muted)" }}>Mumbai · Global</p>
             <Link
               href="/contact"
               className="btn-primary"
             >
-              Start a Conversation
+              Start a conversation
             </Link>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function Footer() {
               LLPIN ACZ-3000 · Mumbai, India · Grievance officer: Rohan Tiwarekar, rohan@theaddalabs.com
             </p>
           </div>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap items-center gap-x-6">
             <p className="text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
               India + International
             </p>
@@ -91,7 +91,7 @@ export default function Footer() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-xs font-semibold transition-colors hover:text-accent"
+                className="inline-flex min-h-[44px] items-center text-xs font-semibold transition-colors hover:text-accent-ink"
                 style={{ color: "var(--text-muted)" }}
               >
                 {l.label}

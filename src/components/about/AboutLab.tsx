@@ -27,7 +27,7 @@ export default function AboutLab() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div ref={ref} className="max-w-5xl mx-auto flex flex-col gap-16 md:gap-20">
+      <div ref={ref} className="flex flex-col gap-16 md:gap-20">
         {/* Story */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export default function AboutLab() {
               />
               <div>
                 <p className="text-lg font-bold text-foreground leading-tight">{person.name}</p>
-                <p className="text-xs font-bold uppercase tracking-widest mt-1" style={{ color: "var(--accent)" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mt-1" style={{ color: "var(--accent-text)" }}>
                   {person.role}
                 </p>
               </div>
@@ -71,14 +71,14 @@ export default function AboutLab() {
         </motion.div>
 
         {/* Principles */}
-        <ul className="grid gap-4 sm:grid-cols-3">
+        <ul className="grid gap-4 md:grid-cols-3">
           {principles.map((p, i) => (
             <motion.li
               key={p.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease, delay: 0.3 + i * 0.1 }}
-              className="flex flex-col rounded-2xl border border-border-subtle bg-background-secondary px-6 py-7"
+              className="flex flex-col rounded-2xl border border-border-subtle bg-background-secondary p-6"
             >
               <span
                 className="flex h-14 w-14 items-center justify-center rounded-full mb-5"
@@ -99,13 +99,8 @@ export default function AboutLab() {
                 </svg>
               </span>
               {/* h2 keeps heading order under the page h1; styled to match the h3 card titles elsewhere */}
-              <h2
-                className="text-foreground"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.2rem", lineHeight: 1.3, letterSpacing: "-0.01em" }}
-              >
-                {p.title}
-              </h2>
-              <p className="text-sm text-body mt-1 leading-snug">{p.line}</p>
+              <h2 className="text-subsection text-foreground">{p.title}</h2>
+              <p className="mt-1 text-sm leading-relaxed text-body">{p.line}</p>
             </motion.li>
           ))}
         </ul>

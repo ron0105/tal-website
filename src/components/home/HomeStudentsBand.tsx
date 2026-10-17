@@ -10,7 +10,7 @@ export default function HomeStudentsBand() {
     >
       <AnimateOnScroll className="layout-grid md:px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
         <p className="text-lg text-foreground">Learn by doing, on real projects.</p>
-        <Link href="/live-projects?src=site" className="btn-ghost" style={{ padding: "14px 28px" }}>
+        <Link href="/live-projects?src=site" className="btn-ghost self-start md:self-auto">
           Live Projects for students →
         </Link>
       </AnimateOnScroll>

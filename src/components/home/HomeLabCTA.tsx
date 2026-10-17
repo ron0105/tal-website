@@ -12,7 +12,7 @@ export default function HomeLabCTA() {
         <h2 id="home-cta-heading" className="mb-10 text-foreground">
           Bring us an idea worth building.
         </h2>
-        <Link href="/contact" className="btn-primary" style={{ padding: "18px 44px", fontSize: "1.05rem" }}>
+        <Link href="/contact" className="btn-primary btn-lg">
           Start a conversation
         </Link>
       </AnimateOnScroll>

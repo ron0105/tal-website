@@ -29,18 +29,21 @@ export default function WorkPage() {
       </section>
 
       <section aria-label="Lines of work" className="bg-background px-6 md:px-10" style={{ paddingBottom: "clamp(3rem, 7vh, 5rem)" }}>
-        <WorkCards />
+        <div className="layout-grid">
+          <h2 className="sr-only">Lines of work</h2>
+          <WorkCards />
+        </div>
       </section>
 
-      <section aria-labelledby="work-thread-heading" className="px-6 md:px-10 py-14 text-center" style={{ background: "var(--bg-secondary)" }}>
-        <AnimateOnScroll className="layout-grid">
-          <h2 id="work-thread-heading" className="mb-3 text-foreground">
+      <section aria-labelledby="work-thread-heading" className="px-6 md:px-10 py-16" style={{ background: "var(--bg-secondary)" }}>
+        <AnimateOnScroll className="layout-grid text-left sm:text-center">
+          <h2 id="work-thread-heading" className="mb-4 text-foreground text-balance">
             Design thinking runs through all of it
           </h2>
-          <p className="text-lg text-body mx-auto" style={{ maxWidth: "36rem" }}>
+          <p className="text-lg text-body sm:mx-auto text-pretty" style={{ maxWidth: "36rem" }}>
             One human-centred way of solving problems, which is why we work across fields, marketing included.
           </p>
-          <Link href="/how-we-work" className="btn-ghost inline-flex mt-8" style={{ padding: "12px 28px" }}>
+          <Link href="/how-we-work" className="btn-ghost mt-8">
             See our framework →
           </Link>
         </AnimateOnScroll>
@@ -51,7 +54,7 @@ export default function WorkPage() {
           <h2 id="work-cta-heading" className="mb-10 text-foreground">
             Have something worth building?
           </h2>
-          <Link href="/contact" className="btn-primary" style={{ padding: "18px 44px", fontSize: "1.05rem" }}>
+          <Link href="/contact" className="btn-primary btn-lg">
             Start a conversation
           </Link>
         </AnimateOnScroll>
