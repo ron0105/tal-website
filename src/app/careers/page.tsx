@@ -1,23 +1,21 @@
 import CareersHero from "@/components/careers/CareersHero";
-import HowWeHire from "@/components/careers/HowWeHire";
 import JobListings from "@/components/careers/JobListings";
-import CareersFAQ from "@/components/careers/CareersFAQ";
 import CareersCTA from "@/components/careers/CareersCTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers | TAL Consulting",
+  title: "Careers",
   description:
-    "The TAL Founder's Office Cohort: hands-on training on real consulting work, followed by a paid full-time internship for strong performers. Growth, Content, Research and Build tracks.",
+    "Learn by building real things at The Adda Labs in Navi Mumbai. Hands-on training with the founder and a path to a paid internship.",
 };
 
+// Lab positioning (Oct 2026): short hero, the listings, one closing note.
+// HowWeHire and CareersFAQ stay on disk but are no longer imported.
 export default function CareersPage() {
   return (
     <main>
       <CareersHero />
       <JobListings />
-      <HowWeHire />
-      <CareersFAQ />
       <CareersCTA />
     </main>
   );

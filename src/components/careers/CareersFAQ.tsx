@@ -7,7 +7,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Is it full-time?",
-    a: "Yes. Both the training and the internship are full-time, Monday to Friday, at our office in CBD Belapur, Navi Mumbai. This cohort is for full-time applicants.",
+    a: "Yes. Both the training and the internship are full-time, Monday to Friday, at our office in Navi Mumbai. This cohort is for full-time applicants.",
   },
   {
     q: "What happens after I apply?",
@@ -27,7 +27,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Is it on-site?",
-    a: "Yes, at our office in CBD Belapur, Navi Mumbai, Monday to Friday. Working together in person is the fastest way to learn.",
+    a: "Yes, at our office in Navi Mumbai, Monday to Friday. Working together in person is the fastest way to learn.",
   },
   {
     q: "I applied through your old form. Should I apply again?",

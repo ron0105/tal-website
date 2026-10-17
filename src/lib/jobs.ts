@@ -59,7 +59,7 @@ export interface Job {
 export const COHORT = {
   name: "TAL Founder's Office Cohort",
   nextStart: "late October",
-  location: "CBD Belapur, Navi Mumbai · on-site",
+  location: "Navi Mumbai · on-site",
 };
 
 export const GROUPS: Record<RoleGroup, { label: string; line: string; crumb: string }> = {
@@ -117,7 +117,7 @@ const COHORT_WHY =
 const COHORT_NOTES = [
   "Your priorities are set by a weekly scorecard, so your work grows with the business",
   "Training assignments are on TAL's own work. Client work begins in the internship, with Rohan reviewing everything before it is shared",
-  "You work from our office in CBD Belapur, Navi Mumbai, so you receive feedback the same day",
+  "You work from our office in Navi Mumbai, so you receive feedback the same day",
 ];
 
 export const JOBS: Job[] = [

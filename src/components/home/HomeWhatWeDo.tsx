@@ -126,7 +126,7 @@ export default function HomeWhatWeDo() {
                   </ol>
                 </div>
                 <div className="mt-8">
-                  <Link href="/work" className="btn-ghost" style={{ padding: "12px 28px" }}>
+                  <Link href="/how-we-work" className="btn-ghost" style={{ padding: "12px 28px" }}>
                     See the full framework →
                   </Link>
                 </div>

@@ -49,7 +49,7 @@ const FAQS = [
   },
   {
     q: "Can I do it remotely?",
-    a: "Yes. You can join at our office in CBD Belapur, Navi Mumbai, or remotely. Remote reviews happen on a video call, and the projects are the same.",
+    a: "Yes. You can join at our office in Navi Mumbai, or remotely. Remote reviews happen on a video call, and the projects are the same.",
   },
   {
     q: "When are the rounds?",

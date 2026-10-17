@@ -40,6 +40,9 @@ export default function WorkPage() {
           <p className="text-lg text-body mx-auto" style={{ maxWidth: "36rem" }}>
             One human-centred way of solving problems, which is why we work across fields, marketing included.
           </p>
+          <Link href="/how-we-work" className="btn-ghost inline-flex mt-8" style={{ padding: "12px 28px" }}>
+            See our framework →
+          </Link>
         </AnimateOnScroll>
       </section>
 

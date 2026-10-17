@@ -527,7 +527,7 @@ export default function ApplyFlow({ job }: { job: Job }) {
                 {cohort && (
                   <CheckBox id="fullTime" checked={app.fullTime} onChange={(v) => set("fullTime", v)}
                     error={errors.fullTime} describedBy={describedBy("fullTime")}>
-                    <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in CBD Belapur, Navi Mumbai</strong>, Monday
+                    <strong style={{ color: "var(--text-primary)" }}>I can work full-time, on-site in Navi Mumbai</strong>, Monday
                     to Friday, for the training and the internship that follows.
                   </CheckBox>
                 )}
