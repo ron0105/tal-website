@@ -31,7 +31,7 @@ const team = [
     view: "A business grows furthest when it runs well beyond one person.",
   },
   {
-    name: "Soniya",
+    name: "Soniya Kubde",
     role: "Founder",
     photo: "/founders/soniya.png",
     view: "Design is how quickly someone understands what you offer.",
