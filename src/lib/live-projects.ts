@@ -5,7 +5,10 @@
 // refund guarantee (3 founder reviews, 2 live projects, 1 certificate, or the full fee comes back).
 // Top performers are invited to interview for a paid internship. Careers (/careers) is the free
 // 15-day training on TAL's own work; both use the same 4 tracks.
-// /live-projects walks students through 7 questions, recommends a track, and offers a seat.
+// /live-projects walks students through 6 screens of questions, recommends a track, and offers a seat.
+// Qualifiers (Oct 18): placement timing, focus, a short proof task and who decides on the fee sort
+// applicants by intent. The sheet gets a hidden Lead column (Hot / Warm / Early, set in
+// /api/waitlist); Rohan calls the Hot ones for 5 minutes.
 // Answers are saved without a name; contact details only on a reservation with consent.
 // Also: 4 tracks (Research, Build, Content, Growth), 20 seats a round (5 a track), UPI only.
 // Three page variants (?v=a, ?v=b, ?v=c) test how we ask; the page body is the same.
@@ -111,7 +114,9 @@ export const TRACKS: Record<TrackId, { name: string; line: string; projects: str
 
 export const NAME_OPTIONS = ["TAL Live Projects"];
 
-export type QuestionId = "course" | "goal" | "style" | "format" | "when" | "price" | "fairPrice" | "namePick" | "note";
+export type QuestionId =
+  | "course" | "goal" | "placement" | "style" | "format" | "when" | "focus" | "proof"
+  | "price" | "fairPrice" | "decider" | "namePick" | "note";
 
 export interface Question {
   id: QuestionId;
@@ -124,6 +129,15 @@ export interface Question {
   // Only asked when this returns true; otherwise left blank
   showIf?: (a: Answers) => boolean;
 }
+
+// Kept as named lists so /api/waitlist can score against them without repeating the wording
+export const PLACEMENT_OPTIONS = ["Within 3 months", "3 to 6 months", "Later than 6 months", "Not sure yet"];
+export const FOCUS_OPTIONS = [
+  "Fully ready, it's my top priority",
+  "Ready, alongside a few other things",
+  "Depends on the dates",
+  "Just exploring for now",
+];
 
 // The one answer that opens the fee question. Every other answer is a yes in some form,
 // and the pass line counts "Yes, I'm in" as the strong yes.
@@ -151,6 +165,12 @@ export const QUESTIONS: Question[] = [
     options: ["A portfolio for placements", "A shot at an internship", "A switch to a new field", "Internship credit for college"],
   },
   {
+    id: "placement",
+    title: "When are your placements or your next big application?",
+    options: PLACEMENT_OPTIONS,
+    pairedWith: "goal",
+  },
+  {
     id: "style",
     title: "Which sounds most like you?",
     options: ["I like finding things out", "I like making things", "I like talking to people", "I like telling stories"],
@@ -167,6 +187,16 @@ export const QUESTIONS: Question[] = [
     pairedWith: "format",
   },
   {
+    id: "focus",
+    title: "How ready are you to give these 12 days your full focus?",
+    options: FOCUS_OPTIONS,
+  },
+  {
+    id: "proof",
+    title: "Name one business near you, and one thing you'd improve about how it wins customers.",
+    lead: "A few lines is plenty. There's no right answer; we want to see how you think.",
+  },
+  {
     id: "price",
     title: `The fee is ${feeLabel()}. Where do you stand?`,
     lead: "Two live projects to show, three founder reviews to learn from, and a certificate that names your work. TAL delivers all three, or your full fee comes back.",
@@ -180,6 +210,12 @@ export const QUESTIONS: Question[] = [
     showIf: (a) => a.price === PRICE_LOWER,
   },
   {
+    id: "decider",
+    title: "Who decides on the fee?",
+    options: ["I do", "I do, with my family", "My family does"],
+    showIf: (a) => a.price !== "",
+  },
+  {
     // Name test retired (Rohan picked "TAL Live Projects", Oct 14). Kept blank so the sheet's
     // Name pick column still lines up.
     id: "namePick",
@@ -188,39 +224,47 @@ export const QUESTIONS: Question[] = [
     showIf: () => false,
   },
   {
+    // Replaced by the proof question (Oct 18). Kept blank so the sheet's Day-15 goal column
+    // still lines up.
     id: "note",
-    title: "Last one. What do you want to be able to do by day 12?",
+    title: "What do you want to be able to do by day 12?",
+    showIf: () => false,
   },
 ];
 
 export const isAsked = (q: Question, a: Answers) => !q.showIf || q.showIf(a);
 
-// Screens: format and timing share one screen
-// The fee question is not a screen: it is asked on the result step, after the track is shown.
-export const SCREENS: QuestionId[][] = [["course"], ["goal"], ["style"], ["format", "when"], ["note"]];
+// Screens: goal and placement share one screen, as do format and timing
+// The fee and decider questions are not a screen: they are asked on the result step, after the track is shown.
+export const SCREENS: QuestionId[][] = [["course"], ["goal", "placement"], ["style"], ["format", "when"], ["focus"], ["proof"]];
 
 export type Answers = Record<QuestionId, string>;
 export const emptyAnswers = (): Answers => ({
-  course: "", goal: "", style: "", format: "", when: "", price: "", fairPrice: "", namePick: "", note: "",
+  course: "", goal: "", placement: "", style: "", format: "", when: "", focus: "", proof: "",
+  price: "", fairPrice: "", decider: "", namePick: "", note: "",
 });
 
 export const NOTE_MAX = 600;
+// A real answer to the proof question is at least a sentence
+export const PROOF_MIN = 40;
+export const proofReady = (a: Answers) => a.proof.trim().length >= PROOF_MIN;
 
 export function recommendTrack(a: Answers): TrackId {
   const i = QUESTIONS.find((q) => q.id === "style")!.options!.indexOf(a.style);
   return STYLE_TRACKS[i] ?? "research";
 }
 
-// Every asked question needs one of its options; a skipped one must be blank. The note is
-// free text and optional.
-// feePending: the track has been shown but the fee question not yet answered, so price and
-// fairPrice may both be blank (the answers are sent again once it is answered).
+// Every asked question needs one of its options; a skipped one must be blank. The proof is
+// free text and needs a real sentence.
+// feePending: the track has been shown but the fee questions not yet answered, so price,
+// fairPrice and decider may all be blank (the answers are sent again once they are answered).
 export function validAnswers(a: Answers, feePending = false): boolean {
-  const skipFee = feePending && a.price === "" && a.fairPrice === "";
+  const skipFee = feePending && a.price === "" && a.fairPrice === "" && a.decider === "";
   return QUESTIONS.every((q) => {
-    if (skipFee && (q.id === "price" || q.id === "fairPrice")) return true;
-    if (!q.options) return a[q.id].length <= NOTE_MAX;
-    return isAsked(q, a) ? q.options.includes(a[q.id]) : a[q.id] === "";
+    if (skipFee && (q.id === "price" || q.id === "fairPrice" || q.id === "decider")) return true;
+    if (!isAsked(q, a)) return a[q.id] === "";
+    if (!q.options) return a[q.id].length <= NOTE_MAX && (q.id !== "proof" || proofReady(a));
+    return q.options.includes(a[q.id]);
   });
 }
 

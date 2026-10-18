@@ -6,8 +6,11 @@ import {
   DEPOSIT_INR,
   FEE_INR,
   DEFAULT_VARIANT,
+  FOCUS_OPTIONS,
   MIN_FILL_MS,
   NOTE_MAX,
+  PLACEMENT_OPTIONS,
+  PRICE_LOWER,
   TRACKS,
   TrackId,
   emptyAnswers,
@@ -19,7 +22,7 @@ import {
 
 // Receives the /live-projects flow and forwards it to the careers Apps Script, which writes to
 // its "Live projects" tab. Two stages, matched by a random session id from the browser:
-//   answers  the 7 answers, no name, sent when the recommended track is shown (drop-off data)
+//   answers  the answers and a Lead score, no name, sent when the recommended track is shown (drop-off data)
 //   reserve  name, email, WhatsApp, college + consent, filling in that same row
 // Same webhook and token as /api/apply, so nothing new to configure in Vercel.
 // Variant (a, b or c, from ?v= on the page): the session id already starts with it ("b-<uuid>")
@@ -53,7 +56,7 @@ export async function POST(request: Request) {
   const variant = (session[1] === "-" ? parseVariant(session[0]) : null) ?? parseVariant(raw.variant) ?? DEFAULT_VARIANT;
 
   const answers: Answers = emptyAnswers();
-  for (const k of Object.keys(answers) as (keyof Answers)[]) answers[k] = str(sent[k], k === "note" ? NOTE_MAX : 200);
+  for (const k of Object.keys(answers) as (keyof Answers)[]) answers[k] = str(sent[k], k === "note" || k === "proof" ? NOTE_MAX : 200);
   if (!validAnswers(answers, raw.stage === "answers")) return Response.json({ ok: false, error: "A few answers need another look." }, { status: 400 });
 
   const url = process.env.HIRING_WEBHOOK_URL;
@@ -65,7 +68,7 @@ export async function POST(request: Request) {
 
   if (raw.stage === "answers") {
     const recommended = TRACKS[recommendTrack(answers)].name;
-    return forward(url, { token, stage: "lp-answers", session, variant, ...answers, recommended, fee: FEE_INR });
+    return forward(url, { token, stage: "lp-answers", session, variant, ...answers, recommended, fee: FEE_INR, lead: leadHeat(answers) });
   }
 
   if (!["reserve", "deposit", "paid"].includes(String(raw.stage))) return Response.json({ ok: false }, { status: 400 });
@@ -118,6 +121,19 @@ export async function POST(request: Request) {
     college: contact.college,
     fee: FEE_INR,
   });
+}
+
+// Hidden from the page on purpose: the sheet's Lead column, so Rohan calls the Hot ones first.
+// Hot: placements within 6 months, top-two focus, a real proof answer and a straight "Yes, I'm in".
+// Warm: any yes to the fee and not just exploring. Early: everyone else, including rows sent
+// before the fee is answered (the row is rewritten once it is).
+function leadHeat(a: Answers): "Hot" | "Warm" | "Early" {
+  const soon = PLACEMENT_OPTIONS.slice(0, 2).includes(a.placement);
+  const focused = FOCUS_OPTIONS.slice(0, 2).includes(a.focus);
+  const yes = a.price !== "" && a.price !== PRICE_LOWER;
+  if (soon && focused && a.price === "Yes, I'm in" && a.proof.trim().length >= 80) return "Hot";
+  if (yes && a.focus !== FOCUS_OPTIONS[3]) return "Warm";
+  return "Early";
 }
 
 // Apps Script answers with a 302 after it has written the row, so a redirect means saved.
