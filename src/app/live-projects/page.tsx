@@ -156,7 +156,7 @@ export default function LiveProjectsPage() {
             </h2>
             <p className="body-copy mb-6">
               Research, Build, Content or Growth. Answer a few questions and see where you&apos;ll do your
-              best work. Takes about two minutes.
+              best work. Takes about three minutes.
             </p>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
               {SEATS_PER_ROUND} seats a round, {SEATS_PER_TRACK} per track, so every student gets close feedback on every piece of work.

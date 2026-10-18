@@ -23,6 +23,7 @@ import {
   emptyContact,
   feeLabel,
   isAsked,
+  proofReady,
   recommendTrack,
   validateContact,
 } from "@/lib/live-projects";
@@ -127,10 +128,10 @@ export default function TrackFinder() {
     post({ stage: "answers", answers: a }).catch(() => {});
   };
 
-  // The fee question comes after the track is shown. Once it is answered, the full answers go
+  // The fee questions come after the track is shown. Once they are answered, the full answers go
   // again under the same session. Fire and forget: they are the demand data, whether or not
   // the student goes on to reserve.
-  const feeAnswered = (a: Answers) => !!a.price && (a.price !== PRICE_LOWER || !!a.fairPrice);
+  const feeAnswered = (a: Answers) => !!a.price && (a.price !== PRICE_LOWER || !!a.fairPrice) && !!a.decider;
 
   const pick = (id: QuestionId, v: string) => {
     const next = { ...answers, [id]: v };
@@ -144,7 +145,9 @@ export default function TrackFinder() {
     if (shown(next).length === 1) setTimeout(() => go(step + 1), 220);
   };
 
-  const screenDone = screen.every((id) => id === "note" || answers[id]);
+  const screenDone = screen.every((id) => (id === "proof" ? proofReady(answers) : !!answers[id]));
+  // Free-text screens and paired screens need a Next button; one-option screens move on by themselves
+  const needsNext = screen.length > 1 || !question(screen[0])?.options;
 
   async function reserve(ev: React.FormEvent) {
     ev.preventDefault();
@@ -152,7 +155,7 @@ export default function TrackFinder() {
     setErrors(e);
     if (Object.keys(e).length) return;
     if (!feeAnswered(answers)) {
-      setFailure("Answer the fee question above first.");
+      setFailure("Answer the fee questions above first.");
       return;
     }
     setSending(true);
@@ -211,7 +214,7 @@ export default function TrackFinder() {
                 <div key={id}>
                   <h3 className={question(id).lead ? "mb-2" : "mb-5"} style={{ color: "var(--text-primary)" }}>{question(id).title}</h3>
                   {question(id).lead && <p className="body-copy mb-5">{question(id).lead}</p>}
-                  {id === "note" ? (
+                  {id === "proof" ? (
                     <>
                       <textarea
                         rows={4}
@@ -219,18 +222,20 @@ export default function TrackFinder() {
                         className={inputClass}
                         style={inputStyle}
                         aria-label={question(id).title}
-                        placeholder="For example: run a market study on my own, build a website with AI, pitch to a business owner."
-                        value={answers.note}
-                        onChange={(e) => setAnswers((a) => ({ ...a, note: e.target.value }))}
+                        placeholder="For example: the bakery near my college. I'd put their prices in the Instagram bio, so people can order without waiting for a reply."
+                        value={answers.proof}
+                        onChange={(e) => setAnswers((a) => ({ ...a, proof: e.target.value }))}
                       />
-                      <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>Optional. We use it to shape your projects.</p>
+                      <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+                        {proofReady(answers) ? "Looks good. We use it to shape your projects." : "A sentence or two is enough."}
+                      </p>
                     </>
                   ) : (
                     <Options id={id} value={answers[id]} onPick={(v) => pick(id, v)} />
                   )}
                 </div>
               ))}
-              {screen.length > 1 || screen[0] === "note" ? (
+              {needsNext ? (
                 <div>
                   <button
                     type="button"
@@ -291,7 +296,7 @@ export default function TrackFinder() {
                       : `Applying is free. The ${feeLabel()} is paid once you are shortlisted.`}
                   </p>
                 </div>
-                {(["price", "fairPrice"] as QuestionId[]).filter((id) => isAsked(question(id), answers)).map((id) => (
+                {(["price", "fairPrice", "decider"] as QuestionId[]).filter((id) => isAsked(question(id), answers)).map((id) => (
                   <div key={id}>
                     <h3 className={question(id).lead ? "mb-2" : "mb-5"} style={{ color: "var(--text-primary)" }}>{question(id).title}</h3>
                     {question(id).lead && <p className="body-copy mb-5">{question(id).lead}</p>}
