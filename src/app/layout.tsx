@@ -4,14 +4,22 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import ChatGuide from "@/components/shared/ChatGuide";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL, HOME_TITLE, HOME_DESCRIPTION, ORGANIZATION_JSON_LD } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "The Adda Labs | A venture lab that builds, tests and scales ideas",
+    default: HOME_TITLE,
     template: "%s | The Adda Labs",
   },
-  description:
-    "The Adda Labs is a frugal ideation and venture-building lab working across business, technology, sustainability and public causes. We build, test and scale ideas.",
+  description: HOME_DESCRIPTION,
+  // "./" resolves to each page's own path, so every page names itself as the original
+  alternates: { canonical: "./" },
+  openGraph: {
+    type: "website",
+    siteName: "The Adda Labs",
+    locale: "en_IN",
+  },
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
@@ -24,6 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD).replace(/</g, "\\u003c") }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllLabNotes, getLabNote, formatNoteDate } from "@/lib/lab-notes";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllLabNotes().map((n) => ({ slug: n.slug }));
@@ -28,6 +29,8 @@ export async function generateMetadata({
       description: note.description,
       publishedTime: note.date,
       modifiedTime: note.updated ?? note.date,
+      // Setting openGraph here replaces the site-wide card, so name it again
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }
@@ -50,19 +53,9 @@ export default async function LabNotePage({
     datePublished: note.date,
     dateModified: note.updated ?? note.date,
     articleSection: note.tag,
-    author: {
-      "@type": "Person",
-      name: "Rohan Tiwarekar",
-      jobTitle: "Founder",
-      url: "https://www.theaddalabs.com/about",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "The Adda Labs",
-      alternateName: "TAL",
-      url: "https://www.theaddalabs.com",
-    },
-    mainEntityOfPage: `https://www.theaddalabs.com/lab-notes/${note.slug}`,
+    author: { "@id": `${SITE_URL}/about#rohan`, "@type": "Person", name: "Rohan Tiwarekar" },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: `${SITE_URL}/lab-notes/${note.slug}`,
   };
 
   return (
