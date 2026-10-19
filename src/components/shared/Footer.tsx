@@ -6,6 +6,7 @@ import Logo from "@/components/shared/Logo";
 const pages = [
   { label: "What we work on", href: "/work" },
   { label: "How We Work", href: "/how-we-work" },
+  { label: "Lab notes", href: "/lab-notes" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

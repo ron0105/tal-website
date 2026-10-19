@@ -11,6 +11,7 @@ import Logo from "./Logo";
 const navLinks = [
   { label: "What we work on", href: "/work" },
   { label: "How We Work", href: "/how-we-work" },
+  { label: "Lab notes", href: "/lab-notes" },
   { label: "About", href: "/about" },
   { label: "Live Projects", href: "/live-projects?src=site" },
   { label: "Careers", href: "/careers" },
@@ -64,7 +65,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
             {navLinks.map((link) => {
               const active = pathname === link.href.split("?")[0];
               return (
