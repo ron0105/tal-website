@@ -23,6 +23,7 @@ We take time to understand a problem before we try to solve it, test small, and 
 ## Key pages
 
 - [Home](https://www.theaddalabs.com/)
+- [Services](https://www.theaddalabs.com/services): websites, enquiry follow-up, positioning and AI assistants, with common questions answered
 - [What we work on](https://www.theaddalabs.com/work)
 - [How we work](https://www.theaddalabs.com/how-we-work): the loop, the 4 stages with clients, the 6-step idea test
 - [Lab notes](https://www.theaddalabs.com/lab-notes): case studies, live builds and methods, with real numbers
