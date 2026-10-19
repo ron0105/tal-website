@@ -4,11 +4,11 @@ import HomeBuildTestScale from "@/components/home/HomeBuildTestScale";
 import HomeDesignThinking from "@/components/home/HomeDesignThinking";
 import HomeStudentsBand from "@/components/home/HomeStudentsBand";
 import HomeLabCTA from "@/components/home/HomeLabCTA";
+import { HOME_TITLE, HOME_DESCRIPTION } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "The Adda Labs | A venture lab that builds, tests and scales ideas" },
-  description:
-    "The Adda Labs is a frugal ideation and venture-building lab working across business, technology, sustainability and public causes. We build, test and scale ideas.",
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
 };
 
 // Lab positioning (Oct 2026): short, graphic-led home.
