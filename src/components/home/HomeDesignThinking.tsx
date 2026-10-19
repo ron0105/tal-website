@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 import DesignThinkingGraphic from "./graphics/DesignThinkingGraphic";
 
@@ -14,6 +15,11 @@ export default function HomeDesignThinking() {
           </p>
         </AnimateOnScroll>
         <DesignThinkingGraphic />
+        <div className="mt-12 text-left sm:text-center">
+          <Link href="/services" className="btn-ghost">
+            See our services →
+          </Link>
+        </div>
       </div>
     </section>
   );

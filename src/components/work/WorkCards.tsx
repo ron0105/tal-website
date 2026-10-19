@@ -26,6 +26,7 @@ const lines: {
     label: "Technology",
     promise: "Simple tools people enjoy using.",
     bullets: ["Websites and web apps", "Workflow automation", "AI assistants for everyday tasks"],
+    cta: { label: "See services", href: "/services" },
   },
   {
     kind: "sustainability",

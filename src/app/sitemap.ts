@@ -5,7 +5,7 @@ import { getAllLabNotes } from "@/lib/lab-notes";
 
 // Live pages only. Folders that next.config redirects (for-businesses, think-and-build,
 // tal-vi, venture-lab, work-with-us, how-it-works) stay out, and so do the apply forms.
-const PAGES = ["", "/work", "/how-we-work", "/lab-notes", "/about", "/call", "/contact", "/pricing", "/live-projects", "/careers", "/privacy", "/terms"];
+const PAGES = ["", "/services", "/work", "/how-we-work", "/lab-notes", "/about", "/call", "/contact", "/pricing", "/live-projects", "/careers", "/privacy", "/terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
