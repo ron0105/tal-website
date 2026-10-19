@@ -47,6 +47,7 @@ export const ORGANIZATION_JSON_LD = {
   },
   areaServed: ["India", "Worldwide"],
   founder: ROHAN,
+  sameAs: ["https://www.linkedin.com/company/112236854/"],
   knowsAbout: [
     "Design thinking",
     "Websites that bring enquiries",
