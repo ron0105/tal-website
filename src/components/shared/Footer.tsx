@@ -5,10 +5,12 @@ import Logo from "@/components/shared/Logo";
 
 const pages = [
   { label: "Services", href: "/services" },
-  { label: "What we work on", href: "/work" },
-  { label: "How We Work", href: "/how-we-work" },
+  { label: "Our work", href: "/work" },
+  { label: "How we work", href: "/how-we-work" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Lab notes", href: "/lab-notes" },
   { label: "About", href: "/about" },
+  { label: "Live Projects", href: "/live-projects?src=site" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -30,7 +32,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "280px" }}>
-              A frugal ideation and venture-building lab. We build, test and scale ideas.
+              We help businesses that grow on enquiries turn more of them into customers.
             </p>
           </div>
 
@@ -61,10 +63,10 @@ export default function Footer() {
             <a href="mailto:rohan@theaddalabs.com" className="inline-flex min-h-[44px] items-center text-sm font-semibold tracking-tight hover:text-accent-ink transition-colors" style={{ color: "var(--text-body)" }}>rohan@theaddalabs.com</a>
             <p className="text-sm tracking-tight mb-6" style={{ color: "var(--text-muted)" }}>Mumbai · Global</p>
             <Link
-              href="/contact"
+              href="/call"
               className="btn-primary"
             >
-              Start a conversation
+              Book a call
             </Link>
           </div>
         </div>

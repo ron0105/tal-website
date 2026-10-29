@@ -1,6 +1,6 @@
 # The Adda Labs (TAL)
 
-> TAL, short for The Adda Labs, is a design-thinking lab in Mumbai, India. We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you. We work with businesses in India and abroad.
+> TAL, short for The Adda Labs, is a team in Mumbai, India. We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you. We work with businesses in India and abroad.
 
 - Legal name: TAL Consulting LLP (LLPIN ACZ-3000), Mumbai, India
 - Founder: Rohan Tiwarekar
@@ -14,18 +14,18 @@
 - Enquiry follow-up systems: fast replies on WhatsApp and email, reminders, booking
 - Positioning and offer design
 - AI assistants for everyday tasks and workflow automation
-- Business idea validation with a 6-step design-thinking method
+- Posts, reels and ads that bring people in
 
 ## How we work
 
-We take time to understand a problem before we try to solve it, test small, and build what holds up. The work spans businesses, public causes, and ventures of our own.
+We start with where a business loses customers: enquiries nobody finds, replies that come too late, posts that bring no one in. Then we build the fix and hand it over. Our team has done this work for brands like Taiwan Excellence, Cosmic Byte, Atomberg and Pilgrim.
 
 ## Key pages
 
 - [Home](https://www.theaddalabs.com/)
 - [Services](https://www.theaddalabs.com/services): websites, enquiry follow-up, positioning and AI assistants, with common questions answered
-- [What we work on](https://www.theaddalabs.com/work)
-- [How we work](https://www.theaddalabs.com/how-we-work): the loop, the 4 stages with clients, the 6-step idea test
+- [Our work](https://www.theaddalabs.com/work): brands our team has worked with, what we made, and the results
+- [How we work](https://www.theaddalabs.com/how-we-work): four steps from first call to more customers, and our terms
 - [Lab notes](https://www.theaddalabs.com/lab-notes): case studies, live builds and methods, with real numbers
 - [Pricing](https://www.theaddalabs.com/pricing)
 - [About](https://www.theaddalabs.com/about)

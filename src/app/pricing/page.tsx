@@ -6,24 +6,26 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+// Three ways in, matching the services (Rohan, Oct 29 2026). No prices on the page:
+// every quote is fixed after one call, as /services says. The idea-validation track was cut.
 const models = [
   {
-    label: "For Businesses",
-    title: "One-time project",
-    desc: "We come in, understand your business, build the systems, train your team, and hand it over. A defined scope with a clear end point.",
-    details: ["Understand phase", "Structure phase", "Guide phase + handover"],
+    label: "Start here",
+    title: "A clear look first",
+    desc: "We go through your enquiries, website and posts, and show you where customers drop off and what to fix first.",
+    details: ["Where enquiries are lost", "What to fix first", "A plan you keep, whoever builds it"],
   },
   {
-    label: "For Businesses",
-    title: "Ongoing support",
-    desc: "After the initial setup, some clients want us to stay involved as things grow and change. This is month-to-month with no lock-in.",
-    details: ["Regular check-ins", "System refinement as needed", "Available when things shift"],
+    label: "One project",
+    title: "We build it",
+    desc: "A website, a follow-up system, posts or a clear offer, built for you and handed over. A set scope with a clear end.",
+    details: ["Fixed quote after one call", "Paid in parts as work lands", "Your team can run it"],
   },
   {
-    label: "Think & Build",
-    title: "Idea validation",
-    desc: "We run your idea through our 6-stage validation process. The output is one clear answer: build it, change it, or stop.",
-    details: ["Problem framing to decision gate", "Real market testing", "Clear recommendation at the end"],
+    label: "Month to month",
+    title: "We run it with you",
+    desc: "Posts, ads and follow-ups, run every month as things grow. No lock-in.",
+    details: ["Posts and ads every month", "Follow-ups kept running", "Regular check-ins on the numbers"],
   },
 ];
 
@@ -37,7 +39,7 @@ export default function PricingPage() {
           transition={{ duration: 0.5, ease }}
           className="label-eyebrow mb-8 block text-accent"
         >
-          How We Engage
+          Pricing
         </motion.span>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -48,9 +50,9 @@ export default function PricingPage() {
             color: "var(--text-primary)",
           }}
         >
-          Pricing depends on
+          A fixed quote
           <br />
-          <span style={{ color: "var(--text-muted)" }}>scope and hours.</span>
+          <span style={{ color: "var(--text-muted)" }}>after one call.</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -58,7 +60,7 @@ export default function PricingPage() {
           transition={{ duration: 0.7, ease, delay: 0.2 }}
           className="text-lg text-body max-w-2xl mb-20"
         >
-          We do not have fixed packages. Every engagement is scoped after a conversation, based on what you actually need.
+          No packages to decode. Tell us what&apos;s costing you customers, and we&apos;ll quote for that, before anything starts.
         </motion.p>
 
         <div className="flex flex-col gap-px bg-border-subtle border border-border-subtle mb-16">
@@ -87,15 +89,15 @@ export default function PricingPage() {
           <div className="border border-border-subtle bg-bg-secondary p-10 md:p-14 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div>
               <h2 className="text-primary mb-2">
-                Want to know what it would cost for you?
+                What would it cost for you?
               </h2>
               <p className="text-base text-muted max-w-lg">
-                Tell us what you are working on. We will scope it honestly and give you a clear number before anything starts.
+                Answer a few quick questions and pick a time. You get a clear number before any work starts.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <Link href="/contact" className="btn-primary" style={{ padding: "14px 32px" }}>
-                Start the conversation
+              <Link href="/call" className="btn-primary" style={{ padding: "14px 32px" }}>
+                Book a call
               </Link>
             </div>
           </div>

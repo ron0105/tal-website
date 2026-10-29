@@ -8,13 +8,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
+// Four buyer pages and one button (Rohan, Oct 29 2026). Lab notes, Live Projects and Careers live in the footer.
 const navLinks = [
-  { label: "What we work on", href: "/work" },
-  { label: "How We Work", href: "/how-we-work" },
-  { label: "Lab notes", href: "/lab-notes" },
+  { label: "Services", href: "/services" },
+  { label: "Our work", href: "/work" },
+  { label: "How we work", href: "/how-we-work" },
   { label: "About", href: "/about" },
-  { label: "Live Projects", href: "/live-projects?src=site" },
-  { label: "Careers", href: "/careers" },
 ];
 
 export default function Navbar() {
@@ -89,10 +88,10 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-4 flex-shrink-0 ml-auto mr-4 lg:ml-0 lg:mr-0">
             <Link
-              href="/contact"
+              href="/call"
               className="btn-primary whitespace-nowrap"
             >
-              Start a conversation
+              Book a call
             </Link>
           </div>
 
@@ -161,10 +160,10 @@ export default function Navbar() {
               </motion.div>
             ))}
             <Link
-              href="/contact"
+              href="/call"
               className="btn-primary flex items-center justify-center mt-6 md:hidden"
             >
-              Start a conversation
+              Book a call
             </Link>
           </motion.div>
         )}

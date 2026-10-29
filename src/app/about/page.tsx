@@ -2,63 +2,57 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 import AboutLab from "@/components/about/AboutLab";
+import ImpactStrip from "@/components/work/ImpactStrip";
+import { TEAM_BRANDS } from "@/lib/work";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The Adda Labs is a frugal ideation and venture-building lab working across business, technology, sustainability and public causes. We build, test and scale ideas.",
+    "TAL, short for The Adda Labs, is a Mumbai team with big-brand experience. We help businesses that grow on enquiries turn more of them into customers.",
 };
 
-// Lab positioning (Oct 2026): hero, story, method, team, beliefs, a slim band, one CTA.
+// Impact first (Rohan, Oct 29 2026): who we help, the numbers, why us, the team, one call.
 // The earlier AboutHero, AboutStory and AboutTeam stay on disk but are no longer imported.
 export default function About() {
   return (
     <div>
       <section
         className="bg-background"
-        style={{ paddingTop: "clamp(9rem, 16vh, 12rem)", paddingBottom: "clamp(2.5rem, 6vh, 4rem)" }}
+        style={{ paddingTop: "clamp(9rem, 16vh, 12rem)", paddingBottom: "clamp(1.5rem, 4vh, 2.5rem)" }}
       >
         <div className="layout-grid px-6 md:px-10">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-6 h-px" style={{ background: "var(--accent)" }} aria-hidden="true" />
-            <span className="label-eyebrow text-accent">The Adda Labs</span>
+            <span className="label-eyebrow text-accent">About TAL</span>
           </div>
-          <h1 className="font-poppins mb-6">About</h1>
-          <p className="text-lg leading-relaxed text-body text-pretty" style={{ maxWidth: "36rem" }}>
-            The Adda Labs is a frugal ideation and venture-building lab working across business, technology,
-            sustainability and public causes. We build, test and scale ideas.
+          <h1 className="font-poppins mb-6" style={{ maxWidth: "18ch" }}>
+            Big-brand experience, for businesses like yours
+          </h1>
+          <p className="text-lg leading-relaxed text-body text-pretty" style={{ maxWidth: "38rem" }}>
+            We help businesses that grow on enquiries turn more of them into customers. Between our team and advisors,
+            we&apos;ve worked with {TEAM_BRANDS} brands, from Accenture and ONGC to Taiwan Excellence and Pilgrim. Now we
+            do it for businesses that can&apos;t afford to lose a single enquiry.
           </p>
         </div>
       </section>
 
+      <ImpactStrip />
+
       <AboutLab />
 
-      <section
-        aria-label="Our work and Live Projects"
-        className="border-y border-border-subtle px-6 md:px-10"
-        style={{ background: "var(--bg-lift)", paddingTop: "clamp(2.5rem, 6vh, 4rem)", paddingBottom: "clamp(2.5rem, 6vh, 4rem)" }}
-      >
-        <AnimateOnScroll className="layout-grid flex flex-col items-center gap-5 text-center">
-          <p className="text-lg text-foreground">Five lines of work, one way of thinking.</p>
-          <div className="flex flex-col items-center gap-3 sm:flex-row">
-            <Link href="/work" className="btn-ghost">
-              See what we work on →
+      <section aria-labelledby="about-cta-heading" className="padding-section text-center" style={{ background: "var(--bg-secondary)" }}>
+        <AnimateOnScroll className="layout-grid">
+          <h2 id="about-cta-heading" className="mb-10 text-foreground text-balance">
+            Tell us where your enquiries go.
+          </h2>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/call" className="btn-primary btn-lg">
+              Book a call
             </Link>
-            <Link href="/live-projects?src=site" className="btn-ghost">
-              Live Projects for students →
+            <Link href="/work#team-work" className="btn-ghost btn-lg">
+              See our work
             </Link>
           </div>
-        </AnimateOnScroll>
-      </section>
-
-      <section aria-labelledby="about-cta-heading" className="padding-section text-center bg-background">
-        <AnimateOnScroll className="layout-grid">
-          <h2 id="about-cta-heading" className="mb-10 text-foreground">
-            Let us build something together.
-          </h2>
-          <Link href="/contact" className="btn-primary btn-lg">
-            Start a conversation
-          </Link>
         </AnimateOnScroll>
       </section>
     </div>
