@@ -3,7 +3,7 @@
 // was taken from the brand's own site, Wikimedia or our team's portfolios (Eh Maaya from the end
 // card of our own ad), then cleaned into one dark shape on a transparent background, so a sharp
 // vector logo and a small JPEG look alike. Width and height are the file's own pixels.
-// No public logo exists for GMN Impex, Rudra Himalayan Retreat, Phool Pudi or SP Green Markethub,
+// No public logo exists for Rudra Himalayan Retreat, Phool Pudi or SP Green Markethub,
 // so their cards set the name as a wordmark instead.
 
 export interface BrandLogo {
