@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Talk to TAL, a design-thinking lab in Mumbai working with businesses in India and abroad. Message us on WhatsApp, or book a call.",
+    "Talk to TAL, a team in Mumbai working with businesses in India and abroad. Message us on WhatsApp, or book a call.",
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

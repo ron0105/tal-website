@@ -6,7 +6,7 @@ import { getAllLabNotes, formatNoteDate } from "@/lib/lab-notes";
 export const metadata: Metadata = {
   title: "Lab notes: case studies and how we work",
   description:
-    "Case studies, live builds and the methods behind them, from TAL, a design-thinking lab in Mumbai. What we tried, the numbers, and what we learned.",
+    "Case studies, live builds and the methods behind them, from TAL, a team in Mumbai. What we tried, the numbers, and what we learned.",
 };
 
 export default function LabNotes() {

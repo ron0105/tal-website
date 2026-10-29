@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 // The preview card shown when a TAL link is shared on LinkedIn, WhatsApp or X.
 // Peacock teal + copper (Sep 2026 palette), the Adda mark, and the enquiry line.
-export const alt = "The Adda Labs (TAL): turn more enquiries into customers. A design-thinking lab in Mumbai.";
+export const alt = "The Adda Labs (TAL): turn more enquiries into customers. A team in Mumbai with big-brand experience.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -40,7 +40,7 @@ export default function Image() {
         </div>
 
         <div style={{ display: "flex", fontSize: 26, opacity: 0.85 }}>
-          A design-thinking lab in Mumbai · theaddalabs.com
+          Mumbai · theaddalabs.com
         </div>
       </div>
     ),

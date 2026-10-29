@@ -1,33 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
-import HWWLoop from "@/components/how-we-work/HWWLoop";
 import HWWFlow from "@/components/how-we-work/HWWFlow";
+import { WORK_WITH_YOU } from "@/lib/process";
 
 export const metadata: Metadata = {
   title: "How We Work",
   description:
-    "One simple loop: ideate, build, test and scale, then begin again a little wiser. Design thinking guides every step.",
+    "Four steps from your first call to more customers: we listen, we map where enquiries drop off, we build the fix, and you grow.",
 };
 
-const workWithYou = [
-  { title: "We listen", line: "We spend time with your team and your numbers." },
-  { title: "We map", line: "We decide what to build next, and in what order." },
-  { title: "We build", line: "Clear systems and plans your team can own and run." },
-  { title: "You grow", line: "More revenue, better margins, a business that runs smoothly." },
+// What a client gets at each step (Rohan, Oct 29 2026). The ideate-build-test-scale loop and the
+// 6-step idea validation were cut: founders are parked till June 2027. HWWLoop, HWWHero, HWWSteps
+// and HWWIdeas stay on disk but are no longer imported.
+const whatYouGet = [
+  { title: "A fixed quote", line: "After one call. No packages to decode, no surprises later." },
+  { title: "Pay in parts", line: "You pay as the work lands, not all up front." },
+  { title: "Yours to run", line: "We hand over what we build, and show your team how to use it." },
 ];
 
-const testAnIdea = [
-  { title: "Map the assumptions", line: "Write down the beliefs your idea depends on." },
-  { title: "Talk to real customers", line: "Ask the people who would actually pay." },
-  { title: "Check the market reality", line: "See who else is there and where the gap is." },
-  { title: "Test willingness to pay", line: "Find out who will pay, and how much." },
-  { title: "Run the smallest possible test", line: "A pilot or pre-sale that gives a real signal." },
-  { title: "Make the call", line: "Go, stop or pivot, backed by evidence." },
-];
-
-// Lab positioning (Oct 2026): one title, one line, one loop, one CTA.
-// The earlier HWWHero, HWWSteps and HWWIdeas stay on disk but are no longer imported.
 export default function HowWeWork() {
   return (
     <div>
@@ -38,70 +29,75 @@ export default function HowWeWork() {
         <div className="layout-grid px-6 md:px-10">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-6 h-px" style={{ background: "var(--accent)" }} aria-hidden="true" />
-            <span className="label-eyebrow text-accent">Our framework</span>
+            <span className="label-eyebrow text-accent">How we work</span>
           </div>
-          <h1 className="font-poppins mb-6">How we work</h1>
-          <p className="text-lg leading-relaxed text-body" style={{ maxWidth: "34rem" }}>
-            The loop we repeat, how we work with you, and how we test a new idea.
+          <h1 className="font-poppins mb-6" style={{ maxWidth: "16ch" }}>
+            From first call to more customers
+          </h1>
+          <p className="text-lg leading-relaxed text-body text-pretty" style={{ maxWidth: "36rem" }}>
+            Four steps. At each one you know what you get, what it costs, and what happens next.
           </p>
         </div>
       </section>
 
       <section
-        aria-label="The loop: ideate, build, test, scale"
-        className="px-6 md:px-10 py-14"
-        style={{ background: "var(--bg-secondary)" }}
+        aria-label="How we work with you"
+        className="px-6 md:px-10"
+        style={{ background: "var(--bg-secondary)", paddingTop: "clamp(3.5rem, 8vh, 6rem)", paddingBottom: "clamp(3.5rem, 8vh, 6rem)" }}
       >
         <AnimateOnScroll className="layout-grid">
-          <HWWLoop />
-          <p className="text-lg text-body text-left sm:text-center sm:mx-auto mt-10 text-pretty" style={{ maxWidth: "36rem" }}>
-            Design thinking guides every step, so what we make stays useful to real people.
-          </p>
+          <HWWFlow
+            id="hww-process-heading"
+            eyebrow="Working together"
+            heading="The four steps"
+            intro="We start with your enquiries, not with a pitch."
+            steps={WORK_WITH_YOU}
+            cols={4}
+            emphasiseLast
+          />
         </AnimateOnScroll>
       </section>
 
       <section
-        aria-label="How we work with you and how we test a new idea"
+        aria-labelledby="hww-terms-heading"
         className="bg-background px-6 md:px-10"
-        style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}
+        style={{ paddingTop: "clamp(3.5rem, 8vh, 6rem)", paddingBottom: "clamp(3.5rem, 8vh, 6rem)" }}
       >
-        <div className="layout-grid flex flex-col gap-16 md:gap-24">
-          <AnimateOnScroll>
-            <HWWFlow
-              id="hww-process-heading"
-              eyebrow="Working together"
-              heading="How we work with you"
-              intro="Four stages, from the first conversation to a business that grows."
-              steps={workWithYou}
-              cols={4}
-              emphasiseLast
-            />
+        <div className="layout-grid">
+          <AnimateOnScroll className="mb-10">
+            <span className="label-eyebrow mb-6 block" style={{ color: "var(--accent-text)" }}>
+              Terms
+            </span>
+            <h2 id="hww-terms-heading" className="text-foreground">
+              Simple terms
+            </h2>
           </AnimateOnScroll>
-          <AnimateOnScroll>
-            <HWWFlow
-              id="hww-validation-heading"
-              eyebrow="Idea validation"
-              heading="How we test a new idea"
-              intro="Six steps that end in a clear decision."
-              steps={testAnIdea}
-              cols={3}
-              emphasiseLast
-            />
-          </AnimateOnScroll>
+          <ul className="grid gap-4 md:grid-cols-3">
+            {whatYouGet.map((t, i) => (
+              <li key={t.title}>
+                <AnimateOnScroll delay={i * 0.06} className="h-full">
+                  <div className="h-full rounded-2xl p-6" style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-subtle)" }}>
+                    <h3 className="text-foreground mb-2">{t.title}</h3>
+                    <p className="text-base leading-relaxed text-body">{t.line}</p>
+                  </div>
+                </AnimateOnScroll>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section aria-labelledby="hww-cta-heading" className="padding-section text-center bg-background">
+      <section aria-labelledby="hww-cta-heading" className="padding-section text-center" style={{ background: "var(--bg-secondary)" }}>
         <AnimateOnScroll className="layout-grid">
-          <h2 id="hww-cta-heading" className="mb-10 text-foreground">
-            Have an idea to start the loop with?
+          <h2 id="hww-cta-heading" className="mb-10 text-foreground text-balance">
+            Step one is a short call.
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact" className="btn-primary btn-lg">
-              Start a conversation
+            <Link href="/call" className="btn-primary btn-lg">
+              Book a call
             </Link>
-            <Link href="/work" className="btn-ghost btn-lg">
-              See what we work on
+            <Link href="/work#team-work" className="btn-ghost btn-lg">
+              See our work
             </Link>
           </div>
         </AnimateOnScroll>

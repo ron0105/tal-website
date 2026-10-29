@@ -99,7 +99,7 @@ export default async function LabNotePage({
             Rohan Tiwarekar
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
-            Founder of TAL, short for The Adda Labs, a design-thinking lab in Mumbai working with businesses in India
+            Founder of TAL, short for The Adda Labs, a team in Mumbai working with businesses in India
             and abroad. He writes these notes as the work happens.
           </p>
           <div className="flex flex-wrap gap-4 mt-2">

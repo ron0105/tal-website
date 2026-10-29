@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 
 // Benefit first, one line, features as chips (Rohan, Oct 19 2026: less text, visuals do the explaining).
@@ -106,13 +107,44 @@ function TasksPicture() {
   );
 }
 
-const services = [
+function PostsPicture() {
+  const posts = ["New menu", "Festive offer", "Behind the scenes"];
+  return (
+    <Frame>
+      <div className="grid grid-cols-3 gap-2">
+        {posts.map((p, i) => (
+          <span
+            key={p}
+            className="flex aspect-square items-end rounded-md p-1.5 text-[0.65rem] font-semibold leading-tight text-white"
+            style={{ background: i === 1 ? "var(--accent)" : "var(--brand)", opacity: i === 2 ? 0.75 : 1 }}
+          >
+            {p}
+          </span>
+        ))}
+      </div>
+      <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+        &ldquo;Saw your post. Do you have a table tonight?&rdquo;
+      </span>
+    </Frame>
+  );
+}
+
+// proof points at a case study of the same kind of work, so every promise has something behind it
+const services: {
+  picture: React.ReactNode;
+  benefit: string;
+  line: string;
+  features: string[];
+  time: string;
+  proof?: { label: string; href: string };
+}[] = [
   {
     picture: <SearchPicture />,
     benefit: "Get found. Get enquiries.",
     line: "People find you on Google and reach you in one tap.",
     features: ["Website", "Google profile", "Reviews"],
     time: "4 to 6 weeks",
+    proof: { label: "See our clinic check", href: "/work/clinic-leads-finder" },
   },
   {
     picture: <ChatPicture />,
@@ -120,6 +152,15 @@ const services = [
     line: "Follow-ups go out on their own. More chats become bookings.",
     features: ["WhatsApp auto-reply", "Follow-ups", "One tracking sheet"],
     time: "2 to 3 weeks",
+    proof: { label: "See our book-a-call flow", href: "/lab-notes/book-a-call-flow" },
+  },
+  {
+    picture: <PostsPicture />,
+    benefit: "Posts people stop for",
+    line: "Posts, reels and ads made to bring people in, not just to fill the feed.",
+    features: ["Posts", "Reels", "Ads"],
+    time: "Every month",
+    proof: { label: "See Cosmic Byte", href: "/work/cosmic-byte" },
   },
   {
     picture: <ClarityPicture />,
@@ -127,6 +168,7 @@ const services = [
     line: "A clear line and an offer that make yes easy.",
     features: ["Customer talks", "One clear line", "Offer"],
     time: "2 weeks",
+    proof: { label: "See Pluro AI", href: "/work/pluro-ai" },
   },
   {
     picture: <TasksPicture />,
@@ -139,7 +181,7 @@ const services = [
 
 export default function ServiceCards() {
   return (
-    <ul className="grid gap-6 md:grid-cols-2">
+    <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {services.map((s, i) => (
         <li key={s.benefit}>
           <AnimateOnScroll delay={i * 0.06} className="h-full">
@@ -161,13 +203,20 @@ export default function ServiceCards() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-auto flex items-center gap-2 pt-1 text-sm" style={{ color: "var(--text-muted)" }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
-                {s.time}
-              </p>
+              <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-1 text-sm">
+                <p className="flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                  </svg>
+                  {s.time}
+                </p>
+                {s.proof && (
+                  <Link href={s.proof.href} className="font-semibold hover:text-accent-ink transition-colors" style={{ color: "var(--text-primary)" }}>
+                    {s.proof.label} →
+                  </Link>
+                )}
+              </div>
             </div>
           </AnimateOnScroll>
         </li>

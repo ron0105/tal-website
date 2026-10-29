@@ -88,7 +88,7 @@ export default function ServicesPage() {
         className="px-6 md:px-10"
         style={{ background: "var(--bg-secondary)", paddingTop: "clamp(3rem, 7vh, 5rem)", paddingBottom: "clamp(3rem, 7vh, 5rem)" }}
       >
-        <div className="layout-grid" style={{ maxWidth: "60rem" }}>
+        <div className="layout-grid" style={{ maxWidth: "72rem" }}>
           <h2 className="sr-only">Services</h2>
           <ServiceCards />
         </div>
