@@ -13,7 +13,7 @@ export function WorkCard({ w }: { w: WorkPiece }) {
       {/* Every card opens with a picture: the work itself, or the brand's logo on a quiet tile */}
       <div className="relative aspect-[4/3] overflow-hidden" style={{ background: "var(--bg-secondary)" }}>
         {w.cover ? (
-          <Image src={w.cover} alt="" fill className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+          <Image src={w.cover} alt={`${w.brand}: ${w.title}`} fill className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
             <BrandMark brand={w.brand} base={84} className="justify-center" />

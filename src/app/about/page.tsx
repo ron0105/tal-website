@@ -6,9 +6,9 @@ import ImpactStrip from "@/components/work/ImpactStrip";
 import { TEAM_BRANDS } from "@/lib/work";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: { absolute: "About The Adda Labs (TAL) · Mumbai and Navi Mumbai" },
   description:
-    "TAL, short for The Adda Labs, is a Mumbai team with big-brand experience. We help businesses that grow on enquiries turn more of them into customers.",
+    "TAL, short for The Adda Labs, is a Mumbai and Navi Mumbai team with big-brand experience. We help businesses that grow on enquiries turn more of them into customers.",
 };
 
 // Impact first (Rohan, Oct 29 2026): who we help, the numbers, why us, the team, one call.

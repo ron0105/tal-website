@@ -129,33 +129,41 @@ function PostsPicture() {
   );
 }
 
-// proof points at a case study of the same kind of work, so every promise has something behind it
+// proof points at a case study of the same kind of work, so every promise has something behind it.
+// label is the name people search for (SEO plan Round 2); benefit is what they get.
 const services: {
   picture: React.ReactNode;
+  label: string;
   benefit: string;
   line: string;
   features: string[];
   time: string;
   proof?: { label: string; href: string };
+  guide?: { label: string; href: string };
 }[] = [
   {
     picture: <SearchPicture />,
+    label: "Website design and Google Maps",
     benefit: "Get found. Get enquiries.",
     line: "People find you on Google and reach you in one tap.",
-    features: ["Website", "Google profile", "Reviews"],
+    features: ["Website", "Google Business Profile", "Reviews"],
     time: "4 to 6 weeks",
     proof: { label: "See our clinic check", href: "/work/clinic-leads-finder" },
+    guide: { label: "Free guide: rank on Google Maps", href: "/lab-notes/how-to-rank-on-google-maps" },
   },
   {
     picture: <ChatPicture />,
+    label: "WhatsApp auto-reply and lead follow-up",
     benefit: "Every enquiry gets a reply in seconds",
     line: "Follow-ups go out on their own. More chats become bookings.",
     features: ["WhatsApp auto-reply", "Follow-ups", "One tracking sheet"],
     time: "2 to 3 weeks",
     proof: { label: "See our book-a-call flow", href: "/lab-notes/book-a-call-flow" },
+    guide: { label: "Free guide: 30 auto-reply messages", href: "/lab-notes/whatsapp-auto-reply-messages-for-business" },
   },
   {
     picture: <PostsPicture />,
+    label: "Social media management",
     benefit: "Posts people stop for",
     line: "Posts, reels and ads made to bring people in, not just to fill the feed.",
     features: ["Posts", "Reels", "Ads"],
@@ -164,6 +172,7 @@ const services: {
   },
   {
     picture: <ClarityPicture />,
+    label: "Positioning and offers",
     benefit: "Customers see why you, fast",
     line: "A clear line and an offer that make yes easy.",
     features: ["Customer talks", "One clear line", "Offer"],
@@ -172,12 +181,16 @@ const services: {
   },
   {
     picture: <TasksPicture />,
+    label: "AI chatbots for WhatsApp and websites",
     benefit: "Time back for your team",
     line: "AI takes the repeat work. Your team takes the people.",
-    features: ["AI assistant", "Draft replies", "Hand-off to you"],
+    features: ["AI chatbot", "Draft replies", "Hand-off to you"],
     time: "2 to 4 weeks",
   },
 ];
+
+// For the Service schema on /services
+export const SERVICES = services.map(({ label, line }) => ({ label, line }));
 
 export default function ServiceCards() {
   return (
@@ -190,7 +203,10 @@ export default function ServiceCards() {
               style={{ background: "var(--bg)", border: "1px solid var(--border-subtle)" }}
             >
               {s.picture}
-              <h3 className="text-foreground text-balance">{s.benefit}</h3>
+              <h3 className="label-eyebrow" style={{ color: "var(--accent-text)" }}>
+                {s.label}
+              </h3>
+              <p className="-mt-2 text-xl font-semibold leading-snug text-foreground text-balance">{s.benefit}</p>
               <p className="text-base leading-relaxed text-body">{s.line}</p>
               <ul className="flex flex-wrap gap-2" aria-label="What you get">
                 {s.features.map((f) => (
@@ -203,6 +219,11 @@ export default function ServiceCards() {
                   </li>
                 ))}
               </ul>
+              {s.guide && (
+                <Link href={s.guide.href} className="text-sm underline underline-offset-4 hover:text-accent-ink" style={{ color: "var(--text-body)" }}>
+                  {s.guide.label} →
+                </Link>
+              )}
               <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-1 text-sm">
                 <p className="flex items-center gap-2" style={{ color: "var(--text-muted)" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
