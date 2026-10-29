@@ -57,12 +57,22 @@ export default async function LabNotePage({
     publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: `${SITE_URL}/lab-notes/${note.slug}`,
   };
+  // Shows "Home > Lab notes > Post" under the result in Google
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Lab notes", item: `${SITE_URL}/lab-notes` },
+      { "@type": "ListItem", position: 3, name: note.title, item: `${SITE_URL}/lab-notes/${note.slug}` },
+    ],
+  };
 
   return (
     <main className="bg-background" style={{ padding: "clamp(9rem, 15vh, 12rem) 1.5rem clamp(4rem, 8vh, 6rem)" }}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbs]).replace(/</g, "\\u003c") }}
       />
       <article className="layout-grid md:px-10" style={{ maxWidth: "46rem" }}>
         <Link
@@ -74,6 +84,7 @@ export default async function LabNotePage({
         </Link>
         <span className="label-eyebrow block mb-6" style={{ color: "var(--accent-text)" }}>
           {note.tag}
+          {note.draft && " · Draft, not live yet"}
         </span>
         <h1 className="mb-5 text-pretty" style={{ color: "var(--text-primary)", fontSize: "clamp(2.25rem, 5vw, 3.5rem)" }}>
           {note.title}

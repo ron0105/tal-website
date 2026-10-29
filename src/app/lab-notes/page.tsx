@@ -4,7 +4,7 @@ import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 import { getAllLabNotes, formatNoteDate } from "@/lib/lab-notes";
 
 export const metadata: Metadata = {
-  title: "Lab notes: case studies and how we work",
+  title: "Lab notes: guides, case studies and how we work",
   description:
     "Case studies, live builds and the methods behind them, from TAL, a team in Mumbai. What we tried, the numbers, and what we learned.",
 };
@@ -47,6 +47,7 @@ export default function LabNotes() {
                 >
                   <span className="label-eyebrow" style={{ color: "var(--accent-text)" }}>
                     {note.tag}
+                    {note.draft && " · Draft, not live"}
                   </span>
                   <h2 className="text-subsection group-hover:text-accent-ink transition-colors" style={{ color: "var(--text-primary)" }}>
                     {note.title}

@@ -3,6 +3,7 @@ import HomeLabHero from "@/components/home/HomeLabHero";
 import HomePains from "@/components/home/HomePains";
 import HomeSelectedWork from "@/components/home/HomeSelectedWork";
 import HomeLabCTA from "@/components/home/HomeLabCTA";
+import HomeGuides from "@/components/home/HomeGuides";
 import ImpactStrip from "@/components/work/ImpactStrip";
 import LogoWall from "@/components/work/LogoWall";
 import HWWFlow from "@/components/how-we-work/HWWFlow";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 // Impact first (Rohan, Oct 29 2026, after mckinsey.com/in): the outcome, the numbers,
-// the customer's pain and our fix, proof, how we work, one call to action.
+// the customer's pain and our fix, proof, how we work, free guides, one call to action.
 // The lab-era sections (HomeBuildTestScale, HomeDesignThinking, HomeStudentsBand) and the
 // earlier ones (HomeHero, HomeProblem, ...) stay in src/components/home but aren't imported.
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
           />
         </AnimateOnScroll>
       </section>
+      <HomeGuides />
       <HomeLabCTA />
     </div>
   );

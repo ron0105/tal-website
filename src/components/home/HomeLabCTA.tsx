@@ -6,7 +6,7 @@ export default function HomeLabCTA() {
     <section
       aria-labelledby="home-cta-heading"
       className="padding-section text-center"
-      style={{ background: "var(--bg)" }}
+      style={{ background: "var(--bg-secondary)" }}
     >
       <AnimateOnScroll className="layout-grid">
         <h2 id="home-cta-heading" className="mb-4 text-foreground text-balance">
