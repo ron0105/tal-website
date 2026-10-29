@@ -18,6 +18,7 @@ export const LOGOS: BrandLogo[] = [
   { brand: "Accenture", file: "accenture", w: 614, h: 168 },
   { brand: "Virgin Media", file: "virgin-media", w: 283, h: 168 },
   { brand: "ONGC", file: "ongc", w: 158, h: 168 },
+  { brand: "DHL Express India", file: "dhl", w: 728, h: 110 },
   { brand: "Taiwan Excellence", file: "taiwan-excellence", w: 541, h: 168 },
   { brand: "Atomberg", file: "atomberg", w: 714, h: 168 },
   { brand: "Pilgrim", file: "pilgrim", w: 665, h: 168 },

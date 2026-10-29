@@ -12,7 +12,7 @@ export default function LogoWall({ background = "var(--bg)" }: { background?: st
       <AnimateOnScroll className="layout-grid">
         <p id="logo-wall-heading" className="mb-10 text-sm text-left sm:text-center" style={{ color: "var(--text-muted)" }}>
           {/* Sits under the impact strip, which already says the number, so this line doesn't repeat it */}
-          Some of the brands our team and advisors have worked with
+          Some of the brands we have previously worked with
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
           {LOGOS.map((l) => {
