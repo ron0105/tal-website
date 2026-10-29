@@ -41,9 +41,9 @@ export default function HomeLabHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
             className="font-poppins mb-8"
-            style={{ maxWidth: "14ch" }}
+            style={{ maxWidth: "16ch" }}
           >
-            We build, test and scale ideas.
+            Turn more of your enquiries into customers.
           </motion.h1>
 
           <motion.p
@@ -53,7 +53,9 @@ export default function HomeLabHero() {
             className="text-lg leading-relaxed text-body mb-10"
             style={{ maxWidth: "34rem" }}
           >
-            A frugal ideation and venture-building lab across business, technology, sustainability and public causes.
+            {/* The locked line from 01-tal/tal/how-we-work/Our offer (current).md; copy it from there, don't reword */}
+            We help businesses that grow on enquiries turn more of them into customers, using a website people can find,
+            regular posts, and AI follow-ups that reply for you.
           </motion.p>
 
           <motion.div
@@ -62,10 +64,10 @@ export default function HomeLabHero() {
             transition={{ duration: 0.7, ease, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-3"
           >
-            <Link href="/contact" className="btn-primary btn-lg">
-              Start a conversation
+            <Link href="/call" className="btn-primary btn-lg">
+              Book a call
             </Link>
-            <Link href="/work" className="btn-ghost btn-lg">
+            <Link href="/work#team-work" className="btn-ghost btn-lg">
               See our work
             </Link>
           </motion.div>

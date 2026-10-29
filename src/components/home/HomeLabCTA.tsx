@@ -6,14 +6,18 @@ export default function HomeLabCTA() {
     <section
       aria-labelledby="home-cta-heading"
       className="padding-section text-center"
-      style={{ background: "var(--bg-secondary)" }}
+      style={{ background: "var(--bg)" }}
     >
       <AnimateOnScroll className="layout-grid">
-        <h2 id="home-cta-heading" className="mb-10 text-foreground">
-          Bring us an idea worth building.
+        <h2 id="home-cta-heading" className="mb-4 text-foreground text-balance">
+          Let&apos;s look at your enquiries together.
         </h2>
-        <Link href="/contact" className="btn-primary btn-lg">
-          Start a conversation
+        <p className="text-lg text-body mx-auto mb-10 text-pretty" style={{ maxWidth: "32rem" }}>
+          {/* Same promise as the /call flow: a few quick questions, then pick a time */}
+          Answer a few quick questions and pick a time. It takes about 3 minutes.
+        </p>
+        <Link href="/call" className="btn-primary btn-lg">
+          Book a call
         </Link>
       </AnimateOnScroll>
     </section>
