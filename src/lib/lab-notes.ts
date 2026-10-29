@@ -5,13 +5,14 @@
 //
 // Frontmatter is plain "key: value" lines between --- fences:
 //   title, description, tag (Case study | Live | How we work), date (YYYY-MM-DD),
-//   updated (optional, YYYY-MM-DD), question (the one question the first paragraph answers)
+//   updated (optional, YYYY-MM-DD), question (the one question the first paragraph answers),
+//   draft (optional, "yes": shows on localhost for Rohan's review, never on the live site)
 
 import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
 
-export const LAB_NOTE_TAGS = ["Case study", "Live", "How we work"] as const;
+export const LAB_NOTE_TAGS = ["Guide", "Case study", "Live", "How we work"] as const;
 export type LabNoteTag = (typeof LAB_NOTE_TAGS)[number];
 
 export interface LabNote {
@@ -22,6 +23,7 @@ export interface LabNote {
   date: string;
   updated?: string;
   question?: string;
+  draft: boolean;
   html: string;
 }
 
@@ -53,6 +55,7 @@ function parse(slug: string, raw: string): LabNote {
     date: meta.date,
     updated: meta.updated || undefined,
     question: meta.question || undefined,
+    draft: meta.draft === "yes",
     html: marked.parse(match[2], { async: false }),
   };
 }
@@ -62,6 +65,8 @@ export function getAllLabNotes(): LabNote[] {
     .readdirSync(DIR)
     .filter((f) => f.endsWith(".md"))
     .map((f) => parse(f.replace(/\.md$/, ""), fs.readFileSync(path.join(DIR, f), "utf8")))
+    // Drafts wait for Rohan's review: visible in local dev, left out of the live build and the sitemap
+    .filter((n) => !n.draft || process.env.NODE_ENV === "development")
     .sort((a, b) => (b.updated ?? b.date).localeCompare(a.updated ?? a.date));
 }
 

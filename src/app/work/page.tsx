@@ -6,7 +6,7 @@ import ImpactStrip from "@/components/work/ImpactStrip";
 import LogoWall from "@/components/work/LogoWall";
 
 export const metadata: Metadata = {
-  title: "Our work",
+  title: "Case studies and results from our team",
   description:
     "Brands our team has worked with, what we made for them, and what it did: websites, posts, ads, follow-ups and positioning, with the numbers.",
 };

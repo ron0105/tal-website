@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
-import ServiceCards from "@/components/services/ServiceCards";
+import ServiceCards, { SERVICES } from "@/components/services/ServiceCards";
 import { SITE_URL } from "@/lib/site";
 
 // Services hub (SEO plan section 4). Buyer words live here; /work stays the lab page.
 // Copy: RON-HQ/01-tal/tal/brand/Services page - copy (draft).md. No prices until Rohan says so.
 export const metadata: Metadata = {
-  title: { absolute: "Services · Websites, enquiry follow-up and AI assistants | The Adda Labs (TAL)" },
+  title: { absolute: "Website design, WhatsApp automation and social media · TAL" },
   description:
-    "We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you. Based in Mumbai.",
+    "Website design, WhatsApp auto-reply and follow-ups, social media, Google Maps and AI chatbots for businesses in Mumbai, Navi Mumbai and across India.",
 };
 
 const steps = [
@@ -19,40 +19,93 @@ const steps = [
   { title: "You grow", d: "M4 20h16M6.5 20v-5M12 20v-9M17.5 20V5" },
 ];
 
-const faqs = [
+// Questions as people type them into Google (autocomplete, SEO plan Round 2, Oct 29 2026).
+// guide links the answer to the Lab notes guide that goes deeper, so the guides get found.
+const faqs: { q: string; a: string; guide?: { label: string; href: string } }[] = [
+  {
+    q: "Does a small business need a website?",
+    a: "Yes, if customers search for what you sell. A website gives Google and AI tools something to show, and lets people reach you in one tap, even at night.",
+  },
   {
     q: "How much does a website cost for a clinic in Mumbai?",
     a: "It depends on pages, booking and WhatsApp. You get a fixed quote after a short call, and pay in parts.",
-  },
-  {
-    q: "How do I reply to WhatsApp enquiries automatically?",
-    a: "Connect the WhatsApp Business API to a follow-up flow. Each enquiry gets a reply in seconds and a few follow-ups.",
+    guide: { label: "Read: what a website costs in India", href: "/lab-notes/website-cost-in-india" },
   },
   {
     q: "How long does a business website take?",
     a: "Usually 4 to 6 weeks, from first call to launch.",
   },
   {
+    q: "Can WhatsApp Business reply to messages automatically?",
+    a: "Yes. The free WhatsApp Business app can send a greeting and an away message. To answer real questions and follow up on their own, you need the WhatsApp Business API and a follow-up flow, which we set up.",
+    guide: { label: "Copy 30 auto-reply messages", href: "/lab-notes/whatsapp-auto-reply-messages-for-business" },
+  },
+  {
+    q: "How do I reply to WhatsApp enquiries automatically?",
+    a: "Connect the WhatsApp Business API to a follow-up flow. Each enquiry gets a reply in seconds and a few follow-ups.",
+  },
+  {
+    q: "How fast should I reply to a new enquiry?",
+    a: "Within minutes. A Harvard Business Review study found firms that responded within an hour were nearly 7 times as likely to reach the decision maker as firms that waited longer.",
+    guide: { label: "Read the WhatsApp follow-up plan", href: "/lab-notes/how-to-follow-up-with-leads-on-whatsapp" },
+  },
+  {
+    q: "What is an AI chatbot for WhatsApp?",
+    a: "A WhatsApp number that answers common questions on its own, like timings, prices and booking, at any hour. Anything it can't answer goes to your team.",
+  },
+  {
     q: "Can AI answer my customer enquiries?",
     a: "Yes, the common ones: timings, location, booking. Anything personal goes to your team.",
   },
   {
+    q: "How do I rank higher on Google Maps?",
+    a: "Google ranks local results on relevance, distance and prominence. Fill every field in your Google Business Profile, choose the right category, add photos, and collect reviews steadily.",
+    guide: { label: "Read the Google Maps checklist", href: "/lab-notes/how-to-rank-on-google-maps" },
+  },
+  {
+    q: "How do I get more Google reviews?",
+    a: "Ask right after a good visit, and make it one tap: a short link on WhatsApp or a QR code at the counter. Reply to every review, good or bad.",
+  },
+  {
+    q: "Do you manage social media for small businesses?",
+    a: "Yes: posts, reels and ads every month, planned around what brings people in, not just likes.",
+  },
+  {
     q: "Do you work outside Mumbai?",
-    a: "Yes. We're based in Mumbai and work across India and abroad, online.",
+    a: "Yes. We're based in Mumbai and Navi Mumbai, and work with businesses across India and abroad, online.",
   },
 ];
 
-// FAQPage lets Google and AI answer tools lift these answers as-is
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  url: `${SITE_URL}/services`,
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
+const AREAS = [
+  { "@type": "City", name: "Mumbai" },
+  { "@type": "City", name: "Navi Mumbai" },
+  { "@type": "Country", name: "India" },
+];
+
+// FAQPage lets Google and AI answer tools lift these answers as-is; one Service per card
+// tells them exactly what we sell and where
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    url: `${SITE_URL}/services`,
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  ...SERVICES.map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.label,
+    serviceType: s.label,
+    description: s.line,
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: AREAS,
+    url: `${SITE_URL}/services`,
   })),
-};
+];
 
 export default function ServicesPage() {
   return (
@@ -75,7 +128,8 @@ export default function ServicesPage() {
             More of your enquiries, turned into customers
           </h1>
           <p className="text-lg leading-relaxed text-body sm:mx-auto mb-10" style={{ maxWidth: "34rem" }}>
-            A website people find. Replies that go out on their own.
+            Website design, WhatsApp auto-replies and follow-ups, social media, Google Maps and AI chatbots, for
+            businesses in Mumbai, Navi Mumbai and across India.
           </p>
           <Link href="/call" className="btn-primary btn-lg">
             Book a call
@@ -146,7 +200,17 @@ export default function ServicesPage() {
                     <path d="M12 5v14M5 12h14" />
                   </svg>
                 </summary>
-                <p className="pb-5 text-base leading-relaxed text-body">{f.a}</p>
+                <p className="pb-5 text-base leading-relaxed text-body">
+                  {f.a}
+                  {f.guide && (
+                    <>
+                      {" "}
+                      <Link href={f.guide.href} className="font-semibold underline underline-offset-4 hover:text-accent-ink">
+                        {f.guide.label} →
+                      </Link>
+                    </>
+                  )}
+                </p>
               </details>
             ))}
           </div>

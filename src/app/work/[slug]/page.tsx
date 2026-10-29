@@ -55,13 +55,23 @@ export default async function WorkPiecePage({
     about: { "@type": "Brand", name: w.brand },
     mainEntityOfPage: `${SITE_URL}/work/${w.slug}`,
   };
+  // Shows "Home > Our work > Brand" under the result in Google
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Our work", item: `${SITE_URL}/work` },
+      { "@type": "ListItem", position: 3, name: w.brand, item: `${SITE_URL}/work/${w.slug}` },
+    ],
+  };
   const meta = workMeta(w);
 
   return (
     <main className="bg-background" style={{ padding: "clamp(9rem, 15vh, 12rem) 1.5rem clamp(4rem, 8vh, 6rem)" }}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbs]).replace(/</g, "\\u003c") }}
       />
       <article className="layout-grid md:px-10" style={{ maxWidth: "52rem" }}>
         <Link

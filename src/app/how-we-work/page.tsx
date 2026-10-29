@@ -5,7 +5,7 @@ import HWWFlow from "@/components/how-we-work/HWWFlow";
 import { WORK_WITH_YOU } from "@/lib/process";
 
 export const metadata: Metadata = {
-  title: "How We Work",
+  title: "How we work: from first call to more customers",
   description:
     "Four steps from your first call to more customers: we listen, we map where enquiries drop off, we build the fix, and you grow.",
 };
