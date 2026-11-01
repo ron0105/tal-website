@@ -27,7 +27,7 @@ export interface Job {
   group: RoleGroup;
   status: RoleStatus;
   /** One line on when it starts or how it pays. Shown next to the status pill. */
-  statusNote: string;
+  statusNote?: string;
   type: string;
   location: string;
   teaser: string;
@@ -59,7 +59,6 @@ export interface Job {
 
 export const COHORT = {
   name: "TAL Founder's Office Cohort",
-  nextStart: "late October",
   location: "Navi Mumbai · on-site",
 };
 
@@ -107,7 +106,6 @@ const COHORT_PAY = {
 const COHORT_COMMON = {
   group: "cohort" as const,
   status: "open" as const,
-  statusNote: `Next cohort starts ${COHORT.nextStart}`,
   type: "Full-time",
   location: COHORT.location,
   pay: COHORT_PAY,

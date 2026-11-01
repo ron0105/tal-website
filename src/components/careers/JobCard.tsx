@@ -67,9 +67,13 @@ export default function JobCard({ job, index }: JobCardProps) {
       <div className="rule" />
 
       <div className="flex items-center justify-between gap-4">
-        <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-          {job.statusNote}
-        </span>
+        {job.statusNote ? (
+          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+            {job.statusNote}
+          </span>
+        ) : (
+          <span />
+        )}
         <span className="text-sm font-bold whitespace-nowrap" style={{ color: "var(--brand)" }}>
           View role →
         </span>
