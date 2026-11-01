@@ -495,10 +495,16 @@ body:has([data-hero].canvas-dark) .site-header:not([data-past-hero]):not([data-m
   animation: tal-in calc(450ms * var(--m)) var(--ease-out) backwards;
   animation-delay: calc(var(--i, 0) * 40ms * var(--m));
 }
-/* Sub-headline and buttons that follow the H1; WordReveal's heroDelay() gives --delay */
+/* Sub-headline and buttons that follow the H1; WordReveal's heroDelay() gives --delay.
+   They slide up but never start invisible: the sub-line is usually the page's largest text, so
+   hiding it held back Largest Contentful Paint (Lighthouse, Nov 1 2026), and it keeps Rohan's
+   "content visible by default" rule. */
+@keyframes tal-rise {
+  from { transform: translateY(var(--rise, 12px)); }
+}
 .hero-follow {
   --rise: calc(12px * var(--m));
-  animation: tal-in calc(450ms * var(--m)) var(--ease-out) backwards;
+  animation: tal-rise calc(450ms * var(--m)) var(--ease-out) backwards;
   animation-delay: calc(var(--delay, 0ms) * var(--m));
 }
 
