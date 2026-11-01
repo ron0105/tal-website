@@ -47,10 +47,6 @@ export default function Work() {
       </Section>
 
       <Section label="Logos" tint>
-        <Eyebrow className="mb-4">{W.logos.clients}</Eyebrow>
-        <p className="source-line mb-14" style={{ fontSize: "0.95rem" }}>
-          {W.logos.clientsTodo}
-        </p>
         <Eyebrow className="mb-8">{W.logos.team}</Eyebrow>
         <ul className="flex flex-wrap items-center gap-x-12 gap-y-8">
           {LOGOS.map((l) => {

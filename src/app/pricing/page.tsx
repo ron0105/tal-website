@@ -36,7 +36,6 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-          <p className="source-line mt-5">{P.bonusesTodo}</p>
         </Reveal>
 
         <div className="flex flex-wrap gap-x-8 mt-10">

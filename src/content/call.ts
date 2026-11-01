@@ -2,8 +2,6 @@
 // Rebuild master prompt section 5.9. The existing flow (CallFlow: questions, lead score, times
 // from Rohan's calendar) is kept, as the prompt allows; only the words around it change.
 
-import { TODO } from "./common";
-
 export const CALL_PAGE = {
   meta: {
     title: "Book a free 20-minute call",
@@ -17,6 +15,5 @@ export const CALL_PAGE = {
     "We show you where you're losing customers",
     "If we're a fit, we suggest a plan; if not, we tell you who can help.",
   ],
-  reply: `We reply within 2 hours, Monday to Saturday. ${TODO("confirm reply time.")}`,
   whatsapp: "Hi TAL, I'd like to book a free call.",
 };

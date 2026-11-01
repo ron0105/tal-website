@@ -1,8 +1,6 @@
 // ─── Work (/work) and case-study pages ───────────────────────────────────────
 // Rebuild master prompt section 5.6. The cases themselves live in content/work/*.md.
 
-import { TODO } from "./common";
-
 export const WORK_PAGE = {
   meta: {
     title: "Real businesses. Real results.",
@@ -12,7 +10,8 @@ export const WORK_PAGE = {
   sub: "Clinics, restaurants, brands and startups. Here's what we built for them and what changed.",
   stats: [
     { value: "100+", label: "brands our team has worked with", source: "Across our team and advisors" },
-    { value: "₹1 crore+", label: "revenue uplift the work contributed to", source: `Media.net, $125K. ${TODO("confirm conversion")}`, href: "/work/media-net" },
+    // The figure as it stands in the team portfolio file; no ₹ conversion is recorded anywhere in HQ
+    { value: "$125K", label: "revenue uplift the work contributed to", source: "Team work at Media.net", href: "/work/media-net" },
     { value: "20 of 30", label: "top dentists losing enquiries: we found the gap", source: "Our own Clinic Leads Finder", href: "/work/clinic-leads-finder" },
   ],
   filterLabel: "Filter work by industry",
@@ -34,9 +33,9 @@ export const WORK_PAGE = {
     "D2C & Retail": "d2c",
     "Startups & B2B": "founders",
   } as Record<string, string>,
+  // Every logo is a brand our team or advisors worked with, mostly before TAL, so the wall is
+  // labelled that way and there is no "Our clients" wall (Team portfolio file, Oct 29; LESSONS L127)
   logos: {
-    clients: "Our clients",
-    clientsTodo: TODO("confirm which logos are TAL's own clients"),
     team: "Where our team has worked",
   },
   caseLabels: { problem: "Problem", did: "What we did", result: "Result", detail: "The detail", back: "All our work" },
