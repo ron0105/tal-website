@@ -11,6 +11,7 @@ const pages = [
   { label: "Lab notes", href: "/lab-notes" },
   { label: "About", href: "/about" },
   { label: "Live Projects", href: "/live-projects?src=site" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -88,7 +89,6 @@ export default function Footer() {
               India + International
             </p>
             {[
-              { label: "Careers", href: "/careers" },
               { label: "Privacy", href: "/privacy" },
               { label: "Terms", href: "/terms" },
             ].map((l) => (
