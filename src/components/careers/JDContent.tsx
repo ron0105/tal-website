@@ -74,9 +74,11 @@ function ApplyPanel({ job }: { job: Job }) {
             </li>
           ))}
         </ul>
-        <p className="text-xs font-semibold" style={{ color: "var(--accent)" }}>
-          {job.statusNote}
-        </p>
+        {job.statusNote && (
+          <p className="text-xs font-semibold" style={{ color: "var(--accent)" }}>
+            {job.statusNote}
+          </p>
+        )}
       </div>
 
       <div className="rule" />
