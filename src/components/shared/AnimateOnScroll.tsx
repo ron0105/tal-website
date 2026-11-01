@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, useInView, useReducedMotion, Variants } from "framer-motion";
 import { useRef } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -22,6 +22,8 @@ export function AnimateOnScroll({
 }: AnimateOnScrollProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  // Reduced motion: no movement and no fade time, the block just appears (rebuild spec section 7)
+  const reduce = useReducedMotion();
 
   const yOffset = variant === "rise" ? 48 : direction === "up" ? 28 : 0;
 
@@ -42,7 +44,7 @@ export function AnimateOnScroll({
       ref={ref}
       initial={initial}
       animate={animate}
-      transition={{ duration: 0.75, delay, ease: EASE }}
+      transition={reduce ? { duration: 0 } : { duration: 0.75, delay, ease: EASE }}
       className={className}
     >
       {children}
@@ -63,14 +65,15 @@ export function StaggerContainer({
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const reduce = useReducedMotion();
 
   const variants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: stagger,
-        delayChildren: delay,
+        staggerChildren: reduce ? 0 : stagger,
+        delayChildren: reduce ? 0 : delay,
       },
     },
   };

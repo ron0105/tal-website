@@ -4,10 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isBuilderRoute } from "@/content/navigation";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const WHATSAPP_URL = `https://wa.me/918169315080?text=${encodeURIComponent(
+const WHATSAPP_URL = `https://wa.me/917830603010?text=${encodeURIComponent(
   "Hi, I found TAL Consulting and would like to know more."
 )}`;
 
@@ -117,7 +118,9 @@ export default function ChatGuide() {
   }, [open]);
 
   // /call is already a guided flow; a second one would compete with it
-  if (pathname.startsWith("/call")) return null;
+  // Builder pages only (rebuild spec rules 4 and 6): on buyer pages it was a second call to action
+  // and offered "I'm a student". Phones keep the sticky bar's spot, so the bubble is desktop-only.
+  if (!isBuilderRoute(pathname)) return null;
 
   const go = (option: Option) => {
     if (!option.next) return;
@@ -212,7 +215,7 @@ export default function ChatGuide() {
         animate={{ opacity: 1, scale: 1 }}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-6 right-4 md:right-6 z-50 flex items-center justify-center w-14 h-14 text-white rounded-full shadow-lg cursor-pointer"
+        className="fixed bottom-6 right-4 md:right-6 z-50 hidden md:flex items-center justify-center w-14 h-14 text-white rounded-full shadow-lg cursor-pointer"
         style={{ background: "var(--brand)" }}
       >
         {open ? (
