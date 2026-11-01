@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 /**
  * A connected vertical stepper (spec 5.3 #3). The line draws down (M6) and each step appears
  * as the line reaches it. Scroll-triggered through Reveal.
+ * No vector-effect on the line: with pathLength, WebKit (Safari) then splits it into dashes.
  */
 export default function Stepper({ steps, label }: { steps: string[]; label: string }) {
   const per = 800 / Math.max(1, steps.length - 1);
@@ -11,7 +12,7 @@ export default function Stepper({ steps, label }: { steps: string[]; label: stri
     <Reveal mode="fade">
       <div className="relative" aria-label={label}>
         <svg className="absolute left-[11px] top-3 bottom-3 w-[2px] h-[calc(100%-24px)]" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M1 0 V100" pathLength={1} className="draw" stroke="var(--brand)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" fill="none" />
+          <path d="M1 0 V100" pathLength={1} className="draw" stroke="var(--brand)" strokeWidth={1.5} fill="none" />
         </svg>
         <ol className="grid gap-8">
           {steps.map((s, i) => (
