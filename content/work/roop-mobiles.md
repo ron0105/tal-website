@@ -10,6 +10,8 @@ results: 20% | more people walking into the stores; 50,000+ | new people reached
 confirmed: no
 featured: 5
 order: 4
+group: D2C & Retail
+problem: A growing electronics retailer had no clear brand and no online presence.
 ---
 
 ## The challenge

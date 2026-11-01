@@ -1,3 +1,5 @@
+import { indianMobile, PHONE_ERROR } from "@/lib/phone";
+
 // Settings for /call, the one link Rohan sends to anyone who wants to talk to TAL.
 //   videoId  the YouTube ID of Rohan's 2-minute hello (upload as Unlisted), filled in by hand
 // Free times and bookings come from Rohan's Google Calendar through the tracker (src/lib/booking.ts).
@@ -6,7 +8,7 @@
 
 export const CALL = {
   videoId: "",
-  whatsapp: "918169315080",
+  whatsapp: "917830603010",
   minutes: 20,
 };
 
@@ -129,8 +131,8 @@ export function phoneDigits(phone: string): string {
 export function validContact(c: Contact): Partial<Record<keyof Contact, string>> {
   const errors: Partial<Record<keyof Contact, string>> = {};
   if (c.name.trim().length < 2) errors.name = "Please add your name.";
-  const d = phoneDigits(c.phone);
-  if (d.length < 10 || d.length > 13) errors.phone = "Please add a WhatsApp number we can reach you on.";
+  // Indian mobiles only, 10 digits with an optional +91 (rebuild spec section 8)
+  if (!indianMobile(c.phone)) errors.phone = PHONE_ERROR;
   if (c.company.trim().length < 2) errors.company = "Please add your business name or website.";
   return errors;
 }

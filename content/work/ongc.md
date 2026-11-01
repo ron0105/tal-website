@@ -8,4 +8,6 @@ summary: Mapped procurement end to end, cleared approval bottlenecks, and turned
 results: 60% | fewer delays in posting goods received; 15% | shorter procurement lead times; ₹12 Lakh+ | recovered from idle inventory
 confirmed: yes
 order: 2
+group: Large Companies
+problem: Procurement approvals were slow and stock sat idle.
 ---

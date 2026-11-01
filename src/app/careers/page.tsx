@@ -2,6 +2,8 @@ import CareersHero from "@/components/careers/CareersHero";
 import JobListings from "@/components/careers/JobListings";
 import CareersCTA from "@/components/careers/CareersCTA";
 import { Metadata } from "next";
+import { ArrowLink } from "@/components/site/Primitives";
+import { CAREERS_GROW_LINK } from "@/content/grow";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -15,6 +17,10 @@ export default function CareersPage() {
   return (
     <div>
       <CareersHero />
+      {/* Rebuild spec section 3: Careers links to the Grow With TAL hub */}
+      <div className="wrap -mt-6 mb-6">
+        <ArrowLink href="/grow">{CAREERS_GROW_LINK}</ArrowLink>
+      </div>
       <JobListings />
       <CareersCTA />
     </div>

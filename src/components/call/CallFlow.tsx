@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { track } from "@/lib/track";
+import { getUtm, utmLine } from "@/lib/utm";
 import type { Offer } from "@/lib/booking";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,7 +65,7 @@ const inputStyle = {
   color: "var(--text-primary)",
   borderRadius: "var(--radius-btn)",
 };
-const inputClass = "w-full px-4 py-3 text-base outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(14,107,104,0.18)]";
+const inputClass = "w-full px-4 py-3 text-base outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(76,114,102,0.18)]";
 
 export default function CallFlow() {
   const [step, setStep] = useState(0);
@@ -217,6 +219,7 @@ export default function CallFlow() {
     if (Object.keys(errs).length) return;
 
     const result = scoreLead(answers);
+    track("form_book_call_submit");
     setBand(result.band);
     setSaved(null);
     setStage(result.band === "Hot" ? "times" : "waiting");
@@ -227,7 +230,7 @@ export default function CallFlow() {
     fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...contact, answers, website: honeypot, startedAt: startedAt.current }),
+      body: JSON.stringify({ ...contact, answers, website: honeypot, startedAt: startedAt.current, utm: utmLine(getUtm()) }),
     })
       .then((r) => r.json())
       .then((d: { saved?: boolean }) => setSaved(d.saved === true))
@@ -316,7 +319,7 @@ export default function CallFlow() {
               transition={{ duration: 0.25, ease: EASE }}
               className="flex flex-col gap-3"
             >
-              <legend className="mb-2" style={{ color: "var(--text-primary)", fontSize: "clamp(1.35rem, 3vw, 1.7rem)", fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700 }}>
+              <legend className="mb-2" style={{ color: "var(--text-primary)", fontSize: "clamp(1.35rem, 3vw, 1.7rem)", fontFamily: "var(--font-jakarta), sans-serif", fontWeight: 700 }}>
                 {q.label}
               </legend>
               <p className="text-sm mb-3" style={{ color: "var(--text-muted)" }}>
@@ -385,7 +388,7 @@ export default function CallFlow() {
               className="flex flex-col gap-4"
               noValidate
             >
-              <h2 style={{ color: "var(--text-primary)", fontSize: "clamp(1.35rem, 3vw, 1.7rem)", fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700 }}>
+              <h2 style={{ color: "var(--text-primary)", fontSize: "clamp(1.35rem, 3vw, 1.7rem)", fontFamily: "var(--font-jakarta), sans-serif", fontWeight: 700 }}>
                 Last step: where can we reach you?
               </h2>
               {(
@@ -430,7 +433,7 @@ export default function CallFlow() {
               />
               <div className="mt-2">
                 <button type="submit" className="btn-primary" style={{ padding: "16px 32px", fontSize: "1rem" }}>
-                  See my next step
+                  Book My Call
                 </button>
               </div>
               <p className="text-xs" style={{ color: "var(--text-muted)" }}>

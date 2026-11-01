@@ -10,6 +10,8 @@ results: 10M+ | people reached every month; 5,000+ | eSports teams registered; T
 confirmed: no
 featured: 1
 order: 1
+group: Large Companies
+problem: Taiwanese tech brands needed to matter to Indian buyers.
 ---
 
 ## The challenge

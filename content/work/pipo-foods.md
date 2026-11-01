@@ -9,6 +9,8 @@ cover: /work/pipo-foods/6.webp
 results: 500K+ | people reached every month; 300+ | creatives made
 confirmed: no
 order: 6
+group: D2C & Retail
+problem: A ready-to-cook snack brand needed attention in a crowded market.
 ---
 
 ## The challenge

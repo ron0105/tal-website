@@ -1,108 +1,87 @@
-"use client";
+import Hero from "@/components/site/Hero";
+import PlanCard from "@/components/site/PlanCard";
+import GuaranteeBand from "@/components/site/GuaranteeBand";
+import FAQSection from "@/components/site/FAQSection";
+import FinalCTA from "@/components/site/FinalCTA";
+import { ArrowLink, Section, SectionHead } from "@/components/site/Primitives";
+import { Reveal } from "@/components/motion/Reveal";
+import { Check } from "lucide-react";
+import { PLANS, PLANS_PAGE as P } from "@/content/plans";
+import { WHATSAPP_MESSAGES } from "@/content/navigation";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
-
-const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-// Three ways in, matching the services (Rohan, Oct 29 2026). No prices on the page:
-// every quote is fixed after one call, as /services says. The idea-validation track was cut.
-const models = [
-  {
-    label: "Start here",
-    title: "A clear look first",
-    desc: "We go through your enquiries, website and posts, and show you where customers drop off and what to fix first.",
-    details: ["Where enquiries are lost", "What to fix first", "A plan you keep, whoever builds it"],
-  },
-  {
-    label: "One project",
-    title: "We build it",
-    desc: "A website, a follow-up system, posts or a clear offer, built for you and handed over. A set scope with a clear end.",
-    details: ["Fixed quote after one call", "Paid in parts as work lands", "Your team can run it"],
-  },
-  {
-    label: "Month to month",
-    title: "We run it with you",
-    desc: "Posts, ads and follow-ups, run every month as things grow. No lock-in.",
-    details: ["Posts and ads every month", "Follow-ups kept running", "Regular check-ins on the numbers"],
-  },
-];
-
-export default function PricingPage() {
+// Rebuild master prompt section 5.4: 4 plans (swipeable on phones), Growth System bonuses,
+// a comparison table, the guarantee, plan FAQ, final CTA. Links to /services and /how-we-work.
+export default function Pricing() {
   return (
-    <main className="bg-background min-h-screen pt-32 pb-24">
-      <div className="layout-grid px-6 md:px-10">
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, ease }}
-          className="label-eyebrow mb-8 block text-accent"
-        >
-          Pricing
-        </motion.span>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.1 }}
-          style={{
-            marginBottom: "1.5rem",
-            color: "var(--text-primary)",
-          }}
-        >
-          A fixed quote
-          <br />
-          <span style={{ color: "var(--text-muted)" }}>after one call.</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.2 }}
-          className="text-lg text-body max-w-2xl mb-20"
-        >
-          No packages to decode. Tell us what&apos;s costing you customers, and we&apos;ll quote for that, before anything starts.
-        </motion.p>
+    <div>
+      <Hero title={P.h1} sub={P.sub} />
 
-        <div className="flex flex-col gap-px bg-border-subtle border border-border-subtle mb-16">
-          {models.map((m, i) => (
-            <AnimateOnScroll key={i} delay={i * 0.07}>
-              <div className="bg-background p-8 md:p-12 grid md:grid-cols-[200px_1fr_1fr] gap-8 items-start">
-                <div>
-                  <span className="label-eyebrow text-accent block mb-3">{m.label}</span>
-                  <h3 className="text-primary">{m.title}</h3>
-                </div>
-                <p className="text-base leading-relaxed text-body">{m.desc}</p>
-                <ul className="flex flex-col gap-3">
-                  {m.details.map((d) => (
-                    <li key={d} className="flex items-start gap-3 text-sm font-semibold text-body">
-                      <span className="text-accent mt-0.5">✓</span>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateOnScroll>
+      <Section label="Plans">
+        {/* Phones: one swipeable row; desktop: four in a row */}
+        <Reveal mode="stagger" className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-6 px-6 pt-4 pb-4 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:mx-0 lg:px-0">
+          {PLANS.map((p) => (
+            <div key={p.name} className="snap-start shrink-0 w-[82%] sm:w-[48%] lg:w-auto">
+              <PlanCard plan={p} />
+            </div>
           ))}
-        </div>
+        </Reveal>
 
-        <AnimateOnScroll>
-          <div className="border border-border-subtle bg-bg-secondary p-10 md:p-14 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-primary mb-2">
-                What would it cost for you?
-              </h2>
-              <p className="text-base text-muted max-w-lg">
-                Answer a few quick questions and pick a time. You get a clear number before any work starts.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <Link href="/call" className="btn-primary" style={{ padding: "14px 32px" }}>
-                Book a call
-              </Link>
-            </div>
-          </div>
-        </AnimateOnScroll>
-      </div>
-    </main>
+        <Reveal className="mt-12 card-hover p-6 md:p-8 max-w-2xl" >
+          <p className="label-eyebrow">{P.bonusesTitle}</p>
+          <ul className="grid gap-3 mt-5">
+            {P.bonuses.map((b) => (
+              <li key={b} className="flex gap-3" style={{ color: "var(--text-body)" }}>
+                <Check size={18} strokeWidth={1.5} aria-hidden="true" style={{ color: "var(--brand)", flexShrink: 0, marginTop: 3 }} />
+                {b}
+              </li>
+            ))}
+          </ul>
+          <p className="source-line mt-5">{P.bonusesTodo}</p>
+        </Reveal>
+
+        <div className="flex flex-wrap gap-x-8 mt-10">
+          <ArrowLink href="/services">How we get you more customers</ArrowLink>
+          <ArrowLink href="/how-we-work">{P.howWeWork}</ArrowLink>
+        </div>
+      </Section>
+
+      <Section label={P.compareTitle} tint>
+        <SectionHead title={P.compareTitle} />
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[720px] text-sm text-left border-collapse">
+            <thead>
+              <tr>
+                <th scope="col" className="p-4" />
+                {PLANS.map((p) => (
+                  <th key={p.name} scope="col" className="p-4 align-bottom text-base font-bold" style={{ color: "var(--text-primary)", borderBottom: `2px solid ${p.highlight ? "var(--brand)" : "var(--hairline)"}` }}>
+                    {p.name}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {P.compareRows.map((r) => (
+                <tr key={r.label} style={{ borderBottom: "1px solid var(--hairline)" }}>
+                  <th scope="row" className="p-4 stat-label align-top">
+                    {r.label}
+                  </th>
+                  {PLANS.map((p) => (
+                    <td key={p.name} className="p-4 align-top" style={{ color: "var(--text-body)" }}>
+                      {String(p[r.key])}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <GuaranteeBand />
+
+      <FAQSection title={P.faqTitle} faqs={P.faqs} />
+
+      <FinalCTA whatsapp={WHATSAPP_MESSAGES["/pricing"]} />
+    </div>
   );
 }

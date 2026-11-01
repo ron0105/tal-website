@@ -8,6 +8,8 @@ summary: New routing rules for DHL and Blue Dart shipments, rewritten SOPs, and 
 results: 20% | fewer delivery and misrouting delays (reported); 30% | better shipment classification accuracy (reported); 17% | higher team productivity (reported)
 confirmed: yes
 order: 6
+group: Large Companies
+problem: Delivery delays and misrouted shipments were hard to diagnose.
 ---
 
 ## The challenge

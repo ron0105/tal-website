@@ -7,6 +7,8 @@ year: 2025
 summary: Creator-style ads and a customer-style video, made for paid social, where the first two seconds decide everything.
 cover: /work/performance-ads/pilgrim-poster.webp
 order: 5
+group: D2C & Retail
+problem: Polished ads look like ads, and people scroll past them.
 ---
 
 ## The challenge

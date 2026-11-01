@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import TrackFinder from "@/components/live-projects/TrackFinder";
-import HeroAsk from "@/components/live-projects/HeroAsk";
+import { Check } from "lucide-react";
+import { LIVE_PROJECTS_HERO as H } from "@/content/grow";
 import { ByVariant, VariantProvider } from "@/components/live-projects/VariantContext";
 import { SEATS_PER_ROUND, SEATS_PER_TRACK, depositLabel } from "@/lib/live-projects";
 
 export const metadata: Metadata = {
-  title: "Live Projects for students",
+  title: "Live Projects: learn by building real things",
   description:
     "12 days: 3 days of training, then 2 live projects on real businesses, with the founder's feedback along the way. Leave with portfolio work to show and a certificate that names it.",
   // A demand test: shared by link, kept out of search until it's a running programme
@@ -80,26 +81,29 @@ const FAQS = [
 export default function LiveProjectsPage() {
   return (
     <VariantProvider>
-    <main>
+    <div>
       {/* Hero */}
       <section className="relative bg-background overflow-hidden" style={{ padding: "clamp(10rem, 18vh, 14rem) 1.5rem clamp(4rem, 9vh, 7rem)" }}>
         <div className="layout-grid px-6 md:px-10 relative z-10">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="w-6 h-px" style={{ background: "var(--accent)" }} />
-            <span className="label-eyebrow" style={{ color: "var(--accent)" }}>TAL Live Projects · for students</span>
-          </div>
-          <h1 className="mb-8" style={{ color: "var(--text-primary)", maxWidth: "860px" }}>
-            Do real work at a real firm,{" "}
-            <span style={{ color: "var(--accent)" }}>and leave with proof.</span>
+          {/* Rebuild master prompt 5.10 (Nov 1 2026): energetic but clean, no client names */}
+          <p className="label-eyebrow mb-8">{H.eyebrow}</p>
+          <h1 className="mb-8 text-balance" style={{ color: "var(--text-primary)", maxWidth: "860px" }}>
+            {H.h1}
           </h1>
-          <p className="body-copy mb-12" style={{ maxWidth: "620px" }}>
-            Spend 12 days with TAL, on-site in Navi Mumbai or remote. We&apos;re a frugal ideation and venture-building lab,
-            working across business, technology and sustainability. You train for three days in your track, take on two live projects for real businesses, learn from the founder&apos;s feedback on every piece, and leave
-            with two portfolio projects and a certificate that names your work.
+          <p className="body-copy mb-8" style={{ maxWidth: "620px" }}>
+            {H.sub}
           </p>
-          <div className="mb-10">
-            <HeroAsk />
-          </div>
+          <ul className="grid gap-3 mb-10" style={{ maxWidth: "620px" }}>
+            {H.bullets.map((b) => (
+              <li key={b} className="flex gap-3" style={{ color: "var(--text-body)" }}>
+                <Check size={18} strokeWidth={1.5} aria-hidden="true" style={{ color: "var(--brand)", flexShrink: 0, marginTop: 4 }} />
+                {b}
+              </li>
+            ))}
+          </ul>
+          <Link href="#find-your-track" className="btn-primary btn-lg mb-14">
+            {H.button}
+          </Link>
           <div className="mb-16 p-6 md:p-8 max-w-4xl" style={{ background: "#fff", border: "2px solid var(--brand)", borderRadius: "var(--radius-card)" }}>
             <span className="label-eyebrow block mb-3" style={{ color: "var(--brand)" }}>Full refund guarantee</span>
             <p className="font-poppins text-xl md:text-2xl mb-2" style={{ color: "var(--text-primary)", fontWeight: 500 }}>
@@ -235,7 +239,7 @@ export default function LiveProjectsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
     </VariantProvider>
   );
 }

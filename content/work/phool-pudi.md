@@ -7,4 +7,6 @@ summary: Redesigned buying and micro-hub delivery for a hyperlocal food brand, s
 results: 22% | less spoilage; 5 to 2 | days to turn over stock
 confirmed: yes
 order: 3
+group: D2C & Retail
+problem: Too much stock went to waste before it sold.
 ---
