@@ -7,4 +7,6 @@ year: 2026
 summary: One link, seven quick questions and a booked time. Our first client was us.
 link: /lab-notes/book-a-call-flow
 order: 1
+group: Startups & B2B
+problem: Booking a first call took days of back-and-forth messages.
 ---

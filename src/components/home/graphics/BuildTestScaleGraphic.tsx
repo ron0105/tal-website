@@ -67,7 +67,7 @@ export default function BuildTestScaleGraphic() {
             >
               <StepNode kind={s.kind} />
               <div className="pt-3 md:pt-0">
-                <p className="text-xl font-bold text-foreground" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
+                <p className="text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 500 }}>
                   {s.title}
                 </p>
                 <p className="text-sm text-body mt-1">{s.line}</p>

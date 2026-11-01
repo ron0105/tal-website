@@ -10,6 +10,8 @@ results: 1,000+ | sales a day, supported; 2M | site visitors a month; 10,000+ | 
 confirmed: no
 featured: 2
 order: 2
+group: D2C & Retail
+problem: A fast-growing gaming brand needed sales-led copy every day.
 ---
 
 ## The challenge

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import FinalCTA from "@/components/site/FinalCTA";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 import HWWFlow from "@/components/how-we-work/HWWFlow";
 import { WORK_WITH_YOU } from "@/lib/process";
@@ -87,21 +87,8 @@ export default function HowWeWork() {
         </div>
       </section>
 
-      <section aria-labelledby="hww-cta-heading" className="padding-section text-center" style={{ background: "var(--bg-secondary)" }}>
-        <AnimateOnScroll className="layout-grid">
-          <h2 id="hww-cta-heading" className="mb-10 text-foreground text-balance">
-            Step one is a short call.
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/call" className="btn-primary btn-lg">
-              Book a call
-            </Link>
-            <Link href="/work#team-work" className="btn-ghost btn-lg">
-              See our work
-            </Link>
-          </div>
-        </AnimateOnScroll>
-      </section>
+      {/* Every buyer page ends in Book a Free Call + WhatsApp (rebuild spec rule 6) */}
+      <FinalCTA />
     </div>
   );
 }

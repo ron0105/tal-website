@@ -6,11 +6,19 @@
 
 export const SITE_URL = "https://www.theaddalabs.com";
 
+// Buyers' WhatsApp (Rohan, Nov 1 2026: moved from 81693 15080). Every "Chat on WhatsApp" builds its link here.
+export const WHATSAPP_NUMBER = "917830603010";
+export const WHATSAPP_DEFAULT_TEXT = "Hi TAL, I want more customers for my business.";
+
+export function whatsappLink(text: string = WHATSAPP_DEFAULT_TEXT) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
 // Brand first so "The Adda Labs" searches still find us, then the three things people search for (SEO plan, Round 2)
-export const HOME_TITLE = "The Adda Labs · Websites, WhatsApp follow-ups & social media";
+export const HOME_TITLE = "The Adda Labs · More customers for your business. Guaranteed.";
 
 export const HOME_DESCRIPTION =
-  "Websites people find, WhatsApp auto-replies and follow-ups, and social media that brings customers. For businesses in Mumbai, Navi Mumbai and across India.";
+  "We build your website, run your Instagram and set up WhatsApp automation, all aimed at one number: paying customers. For businesses in Mumbai and across India.";
 
 const ROHAN = {
   "@type": "Person",
@@ -30,7 +38,8 @@ const ROHAN = {
 // so it isn't mixed up with the other "Adda" brands that show up for the name
 export const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  // Organization + ProfessionalService on every page (rebuild spec section 8)
+  "@type": ["Organization", "ProfessionalService"],
   "@id": `${SITE_URL}/#organization`,
   name: "The Adda Labs",
   alternateName: "TAL",
@@ -40,6 +49,17 @@ export const ORGANIZATION_JSON_LD = {
   description:
     "TAL, short for The Adda Labs, is a team in Mumbai and Navi Mumbai. We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.",
   email: "rohan@theaddalabs.com",
+  telephone: "+91-78306-03010",
+  // LLP Identification Number, as in the footer's legal line
+  identifier: { "@type": "PropertyValue", propertyID: "LLPIN", value: "ACZ-3000" },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    telephone: "+91-78306-03010",
+    url: `https://wa.me/917830603010`,
+    availableLanguage: ["en"],
+    areaServed: "IN",
+  },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Mumbai",

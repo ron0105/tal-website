@@ -9,6 +9,10 @@ results: 99% | orders fulfilled, up from 70-75% in 3 months; 67% | faster unload
 confirmed: yes
 featured: 3
 order: 1
+group: D2C & Retail
+problem: Only 70–75% of orders went out on time.
+did: Fixed dispatch, stock and marketplace operations across 4 warehouses.
+result: 99% | orders fulfilled in 3 months; 9–10 hours of manual work saved every week
 ---
 
 ## The challenge

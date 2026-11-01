@@ -6,6 +6,8 @@ sector: Restaurant · India
 year: 2026
 summary: Positioning, a 90-day plan linking social posts, reviews, referrals and loyalty, campaign posters, and a simple guide to the restaurant's numbers.
 order: 5
+group: Restaurants & Hospitality
+problem: A new bistro had a strong identity but no clear plan to win regulars.
 ---
 
 ## The challenge

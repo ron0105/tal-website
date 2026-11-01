@@ -8,6 +8,8 @@ results: $125K | revenue uplift the work contributed to
 confirmed: yes
 featured: 6
 order: 2
+group: Large Companies
+problem: Sales teams couldn't see where to grow, who might leave, or what to upsell.
 ---
 
 ## The work

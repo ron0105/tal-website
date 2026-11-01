@@ -6,6 +6,8 @@ sector: Sustainability software
 year: 2025
 summary: Pilot customers, onboarding, and turning sustainability rules into product use cases, pricing and sales stories.
 order: 3
+group: Startups & B2B
+problem: A sustainability compliance startup needed its first accounts.
 ---
 
 ## The work

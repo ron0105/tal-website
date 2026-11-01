@@ -7,6 +7,8 @@ year: 2019-20
 summary: Social media, blogs, influencer collaborations and campaign content for India's first alkaline water, built around three content pillars.
 cover: /work/alkalen/fountain-of-youth.webp
 order: 8
+group: D2C & Retail
+problem: Most Indian buyers had never heard of alkaline water.
 ---
 
 ## The challenge

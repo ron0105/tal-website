@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import FinalCTA from "@/components/site/FinalCTA";
 import Link from "next/link";
 import { getAllLabNotes, getLabNote, formatNoteDate } from "@/lib/lab-notes";
 import { SITE_URL } from "@/lib/site";
@@ -69,7 +70,8 @@ export default async function LabNotePage({
   };
 
   return (
-    <main className="bg-background" style={{ padding: "clamp(9rem, 15vh, 12rem) 1.5rem clamp(4rem, 8vh, 6rem)" }}>
+    <>
+    <div className="bg-background" style={{ padding: "clamp(9rem, 15vh, 12rem) 1.5rem clamp(4rem, 8vh, 6rem)" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbs]).replace(/</g, "\\u003c") }}
@@ -123,6 +125,8 @@ export default async function LabNotePage({
           </div>
         </aside>
       </article>
-    </main>
+    </div>
+    <FinalCTA />
+    </>
   );
 }

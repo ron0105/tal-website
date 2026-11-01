@@ -39,7 +39,8 @@ export async function POST(request: Request) {
     business: answers.business,
     score,
     band,
-    summary: answerLines(answers).join(" · "),
+    // UTM passthrough (rebuild spec section 8): where the lead came from rides on the summary
+    summary: [...answerLines(answers), str(raw.utm, 400) && `Source: ${str(raw.utm, 400)}`].filter(Boolean).join(" · "),
   });
   // "sent" = the script ran (it writes before replying), so the lead is saved
   const saved = reply === "sent" || (reply !== null && reply.ok === true);

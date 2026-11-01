@@ -6,6 +6,8 @@ sector: Healthcare · India
 year: 2026
 summary: A working Zoho CRM built around how the team actually sells, with AI added to day-to-day workflows. Delivered and confirmed by the client in writing.
 order: 4
+group: Clinics & Healthcare
+problem: The team needed a structured way to track customers and enquiries.
 ---
 
 ## The challenge

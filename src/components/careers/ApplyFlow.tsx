@@ -105,7 +105,7 @@ function CheckBox({
 }
 
 const inputClass =
-  "w-full px-4 py-3 text-base outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(14,107,104,0.18)]";
+  "w-full px-4 py-3 text-base outline-none transition-shadow focus:shadow-[0_0_0_3px_rgba(76,114,102,0.18)]";
 
 // ─── Main flow ───────────────────────────────────────────────────────────────
 

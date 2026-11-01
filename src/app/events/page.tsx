@@ -1,18 +1,40 @@
-import EventsHero from "@/components/events/EventsHero";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
+import Hero from "@/components/site/Hero";
+import { Section, SectionHead } from "@/components/site/Primitives";
+import { EVENTS as E } from "@/content/grow";
 
-export const metadata: Metadata = {
-  title: "Events",
-  description:
-    "Evenings in Mumbai where business owners, consultants and freelancers meet, curated around what you tell us you need.",
-};
+export const metadata: Metadata = { title: E.meta.title, description: E.meta.description };
 
-// Demand-test version (Nov 2026): one section that sends people to the form.
-// Event listings come once the first event is set from the responses.
+// Rebuild master prompt section 5.10: event list from content/grow.ts (none set yet), plus the
+// demand form that was this page's only section before (EventsHero stays on disk).
 export default function EventsPage() {
   return (
     <div>
-      <EventsHero />
+      <Hero eyebrow={`Grow With TAL · ${E.when}`} title={E.h1} sub={E.sub} />
+      <Section label={E.listTitle}>
+        <SectionHead title={E.listTitle} />
+        {E.events.length ? (
+          <ul className="grid gap-4">
+            {E.events.map((ev) => (
+              <li key={ev.name} className="card-hover p-6" style={{ background: "var(--bg)" }}>
+                <p className="font-bold">{ev.name}</p>
+                <p className="stat-label mt-2">
+                  {ev.date} · {ev.place}
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="source-line" style={{ fontSize: "1rem" }}>
+            {E.eventsTodo}
+          </p>
+        )}
+        <a href={E.formHref} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg mt-10">
+          {E.formText}
+          <ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" />
+        </a>
+      </Section>
     </div>
   );
 }

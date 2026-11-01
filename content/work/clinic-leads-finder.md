@@ -8,6 +8,8 @@ summary: Checks clinics' Google listings and websites for the gaps that quietly 
 results: 20 of 30 | top-rated dentists had an enquiry gap; 10 of 30 | had no website on Google; 1 | website link opened a gambling site
 confirmed: yes
 order: 2
+group: Clinics & Healthcare
+problem: Clinics lose patient enquiries in places owners never look.
 ---
 
 ## The problem

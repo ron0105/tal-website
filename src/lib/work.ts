@@ -10,6 +10,10 @@
 //   sector, year, cover (/work/...), link (card goes here instead of its own page),
 //   results ("10M+ | monthly reach; 3x | sales growth"), confirmed (yes | no),
 //   featured (1, 2, 3... puts the first result in the impact strip on /work), order (lower first)
+//   Rebuild (Nov 1 2026): group (a /work filter, one of WORK_GROUPS), problem (one line for the
+//   Problem → What we did → Result card), did (overrides summary on the card), result (overrides
+//   the card's result, same "value | label" form; still needs confirmed: yes), hidden (yes = off the
+//   cards; its page stays live so no URL breaks)
 // A body under the frontmatter gets its own page at /work/<slug>.
 
 import fs from "node:fs";
@@ -18,6 +22,10 @@ import { marked } from "marked";
 
 export const WORK_LANES = ["Socials & content", "Websites & automation", "Strategy & growth", "Operations & supply chain"] as const;
 export type WorkLane = (typeof WORK_LANES)[number];
+
+// The /work filters (rebuild spec 5.6), in chip order after "All"
+export const WORK_GROUPS = ["Clinics & Healthcare", "Restaurants & Hospitality", "D2C & Retail", "Startups & B2B", "Large Companies"] as const;
+export type WorkGroup = (typeof WORK_GROUPS)[number];
 
 export interface WorkResult {
   value: string;
@@ -38,6 +46,11 @@ export interface WorkPiece {
   featured?: number;
   order: number;
   html: string;
+  group?: WorkGroup;
+  problem?: string;
+  did?: string;
+  cardResult?: WorkResult;
+  hidden: boolean;
 }
 
 const DIR = path.join(process.cwd(), "content", "work");
@@ -89,6 +102,11 @@ function parse(slug: string, raw: string): WorkPiece {
     featured: Number(meta.featured) || undefined,
     order: Number(meta.order) || 99,
     html: match[2].trim() ? marked.parse(match[2], { async: false }) : "",
+    group: WORK_GROUPS.includes(meta.group as WorkGroup) ? (meta.group as WorkGroup) : undefined,
+    problem: meta.problem || undefined,
+    did: meta.did || undefined,
+    cardResult: showResults && meta.result ? parseResults(meta.result.replace(";", ",")).at(0) : undefined,
+    hidden: meta.hidden === "yes",
   };
 }
 
@@ -132,4 +150,9 @@ export function workHref(w: WorkPiece): string | undefined {
 /** "Gaming · India · Since 2022", skipping whichever parts are missing. */
 export function workMeta(w: WorkPiece): string {
   return [w.sector, w.year].filter(Boolean).join(" · ");
+}
+
+/** Year on a card only for work from 2025 onward (rebuild spec 5.6): "2025", "2026", not "2024-25" or "Since 2022". */
+export function cardYear(year?: string): string | undefined {
+  return year && /^20\d\d$/.test(year) && Number(year) >= 2025 ? year : undefined;
 }

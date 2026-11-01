@@ -5,6 +5,8 @@ lane: Socials & content
 sector: Home and flooring · India
 summary: Name, voice and look for a new waterproof flooring brand, then three social series that turned product features into everyday stories.
 order: 8
+group: D2C & Retail
+problem: A new flooring product had no name, no voice and no look.
 ---
 
 ## The challenge

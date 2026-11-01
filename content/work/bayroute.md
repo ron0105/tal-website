@@ -7,6 +7,8 @@ year: 2025
 summary: A launch set for a restaurant's new cocktail menu: a title post, one post per drink, and a launch reel, made to go out together.
 cover: /work/bayroute/post-5.webp
 order: 3
+group: Restaurants & Hospitality
+problem: A new cocktail menu needed to launch like an event, not a new page in the menu.
 ---
 
 ## The challenge

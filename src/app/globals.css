@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-@theme {
+/* inline: utilities read the token at the element, so a .canvas-dark band re-colours text-foreground etc. */
+@theme inline {
   --color-background: var(--bg);
   --color-background-secondary: var(--bg-secondary);
   --color-background-lift: var(--bg-lift);
@@ -16,44 +16,61 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-ink: var(--accent-text);
 
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-poppins: 'Fraunces', serif;
-  
-  --radius-card: 4px;
-  --radius-btn: 6px;
+  /* Fonts come from next/font (src/app/fonts.ts), which sets these three variables on <html> */
+  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-poppins: var(--font-fraunces), serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Spec section 6: 8px spacing steps (Tailwind's unit is fixed at 4px, so even steps are 8px
+     regardless of the 17px root), 12px card corners, pill buttons */
+  --spacing: 4px;
+  --radius-card: 12px;
+  --radius-btn: 999px;
 }
 
 @layer base {
   :root {
-    /* One theme only — no dark mode (Rohan, Aug 26 2026).
-       Palette "Peacock" (Rohan, Sep 11 2026): deep peacock-teal brand,
-       copper accent, warm-cool neutral paper. Moves TAL off navy. */
-    --bg: #F2F4F2;
-    --bg-secondary: #F6F2EA;
-    --bg-lift: #E7EEEC;
+    /* One theme only, no toggle (spec section 6: the dark/light alternation is a design choice).
+       Colours from the rebuild master prompt (Rohan, Nov 1 2026), replacing Peacock + copper:
+       teal #4C7266 is the one accent; dark bands near-black, light bands warm off-white.
+       Contrast on --bg: text 17:1, muted 5.4:1, teal 4.9:1, --accent-text 6.7:1, --border-strong 3.8:1. */
+    --bg: #F7F5F0;
+    --bg-secondary: #F1EEE7;
+    --bg-lift: #ECE9E2;
 
-    --border-color: #D6E0DD;
-    --border-subtle: #E6EDEB;
+    --border-color: #DDD9D0;
+    --border-subtle: #E8E4DC;
 
-    --text-primary: #14201E;
-    --text-body: #33423E;
-    --text-muted: #5A6A66;
+    --text-primary: #141816;
+    --text-body: #2B302D;
+    --text-muted: #636562;
 
-    /* TAL Brand — Peacock teal + Copper (Sep 2026) */
-    --brand: #0E6B68;
-    --brand-hover: #0A5150;
-    --accent: #C06B3A;
-    --accent-hover: #A5572C;
-    /* Copper is mid-tone; on peacock bands use this lighter copper for legible text */
-    --accent-on-brand: #E9B48D;
-    /* Same copper hue, darkened for small text on paper (4.5:1+ on --bg, --bg-secondary, --bg-lift).
-       --accent itself is 3.5:1 on paper, so keep it for lines, borders and large type only. */
-    --accent-text: #9A5026;
-    /* Button/control outline that reaches 3:1 on paper (--border-color is for quiet dividers) */
-    --border-strong: #758783;
+    --brand: #4C7266;
+    --brand-hover: #3E5D54;
+    /* The accent is the same teal (spec: one accent). --accent-text is the darker step for small text. */
+    --accent: #4C7266;
+    --accent-hover: #3E5D54;
+    --accent-on-brand: #DCE7E3;
+    --accent-text: #3E5D54;
+    --border-strong: #7A7D78;
 
-    /* Navbar background */
-    --navbar-bg: rgba(242, 244, 242, 0.90);
+    --navbar-bg: rgba(247, 245, 240, 0.92);
+
+    /* Dark bands (hero, final CTA). On #0F1412: #EDEBE6 15.8:1, muted 7.1:1, light teal 7.6:1. */
+    --canvas-dark: #0F1412;
+    --on-dark: #EDEBE6;
+    --on-dark-muted: #9FA09C;
+    --brand-on-dark: #94AAA3;
+    --brand-tint: rgba(76, 114, 102, 0.10);
+    --hairline: rgba(20, 24, 22, 0.12);
+    --hairline-on-dark: rgba(237, 235, 230, 0.14);
+
+    /* Motion (spec section 7): one easing, and --m shortens time and distance by 30% on phones */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --m: 1;
+  }
+  @media (max-width: 767px) {
+    :root { --m: 0.7; }
   }
 }
 
@@ -69,8 +86,8 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text-primary);
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.7;
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -111,14 +128,15 @@ body {
      tertiary 0.75rem   captions, labels, eyebrows         (text-xs / .label-eyebrow) */
 @layer base {
   h1, h2 {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-fraunces), serif;
     font-weight: 500;
     letter-spacing: -0.02em;
   }
-  h1 { font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: 1.05; }
+  /* 38px on phones to 72px on desktop (rebuild spec) */
+  h1 { font-size: clamp(2.25rem, 5.2vw, 4.25rem); line-height: 1.08; letter-spacing: -0.01em; }
   h2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.12; }
   h3 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-jakarta), sans-serif;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.3;
@@ -128,15 +146,15 @@ body {
 
 /* Legacy class names, kept so nothing breaks; they now point at the scale. */
 .text-display, .text-page-title {
-  font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.02em;
+  font-family: var(--font-fraunces), serif; font-weight: 500; letter-spacing: -0.02em;
   font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: 1.05;
 }
 .text-section-title {
-  font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.02em;
+  font-family: var(--font-fraunces), serif; font-weight: 500; letter-spacing: -0.02em;
   font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.12;
 }
 .text-subsection {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+  font-family: var(--font-jakarta), sans-serif; font-weight: 700;
   font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em;
 }
 .body-copy {
@@ -146,10 +164,12 @@ body {
   font-weight: 400;
 }
 
+/* Eyebrows are set in IBM Plex Mono (rebuild spec): the topic label, never the takeaway */
 .label-eyebrow {
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -197,34 +217,32 @@ body {
   padding: 16px 32px;
   font-size: 1rem;
 }
+/* M7 button feedback: hover moves the fill one shade and the arrow 4px (150ms), press scales to 0.98 (100ms) */
 .btn-primary {
   background: var(--brand);
   color: #FFFFFF;
   border: 1px solid var(--brand);
-  transition: all 0.2s ease;
+  transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 100ms var(--ease-out);
 }
 .btn-primary:hover {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(20, 32, 30, 0.35);
 }
 .btn-primary:active {
-  transform: translateY(0px) scale(0.98);
-  box-shadow: none;
+  transform: scale(0.98);
 }
 .btn-primary svg {
-  transition: transform 0.2s ease;
+  transition: transform 150ms var(--ease-out);
 }
 .btn-primary:hover svg {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border-strong);
-  transition: all 0.15s ease;
+  transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 100ms var(--ease-out);
 }
 .btn-ghost:hover {
   border-color: var(--accent);
@@ -232,14 +250,30 @@ body {
   background: transparent;
 }
 .btn-ghost:active {
-  transform: scale(0.99);
+  transform: scale(0.98);
 }
 .btn-ghost svg {
-  transition: transform 0.15s ease;
+  transition: transform 150ms var(--ease-out);
 }
 .btn-ghost:hover svg {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
+
+/* M7 for text links that end in an arrow ("See how we do it →"): arrow moves 4px, press scales */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--brand);
+  transition: color 150ms var(--ease-out), transform 100ms var(--ease-out);
+}
+.canvas-dark .link-arrow { color: var(--brand-on-dark); }
+.link-arrow:hover { color: var(--brand-hover); }
+.link-arrow svg { transition: transform 150ms var(--ease-out); }
+.link-arrow:hover svg { transform: translateX(4px); }
+.link-arrow:active { transform: scale(0.98); }
 
 /* ─── Keyboard focus ───
    One visible ring for every link, button and control. Peacock on paper is 6:1. */
@@ -264,8 +298,8 @@ textarea:focus-visible {
 }
 .card-interactive:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(192, 107, 58, 0.2);
-  border-color: rgba(192, 107, 58, 0.3) !important;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(76, 114, 102, 0.2);
+  border-color: rgba(76, 114, 102, 0.3) !important;
 }
 
 /* Lift + soft copper glow — leaves borders untouched (for cards with accent spines) */
@@ -275,7 +309,7 @@ textarea:focus-visible {
 }
 .card-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px -14px rgba(20, 32, 30, 0.14), 0 0 24px -8px rgba(192, 107, 58, 0.22);
+  box-shadow: 0 18px 40px -14px rgba(20, 24, 22, 0.14);
 }
 
 /* Tiles on peacock bands — subtle lift, lighter peacock, restrained copper inset ring */
@@ -285,8 +319,8 @@ textarea:focus-visible {
 }
 .card-lift-dark:hover {
   transform: translateY(-3px);
-  background: #0F7C78 !important;
-  box-shadow: inset 0 0 0 1px rgba(233, 180, 141, 0.32);
+  background: #3E5D54 !important;
+  box-shadow: inset 0 0 0 1px rgba(220, 231, 227, 0.32);
 }
 
 /* Quiet rows — surface brightens on hover, no movement */
@@ -338,4 +372,275 @@ textarea:focus-visible {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+}
+
+/* ═══ Rebuild foundation (Nov 1 2026) ═══════════════════════════════════════════
+   Layout, exhibits and the motion library M1-M13 from the rebuild spec.
+   Motion is CSS first: it plays from the first paint, needs no React, and the
+   reduced-motion block at the bottom switches all of it off in one place. */
+
+/* SVG labels use the font through CSS, since a presentation attribute can't read a variable */
+svg text, svg tspan {
+  font-family: var(--font-jakarta), sans-serif;
+}
+
+/* ─── Layout: 1200px content, 24px / 48px gutters, 64px / 96-128px section padding ─── */
+.wrap {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  width: 100%;
+}
+.section {
+  padding-block: 64px;
+}
+@media (min-width: 768px) {
+  .wrap { padding-inline: 48px; }
+  .section { padding-block: clamp(96px, 11vh, 128px); }
+}
+
+/* The fixed header turns dark while it sits over a dark hero ([data-hero].canvas-dark), from the
+   first paint (CSS :has, no JS); the Navbar sets data-past-hero once the hero has scrolled away. */
+body:has([data-hero].canvas-dark) .site-header:not([data-past-hero]):not([data-menu-open]) {
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  backdrop-filter: none !important;
+  --text-primary: var(--on-dark);
+  --text-body: var(--on-dark);
+  --text-muted: var(--on-dark-muted);
+  --accent-text: var(--accent-on-brand);
+}
+
+/* Dark band (hero and final CTA). It re-points the text tokens, so anything inside that
+   already reads var(--text-*) or var(--border-*) turns light without its own dark styles. */
+.canvas-dark {
+  background: var(--canvas-dark);
+  color: var(--on-dark);
+  --text-primary: var(--on-dark);
+  --text-body: var(--on-dark);
+  --text-muted: var(--on-dark-muted);
+  --border-subtle: var(--hairline-on-dark);
+  --border-color: var(--hairline-on-dark);
+  --border-strong: rgba(237, 235, 230, 0.45);
+  --accent-text: var(--accent-on-brand);
+}
+.canvas-light {
+  background: var(--bg);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.hairline {
+  height: 1px;
+  background: var(--hairline);
+}
+.measure {
+  max-width: 65ch;
+}
+
+/* ─── Exhibits: stat callouts and source lines ─── */
+.stat-number {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 500;
+  font-size: clamp(3.75rem, 7vw, 5.65rem); /* 64px to 96px */
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+}
+.canvas-dark .stat-number { color: var(--brand-on-dark); }
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.source-line {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ─── Motion keyframes. Every one runs "from" a start state back to the element's own style,
+   with fill-mode backwards, so a finished animation never pins transform and hover still works. ─── */
+@keyframes tal-in {
+  from { opacity: 0; transform: translateY(var(--rise, 16px)); }
+}
+@keyframes tal-fade {
+  from { opacity: 0; }
+}
+@keyframes tal-bar {
+  from { transform: scaleX(0); }
+}
+@keyframes tal-draw {
+  from { stroke-dashoffset: 1; }
+}
+@keyframes tal-node {
+  from { opacity: 0; transform: scale(0.92); }
+}
+@keyframes tal-marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* M1 headline word reveal: 450ms per word, 40ms apart, from the first paint (no JS) */
+.wr-word {
+  display: inline-block;
+  --rise: calc(12px * var(--m));
+  animation: tal-in calc(450ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 40ms * var(--m));
+}
+/* Sub-headline and buttons that follow the H1; WordReveal's heroDelay() gives --delay */
+.hero-follow {
+  --rise: calc(12px * var(--m));
+  animation: tal-in calc(450ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: calc(var(--delay, 0ms) * var(--m));
+}
+
+/* M2 section reveal and M3 card stagger. Everything is visible by default. After the page has
+   loaded, the reveal script marks blocks already on screen as shown (data-in="static", no
+   animation) and then adds .js to <html>; only blocks further down wait, and each animates in
+   once when 20% is in view (data-in). A phone without JS, or a slow load, sees everything. */
+.js [data-reveal]:not([data-in]) > * { opacity: 0; }
+[data-reveal][data-in] > * {
+  --rise: calc(16px * var(--m));
+  animation: tal-in calc(500ms * var(--m)) var(--ease-out) backwards;
+}
+[data-reveal="section"][data-in] > :nth-child(2) { animation-delay: 80ms; }
+[data-reveal="section"][data-in] > :nth-child(n + 3) { animation-delay: 160ms; }
+
+[data-reveal="stagger"][data-in] > * { --rise: calc(24px * var(--m)); }
+[data-reveal="stagger"][data-in] > :nth-child(2) { animation-delay: 70ms; }
+[data-reveal="stagger"][data-in] > :nth-child(3) { animation-delay: 140ms; }
+[data-reveal="stagger"][data-in] > :nth-child(4) { animation-delay: 210ms; }
+[data-reveal="stagger"][data-in] > :nth-child(5) { animation-delay: 280ms; }
+[data-reveal="stagger"][data-in] > :nth-child(n + 6) { animation-delay: 350ms; }
+
+/* A block that should arrive as one piece, with no translate on its children */
+[data-reveal="fade"][data-in] > * { animation-name: tal-fade; }
+
+/* M5 bar grow: give each .bar a style --i (0, 1, 2...) for the 120ms stagger */
+.bar { transform-origin: left center; }
+.js [data-reveal]:not([data-in]) .bar { transform: scaleX(0); }
+[data-reveal][data-in] .bar {
+  animation: tal-bar calc(700ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 120ms);
+}
+.js [data-reveal]:not([data-in]) .bar-label { opacity: 0; }
+[data-reveal][data-in] .bar-label {
+  animation: tal-fade 300ms var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 120ms + 600ms * var(--m));
+}
+
+/* M6 line draw: paths need pathLength="1" and class .draw; nodes get .draw-node and --at
+   (the ms when the line reaches them), so they appear in the order the system connects */
+.draw { stroke-dasharray: 1; }
+.js [data-reveal]:not([data-in]) .draw { stroke-dashoffset: 1; }
+[data-reveal][data-in] .draw {
+  animation: tal-draw calc(800ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: var(--at, 0ms);
+}
+.draw-node { transform-box: fill-box; transform-origin: center; }
+.js [data-reveal]:not([data-in]) .draw-node { opacity: 0; }
+[data-reveal][data-in] .draw-node {
+  animation: tal-node calc(400ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: var(--at, 0ms);
+}
+/* The hero diagram draws from first paint, right after the H1 (like M1), not on scroll */
+.hero-draw .draw {
+  animation: tal-draw calc(800ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: calc(var(--at, 0ms) * var(--m));
+}
+.hero-draw .draw-node {
+  animation: tal-node calc(400ms * var(--m)) var(--ease-out) backwards;
+  animation-delay: calc(var(--at, 0ms) * var(--m));
+}
+
+/* Blocks that were already on screen at load just stay as they are */
+[data-reveal][data-in="static"] > *,
+[data-reveal][data-in="static"] .bar,
+[data-reveal][data-in="static"] .bar-label,
+[data-reveal][data-in="static"] .draw,
+[data-reveal][data-in="static"] .draw-node { animation: none; }
+
+/* Diagrams wider than a phone screen show their final state on mobile */
+@media (max-width: 767px) {
+  .draw-static .draw,
+  .draw-static .draw-node { animation: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; }
+}
+
+/* M8 logo marquee: 40s a loop, pauses on hover and while off-screen ([data-paused] from the script) */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-row {
+  display: flex;
+  width: max-content;
+  animation: tal-marquee 40s linear infinite;
+}
+.marquee:hover .marquee-row,
+.marquee[data-paused] .marquee-row { animation-play-state: paused; }
+
+/* M9 accordion: height through grid rows, 300ms; the chevron turns 180° */
+.acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows calc(300ms * var(--m)) var(--ease-out);
+}
+.acc-panel[data-open] { grid-template-rows: 1fr; }
+.acc-panel > div { overflow: hidden; }
+.acc-chevron { transition: transform calc(300ms * var(--m)) var(--ease-out); }
+[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); }
+
+/* M11 mobile sticky bar: slides up once the hero has gone, hides over the footer */
+.sticky-bar {
+  transform: translateY(100%);
+  transition: transform calc(300ms * var(--m)) var(--ease-out);
+}
+.sticky-bar[data-show] { transform: translateY(0); }
+
+/* M12 card hover (desktop): lift 4px, border to peacock at 60%, one very soft shadow */
+.card-hover {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+@media (hover: hover) and (min-width: 1024px) {
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(76, 114, 102, 0.6);
+    box-shadow: 0 12px 28px -20px rgba(20, 32, 30, 0.35);
+  }
+}
+
+/* ─── Reduced motion: nothing moves. Opacity changes are instant, numbers show final values,
+   the marquee becomes one still row. ─── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .wr-word,
+  .hero-follow,
+  [data-reveal][data-in] > *,
+  [data-reveal][data-in] .bar,
+  [data-reveal][data-in] .bar-label,
+  [data-reveal][data-in] .draw,
+  [data-reveal][data-in] .draw-node,
+  .hero-draw .draw,
+  .hero-draw .draw-node { animation: none !important; }
+  .js [data-reveal]:not([data-in]) .bar { transform: none; }
+  .js [data-reveal]:not([data-in]) .draw { stroke-dashoffset: 0; }
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee-row { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: 24px; }
+  .marquee-dup { display: none; }
+  .acc-panel, .acc-chevron, .sticky-bar, .card-hover,
+  .btn-primary, .btn-ghost, .btn-primary svg, .btn-ghost svg,
+  .link-arrow, .link-arrow svg { transition: none; }
+  .card-hover:hover, .btn-primary:active, .btn-ghost:active, .link-arrow:active,
+  .btn-primary:hover svg, .btn-ghost:hover svg, .link-arrow:hover svg { transform: none; }
 }

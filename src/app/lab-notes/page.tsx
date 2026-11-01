@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FinalCTA from "@/components/site/FinalCTA";
 import Link from "next/link";
 import { AnimateOnScroll } from "@/components/shared/AnimateOnScroll";
 import { getAllLabNotes, formatNoteDate } from "@/lib/lab-notes";
@@ -65,21 +66,7 @@ export default function LabNotes() {
         </AnimateOnScroll>
       </section>
 
-      <section aria-labelledby="lab-notes-cta-heading" className="padding-section text-center bg-background">
-        <AnimateOnScroll className="layout-grid">
-          <h2 id="lab-notes-cta-heading" className="mb-10 text-foreground">
-            Want this kind of work on your problem?
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/call" className="btn-primary btn-lg">
-              Book a call
-            </Link>
-            <Link href="/how-we-work" className="btn-ghost btn-lg">
-              See how we work
-            </Link>
-          </div>
-        </AnimateOnScroll>
-      </section>
+      <FinalCTA />
     </div>
   );
 }

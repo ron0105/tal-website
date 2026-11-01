@@ -10,6 +10,8 @@ results: 3x | sales growth; 10K+ | people reached; 300+ | new followers
 confirmed: no
 featured: 4
 order: 1
+group: Startups & B2B
+problem: An AI accessibility platform needed a believable voice in a doubtful B2B market.
 ---
 
 ## The challenge
