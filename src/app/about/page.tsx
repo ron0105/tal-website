@@ -58,7 +58,6 @@ export default function About() {
             </div>
           ))}
         </Reveal>
-        <p className="source-line mt-8">{A.team.todo}</p>
       </Section>
 
       <FinalCTA />

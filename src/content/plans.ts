@@ -2,8 +2,6 @@
 // Rebuild master prompt section 5.4. Decision (Rohan, Nov 1 2026): no prices on the site, so the
 // paid plans say "Price on the free call" where the prompt had "From ₹TODO".
 
-import { TODO } from "./common";
-
 export type Plan = {
   name: string;
   for: string;
@@ -65,12 +63,14 @@ export const PLANS_PAGE = {
   h1: "Pick the plan that fits where you are.",
   sub: "Start free. Pay only when you're ready.",
   bonusesTitle: "Bonuses with the Growth System",
+  // The bonus stack from how-we-work/Grand Slam build - Clinics (Nov 1), each one answering a worry.
+  // No rupee values: TAL keeps no prices on the site or in the offer files (Rohan, Nov 1 2026).
   bonuses: [
-    "Google review system (worth ₹15,000)",
-    "Missed-call auto-reply on WhatsApp (worth ₹10,000)",
-    "Monthly results report you can read in 2 minutes",
+    "Review-request message, so happy customers leave a Google review",
+    "Enquiry Follow-Up Kit: what to say at each step",
+    "20-minute walkthrough and a one-page cheat sheet for your staff",
+    "Day 1 vs day 14 reply-time report, so you see the change",
   ],
-  bonusesTodo: TODO("confirm bonus values"),
   compareTitle: "Compare the plans",
   compareRows: [
     { label: "For", key: "for" },

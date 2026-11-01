@@ -2,8 +2,6 @@
 // Rebuild master prompt section 5.10. Builders only: reached from the footer and Careers, never
 // from buyer pages, and never naming clients or client work.
 
-import { TODO } from "./common";
-
 export const GROW = {
   meta: {
     title: "Grow With TAL: live projects, training and events",
@@ -36,10 +34,15 @@ export const TRAINING = {
   },
   h1: "Skills businesses actually pay for.",
   sub: "Short, practical courses in marketing, content, sales and automation. Learn it, then use it on a live project.",
-  button: "See upcoming batches",
-  batchesTitle: "Upcoming batches",
-  batches: [] as { name: string; dates: string; mode: string }[],
-  batchesTodo: TODO("batch data"),
+  // HQ has no batch dates; the four 15-day tracks are the courses (TAL context file, section 3a)
+  button: "See the tracks",
+  batchesTitle: "Four tracks, 15 days each",
+  batches: [
+    { name: "Growth", line: "Marketing and sales: finding and talking to businesses", href: "/careers/growth" },
+    { name: "Content", line: "Posts, reels and copy for real brands", href: "/careers/content" },
+    { name: "Build", line: "Websites and automation for real businesses", href: "/careers/build" },
+    { name: "Research", line: "Audits and market checks on real businesses", href: "/careers/research" },
+  ],
 };
 
 export const EVENTS = {
@@ -52,7 +55,8 @@ export const EVENTS = {
   when: "Monthly · Mumbai",
   listTitle: "Upcoming events",
   events: [] as { name: string; date: string; place: string; href?: string }[],
-  eventsTodo: TODO("first event"),
+  // No date in HQ yet: the first event is set from the demand form's answers (project_tal, Oct 30)
+  eventsEmpty: "The first event is being planned from what people tell us in the form below.",
   // The demand form that already ran on /events (Oct 30 2026), kept so responses keep coming in
   formText: "Tell us what you'd want from an evening like this",
   formHref: "https://docs.google.com/forms/d/e/1FAIpQLSeV-vC7Y2Ze5irz8_13z9KhsyfbxrZCslY4ryQbgc4BtSW8Og/viewform",

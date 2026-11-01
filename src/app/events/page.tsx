@@ -26,9 +26,7 @@ export default function EventsPage() {
             ))}
           </ul>
         ) : (
-          <p className="source-line" style={{ fontSize: "1rem" }}>
-            {E.eventsTodo}
-          </p>
+          <p className="body-copy measure">{E.eventsEmpty}</p>
         )}
         <a href={E.formHref} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg mt-10">
           {E.formText}

@@ -37,7 +37,6 @@ export default function CallPage() {
         <CallFlow />
         <div className="mt-10 pt-8 flex flex-wrap items-center gap-4" style={{ borderTop: "1px solid var(--hairline)" }}>
           <WhatsAppButton text={C.whatsapp} />
-          <p className="source-line">{C.reply}</p>
         </div>
       </div>
     </div>

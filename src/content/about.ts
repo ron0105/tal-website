@@ -1,8 +1,6 @@
 // ─── About (/about) ──────────────────────────────────────────────────────────
 // Rebuild master prompt section 5.8. The two bios and photos are the ones already on the site
-// (src/components/about/AboutTeam.tsx), so nothing new is claimed; anything more is a TODO.
-
-import { TODO } from "./common";
+// (src/components/about/AboutTeam.tsx). The core team is these two (TAL context file, section 2).
 
 export const ABOUT = {
   meta: {
@@ -42,6 +40,5 @@ export const ABOUT = {
         bio: "Multidisciplinary visual artist, designer, and video editor with over three years of experience. Translates strategy into visual identity and communication that actually lands.",
       },
     ],
-    todo: TODO("photos and bios for the rest of the core team"),
   },
 };

@@ -3,9 +3,7 @@
 // From the prompt's table: H1, daily pain line, system name, system parts, proof, free check.
 // Written new under the copy rules (section 4): each page's leak title, its 3 problem cards in
 // the owner's words, and its 3 FAQs. None of them states a number or a result.
-// Proof is never borrowed from another sector; a sector with none shows a TODO.
-
-import { TODO } from "./common";
+// Proof is never borrowed from another sector; a sector with none says so plainly.
 
 export type Proof =
   | { kind: "stat"; value: string; label: string; source: string; href: string }
@@ -90,7 +88,8 @@ export const SECTORS_DATA: Sector[] = [
       "Site-visit booking and reminders",
       "Follow-up for leads who went quiet",
     ],
-    proof: { kind: "todo", text: TODO("real estate proof (no case yet)") },
+    // No real estate case in HQ yet (client records, Nov 1). Said plainly, never borrowed from another sector.
+    proof: { kind: "todo", text: "No real estate case on the site yet. Your project could be the first, and you'd see the day 1 vs day 14 reply-time report for yourself." },
     faqs: [
       { q: "Will an AI voice agent put buyers off?", a: "It makes the first call, fast, so no lead waits. Your team takes over for the conversations that need a person." },
       { q: "Does it work with portal leads?", a: "Yes. Every portal lead gets an instant WhatsApp reply, then a first call." },

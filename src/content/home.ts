@@ -2,7 +2,7 @@
 // Rebuild master prompt section 5.1, word for word, with Rohan's Nov 1 2026 decisions:
 // capacity is 5 clients a month (prompt said 4), and no prices on the site (FAQ "Is this costly?").
 
-import { CAPACITY_LINE, TODO } from "./common";
+import { CAPACITY_LINE } from "./common";
 
 export const HOME = {
   meta: {
@@ -75,7 +75,8 @@ export const HOME = {
       { q: "We tried an agency before and it didn't work.", a: "Most agencies stop at posts and likes. We measure enquiries and customers, and we report them every month." },
       { q: "Is this costly?", a: "We share the price on the free call, once we know what you need. We'll tell you honestly if it's worth it for you." },
       { q: "Do I have to come on camera?", a: "No. We can work with or without your face." },
-      { q: "How soon will I see results?", a: TODO("confirm a realistic timeline before publishing.") },
+      // From the 14-Day Full Diary Plan (how-we-work/Sales call script, Grand Slam build - Clinics)
+      { q: "How soon will I see results?", a: "In 14 days. Your system goes live and every enquiry gets a reply within 2 minutes, any hour. You see the change in a day 1 vs day 14 reply-time report." },
       { q: "I'm not good with tech.", a: "You don't need to be. We set everything up and run it." },
     ],
   },
