@@ -21,7 +21,7 @@ const paths: Path[] = [
     body: "We take your idea through our 6-stage framework, mapping the assumptions it lives or dies on, then testing each one against real potential customers and real market data. Not your friends. Not a survey of strangers on the internet. The people who would actually pay.",
     promise: "You end with a clear call: go, don't go, or pivot, and the evidence behind it, written up so you can show a co-founder, a spouse, or an investor.",
     cta: "Validate my idea",
-    href: "https://wa.me/918169315080?text=Hi%2C%20I%27d%20like%20to%20validate%20a%20business%20idea%20with%20TAL.",
+    href: "https://wa.me/917830603010?text=Hi%2C%20I%27d%20like%20to%20validate%20a%20business%20idea%20with%20TAL.",
   },
   {
     eyebrow: "Start here if…",
@@ -36,7 +36,7 @@ const paths: Path[] = [
     ],
     promise: "Honest feedback and working systems. No retainers-for-life, no dependency model. We build it so you can run it without us.",
     cta: "Talk to us",
-    href: "https://wa.me/918169315080?text=Hi%2C%20I%27m%20building%20something%20and%20would%20like%20a%20consult%20with%20TAL.",
+    href: "https://wa.me/917830603010?text=Hi%2C%20I%27m%20building%20something%20and%20would%20like%20a%20consult%20with%20TAL.",
   },
 ];
 
