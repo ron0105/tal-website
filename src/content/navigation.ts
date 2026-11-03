@@ -15,9 +15,9 @@ export const SECTORS: NavLink[] = [
 
 export const WHO_WE_HELP: NavLink = { label: "Who We Help", href: "/sectors" };
 
-// Desktop: Who We Help ▾ · Plans · Work · Free Tools · About, then the Book a Free Call button
+// Desktop: Who We Help ▾ · Pricing · Work · Free Tools · About, then the Book a Free Call button
 export const MAIN_NAV: NavLink[] = [
-  { label: "Plans", href: "/pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Work", href: "/work" },
   { label: "Free Tools", href: "/tools" },
   { label: "About", href: "/about" },

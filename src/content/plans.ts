@@ -17,13 +17,14 @@ const ON_CALL = "Price on the free call";
 
 export const PLANS: Plan[] = [
   {
-    name: "Free Business Check",
+    // Same offer as /pricing (Nov 3 2026): the 20-minute audit call, not the /tools report form
+    name: "Free Audit",
     for: "Any business owner",
-    get: "20-minute review of where you're losing enquiries, with 3 quick fixes",
-    promise: "Useful even if you never hire us",
+    get: "20-minute call: what's not working, how it should work, and what to fix, in order",
+    promise: "Yours to keep, whether or not we ever work together",
     price: "Free",
-    cta: "Get My Free Check",
-    ctaHref: "/tools#free-check",
+    cta: "Book a Free Audit",
+    ctaHref: "/call",
   },
   {
     name: "Idea Check",
@@ -112,5 +113,5 @@ export const PLANS_PAGE = {
 export const PLANS_PREVIEW = {
   eyebrow: "How to start",
   title: "Start free. Grow when it works.",
-  link: "Compare plans",
+  link: "How pricing works",
 };

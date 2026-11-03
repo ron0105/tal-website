@@ -23,6 +23,6 @@ export const SERVICES = {
       "Idea Check: 14 days of customer talks, a market check and an honest answer: build it or drop it",
       "Growth Partner: monthly strategy, marketing and systems, like a marketing head and tech head in one",
     ],
-    link: "See the plans",
+    link: "How pricing works",
   },
 };

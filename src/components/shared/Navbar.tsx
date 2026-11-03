@@ -11,7 +11,7 @@ import { EASE, motionScale } from "@/lib/motion";
 import { whatsappLink } from "@/lib/site";
 import { CALL_CTA, CHROME, MAIN_NAV, SECTORS, WHO_WE_HELP, live, whatsappTextFor } from "@/content/navigation";
 
-// Rebuild nav (Nov 1 2026): Who We Help ▾ · Plans · Work · Free Tools · About · [Book a Free Call].
+// Rebuild nav (Nov 1 2026): Who We Help ▾ · Pricing · Work · Free Tools · About · [Book a Free Call].
 // Links whose pages aren't built yet stay hidden (content/navigation.ts).
 const isActive = (pathname: string, href: string) => {
   const path = href.split("?")[0];
