@@ -75,7 +75,7 @@ export const WHATSAPP_MESSAGES: Record<string, string> = {
   "/sectors/restaurants": "Hi TAL, I run a restaurant and want more regulars.",
   "/sectors/d2c": "Hi TAL, I run a D2C brand and want more repeat buyers.",
   "/sectors/founders": "Hi TAL, I have a startup idea and want to test it before I build.",
-  "/pricing": "Hi TAL, I want to know which plan fits my business.",
+  "/pricing": "Hi TAL, I'd like a free audit of my business.",
   "/work": "Hi TAL, I saw your work and want similar results for my business.",
   "/tools": "Hi TAL, I want a free check of my business.",
 };

@@ -55,39 +55,58 @@ export const PLANS: Plan[] = [
   },
 ];
 
+// /pricing is the free audit page (Rohan, Nov 3 2026): copy from the pricing copy doc, word for word,
+// with a partner's "free audit, no strings attached" feedback already in it. The plans above stay
+// for the Home preview. Still no prices on the site (Rohan, Nov 1 2026).
 export const PLANS_PAGE = {
   meta: {
-    title: "Plans: start free, grow when it works",
-    description: "Four ways to work with The Adda Labs, from a free business check to a monthly growth partner. Every plan aims at one number: paying customers.",
+    title: "Free audit: see where your enquiries get lost",
+    description: "Every engagement with The Adda Labs starts with a free 20-minute audit of your website, Instagram and WhatsApp. No strings attached.",
   },
-  h1: "Pick the plan that fits where you are.",
-  sub: "Start free. Pay only when you're ready.",
-  bonusesTitle: "Bonuses with the Growth System",
-  // The bonus stack from how-we-work/Grand Slam build - Clinics (Nov 1), each one answering a worry.
-  // No rupee values: TAL keeps no prices on the site or in the offer files (Rohan, Nov 1 2026).
-  bonuses: [
-    "Review-request message, so happy customers leave a Google review",
-    "Enquiry Follow-Up Kit: what to say at each step",
-    "20-minute walkthrough and a one-page cheat sheet for your staff",
-    "Day 1 vs day 14 reply-time report, so you see the change",
+  eyebrow: "Free audit",
+  h1: "Get a free audit of your business. No strings attached.",
+  sub: "Every engagement with us starts the same way: an audit. We look at how your enquiries come in and where they get lost. Then we tell you what's off, how it should work, and what to fix.",
+  subKeep: "You get a clear picture and fixes you can use, whether or not we ever work together.",
+  cta: "Book a free audit",
+  microline: "Free · 20 minutes · The findings are yours",
+  // Hero visual: an example of what an audit finds, labelled as an example (not a client)
+  sample: {
+    title: "Audit: a dental clinic",
+    badge: "Example",
+    offLabel: "What's off",
+    fixLabel: "Fix",
+    orderLabel: "What to fix, in order:",
+    items: [
+      { channel: "Website", off: "The contact form goes to an inbox nobody checks on weekends.", fix: "Send every form to WhatsApp, with an instant reply." },
+      { channel: "Instagram", off: "DMs asking \"price?\" get a reply the next day.", fix: "Auto-reply with prices and a booking link." },
+      { channel: "WhatsApp", off: "No follow-up when someone goes quiet.", fix: "Two follow-ups, on day 1 and day 3." },
+    ],
+    order: ["Website", "WhatsApp", "Instagram"],
+  },
+  howTitle: "How it works",
+  steps: [
+    { title: "Book a 20-minute call." },
+    { title: "We go through your website, Instagram and WhatsApp.", channels: ["Website", "Instagram", "WhatsApp"] },
+    { title: "We show you:", points: ["What's not working", "How it should work", "What to fix, in order"] },
+  ] as { title: string; channels?: string[]; points?: string[] }[],
+  yourCall: "Then it's your call.",
+  paths: ["Do it yourself", "Hand it to your team", "Let us handle it"],
+  pricingTitle: "What about pricing?",
+  pricingBody: [
+    "There's no price list, because every business needs something different.",
+    "The audit is free. If you want us to set things up and run them for you, we'll tell you what that involves and what it costs, once we've seen your business.",
   ],
-  compareTitle: "Compare the plans",
-  compareRows: [
-    { label: "For", key: "for" },
-    { label: "What you get", key: "get" },
-    { label: "Promise", key: "promise" },
-    { label: "Price", key: "price" },
-  ] as { label: string; key: keyof Plan }[],
-  howWeWork: "See how we work with you",
-  // Plan FAQ: every answer comes from the plan table, the guarantee or Rohan's no-prices decision
-  faqTitle: "Questions about the plans",
+  priceRows: [
+    { label: "The audit", value: "Free" },
+    { label: "Setting things up and running them", value: "Once we've seen your business" },
+  ],
+  faqTitle: "Questions",
   faqs: [
-    { q: "Is the Free Business Check really free?", a: "Yes. It's a 20-minute review of where you're losing enquiries, with 3 quick fixes. It's useful even if you never hire us." },
-    { q: "How much do the paid plans cost?", a: "We share the price on the free call, once we know what you need. We'll tell you honestly if it's worth it for you." },
-    { q: "What does the Growth System guarantee mean?", a: "We agree a target with you, in writing, before we start. If we don't hit it in 90 days, we keep working for free until we do." },
-    { q: "Can I cancel the Growth Partner plan?", a: "Yes. You can cancel anytime. Every month we review your numbers with you." },
-    { q: "I'm a founder with only an idea. Which plan fits?", a: "The Idea Check. In 14 days we talk to your customers, check the market and give you an honest answer: build it or drop it. A clear answer, or your money back." },
+    { q: "Is it really free?", a: "Yes. Free, 20 minutes, and the findings are yours to keep." },
+    { q: "Will you try to sell me something?", a: "No. If we can help, we'll say how. If not, you still leave knowing what to fix." },
+    { q: "Who is it for?", a: "Clinics, real estate, restaurants, D2C brands and founders: any business that gets enquiries on its website, Instagram or WhatsApp." },
   ],
+  closeTitle: "Connect with us",
 };
 
 export const PLANS_PREVIEW = {
