@@ -22,7 +22,7 @@ export const SEATS_PER_TRACK = 5;
 // Honest scarcity (variant C): only the real numbers. SEATS_TAKEN counts confirmed seats and is
 // changed by hand. While it is 0 no counter is shown, so the page never claims a number that
 // isn't true. No countdown timers, no fake urgency.
-export const CLOSE_DATE = "31 October 2026";
+export const CLOSE_DATE = "30 November 2026";
 export const SEATS_TAKEN = 0;
 export const seatsLeft = () => Math.max(SEATS_PER_ROUND - SEATS_TAKEN, 0);
 
@@ -32,7 +32,11 @@ export const seatsLeft = () => Math.max(SEATS_PER_ROUND - SEATS_TAKEN, 0);
 // c "Honest scarcity": as B, plus the real seat numbers and close date
 export type Variant = "a" | "b" | "c";
 export const VARIANTS: Variant[] = ["a", "b", "c"];
-export const DEFAULT_VARIANT: Variant = "b";
+export const DEFAULT_VARIANT: Variant = "a";
+// The versions visitors can get. Test ended Nov 3 (Rohan): everyone gets the Rs 999 booking (a),
+// the same terms as buildwithron.com/cohort, which sells this programme too. Old ?v=b / ?v=c links
+// and picks stored in a browser fall back to DEFAULT_VARIANT. Add "b" or "c" back to re-run the test.
+export const LIVE_VARIANTS: Variant[] = ["a"];
 export const parseVariant = (v: unknown): Variant | null => {
   const x = typeof v === "string" ? v.trim().toLowerCase() : "";
   return (VARIANTS as string[]).includes(x) ? (x as Variant) : null;

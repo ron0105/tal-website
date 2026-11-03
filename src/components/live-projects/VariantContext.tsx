@@ -1,11 +1,12 @@
 "use client";
 
 import { createContext, useContext, useSyncExternalStore } from "react";
-import { DEFAULT_VARIANT, Variant, parseVariant } from "@/lib/live-projects";
+import { DEFAULT_VARIANT, LIVE_VARIANTS, Variant, parseVariant } from "@/lib/live-projects";
 
-// Which of the three asks this visitor sees. A link with ?v=a, ?v=b or ?v=c (the Reddit posts)
-// sets it. Anyone else, including the site's Live Projects button, is given a, b or c at random,
-// so every version gets data. Kept in localStorage, so a returning visitor sees the same ask.
+// Which ask this visitor sees. A link with ?v=a, ?v=b or ?v=c (the Reddit posts) sets it, but
+// only versions in LIVE_VARIANTS are shown; anything else falls back to DEFAULT_VARIANT. Anyone
+// else, including the site's Live Projects button, gets a random pick from LIVE_VARIANTS.
+// Kept in localStorage, so a returning visitor sees the same ask.
 // Source (where the visitor came from) rides along: "link" for ?v= links, "site" for ?src=site
 // (the nav button), "direct" for everything else.
 // On the server and during hydration the variant is unknown, so `ready` is false and
@@ -22,7 +23,6 @@ interface Ctx {
   ready: boolean;
 }
 
-const VARIANTS: Variant[] = ["a", "b", "c"];
 let cached: Variant | null = null;
 let cachedSource: Source = "direct";
 
@@ -43,8 +43,9 @@ function readVariant(): Variant {
     if (source === "direct") source = (window.localStorage.getItem(SRC_KEY) as Source | null) ?? "direct";
     window.localStorage.setItem(SRC_KEY, source);
   } catch {}
+  if (v && !LIVE_VARIANTS.includes(v)) v = DEFAULT_VARIANT;
   if (!v) {
-    v = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+    v = LIVE_VARIANTS[Math.floor(Math.random() * LIVE_VARIANTS.length)];
     try {
       window.localStorage.setItem(KEY, v);
     } catch {}
