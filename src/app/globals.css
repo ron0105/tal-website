@@ -427,6 +427,20 @@ body:has([data-hero].canvas-dark) .site-header:not([data-past-hero]):not([data-m
 .canvas-light {
   background: var(--bg);
 }
+/* A white card sitting on a dark band (the /pricing audit sheet): points the tokens back to the
+   light values from :root, since .canvas-dark re-pointed them on the way in */
+.on-dark-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-card);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  --text-primary: #141816;
+  --text-body: #2B302D;
+  --text-muted: #636562;
+  --border-color: #DDD9D0;
+  --border-subtle: #E8E4DC;
+  --accent-text: #3E5D54;
+  color: var(--text-primary);
+}
 
 .grid-12 {
   display: grid;

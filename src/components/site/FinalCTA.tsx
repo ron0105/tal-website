@@ -8,17 +8,17 @@ import { BOOK_CALL, CAPACITY_LINE, FINAL_CTA, GUARANTEE } from "@/content/common
  * second action, on a dark band. It also carries the capacity line and the guarantee, so both
  * are visible on every buyer page. `whatsapp` is that page's pre-filled message.
  */
-export default function FinalCTA({ whatsapp, title = FINAL_CTA.title, body = FINAL_CTA.body }: { whatsapp?: string; title?: string; body?: string }) {
+export default function FinalCTA({ whatsapp, title = FINAL_CTA.title, body = FINAL_CTA.body, cta = BOOK_CALL }: { whatsapp?: string; title?: string; body?: string; cta?: string }) {
   return (
     <section aria-label="Book a free call" className="section canvas-dark">
       <Reveal className="wrap">
         <h2 className="text-balance" style={{ maxWidth: "20ch" }}>
           {title}
         </h2>
-        <p className="body-copy measure mt-6">{body}</p>
+        {body && <p className="body-copy measure mt-6">{body}</p>}
         <div className="flex flex-wrap gap-3 mt-10">
           <Link href="/call" className="btn-primary btn-lg" data-cta="book-call">
-            {BOOK_CALL}
+            {cta}
           </Link>
           <WhatsAppButton text={whatsapp} className="btn-ghost btn-lg" />
         </div>
