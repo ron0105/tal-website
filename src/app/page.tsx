@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/site/Hero";
 import CapacityLine from "@/components/site/CapacityLine";
+import HeroVideo from "@/components/site/HeroVideo";
 import SystemDiagram from "@/components/site/SystemDiagram";
 import LogoMarquee from "@/components/site/LogoMarquee";
 import LeakGraphic from "@/components/site/LeakGraphic";
@@ -35,7 +36,8 @@ export default function Home() {
         primary={{ label: hero.primary, href: "/call", cta: "book-call" }}
         ghost={{ label: hero.ghost, href: "/work" }}
         microline={<CapacityLine />}
-        aside={<SystemDiagram nodes={hero.diagram} label={hero.diagramLabel} />}
+        aside={hero.video ? undefined : <SystemDiagram nodes={hero.diagram} label={hero.diagramLabel} />}
+        media={hero.video ? <HeroVideo {...hero.video} label={hero.videoLabel} /> : undefined}
       />
 
       <LogoMarquee label={trust.label} brands={trust.brands} />
@@ -53,6 +55,13 @@ export default function Home() {
       </Section>
 
       <Section label={system.eyebrow} tint>
+        {hero.video && (
+          <Reveal mode="fade" className="mb-12 md:mb-16">
+            <div className="canvas-dark p-6 md:p-8" style={{ borderRadius: "var(--radius-card)" }}>
+              <SystemDiagram nodes={hero.diagram} hero={false} label={hero.diagramLabel} />
+            </div>
+          </Reveal>
+        )}
         <SectionHead eyebrow={system.eyebrow} title={system.title} />
         <Reveal mode="stagger" className="grid gap-6 md:grid-cols-3">
           {system.cards.map((c, i) => (

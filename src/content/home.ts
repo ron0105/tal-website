@@ -14,6 +14,10 @@ export const HOME = {
     sub: "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers.",
     primary: "Book a Free Call",
     ghost: "See Our Work",
+    // Set this to show the click-to-play video: MP4 H.264 up to 40 MB, WEBP poster up to 200 KB,
+    // `caption` is the path to a .vtt captions file. While null, the hero keeps the diagram.
+    video: null as null | { src: string; poster: string; caption: string },
+    videoLabel: "A short video on how we work",
     diagramLabel: "The Enquiry System: get noticed, get enquiries, convert every lead",
     diagram: [
       { title: "Get noticed", sub: "Instagram content and ads" },
