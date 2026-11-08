@@ -18,7 +18,7 @@ export function whatsappLink(text: string = WHATSAPP_DEFAULT_TEXT) {
 export const HOME_TITLE = "The Adda Labs · More customers for your business. Guaranteed.";
 
 export const HOME_DESCRIPTION =
-  "We build your website, run your Instagram and set up WhatsApp automation, all aimed at one number: paying customers. For businesses in Mumbai and across India.";
+  "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers. For businesses in Mumbai and across India.";
 
 const ROHAN = {
   "@type": "Person",

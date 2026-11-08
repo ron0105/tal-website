@@ -8,12 +8,12 @@ export const HOME = {
   meta: {
     title: "The Adda Labs · More customers for your business. Guaranteed.",
     description:
-      "We build your website, run your Instagram and set up WhatsApp automation, all aimed at one number: paying customers. For businesses in Mumbai and across India.",
+      "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers. For businesses in Mumbai and across India.",
   },
   hero: {
     eyebrow: "Consulting + systems · Mumbai",
     h1: "More customers for your business. Guaranteed.",
-    sub: "We build your website, run your Instagram and set up WhatsApp automation, all aimed at one number: paying customers.",
+    sub: "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers.",
     primary: "Book a Free Call",
     ghost: "See Our Work",
     microline: CAPACITY_LINE,
