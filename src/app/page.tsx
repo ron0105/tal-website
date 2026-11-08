@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 // Rebuild master prompt section 5.1: ten sections, one action (Book a Free Call, WhatsApp second).
 // The lab-era and Oct 29 home sections stay in src/components/home but aren't imported.
 export default function Home() {
-  const { hero, trust, problem, system, sectors, results, faq } = HOME;
+  const { hero, trust, problem, system, quality, sectors, results, faq } = HOME;
   return (
     <div>
       <Hero
@@ -79,6 +79,23 @@ export default function Home() {
         <ArrowLink href="/services" className="mt-8">
           {system.link}
         </ArrowLink>
+      </Section>
+
+      <Section label={quality.eyebrow}>
+        <SectionHead eyebrow={quality.eyebrow} title={quality.title} body={quality.body} />
+        <Reveal mode="stagger" className="grid gap-6 md:grid-cols-3">
+          {quality.cards.map((c, i) => (
+            <div key={c.title} className="card-hover h-full p-6 md:p-8" style={{ background: "var(--bg)" }}>
+              <p className="stat-label">0{i + 1}</p>
+              <p className="text-xl font-bold mt-4" style={{ color: "var(--text-primary)" }}>
+                {c.title}
+              </p>
+              <p className="mt-3" style={{ color: "var(--text-body)" }}>
+                {c.body}
+              </p>
+            </div>
+          ))}
+        </Reveal>
       </Section>
 
       <Section label={sectors.eyebrow}>

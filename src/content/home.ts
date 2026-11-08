@@ -53,6 +53,16 @@ export const HOME = {
     ],
     link: "See how we do it",
   },
+  quality: {
+    eyebrow: "Customer quality",
+    title: "The right customers. Again and again.",
+    body: "A busy inbox only helps if the people in it buy, and buy again.",
+    cards: [
+      { title: "Right people in", body: "Content and ads aimed at people who can afford what you sell." },
+      { title: "Serious buyers first", body: "Follow-ups find out who is ready, so your team spends time where it pays." },
+      { title: "Customers who return", body: "Reminders and win-back messages turn one purchase into many." },
+    ],
+  },
   sectors: {
     eyebrow: "Who we help",
     title: "Built for businesses that grow on enquiries.",
@@ -73,6 +83,7 @@ export const HOME = {
   faq: {
     title: "Questions owners ask us.",
     items: [
+      { q: "Will these be good customers?", a: "Before we start, we agree what a good customer looks like for you. Then we track how many you get and what they spend, and report it every month." },
       { q: "We tried an agency before and it didn't work.", a: "Most agencies stop at posts and likes. We measure enquiries and customers, and we report them every month." },
       { q: "Is this costly?", a: "We share the price on the free call, once we know what you need. We'll tell you honestly if it's worth it for you." },
       { q: "Do I have to come on camera?", a: "No. We can work with or without your face." },
