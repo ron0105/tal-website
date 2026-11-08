@@ -9,7 +9,7 @@ export const HOME = {
       "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers. For businesses in Mumbai and across India.",
   },
   hero: {
-    eyebrow: "Consulting + systems · Mumbai",
+    eyebrow: "For clinics, real estate, restaurants and D2C brands · Mumbai",
     h1: "More customers for your business. Guaranteed.",
     sub: "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers.",
     primary: "Book a Free Call",
@@ -65,8 +65,8 @@ export const HOME = {
   },
   sectors: {
     eyebrow: "Who we help",
-    title: "Built for businesses that grow on enquiries.",
-    body: "Whatever you sell, the problem is the same. We fix it in a way that fits your industry.",
+    title: "Built for clinics, real estate, restaurants, D2C brands and founders.",
+    body: "Each one gets its own system, made for how that business sells.",
     other: "Don't see your industry?",
     otherLink: "Talk to us anyway",
   },
