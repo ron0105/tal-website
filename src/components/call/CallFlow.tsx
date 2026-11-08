@@ -279,7 +279,7 @@ export default function CallFlow() {
               </p>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                 We help businesses grow with clear strategy, a strong online presence, and quick replies to every
-                enquiry. A few quick answers help me see where you are, so our time together is useful from the first
+                lead. A few quick answers help me see where you are, so our time together is useful from the first
                 minute.
               </p>
             </div>
@@ -659,8 +659,8 @@ export default function CallFlow() {
             </p>
             <div className="grid sm:grid-cols-3 gap-px mb-10" style={{ background: "rgba(255,255,255,0.14)" }}>
               {[
-                ["You tell us", "How enquiries reach you today, and what happens next."],
-                ["We look together", "Where more of those enquiries can turn into customers."],
+                ["You tell us", "How leads reach you today, and what happens next."],
+                ["We look together", "Where more of those leads can turn into customers."],
                 ["You take away", "2 or 3 ideas you can use straight away."],
               ].map(([when, what]) => (
                 <div key={when} className="p-5" style={{ background: "var(--brand)" }}>
@@ -680,7 +680,7 @@ export default function CallFlow() {
             <dl className="flex flex-col gap-5" style={{ maxWidth: 620 }}>
               {[
                 ["Is the call free?", `Yes. It takes ${CALL.minutes} minutes, and the ideas are yours to keep.`],
-                ["Do I need to prepare?", "Nothing to prepare. If you can, have a rough idea of how many enquiries came in last week."],
+                ["Do I need to prepare?", "Nothing to prepare. If you can, have a rough idea of how many leads came in last week."],
                 ["Who will I talk to?", "Rohan, who runs TAL. You speak to the person who does the work."],
                 ["Need a different time?", "Reply to the calendar invite, or just message us on WhatsApp."],
               ].map(([q, a]) => (

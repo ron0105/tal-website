@@ -144,7 +144,7 @@ const services: {
   {
     picture: <SearchPicture />,
     label: "Website design and Google Maps",
-    benefit: "Get found. Get enquiries.",
+    benefit: "Get found. Get leads.",
     line: "People find you on Google and reach you in one tap.",
     features: ["Website", "Google Business Profile", "Reviews"],
     time: "4 to 6 weeks",
@@ -154,7 +154,7 @@ const services: {
   {
     picture: <ChatPicture />,
     label: "WhatsApp auto-reply and lead follow-up",
-    benefit: "Every enquiry gets a reply in seconds",
+    benefit: "Every lead gets a reply in seconds",
     line: "Follow-ups go out on their own. More chats become bookings.",
     features: ["WhatsApp auto-reply", "Follow-ups", "One tracking sheet"],
     time: "2 to 3 weeks",

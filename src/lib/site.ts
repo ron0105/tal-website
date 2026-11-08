@@ -1,7 +1,7 @@
 // ─── Site identity ───────────────────────────────────────────────────────────
 // One place for the URL and the words search engines and AI tools repeat about TAL.
-// Impact first (Rohan, Oct 29 2026): the "lab" line is retired from the site. The enquiry line
-// locked Sep 29 says what we do for you, everywhere (home, footer, titles, descriptions, schema).
+// Impact first (Rohan, Oct 29 2026): the "lab" line is retired from the site. The line about
+// leads (enquiries until Nov 9 2026) says what we do for you, everywhere (home, footer, titles, descriptions, schema).
 // Plan: RON-HQ/01-tal/tal/brand/SEO and AEO plan (live).md, section 2a.
 
 export const SITE_URL = "https://www.theaddalabs.com";
@@ -47,7 +47,7 @@ export const ORGANIZATION_JSON_LD = {
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.svg`,
   description:
-    "TAL, short for The Adda Labs, is a team in Mumbai and Navi Mumbai. We help businesses that grow on enquiries turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.",
+    "TAL, short for The Adda Labs, is a team in Mumbai and Navi Mumbai. We help businesses that grow on leads turn more of them into customers, using a website people can find, regular posts, and AI follow-ups that reply for you.",
   email: "rohan@theaddalabs.com",
   telephone: "+91-78306-03010",
   // LLP Identification Number, as in the footer's legal line

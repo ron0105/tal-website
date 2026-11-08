@@ -7,7 +7,7 @@ import { WORK_WITH_YOU } from "@/lib/process";
 export const metadata: Metadata = {
   title: "How we work: from first call to more customers",
   description:
-    "Four steps from your first call to more customers: we listen, we map where enquiries drop off, we build the fix, and you grow.",
+    "Four steps from your first call to more customers: we listen, we map where leads drop off, we build the fix, and you grow.",
 };
 
 // What a client gets at each step (Rohan, Oct 29 2026). The ideate-build-test-scale loop and the
@@ -50,7 +50,7 @@ export default function HowWeWork() {
             id="hww-process-heading"
             eyebrow="Working together"
             heading="The four steps"
-            intro="We start with your enquiries, not with a pitch."
+            intro="We start with your leads, not with a pitch."
             steps={WORK_WITH_YOU}
             cols={4}
             emphasiseLast

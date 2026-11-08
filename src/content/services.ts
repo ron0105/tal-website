@@ -12,7 +12,7 @@ export const SERVICES = {
   sub: "Three parts that work as one system, plus strategy and idea validation when you need a plan first.",
   partOf: "This is part of the Growth System",
   blocks: [
-    { eyebrow: "Get enquiries", title: "Website", items: ["Design", "SEO", "Lead capture", "Enquiry follow-up"] },
+    { eyebrow: "Get leads", title: "Website", items: ["Design", "SEO", "Lead capture", "Lead follow-up"] },
     { eyebrow: "Get noticed", title: "Social", items: ["Video shoots", "Editing", "Page handling"] },
     { eyebrow: "Convert every lead", title: "Automation", items: ["Appointment booking", "Follow-ups", "Lead generation", "Custom AI agents", "Voice agents"] },
   ],

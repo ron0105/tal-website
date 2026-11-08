@@ -19,7 +19,7 @@ export const TOOLS = {
     {
       id: "lead-loss",
       title: "Lead Loss Calculator",
-      body: "Put in your enquiries, how fast you reply and what a customer is worth. See an estimate of the money at risk each month.",
+      body: "Put in your leads, how fast you reply and what a customer is worth. See an estimate of the money at risk each month.",
       button: "Work out my number",
     },
     {
@@ -34,13 +34,13 @@ export const TOOLS = {
 export const CALCULATOR = {
   title: "Lead Loss Calculator",
   inputs: {
-    enquiries: "Enquiries you get each month",
-    replied: "Enquiries you reply to within 1 hour (%)",
+    enquiries: "Leads you get each month",
+    replied: "Leads you reply to within 1 hour (%)",
     value: "What one customer is worth to you (₹)",
   },
   button: "Show my estimate",
   resultLabel: "Estimated revenue at risk each month",
-  formula: "Formula: enquiries × share not answered within 1 hour × value of one customer.",
+  formula: "Formula: leads × share not answered within 1 hour × value of one customer.",
   caveat: "This is an estimate, not a forecast. It treats every slow reply as a customer you could lose, so read it as the most that's at risk.",
   cta: "Book a call to fix it",
 };
