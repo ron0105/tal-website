@@ -14,7 +14,7 @@ export const CAPACITY = { month: "2026-11", label: "November", taken: null as nu
 
 export const GUARANTEE = {
   text: "If we don't hit the target we agree on in 90 days, we keep working for free until we do.",
-  small: "Target agreed in writing before we start.",
+  small: "Your 90-day target is written into the contract before work begins.",
 };
 
 export const FINAL_CTA = {
