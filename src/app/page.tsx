@@ -7,6 +7,7 @@ import LogoMarquee from "@/components/site/LogoMarquee";
 import LeakGraphic from "@/components/site/LeakGraphic";
 import SectorCard from "@/components/site/SectorCard";
 import StatCallout from "@/components/site/StatCallout";
+import Testimonials from "@/components/site/Testimonials";
 import PlanCard from "@/components/site/PlanCard";
 import GuaranteeBand from "@/components/site/GuaranteeBand";
 import FAQSection from "@/components/site/FAQSection";
@@ -120,6 +121,7 @@ export default function Home() {
             <StatCallout key={s.label} {...s} />
           ))}
         </div>
+        <Testimonials items={results.testimonials} />
         <ArrowLink href="/work" className="mt-12">
           {results.link}
         </ArrowLink>

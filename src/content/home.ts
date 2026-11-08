@@ -2,6 +2,15 @@
 // Rebuild master prompt section 5.1, word for word, with Rohan's Nov 1 2026 decisions:
 // capacity is 5 clients a month (prompt said 4), and no prices on the site (FAQ "Is this costly?").
 
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  permissionDate: string; // the date they agreed in writing to be quoted
+  relationship: "TAL client" | "Work by our team";
+};
+
 export const HOME = {
   meta: {
     title: "The Adda Labs · More customers for your business. Guaranteed.",
@@ -78,6 +87,8 @@ export const HOME = {
       { value: "99%", label: "orders delivered on time, up from 70–75%, in 3 months", source: "SP Green Markethub", href: "/work/sp-green-markethub" },
       { value: "₹12 lakh+", label: "recovered from idle stock", source: "Team work at ONGC", href: "/work#ongc" },
     ],
+    // Real quotes only, each with written permission. The block appears at 2 or more.
+    testimonials: [] as Testimonial[],
     link: "See all our work",
   },
   faq: {
