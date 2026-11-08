@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/site/Hero";
+import CapacityLine from "@/components/site/CapacityLine";
 import SystemDiagram from "@/components/site/SystemDiagram";
 import LogoMarquee from "@/components/site/LogoMarquee";
 import LeakGraphic from "@/components/site/LeakGraphic";
@@ -33,7 +34,7 @@ export default function Home() {
         sub={hero.sub}
         primary={{ label: hero.primary, href: "/call", cta: "book-call" }}
         ghost={{ label: hero.ghost, href: "/work" }}
-        microline={hero.microline}
+        microline={<CapacityLine />}
         aside={<SystemDiagram nodes={hero.diagram} label={hero.diagramLabel} />}
       />
 

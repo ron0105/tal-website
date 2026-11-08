@@ -8,6 +8,10 @@ export const CHAT_WHATSAPP = "Chat on WhatsApp";
 // Scarcity, shown on every buyer page (spec section 4: "visible on every buyer page")
 export const CAPACITY_LINE = "We take only 5 new clients every month.";
 
+// Real signed clients only, never an estimate. The dots show once `taken` is 2 or more in this
+// month; in any other month the plain line comes back, so a forgotten update can't go stale.
+export const CAPACITY = { month: "2026-11", label: "November", taken: null as number | null, total: 5 };
+
 export const GUARANTEE = {
   text: "If we don't hit the target we agree on in 90 days, we keep working for free until we do.",
   small: "Target agreed in writing before we start.",

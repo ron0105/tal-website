@@ -2,8 +2,6 @@
 // Rebuild master prompt section 5.1, word for word, with Rohan's Nov 1 2026 decisions:
 // capacity is 5 clients a month (prompt said 4), and no prices on the site (FAQ "Is this costly?").
 
-import { CAPACITY_LINE } from "./common";
-
 export const HOME = {
   meta: {
     title: "The Adda Labs · More customers for your business. Guaranteed.",
@@ -16,7 +14,6 @@ export const HOME = {
     sub: "We build your website, run your Instagram and set up WhatsApp automation, so more of the right people become paying customers.",
     primary: "Book a Free Call",
     ghost: "See Our Work",
-    microline: CAPACITY_LINE,
     diagramLabel: "The Enquiry System: get noticed, get enquiries, convert every lead",
     diagram: [
       { title: "Get noticed", sub: "Instagram content and ads" },

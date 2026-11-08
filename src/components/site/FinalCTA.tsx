@@ -1,7 +1,8 @@
 import Link from "next/link";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import { Reveal } from "@/components/motion/Reveal";
-import { BOOK_CALL, CAPACITY_LINE, FINAL_CTA, GUARANTEE } from "@/content/common";
+import CapacityLine from "./CapacityLine";
+import { BOOK_CALL, FINAL_CTA, GUARANTEE } from "@/content/common";
 
 /**
  * How every buyer page ends (spec rule 6): Book a Free Call, with Chat on WhatsApp as the
@@ -23,7 +24,9 @@ export default function FinalCTA({ whatsapp, title = FINAL_CTA.title, body = FIN
           <WhatsAppButton text={whatsapp} className="btn-ghost btn-lg" />
         </div>
         <div className="mt-8 grid gap-1">
-          <p className="source-line">{CAPACITY_LINE}</p>
+          <p className="source-line">
+            <CapacityLine />
+          </p>
           <p className="source-line">{GUARANTEE.text}</p>
         </div>
       </Reveal>

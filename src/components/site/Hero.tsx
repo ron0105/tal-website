@@ -30,7 +30,7 @@ export default function Hero({
   primary?: Action;
   ghost?: Action;
   whatsapp?: string;
-  microline?: string;
+  microline?: ReactNode;
   aside?: ReactNode;
   dark?: boolean;
   full?: boolean;
