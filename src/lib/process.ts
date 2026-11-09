@@ -5,8 +5,8 @@
 import type { FlowStep } from "@/components/how-we-work/HWWFlow";
 
 export const WORK_WITH_YOU: FlowStep[] = [
-  { title: "We listen", line: "A short call, and a look at your enquiries, website and posts." },
+  { title: "We listen", line: "A short call, and a look at your leads, website and posts." },
   { title: "We map", line: "We show you where customers drop off, and what to fix first." },
   { title: "We build", line: "Website, follow-ups, posts or offer: built so your team can run it." },
-  { title: "You grow", line: "More of your enquiries turn into customers, and you see it in the numbers." },
+  { title: "You grow", line: "More of your leads turn into customers, and you see it in the numbers." },
 ];

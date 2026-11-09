@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 
-/** The leak exhibit (spec 5.1 #3): bars shrink from 100 enquiries to few customers (M5). Labelled an illustration. */
+/** The leak exhibit (spec 5.1 #3): bars shrink from 100 leads to few customers (M5). Labelled an illustration. */
 export default function LeakGraphic({ bars, label }: { bars: { label: string; width: number }[]; label: string }) {
   return (
     <Reveal mode="fade">

@@ -17,7 +17,7 @@ export const ABOUT = {
     eyebrow: "What we believe",
     title: "Three things we hold to.",
     principles: [
-      { title: "Results over reports", body: "We measure enquiries and customers, not posts and likes." },
+      { title: "Results over reports", body: "We measure leads and customers, not posts and likes." },
       { title: "Test before you spend", body: "Check that customers want it before the money goes in." },
       { title: "Grow people, not just businesses", body: "India needs more jobs, so we train young talent and host events." },
     ],

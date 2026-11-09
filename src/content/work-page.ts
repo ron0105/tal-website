@@ -12,7 +12,7 @@ export const WORK_PAGE = {
     { value: "100+", label: "brands our team has worked with", source: "Across our team and advisors" },
     // The figure as it stands in the team portfolio file; no ₹ conversion is recorded anywhere in HQ
     { value: "$125K", label: "revenue uplift the work contributed to", source: "Team work at Media.net", href: "/work/media-net" },
-    { value: "20 of 30", label: "top dentists losing enquiries: we found the gap", source: "Our own Clinic Leads Finder", href: "/work/clinic-leads-finder" },
+    { value: "20 of 30", label: "top dentists losing leads: we found the gap", source: "Our own Clinic Leads Finder", href: "/work/clinic-leads-finder" },
   ],
   filterLabel: "Filter work by industry",
   all: "All",

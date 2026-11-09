@@ -56,7 +56,7 @@ export const LEGAL_LINKS: NavLink[] = [
 
 // Small words used across the frame of every page
 export const CHROME = {
-  brandLine: "We help businesses that grow on enquiries turn more of them into customers.",
+  brandLine: "We help businesses that grow on leads turn more of them into customers.",
   stickyCall: "Book a Call",
   whatsappLabel: "Chat on WhatsApp",
   allSectors: "All industries",

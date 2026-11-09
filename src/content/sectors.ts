@@ -54,7 +54,7 @@ export const SECTORS_DATA: Sector[] = [
     proof: {
       kind: "stat",
       value: "20 of 30",
-      label: "top-rated dentists we checked were losing enquiries; 10 had no website on Google",
+      label: "top-rated dentists we checked were losing leads; 10 had no website on Google",
       source: "Our own Clinic Leads Finder",
       href: "/work/clinic-leads-finder",
     },

@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 export type SystemNode = { title: string; sub: string };
 
 /**
- * The Enquiry System (spec 5.1 #1): three nodes joined by thin lines that draw in the order
+ * The Customer System (spec 5.1 #1): three nodes joined by thin lines that draw in the order
  * the system works (M6). In the hero it plays from first paint, right after the headline,
  * like M1; anywhere else wrap it in <Reveal> and pass hero={false}.
  */

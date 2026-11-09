@@ -61,12 +61,12 @@ export const PLANS: Plan[] = [
 // for the Home preview. Still no prices on the site (Rohan, Nov 1 2026).
 export const PLANS_PAGE = {
   meta: {
-    title: "Free audit: see where your enquiries get lost",
+    title: "Free audit: see where your leads get lost",
     description: "Every engagement with The Adda Labs starts with a free 20-minute audit of your website, Instagram and WhatsApp. No strings attached.",
   },
   eyebrow: "Free audit",
   h1: "Get a free audit of your business. No strings attached.",
-  sub: "Every engagement with us starts the same way: an audit. We look at how your enquiries come in and where they get lost. Then we tell you what's off, how it should work, and what to fix.",
+  sub: "Every engagement with us starts the same way: an audit. We look at how your leads come in and where they get lost. Then we tell you what's off, how it should work, and what to fix.",
   subKeep: "You get a clear picture and fixes you can use, whether or not we ever work together.",
   cta: "Book a free audit",
   microline: "Free · 20 minutes · The findings are yours",
@@ -105,7 +105,7 @@ export const PLANS_PAGE = {
   faqs: [
     { q: "Is it really free?", a: "Yes. Free, 20 minutes, and the findings are yours to keep." },
     { q: "Will you try to sell me something?", a: "No. If we can help, we'll say how. If not, you still leave knowing what to fix." },
-    { q: "Who is it for?", a: "Clinics, real estate, restaurants, D2C brands and founders: any business that gets enquiries on its website, Instagram or WhatsApp." },
+    { q: "Who is it for?", a: "Clinics, real estate, restaurants, D2C brands and founders: any business that gets leads on its website, Instagram or WhatsApp." },
   ],
   closeTitle: "Connect with us",
 };

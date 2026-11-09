@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Hero from "@/components/site/Hero";
+import CapacityLine from "@/components/site/CapacityLine";
+import HeroVideo from "@/components/site/HeroVideo";
 import SystemDiagram from "@/components/site/SystemDiagram";
 import LogoMarquee from "@/components/site/LogoMarquee";
 import LeakGraphic from "@/components/site/LeakGraphic";
 import SectorCard from "@/components/site/SectorCard";
 import StatCallout from "@/components/site/StatCallout";
+import Testimonials from "@/components/site/Testimonials";
 import PlanCard from "@/components/site/PlanCard";
 import GuaranteeBand from "@/components/site/GuaranteeBand";
 import FAQSection from "@/components/site/FAQSection";
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
 // Rebuild master prompt section 5.1: ten sections, one action (Book a Free Call, WhatsApp second).
 // The lab-era and Oct 29 home sections stay in src/components/home but aren't imported.
 export default function Home() {
-  const { hero, trust, problem, system, sectors, results, faq } = HOME;
+  const { hero, trust, problem, system, quality, sectors, results, faq } = HOME;
   return (
     <div>
       <Hero
@@ -33,8 +36,9 @@ export default function Home() {
         sub={hero.sub}
         primary={{ label: hero.primary, href: "/call", cta: "book-call" }}
         ghost={{ label: hero.ghost, href: "/work" }}
-        microline={hero.microline}
-        aside={<SystemDiagram nodes={hero.diagram} label={hero.diagramLabel} />}
+        microline={<CapacityLine />}
+        aside={hero.video ? undefined : <SystemDiagram nodes={hero.diagram} label={hero.diagramLabel} />}
+        media={hero.video ? <HeroVideo {...hero.video} label={hero.videoLabel} /> : undefined}
       />
 
       <LogoMarquee label={trust.label} brands={trust.brands} />
@@ -52,6 +56,13 @@ export default function Home() {
       </Section>
 
       <Section label={system.eyebrow} tint>
+        {hero.video && (
+          <Reveal mode="fade" className="mb-12 md:mb-16">
+            <div className="canvas-dark p-6 md:p-8" style={{ borderRadius: "var(--radius-card)" }}>
+              <SystemDiagram nodes={hero.diagram} hero={false} label={hero.diagramLabel} />
+            </div>
+          </Reveal>
+        )}
         <SectionHead eyebrow={system.eyebrow} title={system.title} />
         <Reveal mode="stagger" className="grid gap-6 md:grid-cols-3">
           {system.cards.map((c, i) => (
@@ -69,6 +80,23 @@ export default function Home() {
         <ArrowLink href="/services" className="mt-8">
           {system.link}
         </ArrowLink>
+      </Section>
+
+      <Section label={quality.eyebrow}>
+        <SectionHead eyebrow={quality.eyebrow} title={quality.title} body={quality.body} />
+        <Reveal mode="stagger" className="grid gap-6 md:grid-cols-3">
+          {quality.cards.map((c, i) => (
+            <div key={c.title} className="card-hover h-full p-6 md:p-8" style={{ background: "var(--bg)" }}>
+              <p className="stat-label">0{i + 1}</p>
+              <p className="text-xl font-bold mt-4" style={{ color: "var(--text-primary)" }}>
+                {c.title}
+              </p>
+              <p className="mt-3" style={{ color: "var(--text-body)" }}>
+                {c.body}
+              </p>
+            </div>
+          ))}
+        </Reveal>
       </Section>
 
       <Section label={sectors.eyebrow}>
@@ -93,6 +121,7 @@ export default function Home() {
             <StatCallout key={s.label} {...s} />
           ))}
         </div>
+        <Testimonials items={results.testimonials} />
         <ArrowLink href="/work" className="mt-12">
           {results.link}
         </ArrowLink>

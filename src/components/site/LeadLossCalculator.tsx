@@ -25,7 +25,7 @@ export default function LeadLossCalculator() {
     const replied = Number(v.replied);
     const value = Number(v.value.replace(/,/g, ""));
     if (!(enquiries > 0) || !(replied >= 0 && replied <= 100) || !(value > 0)) {
-      setError("Please fill all three: enquiries above 0, a reply share from 0 to 100, and a customer value above 0.");
+      setError("Please fill all three: leads above 0, a reply share from 0 to 100, and a customer value above 0.");
       return;
     }
     setError("");

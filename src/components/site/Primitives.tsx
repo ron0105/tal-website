@@ -8,7 +8,7 @@ export function Eyebrow({ children, className = "" }: { children: ReactNode; cla
   return <p className={`label-eyebrow ${className}`}>{children}</p>;
 }
 
-/** A section heading that states the takeaway ("Most enquiries are lost after the first message"). */
+/** A section heading that states the takeaway ("Most leads are lost after the first message"). */
 export function ActionTitle({ children, as: Tag = "h2", id, className = "", style }: { children: ReactNode; as?: ElementType; id?: string; className?: string; style?: CSSProperties }) {
   return (
     <Tag id={id} className={`text-balance ${className}`} style={{ maxWidth: "22ch", ...style }}>
