@@ -99,7 +99,7 @@ export const HOME = {
       { q: "Is this costly?", a: "We share the price on the free call, once we know what you need. We'll tell you honestly if it's worth it for you." },
       { q: "Do I have to come on camera?", a: "No. We can work with or without your face." },
       // From the 14-Day Full Diary Plan (how-we-work/Sales call script, Grand Slam build - Clinics)
-      { q: "How soon will I see results?", a: "In 14 days. Your system goes live and every lead gets a reply within 2 minutes, any hour. You see the change in a day 1 vs day 14 reply-time report." },
+      { q: "How soon will I see results?", a: "In 14 days. Your system goes live and every lead gets a reply within 5 minutes, any hour. You see the change in a day 1 vs day 14 reply-time report." },
       { q: "I'm not good with tech.", a: "You don't need to be. We set everything up and run it." },
     ],
   },
