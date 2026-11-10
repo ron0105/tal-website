@@ -410,6 +410,14 @@ body:has([data-hero].canvas-dark) .site-header:not([data-past-hero]):not([data-m
   --text-muted: var(--on-dark-muted);
   --accent-text: var(--accent-on-brand);
 }
+/* The "Who We Help" menu keeps its light panel over a dark header, so it points the text tokens
+   back to the light values, or its links come out light on light */
+.site-header #sector-menu {
+  --text-primary: #141816;
+  --text-body: #2B302D;
+  --text-muted: #636562;
+  --accent-text: #3E5D54;
+}
 
 /* Dark band (hero and final CTA). It re-points the text tokens, so anything inside that
    already reads var(--text-*) or var(--border-*) turns light without its own dark styles. */
